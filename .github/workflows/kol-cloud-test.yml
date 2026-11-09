@@ -1,0 +1,28 @@
+name: KOL cloud connectivity test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/kol-cloud-test.yml
+      - tools/kol-cloud-test.py
+permissions:
+  contents: read
+jobs:
+  instagram-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install instaloader==4.16
+      - name: Test public Instagram access
+        run: python tools/kol-cloud-test.py
+      - name: Save diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kol-cloud-test
+          path: kol-cloud-test.json
+          retention-days: 7
