@@ -9,7 +9,7 @@
   <script src="../assets/theme.js"></script>
   <link rel="stylesheet" href="../assets/journal.css" />
   <link rel="stylesheet" href="../assets/controls.css?v=20261019-2" />
-  <link rel="stylesheet" href="../assets/fire/retirement.css?v=20261103-6" />
+  <link rel="stylesheet" href="../assets/fire/retirement.css?v=20261104-2" />
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
@@ -28,8 +28,8 @@
           </div>
           <div class="parameter"><label for="monthlyExpense">退休後每月花費（現值）</label><input id="monthlyExpense" name="monthlyExpense" type="text" inputmode="numeric" data-money role="spinbutton" aria-valuemin="1" autocomplete="off" /><div class="range-with-ticks" data-tick-start="20000" data-tick-every="20000" data-tick-label-every="40000" data-tick-scale="10000"><input data-for="monthlyExpense" type="range" min="10000" max="300000" step="1000" aria-label="退休後每月花費滑桿" /></div></div>
           <div class="parameter"><label for="currentAssets">目前已存退休金</label><input id="currentAssets" name="currentAssets" type="text" inputmode="numeric" data-money role="spinbutton" aria-valuemin="0" autocomplete="off" /><div class="range-with-ticks" data-tick-start="0" data-tick-every="2000000" data-tick-label-every="4000000" data-tick-scale="10000"><input data-for="currentAssets" type="range" min="0" max="30000000" step="100000" aria-label="目前已存退休金滑桿" /></div></div>
-          <div class="parameter"><label for="annualReturn">預期年報酬率（%）</label><input id="annualReturn" name="annualReturn" type="number" min="-10" max="20" step="1" /><div class="range-with-ticks" data-tick-start="-10" data-tick-every="2" data-tick-label-every="4" data-tick-suffix="%"><input data-for="annualReturn" type="range" min="-10" max="20" step="1" aria-label="預期年報酬率滑桿" /></div></div>
-          <div class="parameter"><label for="inflation">通貨膨脹率（%）</label><input id="inflation" name="inflation" type="number" min="0" max="20" step="1" /><div class="range-with-ticks" data-tick-start="0" data-tick-every="1" data-tick-label-every="2" data-tick-suffix="%"><input data-for="inflation" type="range" min="0" max="10" step="1" aria-label="通貨膨脹率滑桿" /></div><p class="parameter-help">退休後支出會持續依通膨增加。</p></div>
+          <div class="parameter"><label for="annualReturn">預期年報酬率（%）</label><input id="annualReturn" name="annualReturn" type="number" min="-10" max="20" step="0.01" /><div class="range-with-ticks" data-tick-start="-10" data-tick-every="2" data-tick-label-every="4" data-tick-suffix="%"><input data-for="annualReturn" type="range" min="-10" max="20" step="1" aria-label="預期年報酬率滑桿" /></div></div>
+          <div class="parameter"><label for="inflation">通貨膨脹率（%）</label><input id="inflation" name="inflation" type="number" min="0" max="20" step="0.01" /><div class="range-with-ticks" data-tick-start="0" data-tick-every="1" data-tick-label-every="2" data-tick-suffix="%"><input data-for="inflation" type="range" min="0" max="10" step="1" aria-label="通貨膨脹率滑桿" /></div><p class="parameter-help">退休後支出會持續依通膨增加。</p></div>
         </div>
         <div class="panel-actions"><button id="resetPlan" class="text-button" type="button">恢復範例</button><span id="saveStatus" class="save-status" role="status"></span></div>
       </form>
@@ -44,6 +44,6 @@
     <p class="local-note">此工具使用固定報酬與通膨假設，只供退休規劃情境參考，不代表投資結果或建議。花本金模式規劃至用到年齡；留存本金模式以年報酬率減通膨率估算可維持本金購買力的資產需求。</p>
   </main>
   <footer class="site-footer"><a href="../">生活實驗室</a><span class="footer-divider" aria-hidden="true"></span><p>這裡的作品皆為練習作品</p></footer>
-  <script type="module" src="../assets/fire/app.mjs?v=20261103-6"></script>
+  <script type="module" src="../assets/fire/app.mjs?v=20261104-2"></script>
 </body>
 </html>

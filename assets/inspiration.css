@@ -1,0 +1,55 @@
+.inspiration-main { padding-top: 12px; padding-bottom: 28px; }
+.tracker-intro { display: flex; justify-content: space-between; align-items: end; gap: 28px; padding: 18px 0 32px; border-bottom: 1px solid var(--strong-rule); }
+.tracker-intro h1 { margin: 8px 0 7px; font: 600 clamp(30px, 4vw, 43px)/1.35 var(--serif); letter-spacing: .02em; }
+.tracker-intro p:not(.section-kicker) { max-width: 40ch; margin: 0; color: var(--muted); font: 400 14px/1.8 var(--serif); }
+.tracking-state { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 8px; padding: 8px 10px; border: 1px solid var(--rule); color: var(--muted); font: 500 12px/1.5 var(--serif); white-space: nowrap; }
+.state-dot { width: 7px; height: 7px; border-radius: 50%; background: #4b9a70; }
+.source-section { padding: 30px 0 28px; border-bottom: 1px solid var(--rule); }
+.updates-section { padding: 30px 0 28px; border-bottom: 1px solid var(--rule); }
+.updates-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 14px; }
+.updates-heading h2 { margin: 3px 0 0; font: 500 24px/1.5 var(--serif); letter-spacing: .03em; }
+.updates-heading > p { margin: 0; color: var(--muted); font: 400 12px/1.7 var(--serif); }
+.updates-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.updates-list li { border-bottom: 1px solid var(--rule); }
+.updates-list a { display: grid; grid-template-columns: minmax(120px, .22fr) minmax(0, 1fr); column-gap: 22px; padding: 12px 2px; }
+.updates-list a:hover { color: var(--accent); background: var(--hover); }
+.updates-list strong { grid-row: span 2; font: 500 15px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.update-meta { color: var(--muted); font: 400 11px/1.6 var(--serif); }
+.update-caption { margin-top: 3px; color: var(--ink); font: 400 13px/1.7 var(--serif); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.updates-list a:hover .update-meta, .updates-list a:hover .update-caption { color: inherit; }
+.updates-empty { margin: 0; padding: 13px 2px; color: var(--muted); font: 400 13px/1.7 var(--serif); border-block: 1px solid var(--rule); }
+.source-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 14px; }
+.source-heading h2, .next-section h2 { margin: 3px 0 0; font: 500 24px/1.5 var(--serif); letter-spacing: .03em; }
+.source-heading > p { max-width: 34ch; margin: 0; color: var(--muted); font: 400 12px/1.7 var(--serif); text-align: right; }
+.account-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.account-list li { border-bottom: 1px solid var(--rule); }
+.account-list a { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 13px 2px; }
+.account-list a:hover { color: var(--accent); background: var(--hover); }
+.account-name { font: 500 17px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.02em; }
+.account-action { color: var(--muted); font: 400 12px/1.5 var(--serif); white-space: nowrap; }
+.account-list a:hover .account-action { color: var(--accent); }
+.next-section { display: grid; grid-template-columns: minmax(150px, .33fr) 1fr; gap: 24px; padding: 28px 0; }
+.next-section ul { display: grid; grid-template-columns: 1fr; gap: 14px 24px; margin: 0; padding: 0; list-style: none; }
+.next-section li { display: grid; gap: 3px; padding-left: 11px; border-left: 1px solid var(--strong-rule); }
+.next-section strong { font: 500 14px/1.6 var(--serif); }
+.next-section span { color: var(--muted); font: 400 12px/1.7 var(--serif); }
+@media (max-width: 640px) {
+  .inspiration-main { padding-top: 8px; }
+  .tracker-intro { display: block; padding: 14px 0 24px; }
+  .tracker-intro h1 { font-size: 30px; }
+  .tracking-state { margin-top: 18px; }
+  .source-section { padding: 24px 0; }
+  .updates-section { padding: 24px 0; }
+  .updates-heading { display: block; margin-bottom: 12px; }
+  .updates-heading > p { margin-top: 7px; }
+  .updates-list a { grid-template-columns: 1fr; gap: 2px; padding: 11px 2px; }
+  .updates-list strong { grid-row: auto; font-size: 14px; }
+  .update-caption { font-size: 12px; }
+  .source-heading { display: block; margin-bottom: 12px; }
+  .source-heading > p { margin-top: 7px; text-align: left; }
+  .account-list a { padding: 12px 2px; }
+  .account-name { font-size: 15px; }
+  .account-action { font-size: 11px; }
+  .next-section { grid-template-columns: 1fr; gap: 15px; padding: 24px 0; }
+  .next-section ul { grid-template-columns: 1fr; gap: 12px; }
+}

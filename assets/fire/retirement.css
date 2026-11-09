@@ -37,7 +37,7 @@
 .age-fields .parameter.no-range label,.age-fields .parameter.no-range input { grid-column:1; }
 .parameter-help { grid-column:1/-1; margin:-2px 0 0; color:var(--muted); font:400 12px/1.55 'Noto Sans TC',system-ui,sans-serif; }
 .panel-actions { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:0; padding:16px 20px 20px; border-radius:0 0 8px 8px; background:var(--art-page); }
-.panel-actions .text-button { padding:0; border:0; background:transparent; color:var(--muted); font:400 13px/1.5 'Noto Sans TC',system-ui,sans-serif; }
+.panel-actions .text-button { flex:0 0 auto; padding:0; border:0; background:transparent; color:var(--muted); font:400 13px/1.5 'Noto Sans TC',system-ui,sans-serif; white-space:nowrap; }
 .panel-actions .text-button:hover { color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
 .save-status { color:var(--muted); font:400 12px/1.5 'Noto Sans TC',system-ui,sans-serif; text-align:right; }
 

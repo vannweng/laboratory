@@ -1,4 +1,4 @@
-import { calculateRetirementPlan, defaultRetirementPlan } from './retirement.mjs';
+import { calculateRetirementPlan, defaultRetirementPlan } from './retirement.mjs?v=20261104-2';
 
 const key = 'life-lab-fire-plan-v1';
 const form = document.querySelector('#retirementForm');
@@ -8,6 +8,7 @@ const compactMoney = value => `${new Intl.NumberFormat('zh-TW', { maximumFractio
 const pct = value => `${(value * 100).toFixed(value * 100 % 1 ? 1 : 0)}%`;
 const precisePct = value => `${(value * 100).toFixed(3).replace(/\.?0+$/, '')}%`;
 const ungroup = value => String(value).replaceAll(',', '').trim();
+const percentInput = value => String(Math.round(Number(value) * 10_000) / 100).replace(/\.?0+$/, '');
 
 function storedPlan() {
   try { const saved = JSON.parse(localStorage.getItem(key)); return saved && typeof saved === 'object' ? { ...defaultRetirementPlan(), ...saved } : defaultRetirementPlan(); }
@@ -20,7 +21,7 @@ function save(plan) {
 function hydrate(plan) {
   for (const [name, value] of Object.entries(plan)) {
     const input = form.elements.namedItem(name);
-    if (input) input.value = name === 'annualReturn' || name === 'inflation' ? Number(value) * 100 : value;
+    if (input) input.value = name === 'annualReturn' || name === 'inflation' ? percentInput(value) : value;
   }
   form.querySelectorAll('[data-money]').forEach(formatMoney);
   syncRanges();
@@ -173,6 +174,13 @@ document.addEventListener('click', event => {
 });
 form.addEventListener('input', event => {
   if (event.target.matches('[data-money]') && !event.isComposing) formatMoney(event.target);
+  syncRanges(event.target); render();
+});
+form.addEventListener('change', event => {
+  if (!event.target.matches('#annualReturn,#inflation')) return;
+  const value = Number(event.target.value);
+  if (!Number.isFinite(value)) return;
+  event.target.value = String(Math.round(value * 100) / 100);
   syncRanges(event.target); render();
 });
 $('#resetPlan').addEventListener('click', () => { hydrate(defaultRetirementPlan()); render(); });

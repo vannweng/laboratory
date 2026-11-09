@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f1f3ef" data-light="#f1f3ef" data-dark="#1c241f" />
+  <meta name="description" content="靈感追蹤站：整理正在追蹤的 Instagram KOL，收到更新通知後回來查看。" />
+  <title>靈感追蹤站｜生活實驗室</title>
+  <script src="../assets/theme.js"></script>
+  <script type="module" src="../assets/inspiration.mjs"></script>
+  <link rel="stylesheet" href="../assets/journal.css?v=quiet-index-7" />
+  <link rel="stylesheet" href="../assets/inspiration.css?v=20261109-1" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="生活實驗室首頁">
+        <span class="leaf-mark" aria-hidden="true"><svg><use href="../assets/iconoven.svg#leaf" /></svg></span>
+        <span>生活實驗室</span>
+      </a>
+      <nav class="header-actions" aria-label="網站導覽">
+        <a class="explore-link" href="../#works">作品</a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <button class="theme-button" type="button" data-theme-toggle aria-label="切換至暗色模式" aria-pressed="false">
+          <span class="mode-icon mode-light"><svg aria-hidden="true"><use href="../assets/iconoven.svg#sun" /></svg></span>
+          <span class="mode-icon mode-dark"><svg aria-hidden="true"><use href="../assets/iconoven.svg#moon" /></svg></span>
+          <span class="sr-only" data-theme-label>暗色</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="site-main inspiration-main">
+    <a class="breadcrumb" href="../#works">← 回到所有練習作品</a>
+    <section class="tracker-intro" aria-labelledby="tracker-title">
+      <div>
+        <p class="section-kicker">PROJECT 07 / KOL WATCH</p>
+        <h1 id="tracker-title">靈感追蹤站</h1>
+        <p>把會帶來靈感的人放進清單；有新貼文時，直接回到這裡查看。</p>
+      </div>
+      <div class="tracking-state" aria-live="polite" aria-label="Instagram 六位帳號正在追蹤">
+        <span class="state-dot" aria-hidden="true"></span><span id="trackingSummary">Instagram · 6 位追蹤中</span>
+      </div>
+    </section>
+
+    <section class="updates-section" aria-labelledby="updates-title">
+      <header class="updates-heading">
+        <div><p class="section-kicker">LATEST</p><h2 id="updates-title">新消息</h2></div>
+        <p id="updatesStatus" role="status">正在讀取本機追蹤資料…</p>
+      </header>
+      <ul id="updatesList" class="updates-list" aria-live="polite"></ul>
+      <p id="updatesEmpty" class="updates-empty">目前還沒有偵測到新的貼文。</p>
+    </section>
+
+    <section class="source-section" aria-labelledby="fashion-title">
+      <header class="source-heading">
+        <div><p class="section-kicker">01 / INSTAGRAM</p><h2 id="fashion-title">穿搭</h2></div>
+        <p>公開帳號的新貼文與 Reels 會顯示在上方的新消息。</p>
+      </header>
+      <ul class="account-list" aria-label="穿搭 Instagram 追蹤清單">
+        <li><a href="https://www.instagram.com/carrielee_cla/" target="_blank" rel="noreferrer"><span class="account-name">carrielee_cla</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/fredadailylooks/" target="_blank" rel="noreferrer"><span class="account-name">fredadailylooks</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/e23bbb/" target="_blank" rel="noreferrer"><span class="account-name">e23bbb</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/manaodays/" target="_blank" rel="noreferrer"><span class="account-name">manaodays</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/stylehotlinee/" target="_blank" rel="noreferrer"><span class="account-name">stylehotlinee</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/sara_hymy/" target="_blank" rel="noreferrer"><span class="account-name">sara_hymy</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+      </ul>
+    </section>
+
+    <section class="source-section" aria-labelledby="ai-title">
+      <header class="source-heading">
+        <div><p class="section-kicker">02 / INSTAGRAM</p><h2 id="ai-title">AI 知識型</h2></div>
+        <p>工具、工作流與生成式 AI 的持續學習來源。</p>
+      </header>
+      <ul class="account-list" aria-label="AI 知識型 Instagram 追蹤清單">
+        <li><a href="https://www.instagram.com/learn_wchris/" target="_blank" rel="noreferrer"><span class="account-name">learn_wchris</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/l.l.e.o.e.e/" target="_blank" rel="noreferrer"><span class="account-name">l.l.e.o.e.e</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/iamlily.genai/" target="_blank" rel="noreferrer"><span class="account-name">iamlily.genai</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/__laochen/" target="_blank" rel="noreferrer"><span class="account-name">__laochen</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/life.coach.mtcity/" target="_blank" rel="noreferrer"><span class="account-name">life.coach.mtcity</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/setupjaron/" target="_blank" rel="noreferrer"><span class="account-name">setupjaron</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/jarrenpoh/" target="_blank" rel="noreferrer"><span class="account-name">jarrenpoh</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/kk800226/" target="_blank" rel="noreferrer"><span class="account-name">kk800226</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/eu_gene_bro/" target="_blank" rel="noreferrer"><span class="account-name">eu_gene_bro</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/chloeshy.ai/" target="_blank" rel="noreferrer"><span class="account-name">chloeshy.ai</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+        <li><a href="https://www.instagram.com/harryleeai/" target="_blank" rel="noreferrer"><span class="account-name">harryleeai</span><span class="account-action">開啟 Instagram <span aria-hidden="true">↗</span></span></a></li>
+      </ul>
+    </section>
+
+    <section id="next" class="next-section" aria-labelledby="next-title">
+      <div><p class="section-kicker">NEXT</p><h2 id="next-title">下一步</h2></div>
+      <ul>
+        <li><strong>YouTube 與文章</strong><span>之後納入同一個追蹤清單。</span></li>
+      </ul>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="../">生活實驗室</a><span class="footer-divider" aria-hidden="true"></span><p>這裡的作品皆為練習作品</p></footer>
+</body>
+</html>

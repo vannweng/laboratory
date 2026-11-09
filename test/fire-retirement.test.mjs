@@ -2,13 +2,18 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { calculateRetirementPlan, defaultRetirementPlan, validateRetirementPlan } from '../assets/fire/retirement.mjs';
 
-test('default plan matches the agreed retirement example', () => {
+test('default plan uses the agreed FIRE starting assumptions', () => {
   const result = calculateRetirementPlan(defaultRetirementPlan());
+  assert.equal(result.plan.currentAge, 35);
+  assert.equal(result.plan.retirementAge, 65);
+  assert.equal(result.plan.lifeAge, 85);
+  assert.equal(result.plan.monthlyExpense, 40_000);
+  assert.equal(result.plan.currentAssets, 1_500_000);
   assert.equal(result.timeline.growYears, 30);
-  assert.equal(result.timeline.retireYears, 30);
-  assert.ok(Math.abs(result.assetsAtRetirement - 12_965_827) < 2);
-  assert.ok(Math.abs(result.spend.target - 21_040_000) < 60_000);
-  assert.ok(Math.abs(result.preserve.target - 36_200_000) < 100_000);
+  assert.equal(result.timeline.retireYears, 20);
+  assert.ok(Math.abs(result.assetsAtRetirement - 6_482_914) < 2);
+  assert.ok(Math.abs(result.spend.target - 12_750_885) < 2);
+  assert.ok(Math.abs(result.preserve.target - 28_981_784) < 2);
   assert.ok(result.spend.monthlySavingRequired > 0);
   assert.equal(result.spend.curve.at(-1).assets, 0);
 });

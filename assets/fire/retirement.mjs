@@ -17,7 +17,7 @@ const rounded = value => {
 const annualToMonthly = annual => (1 + annual) ** (1 / 12) - 1;
 
 export function defaultRetirementPlan() {
-  return { currentAge: 30, retirementAge: 60, lifeAge: 90, monthlyExpense: 50_000, currentAssets: 3_000_000, annualReturn: .05, inflation: .02 };
+  return { currentAge: 35, retirementAge: 65, lifeAge: 85, monthlyExpense: 40_000, currentAssets: 1_500_000, annualReturn: .05, inflation: .02 };
 }
 
 export function validateRetirementPlan(source) {
