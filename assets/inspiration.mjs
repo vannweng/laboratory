@@ -23,7 +23,7 @@ function renderUpdates(items) {
     title.textContent = `@${item.username}`;
     const meta = document.createElement('span');
     meta.className = 'update-meta';
-    meta.textContent = `${item.kind === 'reel' ? 'Reel' : '貼文'} · ${formatTime(item.detected_at)} · 開啟 Instagram ↗`;
+    meta.textContent = `${item.kind === 'reel' ? 'Reel' : '貼文'} · ${formatTime(item.posted_at)} · 開啟 Instagram ↗`;
     const caption = document.createElement('span');
     caption.className = 'update-caption';
     caption.textContent = item.caption?.trim() || '未提供文字摘要。';
@@ -37,16 +37,22 @@ function renderUpdates(items) {
 
 async function refresh() {
   try {
-    const response = await fetch('../api/kol/recent', { cache: 'no-store' });
+    const local = ['localhost', '127.0.0.1'].includes(location.hostname);
+    const response = await fetch(local ? '../api/kol/recent' : './feed.json', { cache: 'no-store' });
     if (!response.ok) throw new Error('unavailable');
     const data = await response.json();
-    renderUpdates(data.items ?? []);
+    const now = Date.now();
+    renderUpdates((data.items ?? []).filter((item) => {
+      const published = Date.parse(item.posted_at);
+      return published <= now && published >= now - 24 * 60 * 60 * 1000;
+    }));
     summary.textContent = `Instagram · ${data.tracked_count ?? 0} 位追蹤中`;
-    status.textContent = data.last_checked_at ? `最近同步 · ${formatTime(data.last_checked_at)}` : '等待第一次同步';
+    status.textContent = data.last_checked_at ? `最近同步 · ${formatTime(data.last_checked_at)} · 每 12 小時更新` : '等待首次雲端同步';
+    empty.textContent = data.last_checked_at ? '最近 24 小時沒有新貼文。' : '完成首次同步後，這裡會顯示最近 24 小時的新消息。';
   } catch {
-    status.textContent = '本機追蹤資料尚未連線。';
+    status.textContent = '暫時無法讀取更新資料。';
     empty.hidden = false;
-    empty.textContent = '請從本機資料預覽開啟此頁，才能顯示新的貼文。';
+    empty.textContent = '請稍後重新整理頁面。';
   }
 }
 
