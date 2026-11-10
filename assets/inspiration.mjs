@@ -1,7 +1,11 @@
-const list = document.querySelector('#updatesList');
-const empty = document.querySelector('#updatesEmpty');
 const status = document.querySelector('#updatesStatus');
 const summary = document.querySelector('#trackingSummary');
+const updateGroups = [...document.querySelectorAll('[data-update-category]')];
+const categoryByUsername = new Map(
+  [...document.querySelectorAll('[data-category]')].flatMap((section) =>
+    [...section.querySelectorAll('.account-name')].map((name) => [name.textContent.trim(), section.dataset.category]),
+  ),
+);
 
 function formatTime(value) {
   if (!value) return '';
@@ -12,8 +16,7 @@ function formatTime(value) {
   });
 }
 
-function renderUpdates(items) {
-  const rows = items.map((item) => {
+function createUpdateRow(item) {
     const row = document.createElement('li');
     const link = document.createElement('a');
     link.href = `https://www.instagram.com/p/${encodeURIComponent(item.shortcode)}/`;
@@ -30,9 +33,22 @@ function renderUpdates(items) {
     link.append(title, meta, caption);
     row.append(link);
     return row;
+}
+
+function renderUpdates(items) {
+  const grouped = new Map(updateGroups.map((group) => [group.dataset.updateCategory, []]));
+  items.forEach((item) => {
+    const category = categoryByUsername.get(item.username) || 'ai';
+    if (!grouped.has(category)) grouped.set(category, []);
+    grouped.get(category).push(item);
   });
-  list.replaceChildren(...rows);
-  empty.hidden = items.length > 0;
+  updateGroups.forEach((group) => {
+    const list = group.querySelector('.updates-list');
+    const empty = group.querySelector('.updates-empty');
+    const rows = (grouped.get(group.dataset.updateCategory) || []).map(createUpdateRow);
+    list.replaceChildren(...rows);
+    empty.hidden = rows.length > 0;
+  });
 }
 
 async function refresh() {
@@ -48,11 +64,20 @@ async function refresh() {
     }));
     summary.textContent = `Instagram · ${data.tracked_count ?? 0} 位追蹤中`;
     status.textContent = data.last_checked_at ? `最近同步 · ${formatTime(data.last_checked_at)} · 每 12 小時更新` : '等待首次雲端同步';
-    empty.textContent = data.last_checked_at ? '最近 24 小時沒有新貼文。' : '完成首次同步後，這裡會顯示最近 24 小時的新消息。';
+    updateGroups.forEach((group) => {
+      const empty = group.querySelector('.updates-empty');
+      if (!group.querySelector('.updates-list').children.length) {
+        empty.textContent = data.last_checked_at ? '最近 24 小時沒有新消息。' : '完成首次同步後，這裡會顯示最近 24 小時的新消息。';
+      }
+    });
   } catch {
     status.textContent = '暫時無法讀取更新資料。';
-    empty.hidden = false;
-    empty.textContent = '請稍後重新整理頁面。';
+    updateGroups.forEach((group) => {
+      group.querySelector('.updates-list').replaceChildren();
+      const empty = group.querySelector('.updates-empty');
+      empty.hidden = false;
+      empty.textContent = '請稍後重新整理頁面。';
+    });
   }
 }
 

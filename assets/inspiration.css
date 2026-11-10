@@ -9,6 +9,11 @@
 .updates-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 14px; }
 .updates-heading h2 { margin: 3px 0 0; font: 500 24px/1.5 var(--serif); letter-spacing: .03em; }
 .updates-heading > p { margin: 0; color: var(--muted); font: 400 12px/1.7 var(--serif); }
+.updates-groups { display: grid; gap: 24px; }
+.updates-group { border-top: 1px solid var(--rule); }
+.updates-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 12px 2px 9px; }
+.updates-group-heading h3 { margin: 0; font: 500 17px/1.5 var(--serif); letter-spacing: .03em; }
+.updates-group-heading span { color: var(--muted); font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
 .updates-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .updates-list li { border-bottom: 1px solid var(--rule); }
 .updates-list a { display: grid; grid-template-columns: minmax(120px, .22fr) minmax(0, 1fr); column-gap: 22px; padding: 12px 2px; }
@@ -42,6 +47,8 @@
   .updates-section { padding: 24px 0; }
   .updates-heading { display: block; margin-bottom: 12px; }
   .updates-heading > p { margin-top: 7px; }
+  .updates-groups { gap: 20px; }
+  .updates-group-heading { padding-top: 10px; }
   .updates-list a { grid-template-columns: 1fr; gap: 2px; padding: 11px 2px; }
   .updates-list strong { grid-row: auto; font-size: 14px; }
   .update-caption { font-size: 12px; }
