@@ -26,17 +26,6 @@ for (const list of document.querySelectorAll('.account-list')) {
     image.src = `./avatars/${encodeURIComponent(username)}.jpg`;
     link.prepend(fallback, image);
   }
-  const arrange = () => {
-    const columns = Math.max(1, Math.floor((list.clientWidth + 12) / 62));
-    entries.forEach((entry, index) => {
-      const row = Math.floor(index / columns);
-      const position = index % columns;
-      entry.style.gridRow = row + 1;
-      entry.style.gridColumn = (row % 2 ? columns - position : position + 1);
-    });
-  };
-  new ResizeObserver(arrange).observe(list);
-  arrange();
 }
 
 function formatTime(value) {
