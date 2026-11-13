@@ -7,6 +7,38 @@ const categoryByUsername = new Map(
   ),
 );
 
+for (const list of document.querySelectorAll('.account-list')) {
+  const entries = [...list.children];
+  for (const entry of entries) {
+    const link = entry.querySelector('a');
+    const username = entry.querySelector('.account-name').textContent.trim();
+    link.setAttribute('aria-label', `開啟 @${username} 的 Instagram`);
+    link.title = `@${username}`;
+    const fallback = document.createElement('span');
+    fallback.className = 'avatar-fallback';
+    fallback.textContent = username.replace(/^_+/, '').slice(0, 1).toUpperCase();
+    fallback.setAttribute('aria-hidden', 'true');
+    const image = document.createElement('img');
+    image.alt = '';
+    image.width = 50;
+    image.height = 50;
+    image.addEventListener('error', () => image.remove(), { once: true });
+    image.src = `./avatars/${encodeURIComponent(username)}.jpg`;
+    link.prepend(fallback, image);
+  }
+  const arrange = () => {
+    const columns = Math.max(1, Math.floor((list.clientWidth + 12) / 62));
+    entries.forEach((entry, index) => {
+      const row = Math.floor(index / columns);
+      const position = index % columns;
+      entry.style.gridRow = row + 1;
+      entry.style.gridColumn = (row % 2 ? columns - position : position + 1);
+    });
+  };
+  new ResizeObserver(arrange).observe(list);
+  arrange();
+}
+
 function formatTime(value) {
   if (!value) return '';
   const date = new Date(value);

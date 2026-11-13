@@ -26,9 +26,13 @@
 .source-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 14px; }
 .source-heading h2, .next-section h2 { margin: 3px 0 0; font: 500 24px/1.5 var(--serif); letter-spacing: .03em; }
 .source-heading > p { max-width: 34ch; margin: 0; color: var(--muted); font: 400 12px/1.7 var(--serif); text-align: right; }
-.account-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-.account-list li { border-bottom: 1px solid var(--rule); }
-.account-list a { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 13px 2px; }
+.account-list { display: grid; grid-template-columns: repeat(auto-fill, 50px); gap: 12px; margin: 0; padding: 4px 0; list-style: none; }
+.account-list li { min-width: 0; }
+.account-list a { position: relative; display: block; width: 50px; height: 50px; border-radius: 50%; background: var(--badge); }
+.account-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.account-list img { position: absolute; inset: 0; width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+.avatar-fallback { display: grid; place-items: center; width: 50px; height: 50px; color: var(--ink); font: 500 18px/1 var(--serif); }
+.account-list .account-name, .account-list .account-action { display: none; }
 .account-list a:hover { color: var(--accent); background: var(--hover); }
 .account-name { font: 500 17px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.02em; }
 .account-action { color: var(--muted); font: 400 12px/1.5 var(--serif); white-space: nowrap; }
@@ -54,7 +58,7 @@
   .update-caption { font-size: 12px; }
   .source-heading { display: block; margin-bottom: 12px; }
   .source-heading > p { margin-top: 7px; text-align: left; }
-  .account-list a { padding: 12px 2px; }
+  .account-list a { padding: 0; }
   .account-name { font-size: 15px; }
   .account-action { font-size: 11px; }
   .next-section { grid-template-columns: 1fr; gap: 15px; padding: 24px 0; }
