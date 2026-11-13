@@ -26,8 +26,8 @@
 .source-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 14px; }
 .source-heading h2, .next-section h2 { margin: 3px 0 0; font: 500 24px/1.5 var(--serif); letter-spacing: .03em; }
 .source-heading > p { max-width: 34ch; margin: 0; color: var(--muted); font: 400 12px/1.7 var(--serif); text-align: right; }
-.account-list { display: grid; grid-template-columns: repeat(auto-fill, 50px); gap: 12px; margin: 0; padding: 4px 0; list-style: none; }
-.account-list li { min-width: 0; }
+.account-list { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px; margin: 0; padding: 4px 0; list-style: none; }
+.account-list li { flex: 0 0 50px; min-width: 0; }
 .account-list a { position: relative; display: block; width: 50px; height: 50px; border-radius: 50%; background: var(--badge); }
 .account-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .account-list img { position: absolute; inset: 0; width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
