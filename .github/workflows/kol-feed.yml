@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - 'inspiration/index.html'
       - 'tools/update-kol-avatars.py'
       - '.github/workflows/kol-feed.yml'
   schedule:
