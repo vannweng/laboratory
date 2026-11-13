@@ -62,7 +62,7 @@ async function refresh() {
       const published = Date.parse(item.posted_at);
       return published <= now && published >= now - 24 * 60 * 60 * 1000;
     }));
-    summary.textContent = `Instagram · ${data.tracked_count ?? 0} 位追蹤中`;
+    summary.textContent = `Instagram · ${categoryByUsername.size} 位追蹤中`;
     status.textContent = data.last_checked_at ? `最近同步 · ${formatTime(data.last_checked_at)} · 每 12 小時更新` : '等待首次雲端同步';
     updateGroups.forEach((group) => {
       const empty = group.querySelector('.updates-empty');
