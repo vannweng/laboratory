@@ -6,7 +6,23 @@
       "kind": "reel",
       "caption": "给自己留一点时间，今天走慢一点也好，明天再重新出发#时髦感穿搭 #时髦松弛感#和漂亮的人一起吃漂亮饭#松弛感拉爆了#自由随性风格",
       "posted_at": "2026-11-16T05:03:17+00:00",
-      "detected_at": "2026-11-16T06:23:14.974190+00:00"
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
+    },
+    {
+      "username": "yunohata",
+      "shortcode": "Dfxzcmhl5yq",
+      "kind": "reel",
+      "caption": "AI 幫你算營收，結果算錯了？📊\nNVIDIA 開源 Auto-Ontology 一週暴增 9000★\n先幫 AI 建一本「公司字典」\n算不出來的，它會老實說，不會亂掰\n想試的留言「工具」👇\n#NVIDIA #AIAgent #資料分析 #SQL #Yuno老師",
+      "posted_at": "2026-11-15T22:00:51+00:00",
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
+    },
+    {
+      "username": "yunohata",
+      "shortcode": "DfxD0iHgjl_",
+      "kind": "reel",
+      "caption": "同一個提示詞，丟給 4 個 AI 做「夜間遊樂園＋煙火秀」3D 場景🎡🎆\n\n💰 GPT-6 Sol　$1.07・15 分 37 秒\n💰 GPT-6 Astra　$2.33・11 分 14 秒\n💰 Claude Opus 5.5　$3.51・17 分 23 秒\n💰 Claude Fable 5.2　$8.92・26 分 42 秒\n\n摩天輪、雲霄飛車、旋轉木馬、海盜船，還有整場煙火\n最便宜和最貴差了 8 倍\n你會想去哪一座樂園呢？留言 1～4 告訴我👇\n\n想自己試試看？留言「提示詞」，我私訊給你📩\n（花費為 API 牌價換算；鏡頭繞行速度經後製放慢）\n\n#AI比較 #Claude #ChatGPT #3D #Yuno老師",
+      "posted_at": "2026-11-15T15:04:37+00:00",
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
     },
     {
       "username": "jarrenpoh",
@@ -14,7 +30,7 @@
       "kind": "p",
       "caption": "留言「4C」，我把 4C 設定清單傳給你 👇\n\n接了 10 個 App，它還是不知道要幹嘛？因為你跳過了第一步。\n\n很多人裝好 Grok Bot 的第一件事，就是把 Gmail、日曆、Slack 全部接上去。接完叫它「幫我整理信箱」，結果它不知道誰是你的客戶、哪種信算急件，你只好每次都重新解釋一遍。\n\n問題不在 App 接得不夠多，是順序錯了。訓練一個 Bot 有 4 個步驟，叫 4C：\n1️⃣ 背景（Context）：你是誰、在做什麼、習慣怎麼工作\n2️⃣ 連線（Connections）：讓它讀得到你的資料、動得了手\n3️⃣ 能力（Capabilities）：把做對的流程存起來，下次直接用\n4️⃣ 節奏（Cadence）：什麼時候自己去做，不用你叫\n\n輪播裡整理了：\n・4C 一張圖，每個 C 對應 Grok Bot 裡的哪個功能\n・每補一個 C，它會多懂什麼（第 4 張影片）\n・最常見的錯：先接 App、沒給背景\n・4 個問題檢查你現在卡在第幾個 C\n・這 30 天會怎麼照 4C 一步一步走\n\n一句話記住：App 是手，背景是腦。只給手，它不知道要拿來做什麼。\n\n4C 框架來自 Nate Herk 的教學影片，我用自己的例子重新整理，功能名稱照官方文件。\n\n想要每個 C 要做什麼、怎麼檢查的完整清單？\n留言「4C」，我私訊給你 👇\n私訊裡留下 Email，之後有新影片、新教學會第一時間寄給你。\n\n30 天每天一篇，明天講第一個 C：讓第一個 Bot 當你的幕僚長，追蹤 @jarrenpoh 一起做。\n\nBotLab 為非官方教學帳號，Grok Bot 為 SpaceXSI 的商標。\n\n#GrokBot #AI員工 #AI工具 #AI自動化 #工作效率 #生產力工具 #AIAgent #BotLab",
       "posted_at": "2026-11-15T14:26:44+00:00",
-      "detected_at": "2026-11-16T06:23:14.974190+00:00"
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
     },
     {
       "username": "iamlily.genai",
@@ -22,7 +38,23 @@
       "kind": "reel",
       "caption": "用 Claude 做的動畫，一配上音樂就怪怪的？🎵\n其實 Claude 聽不到你的音樂，你叫它對拍，它只能用猜的。\n\n同一段動畫、同一首歌，我試了三種講法，目標是「音樂一變，杯子就爆開」：\n❌ 講感覺：「音樂變激烈的時候讓它爆開」→ 晚了 1 秒\n❌ 講歌詞：「唱到 Wake me up 的時候讓它爆開」→ 晚了 1.5 秒\n✅ 講秒數：「5.5 秒的時候讓它爆開」→ 剛好\n\n秒數不用自己數：把音樂拉進 CapCut 或 Edits 開自動踩點，或是直接把音樂檔丟給 Claude，叫它算出每個重拍在第幾秒。\n秒數管「什麼時候動」，感覺管「怎麼動」，兩個一起給。最後那幾格，我還是會在 CapCut 自己微調。\n\n想要我現在用的對拍指令，留言「對拍」，我傳給你 👇\n\n影片中的動畫是我用 Claude 做的。\n音樂：Eleven Music 生成\n\n我是佳佳，在曼谷經營一人公司。\n\n#Claude #AI動畫 #AI剪片 #CapCut #動態設計",
       "posted_at": "2026-11-15T12:54:26+00:00",
-      "detected_at": "2026-11-16T06:23:14.974190+00:00"
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
+    },
+    {
+      "username": "zeona_co",
+      "shortcode": "Dfwn_O0Mq-C",
+      "kind": "reel",
+      "caption": "💬 留言「遠端」，我把下載連結傳給你\nJ人必備工具，出門 AI 也乖乖😌\n\n以前叫 AI 改網站，等到餓肚子都不敢出門\n好不容易出門吃個飯\n回來發現它停在那邊等我按允許，白等一小時\n\n現在出門只帶手機，靠 StarDesk 連回家裡的電腦\n☕ 吃飯時隨時看 AI 跑到哪\n✅ 它要我確認，手機按一下就繼續跑\n👀 用電腦的瀏覽器親眼確認成果\n📲 成果截圖直接傳到手機\n\n而且完全免費✨\n🔗 連結也放在主頁\n\n#ad #StarDesk #ClaudeCode #遠端桌面 #AI工具",
+      "posted_at": "2026-11-15T11:03:28+00:00",
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
+    },
+    {
+      "username": "raraco.lab",
+      "shortcode": "DfwicjIyKJI",
+      "kind": "reel",
+      "caption": "AI 全部組隊，完全免費\n留言「AI」 我把連結傳給你\n\n#AI工具 #AI代理 #OpenBot #ChatGPT #Claude",
+      "posted_at": "2026-11-15T10:39:44+00:00",
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
     },
     {
       "username": "setupjaron",
@@ -30,7 +62,7 @@
       "kind": "reel",
       "caption": "這個網站可以帶你看這個世界正在發生什麼！太神奇了\n\n🥇我已經幫大家把網站打包好了\n1.點讚轉發並且追蹤我\n2.留言“Link”\n3.我就會把網址都發給你啦",
       "posted_at": "2026-11-15T09:06:21+00:00",
-      "detected_at": "2026-11-16T06:23:14.974190+00:00"
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
     },
     {
       "username": "manaodays",
@@ -38,9 +70,25 @@
       "kind": "reel",
       "caption": "冬のコーデによく合う美脚デニム見つけました。\n@uniqlo_jp \n\nあとはお気に入りの私服も添えておきます。\n\nどのコーデが好き？\n\n#ママコーデ #uniqlo #therow#デニム",
       "posted_at": "2026-11-15T09:03:10+00:00",
-      "detected_at": "2026-11-16T06:23:14.974190+00:00"
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
+    },
+    {
+      "username": "neil.skilltree",
+      "shortcode": "DfwT08BO3U2",
+      "kind": "reel",
+      "caption": "用 AI 幫孩子做重點整理圖，越改越亂，多半是踩到這 3 個坑。\n\n提示詞太長、一個對話做到底、讓 AI 自己檢查自己。這 3 個坑裡，最常踩到的是最後一個：檢查一定要開新的對話，再把原本的課文一起給它。\n\n如果你也是家長，留言告訴我孩子幾年級、什麼科目、你試過哪些方法，我來幫你拆解。\n\n#重點整理 #prompt #家長 #學習 #artificialintelligence",
+      "posted_at": "2026-11-15T08:27:00+00:00",
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
+    },
+    {
+      "username": "raraco.lab",
+      "shortcode": "DfwPFVoyvRC",
+      "kind": "reel",
+      "caption": "用 LINE 叫 AI 做事，人不在電腦前也行\n留言「LINE」 我把中文教學傳給你\n\n#AI工具 #LINE #ClaudeCode #遠端工作 #上班族",
+      "posted_at": "2026-11-15T07:25:20+00:00",
+      "detected_at": "2026-11-16T07:10:55.079139+00:00"
     }
   ],
-  "tracked_count": 20,
-  "last_checked_at": "2026-11-16T06:23:14.974549+00:00"
+  "tracked_count": 25,
+  "last_checked_at": "2026-11-16T07:10:55.079431+00:00"
 }
