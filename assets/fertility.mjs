@@ -97,7 +97,17 @@ function renderTemperature() {
   const points = values.map(([, item]) => Number(item.temperature)); const min = Math.min(...points) - .1; const max = Math.max(...points) + .1; const plot = points.map((value, index) => `${(index / (points.length - 1)) * 100},${95 - ((value - min) / (max - min || 1)) * 84}`).join(' ');
   root.innerHTML = `<svg class="temperature-svg" viewBox="0 0 100 100" preserveAspectRatio="none" role="img" aria-label="最近 ${points.length} 筆基礎體溫趨勢"><polyline points="${plot}" fill="none" stroke="#ef9ca7" stroke-width="2.4" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" /></svg>`;
 }
-function renderAll() { $('#cycleLength').value = state.settings.cycleLength; $('#periodLength').value = state.settings.periodLength; $('#lastPeriodStart').value = state.settings.lastPeriodStart; renderSummary(); renderPeriods(); renderCalendar(); renderTemperature(); }
+function renderQuickTemperature() {
+  const today = localISO(new Date());
+  const record = state.records[today] || {};
+  const now = new Date();
+  const defaultTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  $('#quickTemperatureDate').textContent = formatDate(today);
+  $('#quickTemperature').value = record.temperature || '';
+  $('#quickTemperatureTime').value = record.temperatureTime || defaultTime;
+  $('#quickTemperatureStatus').textContent = record.temperature ? `已記錄 ${record.temperature} °C${record.temperatureTime ? ` · ${record.temperatureTime}` : ''}` : '尚未記錄';
+}
+function renderAll() { $('#cycleLength').value = state.settings.cycleLength; $('#periodLength').value = state.settings.periodLength; $('#lastPeriodStart').value = state.settings.lastPeriodStart; renderSummary(); renderQuickTemperature(); renderPeriods(); renderCalendar(); renderTemperature(); }
 function openDay(date) {
   const record = state.records[date] || {}; $('#recordDate').value = date; $('#dayDialogTitle').textContent = formatDate(date); $('#flow').value = record.flow || ''; $('#temperature').value = record.temperature || ''; $('#temperatureTime').value = record.temperatureTime || ''; $('#ovulationTest').value = record.ovulationTest || ''; $('#mucus').value = record.mucus || ''; $('#intercourse').checked = Boolean(record.intercourse); $('#note').value = record.note || ''; document.querySelectorAll('.symptom-field input').forEach((input) => { input.checked = (record.symptoms || []).includes(input.value); }); $('#deleteRecordButton').hidden = !state.records[date]; $('#dayDialog').showModal();
 }
@@ -108,6 +118,7 @@ await initialize();
 $('#unlockForm').addEventListener('submit', async (event) => { event.preventDefault(); try { await unlock($('#unlockPassword').value); $('#unlockPassword').value = ''; $('#unlockError').textContent = ''; } catch { $('#unlockError').textContent = '密碼不正確，請再試一次。'; } });
 $('#lockButton').addEventListener('click', () => { cryptoKey = undefined; state = undefined; $('#app').hidden = true; $('#lockScreen').hidden = false; });
 $('#settingsForm').addEventListener('submit', async (event) => { event.preventDefault(); const previous = state.settings.lastPeriodStart; state.settings = { cycleLength: Number($('#cycleLength').value), periodLength: Number($('#periodLength').value), lastPeriodStart: $('#lastPeriodStart').value }; if (state.settings.lastPeriodStart && state.settings.lastPeriodStart !== previous) { const existing = state.periods.find((period) => period.start === state.settings.lastPeriodStart); if (!existing) state.periods.push({ start: state.settings.lastPeriodStart, end: localISO(addDays(parseDate(state.settings.lastPeriodStart), state.settings.periodLength - 1)) }); } await save(); renderAll(); });
+$('#quickTemperatureForm').addEventListener('submit', async (event) => { event.preventDefault(); const today = localISO(new Date()); state.records[today] = { ...(state.records[today] || {}), temperature: $('#quickTemperature').value, temperatureTime: $('#quickTemperatureTime').value }; await save(); renderAll(); });
 $('#calendarGrid').addEventListener('click', (event) => { const button = event.target.closest('[data-date]'); if (button) openDay(button.dataset.date); });
 $('#previousMonths').addEventListener('click', () => { viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 3, 1); renderCalendar(); }); $('#nextMonths').addEventListener('click', () => { viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 3, 1); renderCalendar(); }); $('#todayButton').addEventListener('click', () => { viewDate = new Date(); renderCalendar(); });
 $('#dayForm').addEventListener('submit', async (event) => { if (event.submitter?.value !== 'save') return; event.preventDefault(); const date = $('#recordDate').value; const record = { flow: $('#flow').value, temperature: $('#temperature').value, temperatureTime: $('#temperatureTime').value, ovulationTest: $('#ovulationTest').value, mucus: $('#mucus').value, intercourse: $('#intercourse').checked, symptoms: [...document.querySelectorAll('.symptom-field input:checked')].map((input) => input.value), note: $('#note').value.trim() }; if (Object.values(record).every((value) => value === '' || value === false || (Array.isArray(value) && !value.length))) delete state.records[date]; else state.records[date] = record; await save(); $('#dayDialog').close(); renderAll(); });

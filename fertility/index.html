@@ -27,6 +27,16 @@
       <div id="cycleSummary" class="summary-cards"></div>
     </section>
 
+    <section class="quick-temperature-card" aria-labelledby="quickTemperatureTitle">
+      <div class="quick-temperature-copy"><p class="eyebrow">TODAY'S CHECK-IN</p><h2 id="quickTemperatureTitle">今天的基礎體溫</h2><p id="quickTemperatureDate"></p></div>
+      <form id="quickTemperatureForm" class="quick-temperature-form">
+        <label>體溫（°C）<input id="quickTemperature" type="number" min="34" max="42" step="0.01" inputmode="decimal" placeholder="36.55" required /></label>
+        <label>量測時間<input id="quickTemperatureTime" type="time" required /></label>
+        <button class="primary-button" type="submit">記錄今天</button>
+      </form>
+      <p id="quickTemperatureStatus" class="quick-temperature-status" role="status"></p>
+    </section>
+
     <div class="workspace">
       <aside class="settings-card" aria-labelledby="settingsTitle">
         <div class="card-heading"><div><p class="eyebrow">SETTINGS</p><h2 id="settingsTitle">週期設定</h2></div><span aria-hidden="true">♡</span></div>
