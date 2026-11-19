@@ -1,12 +1,132 @@
 {
   "items": [
     {
+      "username": "neil.skilltree",
+      "shortcode": "Df7N1qTOahJ",
+      "kind": "reel",
+      "caption": "幫孩子做重點整理，做到第 4 張就亂掉？\n\n我把一件大工作拆成 3 個小步驟：照抄、整理、出圖，每一步都開一個新的對話。我自己實測，連出 8 張都沒有亂掉。\n\n留言「重點」，我就私訊你這三段提示詞的連結。",
+      "posted_at": "2026-11-19T13:50:14+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "yunohata",
+      "shortcode": "Df7OCzMi55C",
+      "kind": "reel",
+      "caption": "一段提示詞，Claude 做出一整座太空站🛰️🌍\n\n你是背著噴射背包的太空人，用手機就能在太空站外面飛\n左手搖桿前進，右手滑動轉頭👨‍🚀\n\n8 片太陽能板、氣閘艙、機械臂、對接的太空船\n腳下的地球會轉，還會跑完一整輪日出→白天→日落→夜晚\n夜晚看得到城市燈光🌃\n\n更扯的是——\n沒用 Three.js，純 WebGL2 手刻\n沒有任何圖片、模型、音效檔，全部都是程式算出來的\n而且整個就只有 1 個 HTML 檔\n\n手機打開就能玩👉 space-station-walk.blog-088.workers.dev\n（網址在個人簡介／限動也放了）\n\n你最想飛去哪裡看？留言告訴我👇\n想自己做一座？留言「提示詞」，我私訊給你📩\n\n#Claude #AI #3D #WebGL #太空 #Yuno老師",
+      "posted_at": "2026-11-19T13:46:22+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "life.coach.mtcity",
+      "shortcode": "Df7KT3tKzW-",
+      "kind": "reel",
+      "caption": "你不用再擠時間做個人品牌。\n最花時間的事，Claude 幫你十倍速做完。\n\n我自己的五件事，以前和現在：\n找靈感：以前滑 IG 兩小時，現在每天自動搜集\n做設計：以前一張海報幾個小時，現在照範本做\n剪影片：以前四小時，現在只錄十五分鐘\n做報表：以前一天六小時，現在三十分鐘\n教學、諮詢、備課：以前每週幾十小時，現在做成數位產品\n\n省下來的時間，拿去做更好的產品、內容和服務。\n\n留言「精省」，我把省時指令傳給你。\n\n#個人品牌 #一人公司 #Claude #AI工具 #ChatGPT",
+      "posted_at": "2026-11-19T13:14:59+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "iamlily.genai",
+      "shortcode": "Df7H7DozOkP",
+      "kind": "reel",
+      "caption": "我的資料一直散在各處：\nGoogle 雲端硬碟、Word 檔、手機備忘錄、LINE 記事本……\n要找一個東西，常常要翻好幾個地方。\n\n這次我先把工作規則、影片拆解和上課筆記，\n交給 Claude 整理進 Obsidian，\n整理完，螢幕上長出了一顆大腦 🧠\n\n✅ 每一顆點是一份筆記\n✅ 有關係的筆記會連在一起，點一下就看得到\n✅ 要找東西，搜一次就找到\n✅ 之後新資料先丟進「收件匣」，每週叫 Claude 整理一次，這顆腦會一直長大\n\nObsidian 是免費的筆記軟體，存的是一般文字檔，你電腦上的 Claude 也讀得懂。\n整理指令用 Claude 或 ChatGPT 的 Codex 都可以。\n\n我不會寫程式，也做得出來。\n怎麼把雲端硬碟、手機備忘錄、LINE 的資料拿出來，加上直接貼給 Claude 的整理指令，我都整理好了，\n留言「大腦」，我傳給你 👇\n\n我是佳佳，在曼谷經營一人公司。\n\n#Obsidian #Claude #AI知識庫 #第二大腦 #AI工具",
+      "posted_at": "2026-11-19T12:53:51+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "jarrenpoh",
+      "shortcode": "Df4nufGAUpK",
+      "kind": "p",
+      "caption": "留言「收件匣」，我把急件監看 Routine 的完整指令傳給你 👇\n\n它可以幫你回信。但第一個月，一封都不要讓它自己寄。\n\n第一個 Routine 我推薦從收件匣開始：每 30 分鐘看一次新信，分好類，急件先寫好回覆，存成草稿。寄不寄，你按。\n\n輪播裡整理了：\n1️⃣ 先叫它看信、給建議，再由你挑要自動化哪些\n2️⃣ 6 個信件標籤：急件、要你回、報價、預約、帳務、售後\n3️⃣ Routine 跑起來的樣子：沒事就安靜，有急件才寫草稿\n4️⃣ 指令裡最重要的一句：永遠只建草稿、不寄出、讀不到信就回報失敗\n5️⃣ 第一週回顧：4C 你都走過一次了\n\n兩個小提醒：\n・每跑一次都會扣用量，官方文件說短間隔可能一天用掉一週的額度。先只排上班時間，不要 24 小時跑\n・官方只保證 Bot 自己的信箱不會無人值守寄信；接你自己的 Gmail，記得在指令裡寫死「只建草稿」\n\n「思考可以外包，理解不能外包」這個觀念來自 Nate Herk 的教學影片，用我自己的例子重新整理；按鈕名稱照官方文件。\n\n想要可以直接貼給 Bot 的完整指令？\n留言「收件匣」，我私訊給你 👇\n私訊裡留下 Email，之後有新影片、新教學會第一時間寄給你。\n\n30 天每天一篇，明天講騎腳踏車法：為什麼第一天不要建 15 個 Bot。追蹤 @jarrenpoh 一起做。\n\nBotLab 為非官方教學帳號，Grok Bot 為 SpaceXSI 的商標。\n\n#GrokBot #AI員工 #AI工具 #AI自動化 #工作效率 #生產力工具 #AIAgent #BotLab",
+      "posted_at": "2026-11-19T12:34:40+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "__laochen",
+      "shortcode": "Df7B3kJhRV4",
+      "kind": "reel",
+      "caption": "陳PD的帳號在這 @cmh1016 \n\n這本手帳我覺得最有意思的部分是三年一頁，我很喜歡這個概念，讓過去、現在、未來在每一天都可以交集，它也沒時效的限制，你可以在任何時候開始，任何時候再回來，還有最重要的，陳PD本人會持續用這本手帳分享她的電影之路，讓我們一起跟她走一遭這三年的大計畫～\n\n【老陳專屬折扣】\n$70折價代碼：lao70\n嘖嘖連結在這邊：https://tinyl.co/5IXi\n\n@ihaplan",
+      "posted_at": "2026-11-19T12:04:48+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "__laochen",
+      "shortcode": "Df60VgrARpf",
+      "kind": "reel",
+      "caption": "Sony ECM-W5 上市啦～10980這價格很棒，真正的原生系統，唯一可以直錄32bit到機器(α7R VI、α7 V、FX5)裡面，加上64G的內錄，Sony 終於有完整的消費級無線錄音解決方案囉～",
+      "posted_at": "2026-11-19T10:01:48+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "setupjaron",
+      "shortcode": "Df6xrUiyBdq",
+      "kind": "reel",
+      "caption": "這個網站會為你打造專屬于你的一日三餐，好神奇誒❗\n\n⭐獲得網站的步驟\n1.點讚轉發並追蹤我\n2.留言“食譜”\n3.我就會發你網址啦\n\n#健身 #減肥 #瘦身 #食譜 #卡路里",
+      "posted_at": "2026-11-19T09:40:10+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "fredadailylooks",
+      "shortcode": "Df6xaoqE4K-",
+      "kind": "p",
+      "caption": ".\n初見景德鎮💚",
+      "posted_at": "2026-11-19T09:35:40+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "jarrenpoh",
+      "shortcode": "Df6vSuCRIKb",
+      "kind": "reel",
+      "caption": "半夜沒回的私訊偷走了你多少錢\n留言「懶人包」，我私訊你體驗連結\n\n#ai #創業",
+      "posted_at": "2026-11-19T09:18:51+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "raraco.lab",
+      "shortcode": "Df6t3-uy8w4",
+      "kind": "reel",
+      "caption": "AI 專用瀏覽器，記憶體剩一成\n留言「AI」 我把連結傳給你\n\n#AI工具 #瀏覽器 #AI代理 #開源 #GitHub",
+      "posted_at": "2026-11-19T09:05:11+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "manaodays",
+      "shortcode": "Df6tk69C47y",
+      "kind": "reel",
+      "caption": "薄手ニットの日に気になる\nインナーのライン🥹\n\nそんな日に選びたいのが\nスロギー ゼロ フィール🤍\n\nノンワイヤー＆完全無縫製で\nなめらかな着けごこち✨\n\n縫い目がないから服にひびきにくくて\nニットもすっきり着られるよ☺️\n\nパッドは取り外し可能🤍\n\n今なら35%OFFで購入できるので\nぜひチェックしてみてね🛒✨\n\n@sloggi_jpn \n\n#PR #スロギー #sloggi #ゼロフィール",
+      "posted_at": "2026-11-19T09:02:57+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "learn_wchris",
+      "shortcode": "Df6sI5QAkcw",
+      "kind": "reel",
+      "caption": "每次以为 ChatGPT 已经够强了，它总能给我新的惊喜。😭\n\n留言「Site」我把工具发给你 🔗\n\n#ChatGPT #AI工具 #MotionGraphic #AIAutomation #AI创作",
+      "posted_at": "2026-11-19T08:50:15+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "zeona_co",
+      "shortcode": "Df6qLHYsJGc",
+      "kind": "reel",
+      "caption": "👇🏻 底下留言「專注」傳給你提示詞😂\n我一直懷疑我有 ADHD，但又覺得沒那麼嚴重\n想說先問問看最了解我的 ChatGPT 好了\n\n畢竟它跟我聊了幾百次\n我幾點不睡覺、同時開幾個案子，它全都知道\n\n沒想到這麼赤裸地給大家看\n大家也分享一下自己有沒有\n我覺得應該不只我是這樣欸\n\n你敢問你的嗎？\n提示詞整理好了，留言「專注」我傳給你\n\n#ai工具 #ai #prompt #chatgpt #提示詞",
+      "posted_at": "2026-11-19T08:35:36+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
+      "username": "kk800226",
+      "shortcode": "Df6pdN1AuNo",
+      "kind": "reel",
+      "caption": "OMG Claude 四個模型分工原來這麼清楚，官方選法只要三句話 🤯\n看完再也不用糾結要開哪一個\n\n你平常都無腦開同一個模型嗎？留言告訴我 👇\n\n💬 留言「模型」，完整筆記我傳給你\n\n追蹤 @kk800226，帶你看更多 AI 技能 ✨\n\n#Claude #AI工具 #ClaudeCode #AI技能 #生產力 #Anthropic",
+      "posted_at": "2026-11-19T08:27:00+00:00",
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
+    },
+    {
       "username": "chocom___",
       "shortcode": "Df50nvUE1ie",
       "kind": "p",
       "caption": "CHARLES & KEITH HOLIDAY 2026 PARTY🎁🪩✨\n\n@charleskeith_jp \n@charleskeithofficial \n\n#charlesandkeith #imwithcharleskeith #チャールズアンドキース",
       "posted_at": "2026-11-19T00:44:26+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
     },
     {
       "username": "sara_hymy",
@@ -14,7 +134,7 @@
       "kind": "reel",
       "caption": "",
       "posted_at": "2026-11-18T23:29:19+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
     },
     {
       "username": "omfrgrm",
@@ -22,7 +142,7 @@
       "kind": "p",
       "caption": "11月19日20:00〜年に1度の楽天ブラックフライデー🖤\n\nお得になるものが沢山なので、\n少しでも参考になれば嬉しいです🥰\n\nお得クーポンはストーリーに載せていくので要チェックです♩\n今回はプロフィールのアーガイブに残しておきますので、\nお時間ない方や後で見たい方はそちらご覧ください☺️🫶\n\n最後まで見ていただきありがとうございます🤍\n11月後半もお買い物楽しみましょ〜🫶\n私はすでにカートがやっっっばいです🥹💦\n\nこの投稿のアイテムはプロフィールにある、\n楽天ルームからコレクションにまとめてるので\n検索🔍よりも早く見つかると思います🩶\n\n#楽天ブラックフライデー #楽天購入品",
       "posted_at": "2026-11-18T22:07:34+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
     },
     {
       "username": "yunohata",
@@ -30,97 +150,9 @@
       "kind": "reel",
       "caption": "AI 寫程式越改越亂？📐\nGitHub 官方 Spec Kit：先寫規格，再寫程式\n憲法 → 規格 → 計畫任務 → 實作\n14.8 萬★，MIT 開源\n想要的留言「工具」👇\n#GitHub #AI寫程式 #軟體開發 #AI工具 #Yuno老師",
       "posted_at": "2026-11-18T21:00:35+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "__laochen",
-      "shortcode": "Df41U6jPl_M",
-      "kind": "reel",
-      "caption": "新模型出了一定要先做個遊戲，Higgsfield的有趣傳統😂😂\n\n@higgsfield.ai #HiggsfieldCreator",
-      "posted_at": "2026-11-18T15:32:30+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "yunohata",
-      "shortcode": "Df4uyoRhdpZ",
-      "kind": "reel",
-      "caption": "同一個提示詞，丟給 4 個 AI 做「暴風雨中的帆船」3D 場景⛵⚡\n\n💰 GPT-6.2 Sol　$1.02・26 分 32 秒\n💰 GPT-6.2 Astra　$2.73・28 分 02 秒\n💰 Claude Opus 5.5　$4.06・20 分 01 秒\n💰 Claude Fable 5.2　$6.77・22 分 30 秒\n\n巨浪、狂風、斜斜打下來的雨，還有閃電\n最便宜和最貴差了快 7 倍\n而且這次最便宜的兩個反而跑最久😳\n你會上哪一艘船？留言 1～4 告訴我👇\n\n想自己試試看？留言「提示詞」，我私訊給你📩\n（花費為 API 牌價換算）\n\n#AI比較 #Claude #ChatGPT #3D #Yuno老師",
-      "posted_at": "2026-11-18T14:34:28+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "__laochen",
-      "shortcode": "Df4qFlpsGQx",
-      "kind": "reel",
-      "caption": "這小工具產的品質很不錯，不過我還是手癢剪了一點點喔🤏好啦不只一點點\n\n@higgsfield.ai #higgsfieldcreator",
-      "posted_at": "2026-11-18T13:55:36+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "yunohata",
-      "shortcode": "Df4mo9dBgjg",
-      "kind": "reel",
-      "caption": "很多人看到模型比較後，留言要提示詞\n拿到之後到底怎麼用？實際操作一次給你看🎡🎆\n\n1️⃣ 複製提示詞\n2️⃣ 打開 Claude 桌面版 → Code，選一個空資料夾\n3️⃣ 模型選 Opus 5.5\n4️⃣ 貼上、送出，然後就不用管它\n5️⃣ 做完跟它說「幫我打開來看」\n\n這次 Opus 5.5 自己寫了 29 分鐘\n還會自己開瀏覽器截圖、發現煙火變方塊自己修好😳\n\n還沒拿到提示詞？留言「提示詞」，我私訊給你📩\n完整操作過程放在 YouTube（主頁連結）\n\n#Claude #AI教學 #3D #ClaudeCode #Yuno老師",
-      "posted_at": "2026-11-18T13:23:27+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "harryleeai",
-      "shortcode": "Df4kpLahGee",
-      "kind": "reel",
-      "caption": "留言「額度」，我會把官方申請入口與操作步驟整理給你！👇\n很多人不知道，現在符合資格的 ChatGPT 訂閱方案，還能申請每月免費 API Credits！\n而且不是只能拿來聊天，還可以用在自己的 AI 專案、AI Agent 和自動化工作流程。🚀\n💰 每月可以領多少？\n✅ ChatGPT Pro US$100 方案：每月 US$100 API 額度。\n✅ ChatGPT Pro US$200 方案：每月 US$200 API 額度。\n✅ ChatGPT Pro US$500 方案：每月 US$500 API 額度。\n✅ 符合資格的 ChatGPT Business：依付費席位提供額度，每個工作區每月最高 US$500。\n🤖 這些額度可以拿來做什麼？\n開發自己的 AI 應用程式與 AI Agent\n串接 OpenAI API，打造自動化工作流程\n將 AI 圖片生成整合進自己的專案\n開發即時語音互動功能\n運用 API 建立更多客製化工具\n📌 如何領取？\n1️⃣ 使用符合資格的 ChatGPT 帳號登入。\n2️⃣ 前往 ChatGPT「Settings → Billing」。\n3️⃣ 找到 API Credits 福利項目，開始申請。\n4️⃣ 將 ChatGPT 訂閱連結至自己擁有的 OpenAI API Organization。\n5️⃣ 確認啟用後，就能到 API Platform 查看額度。\n⚠️ 幾個重要提醒：\n這項福利並非所有 ChatGPT 方案都有，Plus、Go 和免費方案不符合資格。符合資格的 Pro 或 Business 訂閱也必須啟用至少 7 天，並符合帳號與組織擁有權等條件。\n另外，API 額度與 ChatGPT 使用額度是分開的，每期未使用的額度會到期，不會累積到下個月。\n🔥 如果你本來就有符合資格的訂閱，不妨先確認自己的帳號能不能領取，別讓這些 API 額度白白過期！\n#ChatGPT #OpenAI #APICredits #AIAgent #AI工具",
-      "posted_at": "2026-11-18T13:06:25+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "iamlily.genai",
-      "shortcode": "Df4kEEtz31w",
-      "kind": "reel",
-      "caption": "不誇張，現在整個 IG 內容都可以交給 Claude 自動化 🤯\n\n一次裝好 13 個小幫手，IG 內容可以交給 Claude 幫你準備：\n\n✅ 寫 Reels 腳本，還沒錄就先幫開頭打分數\n✅ 想好去別人貼文下面要留什麼\n✅ 回留言、寫私訊、排好一整週的內容\n✅ 找出同領域的爆款，用你的語氣重寫\n\n全部都是草稿，你確認了再自己貼上去發，不會亂發文。\n我拿自己的帳號實測，被打了 51 分 😅 裝之前也先叫 Claude 把 27 個檔案全部檢查過。\n\n中文安裝步驟＋安全檢查指令我整理好了，\n留言「哀居」，我傳給你 👇\n\n影片中的貼紙人由 AI 生成。\n\n我是佳佳，在曼谷經營一人公司。\n\n#Claude #ClaudeCode #IG經營 #AI工具 #一人公司",
-      "posted_at": "2026-11-18T13:01:56+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "jarrenpoh",
-      "shortcode": "Df2C5RWjEjE",
-      "kind": "p",
-      "caption": "留言「描述」，我把 5 種 Bot 的工作說明範本傳給你 👇\n\n什麼都丟給同一個 Bot？它要記的規則會越來越多、越來越亂。\n\n官方文件寫得很直接：只做一件事的 Bot，比萬用助手累積更有用的背景。\n回信的規則歸收件匣、排程的習慣歸行程，哪一個做錯，你只要改那一個。\n\n輪播裡整理了：\n1️⃣ 什麼時候該開新 Bot：要長期有人負責的工作才開\n2️⃣ 名字、職稱（Label）各寫什麼\n3️⃣ 工作說明怎麼寫：做什麼、看哪裡、不能做、先問我\n4️⃣ 常用的 Bot 釘在最上面（Pin），不常用的藏起來，不要隨手 Delete\n5️⃣ 5 種角色的工作說明：幕僚長、收件匣、行程、情報、小編\n\n小提醒：個人 Bot 現在已經沒有「描述」欄位了（只有 Team Bot 有）。要讓它知道自己的工作，就在第一則訊息講清楚，再叫它記住。\n\n「一個 Bot 只做一件事」的觀念來自 Nate Herk 的教學影片，用我自己的例子重新整理；按鈕名稱照官方文件。\n\n想要 5 種角色可以直接複製的工作說明？\n留言「描述」，我私訊給你 👇\n私訊裡留下 Email，之後有新影片、新教學會第一時間寄給你。\n\n30 天每天一篇，明天做第一個 Routine：每 30 分鐘看急件、只建草稿不寄出。追蹤 @jarrenpoh 一起做。\n\nBotLab 為非官方教學帳號，Grok Bot 為 SpaceXSI 的商標。\n\n#GrokBot #AI員工 #AI工具 #AI自動化 #工作效率 #生產力工具 #AIAgent #BotLab",
-      "posted_at": "2026-11-18T12:34:02+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "omfrgrm",
-      "shortcode": "Df4gJnloD3s",
-      "kind": "reel",
-      "caption": "配色デザインがこなれ感出る\nオーバーサイズニット🧶\n一色だと、シンプルになりがちなニットも\nカラーが入ることで一気に華やかなる🌼\n\nニットのときは超ハイウエストデニムが\nスタイルアップしてみえるからオススメ👖🩵\n\n🏷️〔Knit〕\ncolor: ネイビー\n商品番号: ce1350019\n@classicalelf_official\n\n忘れない様に保存がオススメ🤍\nフォローしておくだけでプチプラアイテムの新着情報がすぐわかるよ♡→【@omfrgrm】\n\n#classicalelf　#クラシカルエルフ #エルフコーデ #zozotow #pr",
-      "posted_at": "2026-11-18T12:27:27+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "life.coach.mtcity",
-      "shortcode": "Df4P-lLtkI3",
-      "kind": "reel",
-      "caption": "IG 開始幫你抓抄襲了，連台詞一樣、畫面不同的也會慢慢抓\n你的帳號有沒有這個功能？\n\nIG 11/17 推出「內容保護」，會自動掃描跟你很像的影片，抓到後你可以選：追蹤、隱藏、掛原創出處、放手。\n\n目前多數人還沒有，可以到 專業主控板 → 工具 → 專業工具 找「內容保護」。\n\n那怎樣才算原創？IG 官方原創內容準則說：用別人的素材，要加上你的觀點、旁白、故事或重新剪輯；只加邊框、浮水印、改速度、截圖標出處都不算。\n\n可以參考互動好的內容，但不要照抄，要加入你自己的觀點、經驗跟價值觀。\n\n原創保護功能跟怎樣才算原創的資訊，我都整理好了，留言「保護」我傳給你\n\n#IG經營 #原創內容 #Instagram #AI #自媒體",
-      "posted_at": "2026-11-18T10:07:34+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "jarrenpoh",
-      "shortcode": "Df4JF0ID4bw",
-      "kind": "reel",
-      "caption": "留言「DRAMA」我把 prompt 跟設定連結傳給你\nHiggsfield MCP 新用戶三天免費無限用，Black Friday 最高 65% off\n\n@higgsfield.ai #HiggsfieldCreator",
-      "posted_at": "2026-11-18T09:05:23+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
-    },
-    {
-      "username": "raraco.lab",
-      "shortcode": "Df4I1eOyCPN",
-      "kind": "reel",
-      "caption": "免費版 ManyChat，不用半毛錢\n留言「免費」 我把教學傳給你\n\n#AI工具 #IG經營 #自動回覆 #ManyChat #自媒體",
-      "posted_at": "2026-11-18T09:03:19+00:00",
-      "detected_at": "2026-11-19T07:21:16.730270+00:00"
+      "detected_at": "2026-11-19T20:33:21.235960+00:00"
     }
   ],
   "tracked_count": 25,
-  "last_checked_at": "2026-11-19T07:21:16.730600+00:00"
+  "last_checked_at": "2026-11-19T20:33:21.236333+00:00"
 }
