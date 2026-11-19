@@ -11,3 +11,118 @@
 .entry-dialog { width:min(560px,calc(100% - 32px)); border:0; border-radius:24px; padding:0; background:#fffdfb; color:var(--ink); box-shadow:0 25px 60px #76515b40; }.entry-dialog::backdrop { background:#7346533d; backdrop-filter:blur(3px); }.entry-dialog form { padding:22px; }.entry-dialog header,.entry-dialog footer { display:flex; align-items:center; justify-content:space-between; gap:14px; }.entry-dialog h2 { margin:3px 0 0; color:#704c5b; font:600 22px/1.4 'Noto Serif TC',serif; }.close-button { display:grid; place-items:center; width:33px; height:33px; border:0; border-radius:50%; background:#fff0f1; color:#a46978; font-size:23px; }.record-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px; }.intercourse-field,.symptom-field { margin:15px 0 0; padding:0; border:0; }.intercourse-field label,.symptom-field label { margin-right:13px; color:#806671; font-size:13px; }.symptom-field { display:flex; flex-wrap:wrap; gap:8px 3px; }.symptom-field legend { width:100%; margin-bottom:3px; color:#876975; font-size:12px; font-weight:600; }.note-field { display:grid; margin-top:15px; }.note-field textarea { resize:vertical; }.entry-dialog footer { margin-top:20px; }.danger { color:#c95d70; }.small-dialog { width:min(430px,calc(100% - 32px)); }.password-field { margin-top:13px; }
 @media (max-width:850px){.quick-temperature-card{grid-template-columns:1fr}.quick-temperature-status{grid-column:auto}.workspace{grid-template-columns:1fr}.settings-card{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.card-heading,.settings-form{grid-column:1}.period-history,.privacy-card{grid-column:2}.period-history{margin-top:0;border-top:0;padding-top:0}.privacy-card{align-self:start}.calendar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.temperature-section{grid-template-columns:1fr}.temperature-section>p{grid-column:auto}}
 @media (max-width:600px){#app{width:min(100% - 28px,520px);padding-top:12px}.intro{display:block;padding:20px 0 15px}.intro h1{font-size:37px}.today-prompt{margin-top:13px}.overview{padding:16px}.summary-cards{grid-template-columns:1fr}.summary-card{min-height:68px}.quick-temperature-card{padding:16px}.quick-temperature-form{grid-template-columns:1fr 1fr}.quick-temperature-form .primary-button{grid-column:1/-1}.workspace{margin-top:15px}.settings-card{display:block;padding:16px}.period-history{margin-top:18px;padding-top:15px;border-top:1px dashed var(--line)}.privacy-card{margin-top:15px}.calendar-area{padding:16px}.calendar-grid{grid-template-columns:1fr;gap:12px}.legend{gap:8px 12px}.temperature-section{margin-top:15px;padding:16px}.record-grid{grid-template-columns:1fr}.entry-dialog form{padding:18px}}
+
+/* Mobile input controls stay at 16px to prevent iOS Safari focus zoom. */
+input, select, textarea { font-size:16px; }
+.settings-form label, .record-grid label, .password-field, .note-field, .quick-temperature-form label { min-width:0; }
+.settings-form input, .record-grid input, .record-grid select, .note-field textarea, .password-field input, .quick-temperature-form input { min-width:0; max-width:100%; }
+.quick-temperature-form { grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) auto; }
+.quick-temperature-status { grid-column:2 / -1; }
+.period-picker-hint { margin:16px 0 0; color:var(--muted); font-size:13px; }
+.period-picker-toolbar { display:grid; grid-template-columns:33px 1fr 33px; align-items:center; gap:8px; margin-top:13px; }
+.period-picker-toolbar strong { color:#704c5b; text-align:center; font:600 16px/1.4 'Noto Serif TC',serif; }
+.period-picker-calendar { margin-top:11px; overflow:hidden; border:1px solid #f3dce0; border-radius:14px; }
+.period-picker-day { position:relative; display:grid; place-items:center; min-width:0; aspect-ratio:1; border:0; border-top:1px solid #f6e7e9; border-right:1px solid #f6e7e9; background:transparent; color:var(--ink); font-size:13px; }
+.period-picker-day:nth-child(7n) { border-right:0; }
+.period-picker-day.is-outside { color:#d7c4c8; }
+.period-picker-day.is-selected-range { background:#ffe8eb; }
+.period-picker-day.is-range-start, .period-picker-day.is-range-end { background:var(--pink); color:#fff; font-weight:700; }
+.period-picker-selection { min-height:22px; margin:12px 0 0; color:#8c6471; font-size:13px; }
+.primary-button:disabled { cursor:not-allowed; background:#e9d8dc; color:#b2949b; }
+@media (max-width:850px) { .quick-temperature-form { grid-template-columns:minmax(0,1fr) minmax(0,1fr); } .quick-temperature-form .primary-button { grid-column:1 / -1; } .quick-temperature-status { grid-column:auto; } }
+@media (max-width:600px) { .quick-temperature-form { grid-template-columns:1fr; } .quick-temperature-form .primary-button { grid-column:auto; } .quick-temperature-card { overflow:hidden; } .settings-form { grid-template-columns:1fr; } .settings-form .wide, .settings-form .primary-button { grid-column:auto; } }
+:root {
+  --journal-paper: #f6f2eb;
+  --journal-ink: #1f3a46;
+  --journal-muted: #52636a;
+  --journal-rule: #ece6db;
+  --line: var(--journal-rule);
+  --journal-action: #a83d32;
+  --cycle-actual: #C77979;
+  --cycle-predicted: #FAECE7;
+  --cycle-fertile: #FBEDDF;
+  --cycle-ovulation: #F49943;
+  --cycle-record: #A83D32;
+}
+
+#app {
+  width: min(100% - 32px, 850px);
+  color: var(--journal-ink);
+}
+:root, body { background: var(--journal-paper); color: var(--journal-ink); }
+#app .app-header { padding-block: 8px; border-bottom: 1px solid var(--journal-rule); }
+#app .back-link, #app .text-button { color: var(--journal-action); }
+#app .intro { padding-block: 30px 18px; align-items: center; }
+#app .intro h1 { color: var(--journal-ink); font-size: 3rem; letter-spacing: -.03em; }
+#app .today-prompt { color: var(--journal-ink); background: #ece6db; border-radius: 12px; }
+#app .overview, #app .calendar-area, #app .temperature-section, #app .settings-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+#app h2, #app h3, .entry-dialog h2 { color: var(--journal-ink); }
+#app .overview-heading h2 { font: 600 1rem/1.5 'Noto Sans TC', sans-serif; }
+#app .summary-cards { margin-top: 10px; gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--journal-rule); }
+#app .summary-card { min-height: 0; padding: 12px; border-radius: 0; background: transparent; }
+#app .summary-card + .summary-card { border-left: 1px solid var(--journal-rule); }
+#app .summary-card small { color: var(--journal-muted); }
+#app .summary-card strong { color: var(--journal-ink); font-size: 1.45rem; text-wrap: balance; }
+#app .quick-temperature-card {
+  padding: 22px;
+  border: 1px solid var(--journal-rule);
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+#app .quick-temperature-copy p, #app .quick-temperature-status { color: var(--journal-muted); grid-column: auto; }
+#app .quick-temperature-form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#app .quick-temperature-form button { grid-column: 1 / -1; }
+#app label, .entry-dialog label { color: var(--journal-ink); }
+#app input, .entry-dialog :is(input,select,textarea) { border-color: var(--journal-rule); color: var(--journal-ink); }
+#app .primary-button, .entry-dialog .primary-button { background: var(--journal-action); color: white; min-height: 44px; }
+#app .primary-button:hover, .entry-dialog .primary-button:hover { background: #843026; }
+.entry-dialog .primary-button:disabled { background: #e8e1d9; color: #655c55; }
+#app :is(.calendar-area,.temperature-section,.settings-card) { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--journal-rule); }
+#app .settings-card { display: block; }
+#app .period-history { margin-top: 18px; }
+#app .period-list li { background: var(--journal-rule); }
+#app .disclaimer, #app .legend, #app .temperature-section > p, #app .chart-empty { color: var(--journal-muted); }
+#app .calendar-grid { grid-template-columns: minmax(0, 1fr); }
+#app .month, .period-picker-calendar { background: #fffdf9; border-color: var(--journal-rule); }
+#app .month-title { background: #ebe5da; color: var(--journal-ink); font-size: 1rem; }
+#app .day, .period-picker-day { color: var(--journal-ink); border-color: var(--journal-rule); font-size: .875rem; }
+#app .day { aspect-ratio: auto; min-height: 44px; }
+#app .day.is-outside, .period-picker-day.is-outside { color: #66635e; }
+#app .day.actual-period, #app .legend-period.actual { background: var(--cycle-actual); }
+#app .day.actual-period { color: #251610; }
+#app .day.predicted-period, #app .legend-period.predicted { background: var(--cycle-predicted); }
+#app .legend-period.predicted { border-color: var(--journal-rule); }
+#app .day.fertile, #app .legend-fertile { background: var(--cycle-fertile); }
+#app .legend-ovulation { background: var(--cycle-ovulation); }
+#app .legend-record { background: var(--cycle-record); }
+#app .day.has-record::before { background-color: var(--cycle-record); }
+#app .weekdays span, .entry-dialog .weekdays span, #app .settings-form label span { color: var(--journal-muted); }
+#app .period-list button, .entry-dialog .danger { color: var(--journal-action); }
+#app .day.ovulation { background: radial-gradient(circle, var(--cycle-ovulation) 0 15px, transparent 16px); }
+#app .day[aria-current="date"] { box-shadow: inset 0 0 0 1px var(--journal-ink); }
+#app .day[aria-pressed="true"], .period-picker-day:is(.is-range-start,.is-range-end) { background: var(--journal-ink); color: white; }
+.period-picker-day.is-selected-range:not(.is-range-start,.is-range-end) { background: var(--cycle-fertile); }
+.entry-dialog { color: var(--journal-ink); background: #fffdf9; }
+.entry-dialog::backdrop { background: #1f3a4660; backdrop-filter: none; }
+.period-picker-hint, .period-picker-selection { color: var(--journal-muted); }
+#app :focus-visible, .entry-dialog :focus-visible { outline-color: var(--journal-action); outline-offset: 1px; z-index: 1; }
+#app ::selection, .entry-dialog ::selection { background: #f5d5cd; color: var(--journal-ink); }
+@media (max-width: 600px) {
+  #app .intro h1 { font-size: 2.25rem; }
+  #app .summary-card { padding-inline: 7px; }
+  #app .summary-card strong { font-size: 1.05rem; }
+  #app .quick-temperature-card { padding: 16px; }
+  #app .quick-temperature-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #app .quick-temperature-form label:first-child { grid-column: 1 / -1; }
+  #app .calendar-toolbar { flex-wrap: wrap; }
+  #app .day { min-height: 40px; }
+}

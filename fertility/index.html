@@ -4,92 +4,75 @@
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#fff8f4" />
+  <meta name="theme-color" content="#f6f2eb" />
   <meta name="description" content="好運小日子，將月經週期、基礎體溫與排卵試紙紀錄保存在自己的裝置上。" />
   <title>好運小日子｜生活實驗室</title>
-  <link rel="stylesheet" href="../assets/fertility.css?v=1" />
-  <script type="module" src="../assets/fertility.mjs?v=1"></script>
+  <link rel="stylesheet" href="../assets/fertility.css?v=9" />
+  <script defer src="../assets/fertility.mjs?v=6"></script>
 </head>
 <body>
-  <main id="app" hidden>
-    <header class="app-header">
-      <a class="back-link" href="../#works">← 生活實驗室</a>
-      <button id="lockButton" class="quiet-button" type="button">鎖定</button>
-    </header>
+  <main id="app">
+    <header class="app-header"><a class="back-link" href="../#works">← 生活實驗室</a></header>
 
     <section class="intro" aria-labelledby="pageTitle">
-      <div><p class="eyebrow">PROJECT 08</p><h1 id="pageTitle">好運小日子 <span aria-hidden="true">✦</span></h1></div>
+      <div><h1 id="pageTitle">好運小日子</h1></div>
       <p id="todayPrompt" class="today-prompt"></p>
     </section>
 
     <section class="overview" aria-labelledby="overviewTitle">
-      <div class="overview-heading"><p class="eyebrow">THIS CYCLE</p><h2 id="overviewTitle">這次週期</h2></div>
+      <div class="overview-heading"><h2 id="overviewTitle">這次週期</h2></div>
       <div id="cycleSummary" class="summary-cards"></div>
     </section>
 
     <section class="quick-temperature-card" aria-labelledby="quickTemperatureTitle">
-      <div class="quick-temperature-copy"><p class="eyebrow">TODAY'S CHECK-IN</p><h2 id="quickTemperatureTitle">今天的基礎體溫</h2><p id="quickTemperatureDate"></p></div>
+      <div class="quick-temperature-copy"><h2 id="quickTemperatureTitle">基礎體溫紀錄</h2><p id="quickTemperatureDate"></p></div>
       <form id="quickTemperatureForm" class="quick-temperature-form">
+        <label>紀錄日期<input id="quickTemperatureEntryDate" type="date" required /></label>
         <label>體溫（°C）<input id="quickTemperature" type="number" min="34" max="42" step="0.01" inputmode="decimal" placeholder="36.55" required /></label>
         <label>量測時間<input id="quickTemperatureTime" type="time" required /></label>
-        <button class="primary-button" type="submit">記錄今天</button>
+        <button class="primary-button" type="submit">儲存體溫</button>
       </form>
       <p id="quickTemperatureStatus" class="quick-temperature-status" role="status"></p>
     </section>
 
-    <div class="workspace">
-      <aside class="settings-card" aria-labelledby="settingsTitle">
-        <div class="card-heading"><div><p class="eyebrow">SETTINGS</p><h2 id="settingsTitle">週期設定</h2></div><span aria-hidden="true">♡</span></div>
-        <form id="settingsForm" class="settings-form">
-          <label>平均週期天數<input id="cycleLength" type="number" min="21" max="45" step="1" inputmode="numeric" required /><span>天</span></label>
-          <label>平均經期天數<input id="periodLength" type="number" min="1" max="14" step="1" inputmode="numeric" required /><span>天</span></label>
-          <label class="wide">最近一次月經首日<input id="lastPeriodStart" type="date" required /></label>
-          <button class="primary-button" type="submit">更新推估</button>
-        </form>
-
-        <section class="period-history" aria-labelledby="historyTitle">
-          <div class="subheading"><h3 id="historyTitle">月經紀錄</h3><button id="addPeriodButton" class="text-button" type="button">＋ 補登</button></div>
-          <ul id="periodList" class="period-list"></ul>
-        </section>
-
-        <section class="privacy-card" aria-label="資料與密碼">
-          <span aria-hidden="true">⌘</span><p>資料只儲存在此裝置，並以密碼加密。</p>
-          <button id="changePasswordButton" class="text-button" type="button">修改密碼</button>
-        </section>
-      </aside>
-
-      <section class="calendar-area" aria-labelledby="calendarTitle">
-        <header class="calendar-toolbar">
-          <div><p class="eyebrow">CALENDAR</p><h2 id="calendarTitle">週期月曆</h2></div>
-          <div class="calendar-nav"><button id="previousMonths" class="round-button" type="button" aria-label="顯示前三個月">←</button><button id="todayButton" class="today-button" type="button">今天</button><button id="nextMonths" class="round-button" type="button" aria-label="顯示後三個月">→</button></div>
-        </header>
-        <div id="calendarGrid" class="calendar-grid"></div>
-        <ul class="legend" aria-label="月曆圖例">
-          <li><i class="legend-period actual"></i>實際月經</li><li><i class="legend-period predicted"></i>預估月經</li><li><i class="legend-fertile"></i>受孕窗口</li><li><i class="legend-ovulation"></i>預估排卵日</li><li><i class="legend-record"></i>已有紀錄</li>
-        </ul>
-        <p class="disclaimer">受孕期與排卵日依週期推估。基礎體溫與排卵試紙可協助了解身體訊號，但不取代醫療診斷。</p>
-      </section>
-    </div>
+    <section class="calendar-area" aria-labelledby="calendarTitle">
+      <header class="calendar-toolbar">
+        <div><h2 id="calendarTitle">週期月曆</h2></div>
+        <div class="calendar-nav"><button id="previousMonths" class="round-button" type="button" aria-label="顯示上個月">←</button><button id="todayButton" class="today-button" type="button">今天</button><button id="nextMonths" class="round-button" type="button" aria-label="顯示下個月">→</button></div>
+      </header>
+      <div id="calendarGrid" class="calendar-grid"></div>
+      <ul class="legend" aria-label="月曆圖例">
+        <li><i class="legend-period actual"></i>實際月經</li><li><i class="legend-period predicted"></i>預估月經</li><li><i class="legend-fertile"></i>受孕窗口</li><li><i class="legend-ovulation"></i>預估排卵日</li><li><i class="legend-record"></i>已有紀錄</li>
+      </ul>
+      <p class="disclaimer">受孕期與排卵日依週期推估。基礎體溫與排卵試紙可協助了解身體訊號，但不取代醫療診斷。</p>
+    </section>
 
     <section class="temperature-section" aria-labelledby="temperatureTitle">
-      <div><p class="eyebrow">TEMPERATURE</p><h2 id="temperatureTitle">基礎體溫趨勢</h2></div>
+      <div><h2 id="temperatureTitle">基礎體溫趨勢</h2></div>
       <div id="temperatureChart" class="temperature-chart"></div>
       <p>每天醒來、下床前以相同方式量測。體溫變化較適合用於回顧週期，請與排卵試紙及分泌物紀錄一起看。</p>
     </section>
-  </main>
+    <aside class="settings-card" aria-labelledby="settingsTitle">
+      <div class="card-heading"><div><h2 id="settingsTitle">週期設定</h2></div></div>
+      <form id="settingsForm" class="settings-form">
+        <label>平均週期天數<input id="cycleLength" type="number" min="21" max="45" step="1" inputmode="numeric" required /><span>天</span></label>
+        <label>平均經期天數<input id="periodLength" type="number" min="1" max="14" step="1" inputmode="numeric" required /><span>天</span></label>
+        <label class="wide">最近一次月經首日<input id="lastPeriodStart" type="date" required /></label>
+        <button class="primary-button" type="submit">更新推估</button>
+      </form>
 
-  <section id="lockScreen" class="lock-screen" aria-labelledby="lockTitle">
-    <div class="lock-card">
-      <span class="lock-flower" aria-hidden="true">✿</span><p class="eyebrow">PRIVATE TRACKER</p><h1 id="lockTitle">好運小日子</h1>
-      <p id="lockDescription">輸入密碼以查看你的紀錄。</p>
-      <form id="unlockForm" class="unlock-form"><label for="unlockPassword">密碼</label><input id="unlockPassword" type="password" inputmode="numeric" autocomplete="current-password" required /><button class="primary-button" type="submit">進入紀錄</button><p id="unlockError" class="form-error" role="alert"></p></form>
-      <p class="lock-note">首次使用的初始密碼為 1989，可在解鎖後修改。</p>
-    </div>
-  </section>
+      <section class="period-history" aria-labelledby="historyTitle">
+        <div class="subheading"><h3 id="historyTitle">月經紀錄</h3><button id="addPeriodButton" class="text-button" type="button">＋ 補登</button></div>
+        <ul id="periodList" class="period-list"></ul>
+      </section>
+
+    </aside>
+
+  </main>
 
   <dialog id="dayDialog" class="entry-dialog">
     <form id="dayForm" method="dialog">
-      <header><div><p class="eyebrow">DAILY NOTE</p><h2 id="dayDialogTitle">每日紀錄</h2></div><button class="close-button" value="cancel" aria-label="關閉">×</button></header>
+      <header><div><h2 id="dayDialogTitle">每日紀錄</h2></div><button class="close-button" value="cancel" aria-label="關閉">×</button></header>
       <input id="recordDate" type="hidden" />
       <div class="record-grid">
         <label>月經量<select id="flow"><option value="">未記錄</option><option value="spotting">點狀出血</option><option value="light">輕</option><option value="medium">中</option><option value="heavy">多</option></select></label>
@@ -106,11 +89,8 @@
   </dialog>
 
   <dialog id="periodDialog" class="entry-dialog small-dialog">
-    <form id="periodForm" method="dialog"><header><div><p class="eyebrow">PERIOD</p><h2>補登月經</h2></div><button class="close-button" value="cancel" aria-label="關閉">×</button></header><div class="record-grid"><label class="wide">開始日期<input id="periodStart" type="date" required /></label><label class="wide">結束日期<input id="periodEnd" type="date" required /></label></div><footer><button class="primary-button" value="save" type="submit">儲存月經紀錄</button></footer></form>
+    <form id="periodForm" method="dialog"><header><div><h2>補登月經</h2></div><button class="close-button" value="cancel" aria-label="關閉">×</button></header><p id="periodPickerHint" class="period-picker-hint">請先選擇月經開始日。</p><div class="period-picker-toolbar"><button id="periodPreviousMonth" class="round-button" type="button" aria-label="顯示上個月">←</button><strong id="periodPickerTitle"></strong><button id="periodNextMonth" class="round-button" type="button" aria-label="顯示下個月">→</button></div><div id="periodPickerCalendar" class="period-picker-calendar" aria-label="選擇月經日期範圍"></div><p id="periodPickerSelection" class="period-picker-selection" aria-live="polite"></p><footer><button class="primary-button" value="save" type="submit" disabled>儲存月經紀錄</button></footer></form>
   </dialog>
 
-  <dialog id="passwordDialog" class="entry-dialog small-dialog">
-    <form id="passwordForm" method="dialog"><header><div><p class="eyebrow">PASSWORD</p><h2>修改密碼</h2></div><button class="close-button" value="cancel" aria-label="關閉">×</button></header><label class="password-field">目前密碼<input id="currentPassword" type="password" required /></label><label class="password-field">新密碼<input id="newPassword" type="password" minlength="4" required /></label><label class="password-field">確認新密碼<input id="confirmPassword" type="password" minlength="4" required /></label><p id="passwordError" class="form-error" role="alert"></p><footer><button class="primary-button" value="save" type="submit">更新密碼</button></footer></form>
-  </dialog>
 </body>
 </html>
