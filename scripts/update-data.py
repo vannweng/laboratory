@@ -11,6 +11,8 @@ from pathlib import Path
 SOURCE = "https://data.ntpc.gov.tw/datasets/9238ccc2-9701-4ca7-a0a0-ebe4a0669685"
 DEST = Path(__file__).resolve().parent.parent / "data" / "zhonghe-presale.json"
 PING_PER_SQM_TO_WAN_PER_PING = 3.305785 / 10000
+# 官方 CSV 匯出時，部分非 Big5 字（例如「双」）會變成「?」；依建案名稱與地址查證後修正。
+NAME_FIXES = {"?捷橙品": "双捷橙品", "偉鉅中山?匯": "偉鉅中山双匯", "寶亞南山公?": "寶亞南山公館"}
 
 
 def roc_date(raw):
@@ -38,6 +40,7 @@ def make_snapshot(csv_path):
             if row.get("district") != "中和區":
                 continue
             name = (row.get("rps28") or "").strip()
+            name = NAME_FIXES.get(name, name)
             address = (row.get("rps02") or "").strip()
             when = roc_date(row.get("rps07_yyymmddroc") or row.get("rps07"))
             try:

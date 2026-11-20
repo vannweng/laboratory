@@ -27,9 +27,9 @@ export function summarizeProject({ name, transactions, asOf = new Date() }) {
     return age >= 0 && age <= THREE_YEARS_MS;
   });
   const average = (values) => values.reduce((sum, value) => sum + value, 0) / values.length;
-  const cheapMax = recent.length >= 5 ? percentile(recent.map((row) => row.unitPrice), 0.25) : null;
+  const cheapMax = recent.length >= 5 ? percentile(recent.map((row) => row.unitPrice), 0.35) : null;
   const reasonablePrice = recent.length >= 5 ? median(recent.map((row) => row.unitPrice)) : null;
-  const expensiveMin = recent.length >= 5 ? percentile(recent.map((row) => row.unitPrice), 0.75) : null;
+  const expensiveMin = recent.length >= 5 ? percentile(recent.map((row) => row.unitPrice), 0.65) : null;
   const latest = all[0];
   const latestIsRecent = recent.some((row) => row.id === latest.id);
   const signal = cheapMax === null || !latestIsRecent ? 'neutral' : latest.unitPrice <= cheapMax ? 'green' : latest.unitPrice >= expensiveMin ? 'red' : 'amber';

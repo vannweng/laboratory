@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#102d27" data-light="#102d27" data-dark="#101713" />
   <script src="../assets/theme.js"></script>
-  <title>購屋紅綠燈｜中和區預售屋開價比一比</title>
+  <title>購屋紅綠燈｜中和區預售屋出價建議</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261014-1" />
+  <link rel="stylesheet" href="../styles.css?v=20261120-1" />
   <link rel="stylesheet" href="../assets/home-buying-nav.css" />
   <link rel="stylesheet" href="../assets/controls.css?v=20261019-2" />
 </head>
@@ -26,8 +26,8 @@
       <div class="hero-content">
         <div class="eyebrow"><span class="eyebrow-line"></span> ZHONGHE / PRICE SIGNAL</div>
         <h1>這個開價，<br /><em>到底合理嗎？</em></h1>
-        <p>找出中和區的預售建案，輸入業務報的價格。我們用公開成交紀錄整理比較基準，讓你知道該追問什麼、從哪裡開始談。</p>
-        <div class="hero-meta"><span>01 搜尋建案</span><b>→</b><span>02 輸入開價</span><b>→</b><span>03 查看燈號與案例</span></div>
+        <p>找出中和區的預售建案，輸入業務報的價格和樓層。我們把相近坪數的成交修正到你的樓層與今天，給你目標價、行情價和離場價，再幫你檢查買不買得起。</p>
+        <div class="hero-meta"><span>01 搜尋建案</span><b>→</b><span>02 輸入開價與樓層</span><b>→</b><span>03 看出價建議</span></div>
       </div>
       <div class="hero-art" aria-hidden="true"><div class="art-grid"></div><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-core"><span class="art-light red"></span><span class="art-light amber"></span><span class="art-light green"></span></div><div class="art-label">MAKE AN INFORMED OFFER <span>↗</span></div></div>
     </section>
@@ -42,18 +42,41 @@
         <div id="selectedProject" class="selected-project" hidden><div><span class="selected-kicker">已選建案</span><strong id="selectedName"></strong><small id="selectedAddress"></small></div><button type="button" id="changeProject" class="text-button">更換</button></div>
         <form id="priceForm">
           <div class="form-divider"></div>
-          <div class="step-heading second"><span class="step-index">02 / YOUR ASKING PRICE</span><h2>輸入你拿到的開價</h2><p>請確認是同一種坪數與價格口徑，避免車位讓單價失真。</p></div>
-          <div class="fields"><div class="field"><label class="field-label" for="askingUnit">每坪開價 <span>必填</span></label><div class="input-unit"><input id="askingUnit" type="number" inputmode="decimal" min="1" max="500" step="1" placeholder="例如 85" required /><span>萬 / 坪</span></div></div><div class="field"><label class="field-label" for="targetArea">房屋坪數 <span>必填</span></label><div class="input-unit"><input id="targetArea" type="number" inputmode="decimal" min="8" max="150" step="1" placeholder="不含車位" required /><span>坪</span></div></div></div>
+          <div class="step-heading second"><span class="step-index">02 / YOUR ASKING PRICE</span><h2>輸入你拿到的開價</h2><p>單價請用不含車位的口徑。樓層會影響單價，有填結果比較準。</p></div>
+          <div class="fields fields-four"><div class="field"><label class="field-label" for="askingUnit">每坪開價 <span>必填</span></label><div class="input-unit"><input id="askingUnit" type="number" inputmode="decimal" min="1" max="500" step="1" placeholder="例如 85" required /><span>萬 / 坪</span></div></div><div class="field"><label class="field-label" for="targetArea">房屋坪數 <span>必填</span></label><div class="input-unit"><input id="targetArea" type="number" inputmode="decimal" min="8" max="150" step="1" placeholder="不含車位" required /><span>坪</span></div></div><div class="field"><label class="field-label" for="targetFloor">樓層 <em>建議填</em></label><div class="input-unit"><input id="targetFloor" type="number" inputmode="numeric" min="1" max="60" step="1" placeholder="例如 12" /><span>樓</span></div></div><div class="field"><label class="field-label" for="parkingPrice">車位價 <em>選填</em></label><div class="input-unit"><input id="parkingPrice" type="number" inputmode="decimal" min="0" max="2000" step="1" placeholder="沒有填 0" /><span>萬</span></div></div></div>
           <p class="field-hint">如果業務只報總價，先扣除車位價，再除以不含車位的房屋坪數。</p>
-          <button class="primary-button" type="submit">開始比價 <span>↗</span></button>
+          <button class="primary-button" type="submit">看出價建議 <span>↗</span></button>
         </form>
       </div>
 
       <div class="results-panel">
-        <section id="resultEmpty" class="empty-state card"><div class="empty-orb"><span></span><span></span><span></span></div><span class="step-index">THE SIGNAL</span><h2>你的結果，會從這裡開始。</h2><p>選擇建案並輸入每坪開價，我們會展示成交基準、價差與使用的案例。</p><div class="empty-lines"><i></i><i></i><i></i></div></section>
+        <section id="resultEmpty" class="empty-state card"><div class="empty-orb"><span></span><span></span><span></span></div><span class="step-index">THE SIGNAL</span><h2>你的結果，會從這裡開始。</h2><p>選擇建案並輸入每坪開價，我們會給出目標價、行情價、離場價，以及用到的成交案例。</p><div class="empty-lines"><i></i><i></i><i></i></div></section>
         <section id="resultContent" hidden>
-          <article id="signalCard" class="signal-card card"><div class="signal-top"><span class="step-index">03 / PRICE SIGNAL</span><span id="resultDate"></span></div><div class="signal-title-row"><div id="signalLamp" class="signal-lamp neutral"><i></i><i></i><i></i></div><div><span id="resultProject" class="signal-project"></span><h2 id="signalTitle"></h2><p id="signalDescription"></p></div></div><div class="signal-stats"><div><span>你的每坪開價</span><strong id="askingDisplay">—</strong><small>萬 / 坪</small></div><div><span>可比成交基準</span><strong id="baselineDisplay">—</strong><small>萬 / 坪</small></div><div><span>高低價差</span><strong id="differenceDisplay">—</strong><small>相對成交基準</small></div></div><div id="confidenceNote" class="confidence-note"></div></article>
-          <article class="cases-card card"><div class="cases-header"><div><span class="step-index">04 / COMPARE PROJECTS</span><h2>比較建案</h2></div><span id="casesCount" class="case-count">0 案已加入</span></div><p id="casesSummary" class="cases-summary"></p><label class="tolerance-control" for="vintageTolerance">首次成交年份差距 <select id="vintageTolerance"><option value="1">前後 1 年</option><option value="2">前後 2 年</option><option value="3" selected>前後 3 年</option></select></label><p id="comparisonStatus" class="comparison-status" role="status"></p><div id="caseList" class="case-list"></div><a class="source-link" href="https://data.ntpc.gov.tw/datasets/9238ccc2-9701-4ca7-a0a0-ebe4a0669685" target="_blank" rel="noopener noreferrer">前往新北市政府資料來源 ↗</a></article>
+          <article id="signalCard" class="signal-card card"><div class="signal-top"><span class="step-index">03 / OFFER ADVICE</span><span id="resultDate"></span></div><div class="signal-title-row"><div id="signalLamp" class="signal-lamp neutral"><i></i><i></i><i></i></div><div><span id="resultProject" class="signal-project"></span><h2 id="signalTitle"></h2><p id="signalDescription"></p></div></div>
+            <div id="priceBand" class="price-band" aria-hidden="true"></div>
+            <div class="offer-prices">
+              <div class="offer-price is-target"><span>目標價</span><strong id="targetDisplay">—</strong><small id="targetTotal"></small><em>中低價，在這以下可以買</em></div>
+              <div class="offer-price is-market"><span>行情價</span><strong id="marketDisplay">—</strong><small id="marketTotal"></small><em>一般成交水準</em></div>
+              <div class="offer-price is-walk"><span>離場價</span><strong id="walkDisplay">—</strong><small id="walkTotal"></small><em>超過就先不買</em></div>
+            </div>
+            <p id="overMarketNote" class="over-market"></p>
+            <div id="confidenceNote" class="confidence-note"></div>
+          </article>
+          <div class="result-actions card"><div><strong>下一步</strong><small id="offerStatus" role="status">把這次的開價和目標價記下來，之後回來比較。</small></div><button id="saveOffer" type="button" class="action-button">加入觀察列表</button><button id="writeNote" type="button" class="action-button is-quiet">寫看屋筆記 →</button></div>
+          <article id="affordCard" class="afford-card card"><div class="cases-header"><div><span class="step-index">04 / CAN YOU AFFORD IT</span><h2>買得起嗎？</h2></div><span class="case-count">貸 <span id="ltvLabel">8</span> 成試算</span></div>
+            <p class="cases-summary">價格合理不代表負擔得起。房貸月付建議不超過家庭月收入的三分之一。資料只存在這台瀏覽器。</p>
+            <form id="affordForm" class="afford-form" novalidate>
+              <div class="field"><label class="field-label" for="affordCash">可動用自備款</label><div class="input-unit"><input id="affordCash" name="cash" type="number" inputmode="decimal" min="0" step="10" /><span>萬</span></div></div>
+              <div class="field"><label class="field-label" for="affordIncome">家庭年收入</label><div class="input-unit"><input id="affordIncome" name="annualIncome" type="number" inputmode="decimal" min="1" step="5" /><span>萬</span></div></div>
+              <div class="field"><label class="field-label" for="affordDebt">其他每月貸款</label><div class="input-unit"><input id="affordDebt" name="otherMonthlyDebt" type="number" inputmode="numeric" min="0" step="1000" /><span>元</span></div></div>
+              <div class="field"><label class="field-label" for="affordRate">房貸利率</label><div class="input-unit"><input id="affordRate" name="rate" type="number" inputmode="decimal" min="0" max="15" step="0.05" /><span>%</span></div></div>
+              <div class="field"><label class="field-label" for="affordYears">貸款年期</label><div class="input-unit"><input id="affordYears" name="years" type="number" inputmode="numeric" min="5" max="40" step="1" /><span>年</span></div></div>
+              <div class="field"><label class="field-label" for="affordLtv">貸款成數</label><div class="input-unit"><input id="affordLtv" name="ltv" type="number" inputmode="numeric" min="3" max="9" step="0.5" /><span>成</span></div></div>
+            </form>
+            <p class="field-hint">另外預留總價 3% 的稅費、規費與雜支。預售屋多半分期付款，交屋時才開始繳房貸。</p>
+            <div id="affordResult" class="afford-result" aria-live="polite"></div>
+          </article>
+          <article class="cases-card card"><div class="cases-header"><div><span class="step-index">05 / EVIDENCE</span><h2>用了哪些成交</h2></div><span id="casesCount" class="case-count"></span></div><p id="casesSummary" class="cases-summary"></p><div id="caseList" class="case-list"></div><a class="source-link" href="https://data.ntpc.gov.tw/datasets/9238ccc2-9701-4ca7-a0a0-ebe4a0669685" target="_blank" rel="noopener noreferrer">前往新北市政府資料來源 ↗</a></article>
           <article class="visit-card card"><div class="visit-icon">↗</div><div><span class="step-index">BEFORE YOU VISIT</span><h2>地圖上看過，現場再走一次</h2><p>確認基地周圍道路、噪音與設施。街景拍攝時間可能早於建案公開時間。</p><a id="mapsLink" href="#" target="_blank" rel="noopener noreferrer" class="maps-button">在 Google Maps 查看基地 ↗</a></div></article>
         </section>
       </div>
@@ -65,7 +88,7 @@
       <div class="watchlist-picker"><label for="watchProject">選擇建案</label><select id="watchProject"><option value="">資料載入中…</option></select><button id="addWatchProject" type="button">＋ 加入列表</button></div>
       <p id="watchStatus" class="watch-status" role="status"></p>
       <div class="watch-table-scroll"><div class="watch-table-inner"><table class="watch-table"><thead><tr><th scope="col">建案</th><th scope="col">最新成交 <span>萬／坪</span></th><th scope="col">近三年價格 <span>萬／坪</span></th><th scope="col">紅綠燈</th><th scope="col">三年平均</th><th scope="col">最新日期</th><th scope="col"><span class="sr-only">操作</span></th></tr></thead><tbody id="watchList"></tbody></table></div></div>
-      <p class="watch-method">三個價格值依近三年成交單價計算：便宜界線為第 25 百分位、合理參考價為中位數、昂貴界線為第 75 百分位。最新一筆 ≤ 便宜界線為綠燈、≥ 昂貴界線為紅燈，其餘為黃燈。每案至少需要 5 筆近三年成交才判燈。</p>
+      <p class="watch-method">三個價格值依近三年成交單價計算：便宜界線為第 35 百分位、合理參考價為中位數、昂貴界線為第 65 百分位。最新一筆 ≤ 便宜界線為綠燈、≥ 昂貴界線為紅燈，其餘為黃燈。每案至少需要 5 筆近三年成交才判燈。</p>
     </section>
 
     <section id="trendPanel" class="trend-section card" role="tabpanel" aria-labelledby="tabTrend" hidden>
@@ -93,9 +116,9 @@
       <section class="mobile-compare"><div class="compare-heading"><div><span class="step-index">MOBILE COMPARISON</span><h3>物件橫向比對</h3></div><div class="compare-modes"><button id="compareCards" class="active" type="button">並排卡</button><button id="compareMetrics" type="button">指標排行</button></div></div><div id="compareCardView"><div class="comparison-scroll"><div class="comparison-grid"><div class="comparison-labels"><span>物件</span><span>單價／公設</span><span>踩雷</span><span>格局動線</span><span>屋況管線</span><span>社區管理</span><span>環境安寧</span><span>直覺偏好</span></div><div id="comparisonColumns" class="comparison-columns"></div></div></div><p class="compare-hint">左右滑動查看其他物件</p></div><div id="compareMetricView" hidden><div id="metricPicker" class="metric-picker"></div><div id="metricRanking" class="metric-ranking"></div></div></section>
     </section>
 
-    <section id="method" class="method-section"><div><span class="step-index">HOW IT WORKS</span><h2>一盞燈背後，<br />有清楚的比較依據。</h2></div><div class="method-copy"><p>本案自己的近三年、相近坪數成交會自動納入；系統另選入價格最低的最多三個可比建案，你可隨時加入、移除或清空。只要本案或任一已加入建案有可用成交，即會判燈；全數沒有成交才不判燈。候選案需符合相同建物類型、相近房屋坪數、基地直線距離 0 至 300 公尺與首次成交年份前後 1 至 3 年。</p><div class="legend"><span><i class="green"></i>低於基準 · 綠燈</span><span><i class="amber"></i>基準至高出 15% · 黃燈</span><span><i class="red"></i>高出超過 15% · 紅燈</span></div><p class="method-small">預售屋尚無實際屋齡，因此以各案「首次公開成交年份」代表案齡，並非完工年份。同一路名也不保證基地緊鄰；資料有發布時間差，成交中位數不是可保證的議價底價。</p></div></section>
+    <section id="method" class="method-section"><div><span class="step-index">HOW IT WORKS</span><h2>一盞燈背後，<br />有清楚的比較依據。</h2></div><div class="method-copy"><p>先找本案近三年、房屋坪數相差 25% 以內的成交；本案少於 6 筆時，再加入基地 500 公尺內同類型建案的成交。每一筆都修正到你的樓層與今天：樓層差與時間變化，是用同一建案內不同樓層、不同月份的成交差異估出來的，不會把不同建案的價位差混進來。修正後的價格排序，第 35 百分位是目標價、中位數是行情價、第 65 百分位是離場價。</p><div class="legend"><span><i class="green"></i>開價 ≤ 目標價 · 綠燈</span><span><i class="amber"></i>目標價到離場價 · 黃燈</span><span><i class="red"></i>高於離場價 · 紅燈</span></div><p class="method-small">信心程度：本案至少 15 筆、最近一筆在 9 個月內為「高」；本案至少 6 筆為「中」；需要借用附近建案為「低」；全部少於 5 筆不判燈。預售屋價格也受棟別、座向、格局與付款條件影響，這些沒有修正。成交價有登錄時間差，目標價不是保證能談到的底價。</p></div></section>
   </main>
   <footer><span>購屋紅綠燈 / 中和區試行版</span><span id="sourceFreshness">資料來源：新北市政府地政局</span></footer>
-  <script type="module" src="../app.mjs?v=20261014-1"></script>
+  <script type="module" src="../app.mjs?v=20261120-1"></script>
 </body>
 </html>

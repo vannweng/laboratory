@@ -1,4 +1,6 @@
-import { cheapestComparableNames, comparePrice, findComparableProjects, getProjects, summarizeProject } from './price-engine.mjs';
+import { getProjects, summarizeProject } from './price-engine.mjs';
+import { estimateAdjustments, offerAdvice } from './offer-engine.mjs';
+import { affordability, defaultAfford } from './afford-engine.mjs';
 import { analyzeTrend } from './trend-engine.mjs';
 import { CRITERIA, scoreAppreciation } from './appreciation-score.mjs';
 import { addLocation, hasCoordinates } from './geo-engine.mjs';
@@ -10,8 +12,12 @@ let transactions = [];
 let projects = [];
 let selected = null;
 let snapshot = null;
-let selectedNames = new Set();
-let comparisonCustomized = false;
+let lastAdvice = null;
+let adjustments = null;
+const offerStorageKey = 'zhonghe-offers-v1';
+let savedOffers = {};
+const affordStorageKey = 'zhonghe-afford-v1';
+let affordInput = defaultAfford();
 const watchStorageKey = 'zhonghe-watchlist-v1';
 let watchNames = [];
 let trendEvidence = [];
@@ -299,6 +305,8 @@ function renderWatchlist() {
     };
     const identity = element('div', 'watch-identity');
     identity.append(element('strong', '', name), element('small', '', `${summary.count} 筆成交`));
+    const offer = savedOffers[name];
+    if (offer) identity.append(element('small', `watch-offer ${offer.signal}`, `我的開價 ${number(offer.askingUnit, 1)}${offer.target ? ` · 目標 ≤ ${number(offer.target, 1)}` : ''}${offer.floor ? ` · ${offer.floor} 樓` : ''} · ${offer.savedAt}`));
     cell(identity, 'watch-name-cell');
     const latest = element('strong', 'watch-price', number(summary.latest.unitPrice, 1));
     cell(latest);
@@ -375,8 +383,6 @@ function renderSearch() {
 
 function chooseProject(project) {
   selected = project;
-  selectedNames = new Set();
-  comparisonCustomized = false;
   resetResult();
   $('#selectedName').textContent = project.name;
   $('#selectedAddress').textContent = project.address;
@@ -386,76 +392,143 @@ function chooseProject(project) {
   $('#askingUnit').focus();
 }
 
-function makeCandidate(candidate, included) {
-  const item = document.createElement('div');
-  item.className = `case-item ${included ? 'is-included' : ''}`;
-  const main = document.createElement('div');
-  const name = document.createElement('strong');
-  name.textContent = candidate.name;
-  const detail = document.createElement('small');
-  detail.textContent = `距離 ${Math.round(candidate.distanceMeters)} 公尺 · 首次成交 ${candidate.first.slice(0, 4)} 年 · ${candidate.cases.length} 筆相近坪數成交`;
-  const price = document.createElement('b');
-  price.textContent = `${number(candidate.baseline, 1)} 萬 / 坪`;
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'compare-button';
-  button.textContent = included ? '✓ 已加入' : '＋ 加入比較';
-  button.setAttribute('aria-pressed', String(included));
-  button.addEventListener('click', () => {
-    if (selectedNames.has(candidate.name)) selectedNames.delete(candidate.name);
-    else selectedNames.add(candidate.name);
-    comparisonCustomized = true;
-    calculateAndRender();
-  });
-  main.append(name, detail);
-  item.append(main, price, button);
-  return item;
-}
+const wan = (value) => `${number(value, 0)} 萬`;
+const signalTitles = { green: '綠燈 · 在目標價以內', amber: '黃燈 · 在行情附近，可以談', red: '紅燈 · 超過離場價', neutral: '資料不足 · 暫不判燈' };
+const confidenceLabels = { high: '高', medium: '中', low: '低', none: '不足' };
 
-function calculateAndRender(autoSelect = false) {
+function calculateAndRender() {
   const askingUnit = Number($('#askingUnit').value);
   const area = Number($('#targetArea').value);
-  const yearTolerance = Number($('#vintageTolerance').value);
-  if (autoSelect && !comparisonCustomized) {
-    selectedNames = new Set(cheapestComparableNames(findComparableProjects({ project: selected, projects, transactions, area, yearTolerance })));
-  }
-  const result = comparePrice({ project: selected, projects, transactions, askingUnit, area, selectedNames: [...selectedNames], yearTolerance, minDistanceMeters: 0, maxDistanceMeters: 300 });
-  selectedNames = new Set(result.selected.map((candidate) => candidate.name));
-  renderResult(result, askingUnit, yearTolerance);
+  const floor = Number($('#targetFloor').value) || null;
+  const parkingPrice = Number($('#parkingPrice').value) || 0;
+  lastAdvice = offerAdvice({ project: selected, projects, transactions, askingUnit, area, floor, parkingPrice, asOf: snapshot.generatedAt, adjustments });
+  lastAdvice.parkingPrice = parkingPrice;
+  renderResult(lastAdvice);
 }
 
-function renderResult(result, askingUnit, yearTolerance) {
+function renderPriceBand(advice) {
+  const band = $('#priceBand');
+  if (advice.signal === 'neutral') { band.replaceChildren(); return; }
+  const low = Math.min(advice.range.min, advice.askingUnit); const high = Math.max(advice.range.max, advice.askingUnit);
+  const span = high - low || 1;
+  const at = (value) => `${((value - low) / span) * 100}%`;
+  band.innerHTML = `<div class="band-track"><i class="band-green" style="left:0;width:${at(advice.target)}"></i><i class="band-amber" style="left:${at(advice.target)};width:calc(${at(advice.walkAway)} - ${at(advice.target)})"></i><i class="band-red" style="left:${at(advice.walkAway)};right:0"></i><b class="band-you" style="left:${at(advice.askingUnit)}"><span>你的開價</span></b></div><div class="band-scale"><span>${number(low, 1)}</span><span>${number(high, 1)} 萬／坪</span></div>`;
+}
+
+function renderResult(advice) {
   $('#resultEmpty').hidden = true;
   $('#resultContent').hidden = false;
   $('#resultDate').textContent = `資料快照 ${snapshot.generatedAt}`;
-  $('#resultProject').textContent = selected.name;
-  $('#signalLamp').className = `signal-lamp ${result.signal}`;
-  $('#askingDisplay').textContent = number(askingUnit, 1);
-  $('#baselineDisplay').textContent = result.baseline === null ? '—' : number(result.baseline, 1);
-  $('#differenceDisplay').textContent = result.difference === null ? '—' : `${result.difference > 0 ? '+' : ''}${number(result.difference, 1)}%`;
-  const titles = { green: '綠燈 · 低於成交基準', amber: '黃燈 · 接近或高於基準', red: '紅燈 · 高出基準逾 15%', neutral: '黑燈 · 沒有可用成交' };
-  const messages = {
-    green: '這個開價低於可比成交案例的中位數。請繼續確認樓層、車位與付款條件。',
-    amber: '這個開價介於成交基準與高出 15% 之間，值得帶著案例進一步議價。',
-    red: '開價明顯高於可比成交案例。建議先確認差異原因，再決定出價。',
-    neutral: '本案與已加入建案都沒有近三年、相近坪數的可用成交，因此暫不提供紅黃綠燈。',
-  };
-  $('#signalTitle').textContent = titles[result.signal];
-  $('#signalDescription').textContent = messages[result.signal];
-  $('#confidenceNote').textContent = result.benchmarkProjects.length
-    ? `已用 ${result.benchmarkProjects.length} 個建案計算${result.own ? '，包含本案自己的成交' : ''}；每案先取自身成交中位數，再由各案中位數產生比較基準。僅一案時可判燈，但更容易受單案條件影響。`
-    : '本案與已加入建案都沒有近三年、相近坪數的可用成交。預售屋以首次公開成交年份代表案齡，並非完工屋齡。';
-  $('#casesCount').textContent = `${result.selected.length} 案已加入${result.own ? ' · 本案已納入' : ''}`;
-  $('#casesSummary').textContent = `本案有符合條件的成交時會自動納入計算；其他候選案預設選入價格中位數最低的最多三案。候選案必須與「${selected.name}」基地直線距離 0–300 公尺，且首次成交年份相差不超過 ${yearTolerance} 年、建物類型相同、房屋坪數相差不超過 25%，近三年有成交。你可改選任意數量。`;
-  $('#comparisonStatus').textContent = result.candidates.length === 0
-    ? (hasCoordinates(selected) ? '目前沒有 0–300 公尺內且符合條件的不同建案；可調整年份差距或房屋坪數。' : '此建案尚未完成基地定位，暫時無法用距離篩選比較案。')
-    : `已選 ${result.selected.length} 案${result.own ? '，本案成交也已自動納入' : ''}。可再加入、移除，或清空比較；燈號會立即重算。`;
-  $('#caseList').replaceChildren(...[...result.candidates].sort((a, b) => a.baseline - b.baseline || a.name.localeCompare(b.name, 'zh-Hant')).map((candidate) => makeCandidate(candidate, selectedNames.has(candidate.name))));
+  $('#resultProject').textContent = `${selected.name} · ${advice.floor ? `${advice.floor} 樓 · ` : ''}${number(advice.area, 1)} 坪 · 開價 ${number(advice.askingUnit, 1)} 萬／坪`;
+  $('#signalLamp').className = `signal-lamp ${advice.signal}`;
+  $('#signalTitle').textContent = signalTitles[advice.signal];
+  renderPriceBand(advice);
+  const neutral = advice.signal === 'neutral';
+  for (const [key, id] of [['target', 'target'], ['market', 'market'], ['walkAway', 'walk']]) {
+    $(`#${id}Display`).textContent = neutral ? '—' : `${number(advice[key], 1)} 萬／坪`;
+    $(`#${id}Total`).textContent = neutral ? '' : `總價約 ${wan(advice.totals[key])}`;
+  }
+  if (neutral) {
+    $('#signalDescription').textContent = '本案和 500 公尺內的同類型建案，近三年相近坪數的成交少於 5 筆。資料太少時燈號容易誤導，請改用附近成交行情或實地詢價。';
+    $('#overMarketNote').textContent = '';
+  } else {
+    const messages = {
+      green: `開價在目標價以內，屬於近三年同條件成交的中低價位。仍要確認棟別、座向、付款條件與車位。`,
+      amber: `開價落在目標價與離場價之間，大約在第 ${Math.round(advice.position * 100)} 百分位。可以拿下方案例，試著往目標價談。`,
+      red: `開價高於近三年同條件成交的第 65 百分位。除非有明確理由（景觀、邊間、特殊格局），否則先不急著買。`,
+    };
+    $('#signalDescription').textContent = messages[advice.signal];
+    const diff = advice.overMarket;
+    $('#overMarketNote').innerHTML = `${diff > 0 ? `比行情貴約 <strong>${wan(diff)}</strong>` : `比行情便宜約 <strong>${wan(-diff)}</strong>`}；要談到目標價，${advice.overTarget > 0 ? `總價需要再少約 <strong>${wan(advice.overTarget)}</strong>` : '目前開價已經做到'}。你的開價總價約 ${wan(advice.askingTotal)}${advice.parkingPrice ? '（含車位）' : ''}。`;
+  }
+  const adj = advice.adjustments;
+  const floorText = advice.floor ? `每差一層修正 ${number(adj.floorPerLevel, 2)} 萬／坪` : '沒有填樓層，所以沒有做樓層修正';
+  const borrowed = advice.nearby ? `，並借用附近 ${advice.nearbyProjects.length} 個建案 ${advice.nearby} 筆` : '';
+  $('#confidenceNote').innerHTML = `<strong>信心程度：${confidenceLabels[advice.confidence]}</strong> · 用了本案 ${advice.own} 筆${borrowed}。${floorText}；時間修正每月 ${adj.monthTrend >= 0 ? '+' : ''}${number(adj.monthTrend, 2)} 萬／坪。${advice.confidence === 'low' ? '借用其他建案時，建商、屋齡與地段差異沒有修正，請把燈號當參考就好。' : ''}`;
+  $('#casesCount').textContent = neutral ? '0 筆' : `${advice.sampleSize} 筆 · 顯示 ${advice.cases.length} 筆`;
+  $('#casesSummary').textContent = neutral ? '' : '優先列出本案、樓層最接近的成交。右邊是修正到你的樓層與今天後的單價。';
+  $('#caseList').replaceChildren(...advice.cases.map((row) => {
+    const item = element('div', `case-item${row.name === selected.name ? ' is-included' : ''}`);
+    const main = element('div');
+    main.append(element('strong', '', `${row.name}${row.floorNumber ? ` · ${row.floorNumber} 樓` : ''} · ${number(row.homeArea, 1)} 坪`));
+    const shifts = [row.floorShift ? `樓層 ${row.floorShift > 0 ? '+' : ''}${number(row.floorShift, 1)}` : '', row.timeShift ? `時間 ${row.timeShift > 0 ? '+' : ''}${number(row.timeShift, 1)}` : ''].filter(Boolean).join('、');
+    main.append(element('small', '', `${row.date} 成交 ${number(row.unitPrice, 1)} 萬／坪${shifts ? `（${shifts}）` : ''}${row.distanceMeters ? ` · 距離 ${Math.round(row.distanceMeters)} 公尺` : ''}`));
+    item.append(main, element('b', '', `${number(row.adjusted, 1)} 萬／坪`));
+    return item;
+  }));
+  $('#offerStatus').textContent = savedOffers[selected.name] ? '這個建案已有記錄的開價，再按一次會更新。' : '把這次的開價和目標價記下來，之後回來比較。';
   $('#mapsLink').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ' ' + selected.name)}`;
+  renderAfford();
 }
 
+// ---- 負擔能力 ----
+function hydrateAfford() {
+  const plan = affordInput;
+  $('#affordCash').value = plan.cash;
+  $('#affordIncome').value = plan.annualIncome;
+  $('#affordDebt').value = Math.round(plan.otherMonthlyDebt * 10000);
+  $('#affordRate').value = Math.round(plan.rate * 10000) / 100;
+  $('#affordYears').value = plan.years;
+  $('#affordLtv').value = plan.ltv * 10;
+}
+function readAfford() {
+  return { ...affordInput, cash: Number($('#affordCash').value), annualIncome: Number($('#affordIncome').value), otherMonthlyDebt: (Number($('#affordDebt').value) || 0) / 10000, rate: Number($('#affordRate').value) / 100, years: Number($('#affordYears').value), ltv: Number($('#affordLtv').value) / 10 };
+}
+function renderAfford() {
+  const output = $('#affordResult');
+  try {
+    const input = readAfford();
+    const result = affordability(input, lastAdvice?.askingTotal);
+    affordInput = result.plan;
+    try { localStorage.setItem(affordStorageKey, JSON.stringify(affordInput)); } catch { /* 只影響下次預填 */ }
+    $('#ltvLabel').textContent = number(result.plan.ltv * 10, result.plan.ltv * 10 % 1 ? 1 : 0);
+    const limit = result.limitedBy === 'cash' ? '自備款' : '收入';
+    const parts = [`<div class="afford-headline"><span>你可負擔的總價上限</span><strong>約 ${wan(result.maxPrice)}</strong><small>目前卡在${limit}；月付上限約 ${number(result.maxMonthly * 10000, 0)} 元</small></div>`];
+    const check = result.check;
+    if (check) {
+      const issues = [];
+      if (check.cashShort > 0) issues.push(`自備款還差約 ${wan(check.cashShort)}`);
+      if (check.ratio > 0.4) issues.push('月付超過收入四成，負擔過重');
+      else if (check.ratio > result.plan.burden + 1e-9) issues.push('月付超過收入三分之一，偏緊');
+      const statusText = issues.length ? issues.join('；') : '負擔得起';
+      const tone = check.cashShort > 0 || check.ratio > 0.4 ? 'over' : check.ratio > result.plan.burden + 1e-9 ? 'tight' : 'ok';
+      parts.push(`<div class="afford-check is-${tone}"><span>以這次開價總價 ${wan(check.price)} 計算</span><strong>${statusText}</strong><ul><li>需準備現金約 ${wan(check.cashNeeded)}（頭期款加稅費 ${wan(check.fees)}）</li><li>貸款約 ${wan(check.loan)}，每月房貸約 ${number(check.payment * 10000, 0)} 元</li><li>房貸加其他貸款佔月收入 ${number(check.ratio * 100, 0)}%</li></ul></div>`);
+      if (lastAdvice?.signal && lastAdvice.signal !== 'neutral' && lastAdvice.totals.target > result.maxPrice) parts.push('<p class="field-hint">就算談到目標價，仍超過可負擔上限，建議改看較小坪數或其他建案。</p>');
+    }
+    output.innerHTML = parts.join('');
+  } catch (error) {
+    output.innerHTML = `<p class="field-hint">${error.message}</p>`;
+  }
+}
+
+// ---- 串接觀察列表與看屋筆記 ----
+function saveOffer() {
+  if (!lastAdvice || !selected) return;
+  const advice = lastAdvice;
+  savedOffers[selected.name] = { askingUnit: advice.askingUnit, area: advice.area, floor: advice.floor, parkingPrice: advice.parkingPrice || 0, signal: advice.signal, target: advice.target ?? null, market: advice.market ?? null, walkAway: advice.walkAway ?? null, confidence: advice.confidence, savedAt: new Date().toISOString().slice(0, 10) };
+  try { localStorage.setItem(offerStorageKey, JSON.stringify(savedOffers)); } catch { /* 下方提示 */ }
+  if (!watchNames.includes(selected.name)) { watchNames.push(selected.name); saveWatchlist(); }
+  renderWatchlist();
+  $('#offerStatus').textContent = `已加入觀察列表，並記下開價 ${number(advice.askingUnit, 1)} 萬／坪${advice.target ? `、目標價 ${number(advice.target, 1)} 萬／坪` : ''}。`;
+}
+function writeNoteFromResult() {
+  if (!lastAdvice || !selected) return;
+  resetNoteForm();
+  $('#noteProject').value = selected.name;
+  $('#noteSize').value = [lastAdvice.floor ? `${lastAdvice.floor} 樓` : '', `${number(lastAdvice.area, 1)} 坪`].filter(Boolean).join(' · ');
+  $('#noteTotal').value = Math.round(lastAdvice.askingTotal);
+  if (lastAdvice.parkingPrice) $('#noteParkingPrice').value = lastAdvice.parkingPrice;
+  updateNoteCalculation();
+  activateTab('notes');
+  $('#notesPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  $('#noteStatus').textContent = '已帶入建案、樓層、坪數與開價總價。';
+}
+$('#saveOffer').addEventListener('click', saveOffer);
+$('#writeNote').addEventListener('click', writeNoteFromResult);
+$('#affordForm').addEventListener('input', renderAfford);
+
 $('#projectSearch').addEventListener('focus', () => { if (projects.length) renderSearch(); });
-$('#projectSearch').addEventListener('input', () => { selected = null; selectedNames = new Set(); resetResult(); $('#selectedProject').hidden = true; renderSearch(); });
+$('#projectSearch').addEventListener('input', () => { selected = null; resetResult(); $('#selectedProject').hidden = true; renderSearch(); });
 $('#projectSearch').addEventListener('keydown', (event) => {
   if (event.key === 'Escape') setSearchOpen(false);
   if (event.key === 'Enter' && !$('#projectOptions').hidden) {
@@ -463,17 +536,18 @@ $('#projectSearch').addEventListener('keydown', (event) => {
     if (first) { event.preventDefault(); first.click(); }
   }
 });
-$('#clearSearch').addEventListener('click', () => { $('#projectSearch').value = ''; selected = null; selectedNames = new Set(); resetResult(); $('#selectedProject').hidden = true; $('#projectSearch').focus(); renderSearch(); });
+$('#clearSearch').addEventListener('click', () => { $('#projectSearch').value = ''; selected = null; resetResult(); $('#selectedProject').hidden = true; $('#projectSearch').focus(); renderSearch(); });
 $('#changeProject').addEventListener('click', () => { $('#projectSearch').focus(); $('#projectSearch').select(); renderSearch(); });
 document.addEventListener('click', (event) => { if (!event.target.closest('.search-wrap, .project-options')) setSearchOpen(false); });
 $('#askingUnit').addEventListener('input', resetResult);
-$('#targetArea').addEventListener('input', () => { selectedNames = new Set(); comparisonCustomized = false; resetResult(); });
-$('#vintageTolerance').addEventListener('change', () => { if (selected && $('#resultContent').hidden === false) calculateAndRender(); });
+$('#targetArea').addEventListener('input', resetResult);
+$('#targetFloor').addEventListener('input', resetResult);
+$('#parkingPrice').addEventListener('input', resetResult);
 $('#priceForm').addEventListener('submit', (event) => {
   event.preventDefault();
   if (!selected) { $('#projectSearch').focus(); renderSearch(); return; }
   if (!event.currentTarget.reportValidity()) return;
-  calculateAndRender(true);
+  calculateAndRender();
   if (window.innerWidth < 900) $('#resultContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
@@ -631,6 +705,16 @@ try {
     if (geoResponse.ok) geoSnapshot = await geoResponse.json();
   } catch { geoSnapshot = {}; }
   projects = addLocation(getProjects(transactions), geoSnapshot);
+  adjustments = estimateAdjustments(transactions, snapshot.generatedAt);
+  try {
+    const saved = JSON.parse(localStorage.getItem(offerStorageKey) || '{}');
+    if (saved && typeof saved === 'object' && !Array.isArray(saved)) savedOffers = saved;
+  } catch { savedOffers = {}; }
+  try {
+    const saved = JSON.parse(localStorage.getItem(affordStorageKey) || 'null');
+    if (saved && typeof saved === 'object') affordInput = { ...defaultAfford(), ...saved };
+  } catch { affordInput = defaultAfford(); }
+  hydrateAfford();
   $('#watchProject').replaceChildren(element('option', '', '請選擇建案'));
   $('#watchProject').firstElementChild.value = '';
   for (const project of [...projects].sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'))) {
@@ -663,7 +747,8 @@ try {
   } catch { /* AI summaries are optional and generated offline. */ }
   try {
     const saved = JSON.parse(localStorage.getItem(watchStorageKey) || '[]');
-    if (Array.isArray(saved)) watchNames = [...new Set(saved.filter((name) => typeof name === 'string' && projects.some((project) => project.name === name)))];
+    const renamed = { '?捷橙品': '双捷橙品', '偉鉅中山?匯': '偉鉅中山双匯', '寶亞南山公?': '寶亞南山公館' };
+    if (Array.isArray(saved)) watchNames = [...new Set(saved.map((name) => renamed[name] || name).filter((name) => typeof name === 'string' && projects.some((project) => project.name === name)))];
   } catch { watchNames = []; }
   try {
     const saved = JSON.parse(localStorage.getItem(notesStorageKey) || '[]');

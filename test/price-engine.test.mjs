@@ -108,9 +108,9 @@ test('watchlist uses the latest transaction and three-year percentiles', () => {
   assert.equal(result.averageUnitPrice, 100);
   assert.equal(result.averageTotalPrice, 3000);
   assert.equal(result.averageHomeArea, 30);
-  assert.equal(result.cheapMax, 90);
+  assert.equal(result.cheapMax, 94);
   assert.equal(result.reasonablePrice, 100);
-  assert.equal(result.expensiveMin, 110);
+  assert.equal(result.expensiveMin, 106);
   assert.equal(result.signal, 'red');
   assert.equal(percentile([80, 90, 100, 110, 120], 0.25), 90);
 });
