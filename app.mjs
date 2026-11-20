@@ -29,6 +29,9 @@ const affordStorageKey = 'zhonghe-afford-v1';
 let affordInput = defaultAfford();
 const watchStorageKey = 'zhonghe-watchlist-v1';
 let watchNames = [];
+const watchSortKey = 'zhonghe-watch-sort-v1';
+let watchSort = { key: null, dir: 'asc' };
+try { const saved = JSON.parse(localStorage.getItem(watchSortKey) || 'null'); if (saved && ['latest', 'signal'].includes(saved.key) && ['asc', 'desc'].includes(saved.dir)) watchSort = saved; } catch { /* 使用加入順序 */ }
 let trendEvidence = [];
 let aiSummaries = {};
 let geoSnapshot = {};
@@ -289,7 +292,59 @@ function watchLines(items) {
   return box;
 }
 
+function paintWatchSort() {
+  for (const header of document.querySelectorAll('[data-sort-col]')) {
+    const active = header.dataset.sortCol === watchSort.key;
+    header.setAttribute('aria-sort', active ? (watchSort.dir === 'asc' ? 'ascending' : 'descending') : 'none');
+    header.querySelector('.sort-button').classList.toggle('is-active', active);
+  }
+}
+document.querySelectorAll('.sort-button').forEach((button) => button.addEventListener('click', () => {
+  const key = button.dataset.sort;
+  // 每次點擊：升冪 → 降冪 → 回到加入順序
+  watchSort = watchSort.key !== key ? { key, dir: 'asc' } : watchSort.dir === 'asc' ? { key, dir: 'desc' } : { key: null, dir: 'asc' };
+  try { localStorage.setItem(watchSortKey, JSON.stringify(watchSort)); } catch { /* 只影響下次開啟 */ }
+  renderWatchlist();
+  const labels = { latest: '最新成交單價', signal: '紅綠燈' };
+  $('#watchStatus').textContent = watchSort.key ? `依${labels[watchSort.key]}${watchSort.key === 'signal' ? (watchSort.dir === 'asc' ? '排序：便宜 → 昂貴' : '排序：昂貴 → 便宜') : (watchSort.dir === 'asc' ? '由低到高排序' : '由高到低排序')}。` : '已恢復加入順序。';
+}));
+
+// ---- 依紅綠燈篩選「選擇建案」清單 ----
+const projectSignals = new Map();
+let watchFilter = 'all';
+const watchSignalNames = { green: '便宜', amber: '合理', red: '昂貴', neutral: '資料不足' };
+function renderWatchPicker() {
+  const sorted = [...projects].sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'));
+  const counts = { all: sorted.length, green: 0, amber: 0, red: 0 };
+  for (const project of sorted) { const signal = projectSignals.get(project.name); if (signal in counts) counts[signal] += 1; }
+  for (const button of document.querySelectorAll('[data-watch-filter]')) {
+    const key = button.dataset.watchFilter;
+    const on = key === watchFilter;
+    button.classList.toggle('is-active', on);
+    button.setAttribute('aria-pressed', String(on));
+    let count = button.querySelector('small');
+    if (!count) { count = element('small'); button.append(count); }
+    count.textContent = counts[key];
+  }
+  const shown = sorted.filter((project) => watchFilter === 'all' || projectSignals.get(project.name) === watchFilter);
+  const placeholder = element('option', '', shown.length ? `請選擇建案（${shown.length} 個）` : `目前沒有「${watchSignalNames[watchFilter]}」的建案`);
+  placeholder.value = '';
+  const options = shown.map((project) => {
+    const option = element('option', '', `${project.name} · ${watchSignalNames[projectSignals.get(project.name)]}${watchNames.includes(project.name) ? '（已加入）' : ''}`);
+    option.value = project.name;
+    return option;
+  });
+  $('#watchProject').replaceChildren(placeholder, ...options);
+}
+document.querySelectorAll('[data-watch-filter]').forEach((button) => button.addEventListener('click', () => {
+  watchFilter = button.dataset.watchFilter;
+  renderWatchPicker();
+  $('#watchStatus').textContent = watchFilter === 'all' ? '顯示全部建案。' : `只顯示最新成交為「${watchSignalNames[watchFilter]}」的建案。`;
+}));
+
 function renderWatchlist() {
+  paintWatchSort();
+  if (projectSignals.size) renderWatchPicker();
   const list = $('#watchList');
   list.replaceChildren();
   $('#watchCount').textContent = `${watchNames.length} 個建案`;
@@ -302,9 +357,19 @@ function renderWatchlist() {
     return;
   }
   const signalLabels = { green: '便宜', amber: '合理', red: '昂貴', neutral: '資料不足' };
-  for (const name of watchNames) {
-    const summary = summarizeProject({ name, transactions });
-    if (!summary) continue;
+  const signalRank = { green: 0, amber: 1, red: 2 };
+  let entries = watchNames.map((name) => ({ name, summary: summarizeProject({ name, transactions }) })).filter((entry) => entry.summary);
+  if (watchSort.key) {
+    const direction = watchSort.dir === 'asc' ? 1 : -1;
+    const value = (entry) => (watchSort.key === 'latest' ? entry.summary.latest.unitPrice : signalRank[entry.summary.signal]);
+    // 「資料不足」沒有燈號，無論升冪或降冪都排在最後；同值時維持加入順序。
+    entries = entries.map((entry, index) => ({ ...entry, index })).sort((a, b) => {
+      const va = value(a); const vb = value(b);
+      if (va === undefined || vb === undefined) return (va === undefined) - (vb === undefined) || a.index - b.index;
+      return (va - vb) * direction || a.index - b.index;
+    });
+  }
+  for (const { name, summary } of entries) {
     const row = element('tr', 'watch-row');
     const cell = (content, className = '') => {
       const td = element('td', className);
@@ -829,14 +894,12 @@ try {
     if (saved && typeof saved === 'object') affordInput = { ...defaultAfford(), ...saved };
   } catch { affordInput = defaultAfford(); }
   hydrateAfford();
-  $('#watchProject').replaceChildren(element('option', '', '請選擇建案'));
-  $('#watchProject').firstElementChild.value = '';
-  for (const project of [...projects].sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'))) {
-    const option = element('option', '', project.name);
-    option.value = project.name;
-    $('#watchProject').append(option);
-  }
-  $('#trendProject').replaceChildren(...[...$('#watchProject').options].map((option) => option.cloneNode(true)));
+  for (const project of projects) projectSignals.set(project.name, summarizeProject({ name: project.name, transactions })?.signal || 'neutral');
+  renderWatchPicker();
+  const trendOptions = [element('option', '', '請選擇建案')];
+  trendOptions[0].value = '';
+  for (const project of [...projects].sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'))) { const option = element('option', '', project.name); option.value = project.name; trendOptions.push(option); }
+  $('#trendProject').replaceChildren(...trendOptions);
   $('#noteProjectOptions').replaceChildren(...projects.map((project) => {
     const option = document.createElement('option');
     option.value = project.name;

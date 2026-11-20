@@ -339,3 +339,25 @@ body[data-theme="dark"] .pulse-tag { background: #1f3428; }
 body[data-theme="dark"] .pulse-tag.seller { background: #3d2522; }
 body[data-theme="dark"] .pulse-tag.mixed { background: #3a3220; color: var(--amber); }
 body[data-theme="dark"] .pulse-tag.neutral { background: #26302a; }
+
+/* 觀察列表排序 */
+.sort-button { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; margin: -6px -6px; padding: 0 6px; border: 0; border-radius: 5px; background: transparent; color: inherit; font: inherit; font-weight: 700; white-space: nowrap; cursor: pointer; }
+.sort-button:hover { background: rgba(23,52,45,.06); }
+.sort-button:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
+.sort-button i { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; opacity: .3; }
+.sort-button.is-active { color: var(--ink); }
+.sort-button.is-active i { opacity: 1; }
+th[aria-sort="ascending"] .sort-button i { border-top: 0; border-bottom: 5px solid currentColor; }
+body[data-theme="dark"] .sort-button:hover { background: rgba(255,255,255,.08); }
+
+/* 觀察列表：依紅綠燈篩選可選建案 */
+.watch-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+.watch-filter + .watchlist-picker { margin-top: 12px; }
+.watch-filter button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font-size: 12px; font-weight: 700; }
+.watch-filter button i { width: 8px; height: 8px; border-radius: 50%; }
+.watch-filter button i.green { background: var(--green); }
+.watch-filter button i.amber { background: var(--amber); }
+.watch-filter button i.red { background: var(--red); }
+.watch-filter button small { font: 500 11px "DM Mono", monospace; opacity: .75; }
+.watch-filter button.is-active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.watch-filter button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }

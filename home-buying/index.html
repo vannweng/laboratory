@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261120-2" />
+  <link rel="stylesheet" href="../styles.css?v=20261120-4" />
   <link rel="stylesheet" href="../assets/home-buying-nav.css" />
   <link rel="stylesheet" href="../assets/controls.css?v=20261019-2" />
 </head>
@@ -97,9 +97,9 @@
 
     <section id="watchlist" class="watchlist-section card">
       <div class="watchlist-header"><div><span class="step-index">MY PROJECT LIST</span><h2>我的建案觀察列表</h2><p>自行加入中和區建案，並排查看最新一筆成交與近三年的價格分布。列表只保存在這台瀏覽器。</p></div><span id="watchCount" class="case-count">0 個建案</span></div>
-      <div class="watchlist-picker"><label for="watchProject">選擇建案</label><select id="watchProject"><option value="">資料載入中…</option></select><button id="addWatchProject" type="button">＋ 加入列表</button></div>
+      <div class="watch-filter" role="group" aria-label="依紅綠燈篩選可選建案"><button type="button" data-watch-filter="all" class="is-active" aria-pressed="true">全部</button><button type="button" data-watch-filter="red" aria-pressed="false"><i class="red"></i>昂貴</button><button type="button" data-watch-filter="amber" aria-pressed="false"><i class="amber"></i>合理</button><button type="button" data-watch-filter="green" aria-pressed="false"><i class="green"></i>便宜</button></div><div class="watchlist-picker"><label for="watchProject">選擇建案</label><select id="watchProject"><option value="">資料載入中…</option></select><button id="addWatchProject" type="button">＋ 加入列表</button></div>
       <p id="watchStatus" class="watch-status" role="status"></p>
-      <div class="watch-table-scroll"><div class="watch-table-inner"><table class="watch-table"><thead><tr><th scope="col">建案</th><th scope="col">最新成交 <span>萬／坪</span></th><th scope="col">近三年價格 <span>萬／坪</span></th><th scope="col">紅綠燈</th><th scope="col">三年平均</th><th scope="col">最新日期</th><th scope="col"><span class="sr-only">操作</span></th></tr></thead><tbody id="watchList"></tbody></table></div></div>
+      <div class="watch-table-scroll"><div class="watch-table-inner"><table class="watch-table"><thead><tr><th scope="col">建案</th><th scope="col" data-sort-col="latest" aria-sort="none"><button type="button" class="sort-button" data-sort="latest">最新成交 <span>萬／坪</span><i aria-hidden="true"></i></button></th><th scope="col">近三年價格 <span>萬／坪</span></th><th scope="col" data-sort-col="signal" aria-sort="none"><button type="button" class="sort-button" data-sort="signal">紅綠燈<i aria-hidden="true"></i></button></th><th scope="col">三年平均</th><th scope="col">最新日期</th><th scope="col"><span class="sr-only">操作</span></th></tr></thead><tbody id="watchList"></tbody></table></div></div>
       <p class="watch-method">三個價格值依近三年成交單價計算：便宜界線為第 35 百分位、合理參考價為中位數、昂貴界線為第 65 百分位。最新一筆 ≤ 便宜界線為綠燈、≥ 昂貴界線為紅燈，其餘為黃燈。每案至少需要 5 筆近三年成交才判燈。</p>
     </section>
 
@@ -137,6 +137,6 @@
     <section id="method" class="method-section"><div><span class="step-index">HOW IT WORKS</span><h2>一盞燈背後，<br />有清楚的比較依據。</h2></div><div class="method-copy"><p><strong>預售屋：</strong>先找本案近三年、房屋坪數相差 25% 以內的成交；本案少於 6 筆時，再加入基地 500 公尺內同類型建案的成交。每一筆都修正到你的樓層與今天：樓層差與時間變化，是用同一建案內不同樓層、不同月份的成交差異估出來的，不會把不同建案的價位差混進來。修正後的價格排序，第 35 百分位是目標價、中位數是行情價、第 65 百分位是離場價。</p><p><strong>中古屋與成屋：</strong>依序找同一棟、同路段且屋齡相差 5 年內、其他路段屋齡相近（最多 30 筆）的成交，型態相同、坪數相差 25% 以內，並修正樓層、屋齡與時間。一樓常有店面溢價，只跟一樓比較。資料來自內政部實價登錄，排除親友交易、急買急賣、頂樓加蓋等特殊交易。</p><div class="legend"><span><i class="green"></i>開價 ≤ 目標價 · 綠燈</span><span><i class="amber"></i>目標價到離場價 · 黃燈</span><span><i class="red"></i>高於離場價 · 紅燈</span></div><p class="method-small">信心程度：本案至少 15 筆、最近一筆在 9 個月內為「高」；本案至少 6 筆為「中」；需要借用附近建案為「低」；全部少於 5 筆不判燈。預售屋價格也受棟別、座向、格局與付款條件影響，這些沒有修正。成交價有登錄時間差，目標價不是保證能談到的底價。</p></div></section>
   </main>
   <footer><span>購屋紅綠燈 / 中和區試行版</span><span id="sourceFreshness">資料來源：內政部實價登錄</span></footer>
-  <script type="module" src="../app.mjs?v=20261120-2"></script>
+  <script type="module" src="../app.mjs?v=20261120-4"></script>
 </body>
 </html>
