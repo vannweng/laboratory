@@ -1,6 +1,8 @@
 import { getProjects, summarizeProject } from './price-engine.mjs';
 import { estimateAdjustments, offerAdvice } from './offer-engine.mjs';
 import { affordability, defaultAfford } from './afford-engine.mjs';
+import { estimateResaleAdjustments, listBuildings, listStreets, resaleAdvice } from './resale-engine.mjs';
+import { marketPulse, quarterlyTrend } from './district-engine.mjs';
 import { analyzeTrend } from './trend-engine.mjs';
 import { CRITERIA, scoreAppreciation } from './appreciation-score.mjs';
 import { addLocation, hasCoordinates } from './geo-engine.mjs';
@@ -13,6 +15,13 @@ let projects = [];
 let selected = null;
 let snapshot = null;
 let lastAdvice = null;
+let mode = 'presale';
+let subject = null;
+let resaleSnapshot = null;
+let resaleRows = [];
+let resaleAdjustments = null;
+const districtSeries = {};
+let districtSegment = 'elevator';
 let adjustments = null;
 const offerStorageKey = 'zhonghe-offers-v1';
 let savedOffers = {};
@@ -401,9 +410,27 @@ function calculateAndRender() {
   const area = Number($('#targetArea').value);
   const floor = Number($('#targetFloor').value) || null;
   const parkingPrice = Number($('#parkingPrice').value) || 0;
-  lastAdvice = offerAdvice({ project: selected, projects, transactions, askingUnit, area, floor, parkingPrice, asOf: snapshot.generatedAt, adjustments });
+  if (mode === 'resale') {
+    const street = $('#resaleStreet').value.trim();
+    const building = $('#resaleBuilding').value;
+    subject = { name: building || street, address: `新北市中和區${building || street}`, kind: 'resale' };
+    lastAdvice = resaleAdvice({ rows: resaleRows, street, building, built: Number($('#resaleBuilt').value), type: $('#resaleType').value, floor, area, askingUnit, parkingPrice, asOf: resaleSnapshot.generatedAt, adjustments: resaleAdjustments });
+  } else {
+    subject = { name: selected.name, address: selected.address, kind: 'presale' };
+    lastAdvice = offerAdvice({ project: selected, projects, transactions, askingUnit, area, floor, parkingPrice, asOf: snapshot.generatedAt, adjustments });
+  }
   lastAdvice.parkingPrice = parkingPrice;
   renderResult(lastAdvice);
+}
+
+const tierLabels = { building: '同一棟', street: '同路段', district: '其他路段' };
+function renderMarketContext(advice) {
+  const segment = advice.kind === 'resale' ? (advice.type === '公寓' ? 'walkup' : 'elevator') : 'presale';
+  const pulse = districtSeries[segment] && marketPulse(districtSeries[segment]);
+  const labels = { elevator: '中古大樓／華廈', walkup: '中古公寓', presale: '預售屋' };
+  $('#marketContext').innerHTML = pulse?.reading
+    ? `<strong>整區時機參考</strong> · 中和${labels[segment]} ${pulse.latest.quarter.replace('Q', ' 第 ')} 季中位數 ${number(pulse.latest.median, 1)} 萬／坪，比去年同季 ${pulse.priceChange >= 0 ? '+' : ''}${number(pulse.priceChange * 100, 1)}%，成交量 ${pulse.volumeChange >= 0 ? '+' : ''}${number(pulse.volumeChange * 100, 0)}%。${pulse.reading.text}`
+    : '';
 }
 
 function renderPriceBand(advice) {
@@ -418,8 +445,9 @@ function renderPriceBand(advice) {
 function renderResult(advice) {
   $('#resultEmpty').hidden = true;
   $('#resultContent').hidden = false;
-  $('#resultDate').textContent = `資料快照 ${snapshot.generatedAt}`;
-  $('#resultProject').textContent = `${selected.name} · ${advice.floor ? `${advice.floor} 樓 · ` : ''}${number(advice.area, 1)} 坪 · 開價 ${number(advice.askingUnit, 1)} 萬／坪`;
+  const isResale = advice.kind === 'resale';
+  $('#resultDate').textContent = `資料快照 ${(isResale ? resaleSnapshot : snapshot).generatedAt}`;
+  $('#resultProject').textContent = `${subject.name}${isResale ? ` · ${advice.type} · ${advice.built} 年完工` : ''} · ${advice.floor ? `${advice.floor} 樓 · ` : ''}${number(advice.area, 1)} 坪 · 開價 ${number(advice.askingUnit, 1)} 萬／坪`;
   $('#signalLamp').className = `signal-lamp ${advice.signal}`;
   $('#signalTitle').textContent = signalTitles[advice.signal];
   renderPriceBand(advice);
@@ -429,11 +457,13 @@ function renderResult(advice) {
     $(`#${id}Total`).textContent = neutral ? '' : `總價約 ${wan(advice.totals[key])}`;
   }
   if (neutral) {
-    $('#signalDescription').textContent = '本案和 500 公尺內的同類型建案，近三年相近坪數的成交少於 5 筆。資料太少時燈號容易誤導，請改用附近成交行情或實地詢價。';
+    $('#signalDescription').textContent = isResale
+      ? '同型態、屋齡相差 5 年內、坪數相近的成交，近三年少於 5 筆。可以放寬坪數或確認完工年份與型態後再試。'
+      : '本案和 500 公尺內的同類型建案，近三年相近坪數的成交少於 5 筆。資料太少時燈號容易誤導，請改用附近成交行情或實地詢價。';
     $('#overMarketNote').textContent = '';
   } else {
     const messages = {
-      green: `開價在目標價以內，屬於近三年同條件成交的中低價位。仍要確認棟別、座向、付款條件與車位。`,
+      green: isResale ? '開價在目標價以內，屬於近三年同條件成交的中低價位。仍要確認屋況、漏水壁癌、管線年份與社區管理。' : '開價在目標價以內，屬於近三年同條件成交的中低價位。仍要確認棟別、座向、付款條件與車位。',
       amber: `開價落在目標價與離場價之間，大約在第 ${Math.round(advice.position * 100)} 百分位。可以拿下方案例，試著往目標價談。`,
       red: `開價高於近三年同條件成交的第 65 百分位。除非有明確理由（景觀、邊間、特殊格局），否則先不急著買。`,
     };
@@ -443,21 +473,32 @@ function renderResult(advice) {
   }
   const adj = advice.adjustments;
   const floorText = advice.floor ? `每差一層修正 ${number(adj.floorPerLevel, 2)} 萬／坪` : '沒有填樓層，所以沒有做樓層修正';
-  const borrowed = advice.nearby ? `，並借用附近 ${advice.nearbyProjects.length} 個建案 ${advice.nearby} 筆` : '';
-  $('#confidenceNote').innerHTML = `<strong>信心程度：${confidenceLabels[advice.confidence]}</strong> · 用了本案 ${advice.own} 筆${borrowed}。${floorText}；時間修正每月 ${adj.monthTrend >= 0 ? '+' : ''}${number(adj.monthTrend, 2)} 萬／坪。${advice.confidence === 'low' ? '借用其他建案時，建商、屋齡與地段差異沒有修正，請把燈號當參考就好。' : ''}`;
+  const timeText = `時間修正每月 ${adj.monthTrend >= 0 ? '+' : ''}${number(adj.monthTrend, 2)} 萬／坪`;
+  if (isResale) {
+    const used = [['building', '同一棟'], ['street', '同路段（屋齡差 5 年內）'], ['district', '其他路段']].filter(([key]) => advice.counts[key]).map(([key, label]) => `${label} ${advice.counts[key]} 筆`).join('、') || '沒有可用成交';
+    $('#confidenceNote').innerHTML = `<strong>信心程度：${confidenceLabels[advice.confidence]}</strong> · 用了${used}。${floorText}；屋齡每新一年 +${number(adj.perNewerYear, 2)} 萬／坪；${timeText}。${advice.counts.district ? '用到其他路段時，地段差異沒有修正，請把燈號當參考就好。' : ''}`;
+  } else {
+    const borrowed = advice.nearby ? `，並借用附近 ${advice.nearbyProjects.length} 個建案 ${advice.nearby} 筆` : '';
+    $('#confidenceNote').innerHTML = `<strong>信心程度：${confidenceLabels[advice.confidence]}</strong> · 用了本案 ${advice.own} 筆${borrowed}。${floorText}；${timeText}。${advice.confidence === 'low' ? '借用其他建案時，建商、屋齡與地段差異沒有修正，請把燈號當參考就好。' : ''}`;
+  }
+  renderMarketContext(advice);
   $('#casesCount').textContent = neutral ? '0 筆' : `${advice.sampleSize} 筆 · 顯示 ${advice.cases.length} 筆`;
-  $('#casesSummary').textContent = neutral ? '' : '優先列出本案、樓層最接近的成交。右邊是修正到你的樓層與今天後的單價。';
+  $('#casesSummary').textContent = neutral ? '' : isResale ? '優先列出同一棟、同路段、樓層最接近的成交。右邊是修正到你的樓層、屋齡與今天後的單價。' : '優先列出本案、樓層最接近的成交。右邊是修正到你的樓層與今天後的單價。';
   $('#caseList').replaceChildren(...advice.cases.map((row) => {
-    const item = element('div', `case-item${row.name === selected.name ? ' is-included' : ''}`);
+    const mine = isResale ? row.tier === 'building' : row.name === subject.name;
+    const item = element('div', `case-item${mine ? ' is-included' : ''}`);
     const main = element('div');
-    main.append(element('strong', '', `${row.name}${row.floorNumber ? ` · ${row.floorNumber} 樓` : ''} · ${number(row.homeArea, 1)} 坪`));
-    const shifts = [row.floorShift ? `樓層 ${row.floorShift > 0 ? '+' : ''}${number(row.floorShift, 1)}` : '', row.timeShift ? `時間 ${row.timeShift > 0 ? '+' : ''}${number(row.timeShift, 1)}` : ''].filter(Boolean).join('、');
+    const label = isResale ? `${row.building}（${tierLabels[row.tier]} · ${row.built} 年）` : row.name;
+    main.append(element('strong', '', `${label}${row.floorNumber ? ` · ${row.floorNumber} 樓` : ''} · ${number(row.homeArea, 1)} 坪`));
+    const signed = (value) => `${value > 0 ? '+' : ''}${number(value, 1)}`;
+    const shifts = [row.floorShift ? `樓層 ${signed(row.floorShift)}` : '', row.ageShift ? `屋齡 ${signed(row.ageShift)}` : '', row.timeShift ? `時間 ${signed(row.timeShift)}` : ''].filter(Boolean).join('、');
     main.append(element('small', '', `${row.date} 成交 ${number(row.unitPrice, 1)} 萬／坪${shifts ? `（${shifts}）` : ''}${row.distanceMeters ? ` · 距離 ${Math.round(row.distanceMeters)} 公尺` : ''}`));
     item.append(main, element('b', '', `${number(row.adjusted, 1)} 萬／坪`));
     return item;
   }));
-  $('#offerStatus').textContent = savedOffers[selected.name] ? '這個建案已有記錄的開價，再按一次會更新。' : '把這次的開價和目標價記下來，之後回來比較。';
-  $('#mapsLink').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ' ' + selected.name)}`;
+  $('#saveOffer').hidden = isResale;
+  $('#offerStatus').textContent = isResale ? '觀察列表目前只收預售建案；可以先把這間寫進看屋筆記。' : savedOffers[subject.name] ? '這個建案已有記錄的開價，再按一次會更新。' : '把這次的開價和目標價記下來，之後回來比較。';
+  $('#mapsLink').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(isResale ? subject.address : `${subject.address} ${subject.name}`)}`;
   renderAfford();
 }
 
@@ -503,7 +544,7 @@ function renderAfford() {
 
 // ---- 串接觀察列表與看屋筆記 ----
 function saveOffer() {
-  if (!lastAdvice || !selected) return;
+  if (!lastAdvice || !selected || lastAdvice.kind === 'resale') return;
   const advice = lastAdvice;
   savedOffers[selected.name] = { askingUnit: advice.askingUnit, area: advice.area, floor: advice.floor, parkingPrice: advice.parkingPrice || 0, signal: advice.signal, target: advice.target ?? null, market: advice.market ?? null, walkAway: advice.walkAway ?? null, confidence: advice.confidence, savedAt: new Date().toISOString().slice(0, 10) };
   try { localStorage.setItem(offerStorageKey, JSON.stringify(savedOffers)); } catch { /* 下方提示 */ }
@@ -512,16 +553,16 @@ function saveOffer() {
   $('#offerStatus').textContent = `已加入觀察列表，並記下開價 ${number(advice.askingUnit, 1)} 萬／坪${advice.target ? `、目標價 ${number(advice.target, 1)} 萬／坪` : ''}。`;
 }
 function writeNoteFromResult() {
-  if (!lastAdvice || !selected) return;
+  if (!lastAdvice || !subject) return;
   resetNoteForm();
-  $('#noteProject').value = selected.name;
+  $('#noteProject').value = subject.name;
   $('#noteSize').value = [lastAdvice.floor ? `${lastAdvice.floor} 樓` : '', `${number(lastAdvice.area, 1)} 坪`].filter(Boolean).join(' · ');
   $('#noteTotal').value = Math.round(lastAdvice.askingTotal);
   if (lastAdvice.parkingPrice) $('#noteParkingPrice').value = lastAdvice.parkingPrice;
   updateNoteCalculation();
   activateTab('notes');
   $('#notesPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  $('#noteStatus').textContent = '已帶入建案、樓層、坪數與開價總價。';
+  $('#noteStatus').textContent = `已帶入${subject.kind === 'resale' ? '地址' : '建案'}、樓層、坪數與開價總價。`;
 }
 $('#saveOffer').addEventListener('click', saveOffer);
 $('#writeNote').addEventListener('click', writeNoteFromResult);
@@ -545,11 +586,83 @@ $('#targetFloor').addEventListener('input', resetResult);
 $('#parkingPrice').addEventListener('input', resetResult);
 $('#priceForm').addEventListener('submit', (event) => {
   event.preventDefault();
-  if (!selected) { $('#projectSearch').focus(); renderSearch(); return; }
+  if (mode === 'presale' && !selected) { $('#projectSearch').focus(); renderSearch(); return; }
+  if (mode === 'resale') {
+    if (!resaleRows.length) { $('#resaleStatus').textContent = '中古屋資料還沒載入完成，請稍候再試。'; return; }
+    if (!$('#resaleStreet').value.trim()) { $('#resaleStreet').focus(); $('#resaleStatus').textContent = '請先選路名。'; return; }
+    if (!(Number($('#resaleBuilt').value) >= 1950)) { $('#resaleBuilt').focus(); $('#resaleStatus').textContent = '請填完工年份（可在權狀或 591 物件頁找到）。'; return; }
+  }
   if (!event.currentTarget.reportValidity()) return;
-  calculateAndRender();
+  try { calculateAndRender(); } catch (error) { $(mode === 'resale' ? '#resaleStatus' : '#dataStatus').textContent = error.message; return; }
   if (window.innerWidth < 900) $('#resultContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+
+function setMode(next) {
+  mode = next;
+  $('#modePresale').classList.toggle('is-active', mode === 'presale');
+  $('#modeResale').classList.toggle('is-active', mode === 'resale');
+  $('#modePresale').setAttribute('aria-pressed', String(mode === 'presale'));
+  $('#modeResale').setAttribute('aria-pressed', String(mode === 'resale'));
+  $('#presaleEntry').hidden = mode !== 'presale';
+  $('#resaleEntry').hidden = mode !== 'resale';
+  resetResult();
+}
+$('#modePresale').addEventListener('click', () => setMode('presale'));
+$('#modeResale').addEventListener('click', () => setMode('resale'));
+function renderBuildingOptions() {
+  const street = $('#resaleStreet').value.trim();
+  const select = $('#resaleBuilding');
+  const options = [element('option', '', street ? '不指定（用整條路比較）' : '先選路名')];
+  options[0].value = '';
+  const buildings = street ? listBuildings(resaleRows, street) : [];
+  for (const item of buildings.slice(0, 80)) {
+    const option = element('option', '', `${item.building} · ${item.built} 年 · ${item.type} · ${item.count} 筆`);
+    option.value = item.building;
+    options.push(option);
+  }
+  select.replaceChildren(...options);
+  $('#resaleStatus').textContent = street ? (buildings.length ? `${street}近四年有 ${buildings.reduce((sum, item) => sum + item.count, 0)} 筆住宅成交、${buildings.length} 棟。選同一棟會自動帶入完工年份與型態。` : `資料中沒有「${street}」的成交，會改用全中和屋齡相近的成交比較，信心程度較低。`) : $('#resaleStatus').dataset.base;
+}
+$('#resaleStreet').addEventListener('change', () => { renderBuildingOptions(); resetResult(); });
+$('#resaleStreet').addEventListener('input', resetResult);
+$('#resaleBuilding').addEventListener('change', () => {
+  const item = listBuildings(resaleRows, $('#resaleStreet').value.trim()).find((entry) => entry.building === $('#resaleBuilding').value);
+  if (item) { $('#resaleBuilt').value = item.built; $('#resaleType').value = item.type; }
+  resetResult();
+});
+$('#resaleBuilt').addEventListener('input', resetResult);
+$('#resaleType').addEventListener('change', resetResult);
+
+// ---- 中和整區行情 ----
+function renderDistrict() {
+  const series = districtSeries[districtSegment];
+  const chart = $('#districtChart');
+  if (!series?.length) { chart.replaceChildren(); $('#districtPulse').textContent = '整區資料載入中或無資料。'; return; }
+  document.querySelectorAll('[data-segment]').forEach((button) => { const on = button.dataset.segment === districtSegment; button.classList.toggle('is-active', on); button.setAttribute('aria-pressed', String(on)); });
+  const pulse = marketPulse(series);
+  $('#districtPulse').innerHTML = pulse?.reading
+    ? `<span class="pulse-tag ${pulse.reading.tone}">${{ buyer: '偏買方', seller: '偏賣方', mixed: '觀望', neutral: '持平' }[pulse.reading.tone]}</span> ${pulse.latest.quarter.replace('Q', ' 第 ')} 季中位數 <strong>${number(pulse.latest.median, 1)} 萬／坪</strong>（去年同季 ${pulse.priceChange >= 0 ? '+' : ''}${number(pulse.priceChange * 100, 1)}%），成交 ${pulse.latest.count} 筆（${pulse.volumeChange >= 0 ? '+' : ''}${number(pulse.volumeChange * 100, 0)}%）。${pulse.reading.text}`
+    : '資料不足，暫時無法比較去年同季。';
+  const width = 760; const height = 240; const left = 44; const right = 44; const top = 16; const bottom = 34;
+  const prices = series.filter((item) => item.median !== null).map((item) => item.median);
+  const minPrice = Math.floor(Math.min(...prices) - 2); const maxPrice = Math.ceil(Math.max(...prices) + 2);
+  const maxCount = Math.max(...series.map((item) => item.count));
+  const step = (width - left - right) / series.length;
+  const x = (index) => left + step * index + step / 2;
+  const yPrice = (value) => top + (1 - (value - minPrice) / (maxPrice - minPrice || 1)) * (height - top - bottom);
+  const yCount = (value) => height - bottom - (value / maxCount) * (height - top - bottom) * 0.55;
+  const bars = series.map((item, index) => `<rect class="volume-bar${item.complete ? '' : ' is-partial'}" x="${x(index) - step * 0.32}" y="${yCount(item.count)}" width="${step * 0.64}" height="${height - bottom - yCount(item.count)}"><title>${item.quarter} 成交 ${item.count} 筆</title></rect>`).join('');
+  const done = series.map((item, index) => ({ ...item, index })).filter((item) => item.median !== null && item.complete);
+  const line = done.map((item) => `${x(item.index)},${yPrice(item.median)}`).join(' ');
+  const partial = series.map((item, index) => ({ ...item, index })).filter((item) => item.median !== null && !item.complete);
+  const lastDone = done.at(-1);
+  const partialLine = partial.length && lastDone ? `<polyline class="price-line is-partial" points="${[lastDone, ...partial].map((item) => `${x(item.index)},${yPrice(item.median)}`).join(' ')}"/>` : '';
+  const dots = done.map((item) => `<circle class="price-dot" cx="${x(item.index)}" cy="${yPrice(item.median)}" r="3"><title>${item.quarter} 中位數 ${number(item.median, 1)} 萬／坪</title></circle>`).join('');
+  const labels = series.map((item, index) => (item.quarter.endsWith('Q1') || index === series.length - 1) ? `<text x="${x(index)}" y="${height - 12}" text-anchor="middle">${item.quarter.endsWith('Q1') ? item.quarter.slice(0, 4) : item.quarter.replace('Q', 'Q')}</text>` : '').join('');
+  const grid = [minPrice, (minPrice + maxPrice) / 2, maxPrice].map((value) => `<line class="grid" x1="${left}" x2="${width - right}" y1="${yPrice(value)}" y2="${yPrice(value)}"/><text x="${left - 6}" y="${yPrice(value) + 4}" text-anchor="end">${number(value, 0)}</text>`).join('');
+  chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="中和整區每季單價中位數與成交量">${grid}${bars}<polyline class="price-line" points="${line}"/>${partialLine}${dots}${labels}<text x="${width - right + 6}" y="${top + 10}">萬／坪</text></svg><div class="district-legend"><span><i class="legend-line"></i>單價中位數</span><span><i class="legend-bar"></i>成交筆數</span><span><i class="legend-partial"></i>申報中、資料不完整</span></div>`;
+}
+document.querySelectorAll('[data-segment]').forEach((button) => button.addEventListener('click', () => { districtSegment = button.dataset.segment; renderDistrict(); }));
 
 $('#addWatchProject').addEventListener('click', () => {
   const name = $('#watchProject').value;
@@ -706,6 +819,7 @@ try {
   } catch { geoSnapshot = {}; }
   projects = addLocation(getProjects(transactions), geoSnapshot);
   adjustments = estimateAdjustments(transactions, snapshot.generatedAt);
+  districtSeries.presale = quarterlyTrend(transactions, snapshot.latestTransaction);
   try {
     const saved = JSON.parse(localStorage.getItem(offerStorageKey) || '{}');
     if (saved && typeof saved === 'object' && !Array.isArray(saved)) savedOffers = saved;
@@ -760,7 +874,25 @@ try {
   renderWatchlist();
   renderViewingNotes();
   $('#dataStatus').textContent = `收錄 ${projects.length} 個建案、${transactions.length} 筆符合條件的成交 · 最新成交 ${snapshot.latestTransaction}`;
-  $('#sourceFreshness').textContent = `新北市政府地政局預售屋實價 · 快照 ${snapshot.generatedAt} · 最新成交 ${snapshot.latestTransaction}`;
+  $('#sourceFreshness').textContent = `內政部實價登錄 · 預售屋快照 ${snapshot.generatedAt} · 最新成交 ${snapshot.latestTransaction}`;
+  try {
+    const resaleResponse = await fetch(new URL('./data/zhonghe-resale.json', import.meta.url));
+    if (!resaleResponse.ok) throw new Error('中古屋資料無法讀取');
+    resaleSnapshot = await resaleResponse.json();
+    resaleRows = resaleSnapshot.transactions;
+    resaleAdjustments = estimateResaleAdjustments(resaleRows, resaleSnapshot.generatedAt);
+    districtSeries.elevator = quarterlyTrend(resaleRows.filter((row) => row.type !== '公寓'), resaleSnapshot.latestTransaction);
+    districtSeries.walkup = quarterlyTrend(resaleRows.filter((row) => row.type === '公寓'), resaleSnapshot.latestTransaction);
+    $('#streetOptions').replaceChildren(...listStreets(resaleRows).map(({ street, count }) => { const option = document.createElement('option'); option.value = street; option.label = `${count} 筆`; return option; }));
+    const base = `收錄中和區 ${resaleRows.length} 筆中古屋與成屋住宅成交 · 最新成交 ${resaleSnapshot.latestTransaction}`;
+    $('#resaleStatus').dataset.base = base;
+    $('#resaleStatus').textContent = base;
+    $('#sourceFreshness').textContent += ` · 中古屋最新成交 ${resaleSnapshot.latestTransaction}`;
+  } catch (error) {
+    $('#resaleStatus').textContent = '中古屋資料載入失敗，請稍後重試。';
+    console.error(error);
+  }
+  renderDistrict();
 } catch (error) {
   $('#dataStatus').textContent = '資料載入失敗。請依 README 使用本機網頁伺服器開啟，或稍後重試。';
   $('#watchStatus').textContent = '建案資料載入失敗，列表暫時無法使用。';
