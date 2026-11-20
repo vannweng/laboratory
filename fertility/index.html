@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#f6f2eb" />
   <meta name="description" content="好運小日子，將月經週期、基礎體溫與排卵試紙紀錄保存在自己的裝置上。" />
   <title>好運小日子｜生活實驗室</title>
-  <link rel="stylesheet" href="../assets/fertility.css?v=9" />
-  <script defer src="../assets/fertility.mjs?v=6"></script>
+  <link rel="stylesheet" href="../assets/fertility.css?v=11" />
+  <script type="module" src="../assets/fertility.mjs?v=7"></script>
 </head>
 <body>
   <main id="app">
@@ -16,23 +16,38 @@
 
     <section class="intro" aria-labelledby="pageTitle">
       <div><h1 id="pageTitle">好運小日子</h1></div>
-      <p id="todayPrompt" class="today-prompt"></p>
+    </section>
+
+    <section id="adviceCard" class="advice-card" aria-labelledby="adviceTitle" aria-live="polite"></section>
+
+    <section class="quick-temperature-card" aria-labelledby="quickTemperatureTitle">
+      <div class="quick-temperature-copy"><h2 id="quickTemperatureTitle">今日紀錄</h2><p id="quickTemperatureDate"></p></div>
+      <form id="quickTemperatureForm" class="quick-temperature-form">
+        <label>紀錄日期<input id="quickTemperatureEntryDate" type="date" required /></label>
+        <label>基礎體溫（°C）<input id="quickTemperature" type="number" min="34" max="42" step="0.01" inputmode="decimal" placeholder="例如 36.55" /></label>
+        <label>量測時間<input id="quickTemperatureTime" type="time" /></label>
+        <label>排卵試紙<select id="quickOvulationTest"><option value="">未測</option><option value="negative">陰性</option><option value="positive">陽性</option></select></label>
+        <label>分泌物<select id="quickMucus"><option value="">未記錄</option><option value="dry">乾燥</option><option value="sticky">黏稠</option><option value="creamy">乳霜狀</option><option value="watery">水狀</option><option value="eggwhite">蛋清狀</option></select></label>
+        <div class="check-row">
+          <label class="check-label"><input id="quickIntercourse" type="checkbox" /> 這天有同房</label>
+          <label class="check-label"><input id="quickDisturbed" type="checkbox" /> 體溫受干擾（熬夜、飲酒、生病、睡不足）</label>
+        </div>
+        <button class="primary-button" type="submit">儲存紀錄</button>
+      </form>
+      <p id="quickTemperatureStatus" class="quick-temperature-status" role="status"></p>
+      <p id="measureHint" class="measure-hint" role="note" hidden></p>
+    </section>
+
+    <section class="window-plan" aria-labelledby="windowPlanTitle">
+      <h2 id="windowPlanTitle">受孕窗口規劃</h2>
+      <p id="windowPlanSource" class="plan-source"></p>
+      <ol id="windowPlanList" class="window-list"></ol>
+      <p id="windowPlanTip" class="plan-tip"></p>
     </section>
 
     <section class="overview" aria-labelledby="overviewTitle">
       <div class="overview-heading"><h2 id="overviewTitle">這次週期</h2></div>
       <div id="cycleSummary" class="summary-cards"></div>
-    </section>
-
-    <section class="quick-temperature-card" aria-labelledby="quickTemperatureTitle">
-      <div class="quick-temperature-copy"><h2 id="quickTemperatureTitle">基礎體溫紀錄</h2><p id="quickTemperatureDate"></p></div>
-      <form id="quickTemperatureForm" class="quick-temperature-form">
-        <label>紀錄日期<input id="quickTemperatureEntryDate" type="date" required /></label>
-        <label>體溫（°C）<input id="quickTemperature" type="number" min="34" max="42" step="0.01" inputmode="decimal" placeholder="36.55" required /></label>
-        <label>量測時間<input id="quickTemperatureTime" type="time" required /></label>
-        <button class="primary-button" type="submit">儲存體溫</button>
-      </form>
-      <p id="quickTemperatureStatus" class="quick-temperature-status" role="status"></p>
     </section>
 
     <section class="calendar-area" aria-labelledby="calendarTitle">
@@ -42,15 +57,15 @@
       </header>
       <div id="calendarGrid" class="calendar-grid"></div>
       <ul class="legend" aria-label="月曆圖例">
-        <li><i class="legend-period actual"></i>實際月經</li><li><i class="legend-period predicted"></i>預估月經</li><li><i class="legend-fertile"></i>受孕窗口</li><li><i class="legend-ovulation"></i>預估排卵日</li><li><i class="legend-record"></i>已有紀錄</li>
+        <li><i class="legend-period actual"></i>實際月經</li><li><i class="legend-period predicted"></i>預估月經</li><li><i class="legend-fertile"></i>受孕窗口</li><li><i class="legend-peak"></i>最佳受孕日</li><li><i class="legend-ovulation"></i>排卵日</li><li><i class="legend-lh"></i>試紙陽性</li><li><span class="legend-heart" aria-hidden="true">♥</span>同房</li><li><i class="legend-record"></i>已有紀錄</li>
       </ul>
-      <p class="disclaimer">受孕期與排卵日依週期推估。基礎體溫與排卵試紙可協助了解身體訊號，但不取代醫療診斷。</p>
+      <p class="disclaimer">排卵日預設由下次月經往前推算；有試紙陽性或體溫上升紀錄後，會改用實際訊號修正。這些是推估，不取代醫療診斷。若備孕超過一年（35 歲以上半年）仍未受孕，建議就醫評估。</p>
     </section>
 
     <section class="temperature-section" aria-labelledby="temperatureTitle">
       <div><h2 id="temperatureTitle">基礎體溫趨勢</h2></div>
       <div id="temperatureChart" class="temperature-chart"></div>
-      <p>每天醒來、下床前以相同方式量測。體溫變化較適合用於回顧週期，請與排卵試紙及分泌物紀錄一起看。</p>
+      <p>每天醒來、下床前以相同方式量測，時間盡量固定。體溫連續 3 天明顯高於前 6 天，代表排卵已經發生；它用來確認排卵，不能預測排卵，請搭配排卵試紙與分泌物一起看。</p>
     </section>
     <aside class="settings-card" aria-labelledby="settingsTitle">
       <div class="card-heading"><div><h2 id="settingsTitle">週期設定</h2></div></div>
@@ -81,7 +96,7 @@
         <label>排卵試紙<select id="ovulationTest"><option value="">未測</option><option value="negative">陰性</option><option value="positive">陽性</option></select></label>
         <label class="wide">分泌物<select id="mucus"><option value="">未記錄</option><option value="dry">乾燥</option><option value="sticky">黏稠</option><option value="creamy">乳霜狀</option><option value="watery">水狀</option><option value="eggwhite">蛋清狀</option></select></label>
       </div>
-      <fieldset class="intercourse-field"><label><input id="intercourse" type="checkbox" /> 同房</label></fieldset>
+      <fieldset class="intercourse-field"><label><input id="intercourse" type="checkbox" /> 同房</label><label><input id="tempDisturbed" type="checkbox" /> 體溫受干擾（熬夜、飲酒、生病、睡不足）</label></fieldset>
       <fieldset class="symptom-field"><legend>身體感受</legend><label><input type="checkbox" value="cramp" /> 腹痛</label><label><input type="checkbox" value="breast" /> 乳房脹痛</label><label><input type="checkbox" value="mood" /> 情緒起伏</label><label><input type="checkbox" value="sleep" /> 睡眠異常</label></fieldset>
       <label class="note-field">備註<textarea id="note" rows="3" placeholder="今天的感受或其他觀察"></textarea></label>
       <footer><button id="deleteRecordButton" class="text-button danger" type="button">刪除本日紀錄</button><button class="primary-button" value="save" type="submit">儲存紀錄</button></footer>

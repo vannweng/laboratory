@@ -126,3 +126,88 @@ input, select, textarea { font-size:16px; }
   #app .calendar-toolbar { flex-wrap: wrap; }
   #app .day { min-height: 40px; }
 }
+
+/* ---- 受孕時機流程：今日建議、今日紀錄、窗口規劃、體溫圖 ---- */
+:root { --tone-peak: #a83d32; --tone-high: #b26a1d; --tone-wait: #52636a; --cycle-peak: #F7D2B4; }
+#app .intro { padding-block: 24px 10px; }
+#app .advice-card { margin-top: 8px; padding: 22px; border: 1px solid var(--journal-rule); border-left: 5px solid var(--tone-wait); border-radius: 16px; background: #fffdf9; }
+#app .advice-card.tone-peak { border-left-color: var(--tone-peak); background: #fdf1ec; }
+#app .advice-card.tone-high { border-left-color: var(--tone-high); background: #fcf5ea; }
+#app .advice-card.tone-late { border-left-color: var(--journal-action); }
+#app .advice-badge { margin: 0; color: var(--tone-wait); font-size: .8125rem; font-weight: 700; letter-spacing: .04em; }
+#app .tone-peak .advice-badge { color: var(--tone-peak); }
+#app .tone-high .advice-badge { color: var(--tone-high); }
+#app .advice-card h2 { margin: 4px 0 0; font: 700 1.5rem/1.4 'Noto Serif TC', serif; text-wrap: balance; }
+#app .advice-detail { margin: 8px 0 0; line-height: 1.75; }
+#app .advice-actions { margin: 12px 0 0; padding-left: 1.2em; color: var(--journal-muted); font-size: .9375rem; line-height: 1.75; }
+#app .advice-facts { margin: 10px 0 0; color: var(--journal-muted); font-size: .8125rem; }
+
+#app .quick-temperature-card { margin-top: 16px; }
+#app .quick-temperature-form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#app .quick-temperature-form select { width: 100%; min-width: 0; min-height: 44px; padding: 9px 10px; border: 1px solid var(--journal-rule); border-radius: 11px; background: #fff; color: var(--journal-ink); }
+#app .check-row { grid-column: 1 / -1; display: grid; gap: 8px; }
+#app .quick-temperature-form .check-label { display: flex; align-items: center; gap: 9px; font-size: .9375rem; font-weight: 500; }
+#app .quick-temperature-form .check-label input { width: 20px; min-width: 20px; min-height: 20px; height: 20px; accent-color: var(--journal-action); }
+#app .measure-hint { margin: 0; padding: 10px 12px; border-radius: 10px; background: #fcf5ea; color: #6f4a14; font-size: .875rem; line-height: 1.7; }
+
+#app .window-plan { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--journal-rule); }
+#app .window-plan h2 { margin: 0; font: 600 1.25rem/1.4 'Noto Serif TC', serif; }
+#app .overview { margin-top: 24px; }
+#app .plan-source, #app .plan-tip { margin: 6px 0 0; color: var(--journal-muted); font-size: .875rem; line-height: 1.7; }
+#app .window-list { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+#app .window-day { display: grid; grid-template-columns: minmax(7.5em, auto) 4.5em 1fr; gap: 10px; align-items: center; width: 100%; min-height: 48px; padding: 8px 12px; border: 1px solid var(--journal-rule); border-radius: 10px; background: transparent; color: var(--journal-ink); text-align: left; }
+#app .window-day:hover { background: #f1ece3; }
+#app .window-day.level-peak { background: var(--cycle-peak); border-color: #e9b98f; }
+#app .window-day.level-high { background: var(--cycle-fertile); }
+#app .window-day.level-after { opacity: .75; }
+#app .window-day.is-today { box-shadow: inset 0 0 0 2px var(--journal-ink); }
+#app .window-date em { margin-left: 6px; padding: 1px 6px; border-radius: 6px; background: var(--journal-ink); color: #fff; font-size: .75rem; font-style: normal; }
+#app .window-level { font-weight: 700; font-size: .875rem; }
+#app .level-peak .window-level { color: var(--tone-peak); }
+#app .window-marks { display: flex; flex-wrap: wrap; gap: 4px 6px; font-size: .8125rem; }
+#app .mark { padding: 2px 7px; border-radius: 6px; background: #ffffffa0; color: var(--journal-muted); }
+#app .mark-heart { color: var(--journal-action); font-weight: 700; }
+#app .mark-lh { color: #7a3d00; font-weight: 700; background: #fbd9b8; }
+#app .mark-empty { background: transparent; padding-left: 0; }
+
+#app .summary-card .card-note { display: block; margin-top: 3px; color: var(--journal-muted); font-size: .8125rem; }
+#app .day.fertile.peak { background: var(--cycle-peak); }
+#app .day.has-intercourse::after { content: '♥'; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); color: var(--journal-action); font-size: .625rem; line-height: 1; }
+#app .day.lh-positive { background-image: linear-gradient(var(--cycle-ovulation), var(--cycle-ovulation)); background-size: 55% 3px; background-repeat: no-repeat; background-position: 50% calc(100% - 3px); }
+#app .legend-peak { background: var(--cycle-peak); }
+#app .legend-lh { background: var(--cycle-ovulation); height: 3px !important; margin-top: 4px; }
+#app .legend-heart { color: var(--journal-action); font-size: .75rem; }
+
+#app .temperature-section { grid-template-columns: 1fr; }
+#app .temperature-section > div:first-child h2 { font-size: 1.25rem; }
+#app .temperature-chart { min-height: 0; border-bottom: 0; background: none; width: 100%; }
+#app .chart-empty { height: 90px; border: 1px dashed var(--journal-rule); border-radius: 10px; }
+#app .temperature-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart-grid { stroke: var(--journal-rule); stroke-width: 1; }
+.chart-label { fill: var(--journal-muted); font-size: 11px; }
+.chart-window { fill: #FBEDDF; }
+.chart-line { fill: none; stroke: var(--journal-ink); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart-dot { fill: var(--journal-ink); }
+.chart-dot.is-disturbed { fill: #fffdf9; stroke: var(--journal-muted); stroke-width: 1.5; stroke-dasharray: 2 2; }
+.chart-cover { stroke: var(--journal-action); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.chart-cover-label, .chart-ovulation-label { fill: var(--journal-action); }
+.chart-ovulation { stroke: var(--cycle-ovulation); stroke-width: 2; }
+.chart-heart { fill: var(--journal-action); font-size: 12px; }
+.chart-lh { fill: #c26a1c; font-size: 9px; }
+#app .chart-summary { margin: 8px 0 0; color: var(--journal-muted); font-size: .8125rem; line-height: 1.8; }
+#app .chart-key { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 2px; }
+.key-dot { display: inline-block; width: 9px; height: 9px; margin-right: 3px; border-radius: 50%; background: var(--journal-ink); }
+.key-dot.is-disturbed { background: #fffdf9; border: 1.5px dashed var(--journal-muted); box-sizing: border-box; }
+.key-window { display: inline-block; width: 12px; height: 9px; margin-right: 3px; border-radius: 2px; background: #FBEDDF; border: 1px solid #ecd2b8; box-sizing: border-box; }
+.key-heart { color: var(--journal-action); margin-right: 2px; }
+.key-lh { color: #c26a1c; margin-right: 2px; }
+.entry-dialog .intercourse-field { display: grid; gap: 8px; }
+
+@media (max-width: 600px) {
+  #app .advice-card { padding: 16px; }
+  #app .advice-card h2 { font-size: 1.25rem; }
+  #app .quick-temperature-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #app .quick-temperature-form label:first-child { grid-column: 1 / -1; }
+  #app .window-day { grid-template-columns: 1fr auto; row-gap: 4px; }
+  #app .window-marks { grid-column: 1 / -1; }
+}
