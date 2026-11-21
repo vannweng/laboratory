@@ -1,12 +1,92 @@
 {
   "items": [
     {
+      "username": "yunohata",
+      "shortcode": "DgAj-4GibxR",
+      "kind": "reel",
+      "caption": "今天帶孩子去看最近上映的怪獸電影，體驗了 4DX，深深被這兩個角色吸引，一看完就叫 Agent 做出這樣的場景～\n這次複雜度高很多：GPT-6.2 做得像靜態合照，兩隻怪獸幾乎沒在打；Opus 5.5 摸了一小時，怪獸的頭一開始還卡卡的。\n這組對照意外覺得 Fable 5.2 和 Gemini Neon 比較理想～\n\n同一個提示詞，丟給 4 個 AI 做「兩個電影怪獸對打」3D 場景🦖🐉\n\n💰 GPT-6.2 Astra　$4.51・27 分 01 秒\n💰 Gemini 4 Neon　$3.09・20 分 40 秒\n💰 Claude Opus 5.5　$15.4・60 分（跑到上限）\n💰 Claude Fable 5.2　$18.1・55 分 25 秒\n\n最便宜和最貴差了快 6 倍\n而且最便宜的 Gemini 反而最快，Opus 直接跑滿一小時😳\n\n想自己試試看？留言「怪獸」，我私訊給你📩\n（花費為 API 牌價換算，Opus 為估算）\n\n#AI比較 #Claude #ChatGPT #Gemini #3D #Yuno老師",
+      "posted_at": "2026-11-21T15:34:05+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "__laochen",
+      "shortcode": "DgAbGJ5Bo7f",
+      "kind": "reel",
+      "caption": "Sony MDR-3R上市啦～正常版NT.1590 《怪奇物語》特別版 NT,1890，官網我剛剛看是都缺貨了啦～目前只聽了幾首，其他時間都在把玩跟照鏡子🤣",
+      "posted_at": "2026-11-21T14:17:34+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "neil.skilltree",
+      "shortcode": "DgARFG1uwV3",
+      "kind": "reel",
+      "caption": "一個月 600 塊，請一個隨時能幫你做事的人，你請不請？\n\n影片中我舉了兩個自己的例子：\n1. 幫一位媽媽把自修內容做成小孩愛看的重點整理圖\n2. 請 AI 幫我做好一個照片網站，還幫我放到網路上，重點是還不用錢\n\n「把它當軟體，600 塊很貴；把它當員工，600 塊其實很便宜。」\n\n如果你也想開始聘請自己的 AI 員工，但不知道怎麼做？\n歡迎私訊我，我們可以聊一聊。",
+      "posted_at": "2026-11-21T13:15:04+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "iamlily.genai",
+      "shortcode": "DgASteFk8JM",
+      "kind": "p",
+      "caption": "你的 AI，還停在 1 樓嗎？\n\n很多人用 AI，只用到跟 ChatGPT 聊天。\n其實往上還有好幾層：做影片、做網站收款、讓 AI 自己跑工作，甚至自己做出小工具。\n\n但不用一層一層爬。\n看你想做什麼，直接搭電梯到那一層就好 🛗\n\n我把這 15 個工具整理成一棟 AI 大樓，先存起來 📌\n每個工具的官網、用途、第一步怎麼開始，我做成了完整工具包，留言「樓層」就傳給你。\n\n想知道怎麼用 AI 多一份收入，我主頁有一個兩天的免費分享會，可以先去看看。\n\n圖片使用 AI 生成。\n\n關注我，讓 AI 成為你帶得走的工作能力。\n\n#AI工具 #AI教學 #ChatGPT #Claude #上班族",
+      "posted_at": "2026-11-21T13:02:48+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "jarrenpoh",
+      "shortcode": "DgAPjFClbTV",
+      "kind": "p",
+      "caption": "留言「食譜」，我把 Skill 範本＋3 個寫好的範例傳給你 👇\n\n你真正在累積的不是 Bot，是這些食譜。\n\n同一段要求，你是不是每週都重打一次？每次做出來的格式還不太一樣。Grok Bot 的 Skill 就是在解決這件事：把做對的那一次存成一份食譜，之後叫名字，它就照著做。\n\n輪播裡整理了：\n1️⃣ Skill 是什麼：一份可以重複用的做事食譜\n2️⃣ 一份 Skill 的 3 個部分：名稱、什麼時候用、步驟\n3️⃣ 怎麼把一段對話變成 Skill\n4️⃣ 哪些事值得存、哪些先不用\n5️⃣ 可以直接貼給 Bot 的 6 欄範本\n\n兩個重點：\n做得好，下次用同一份；做壞了，改食譜就好，順便說一句「更新這個 Skill」。\n不用自己從零寫，叫 Bot 把剛做完的流程存起來，再請它把內容列給你看一遍。\n\n食譜的比喻和「名稱、什麼時候用、步驟」這 3 個部分，觀念來自 Nate Herk 的教學影片，用我自己的例子重新整理；範本的 6 個欄位照官方文件寫。輪播裡的畫面是示意，不是截圖。\n\n想要寫好的範例直接改來用？\n留言「食譜」，我私訊給你 👇\n私訊裡留下 Email，之後有新影片、新教學會第一時間寄給你。\n\n30 天每天一篇，明天講一句話讓產出變好：「有問題先問我」。追蹤 @jarrenpoh 一起做。\n\nBotLab 為非官方教學帳號，Grok Bot 為 SpaceXSI 的商標。\n\n#GrokBot #AI員工 #AI工具 #AI自動化 #工作效率 #生產力工具 #AIAgent #BotLab",
+      "posted_at": "2026-11-21T12:35:18+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "omfrgrm",
+      "shortcode": "Df_-VU6yEhe",
+      "kind": "reel",
+      "caption": "UNIQLO感謝祭みんなは何買う予定ですか〜？🥹✨\n\n私は甘くなりすぎないブラウンコーデがしたくて、\nメンズコーナーでかわいいブルゾンを見つけて即決🤎\n\n起毛をかけたシャギー素材でほんと高見えだった🥹\nお得に買えてラッキー✌️\n\n私はMにしたんですが、\n内側折るならSサイズでもよかったかな〜🫰🏻\n\n🏷️UNIQLO/ブラッシュドフルジップブルゾン\ncolor:38DARK BROWN 商品番号:488599\n\nパンツとバッグは楽天ルームに載せてます🤎\n\n#uniqlo #ユニクロ #uniqlo感謝祭",
+      "posted_at": "2026-11-21T10:14:07+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "manaodays",
+      "shortcode": "Df_4BH-ixXs",
+      "kind": "reel",
+      "caption": "UNIQLOで買ったアウター\nデニムに合わせるだけでめっちゃ可愛い。\n\n展示会やpopupで購入した物が届いたの。\n全部大好きなお洋服達。\n\n何番目が好き？",
+      "posted_at": "2026-11-21T09:10:33+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "raraco.lab",
+      "shortcode": "Df_3DYjSY7e",
+      "kind": "reel",
+      "caption": "香港即時監控，一張地圖全看完\n留言「監控」 我把連結傳給你\n\n#AI工具 #開源 #香港 #即時地圖 #GitHub",
+      "posted_at": "2026-11-21T09:03:13+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "jarrenpoh",
+      "shortcode": "Df_yyAWx-jn",
+      "kind": "reel",
+      "caption": "留言「topview」，我傳給你\n\n@topviewaiofficial #ai",
+      "posted_at": "2026-11-21T08:25:00+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
+      "username": "learn_wchris",
+      "shortcode": "Df_twLGN29A",
+      "kind": "reel",
+      "caption": "ChatGPT 现在的能力已经完全超出预期了！😳\n\n留言「Site」我把工具发给你 🔗\n\n#ChatGPT #AI工具 #MotionGraphic #AIAutomation #AI创作",
+      "posted_at": "2026-11-21T07:40:30+00:00",
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
+    },
+    {
       "username": "raraco.lab",
       "shortcode": "Df_huMZS-QM",
       "kind": "reel",
       "caption": "紐約搬進麥塊，全是真的地形\n留言「MC」 我把連結傳給你\n\n#AI工具 #Minecraft #麥塊 #開源 #GitHub",
       "posted_at": "2026-11-21T05:55:28+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
     },
     {
       "username": "fredadailylooks",
@@ -14,7 +94,7 @@
       "kind": "reel",
       "caption": ".景德鎮的購物開箱🤍\n\n#unboxing #pottery #jingdezhen",
       "posted_at": "2026-11-21T01:36:18+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
     },
     {
       "username": "yunohata",
@@ -22,65 +102,9 @@
       "kind": "reel",
       "caption": "同時開 10 個 AI，各做各的不打架🌳\nWorktrunk：Git Worktree 管理工具\n3 個任務、3 條分支、同時開工\n做完一行指令合併收尾\n想試的留言「工具」👇\n#ClaudeCode #Git #AIAgent #寫程式 #Yuno老師",
       "posted_at": "2026-11-20T23:00:29+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "yunohata",
-      "shortcode": "Df-CJ2ai725",
-      "kind": "reel",
-      "caption": "同一個提示詞，丟給 4 個 AI 做「廟會舞獅」3D 場景🦁🧧\n\n💰 GPT-6.2 Astra　$4.01・22 分 02 秒\n💰 Gemini 4 Neon　$3.94・24 分 58 秒\n💰 Claude Opus 5.5　$7.37・38 分 16 秒\n💰 Claude Fable 5.2　$12.6・34 分 35 秒\n\n廟埕、紅燈籠、鞭炮、鑼鼓隊，還有大頭佛逗獅子\n最便宜和最貴差了 3 倍多\n而且這次最便宜的兩個反而最快做完😳\n哪隻最像廟會的舞獅？留言 1～4 告訴我👇\n\n想自己試試看？留言「提示詞」，我私訊給你📩\n（花費為 API 牌價換算）\n\n#AI比較 #Claude #ChatGPT #3D #Yuno老師",
-      "posted_at": "2026-11-20T16:00:02+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "chloeshy.ai",
-      "shortcode": "Df9u4Civr8w",
-      "kind": "reel",
-      "caption": "",
-      "posted_at": "2026-11-20T13:47:18+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "harryleeai",
-      "shortcode": "Df9udkJB1Qw",
-      "kind": "reel",
-      "caption": "留言「開源」，我會把這 5 個 GitHub 專案的完整連結一次整理給你！👇\n還在每個月花錢訂閱各種 AI 工具嗎？其實 GitHub 上有不少免費開源專案，能提供類似的功能，甚至可以讓你在自己的電腦上運行！\n這次整理了 5 個值得收藏的免費開源工具，從 AI 程式開發、語音生成到 SEO 分析，通通都有！🚀\n1️⃣ OpenCode｜Claude Code 替代方案\n免費開源的 AI Coding Agent，支援 Kimi、GLM、DeepSeek 等多種模型，讓你有更多選擇，不必綁定單一 AI 平台。\n2️⃣ VoiceStudio｜ElevenLabs 替代方案\nAI 語音生成工具，支援聲音複製，原文主打只需 3 秒音訊即可建立聲音模型，而且能在本機運行。\n3️⃣ OpenSEO｜Ahrefs、Semrush 替代方案\n整合 SEO 常用功能，包括關鍵字研究、排名追蹤、反向連結分析與網站完整健檢。\n4️⃣ OpenBot｜AI 團隊協作工具\n打造自己的 AI 工作團隊，可以搭配 Claude、Codex 或其他模型，讓不同 AI 代理人分工完成任務，不再受限於單一平台。\n5️⃣ Replica｜應用程式複製與重建工具\n透過分析既有應用程式的功能與操作流程，協助你逆向研究並打造自己的替代版本。\n💡 為什麼值得收藏？\n這 5 個專案涵蓋了程式開發、AI 語音、SEO、AI Agent 與應用程式重建。如果你正在尋找付費工具的替代方案，不妨先研究這些開源選擇。\n省下訂閱費只是其中一個優點，更重要的是能掌握工具、模型與工作流程的自主權！\n⚠️ 開源不代表所有功能都完全免費，部分模型可能需要 API Key、運算資源或額外設定；實際功能也請以各專案的 GitHub 說明為準。\n#OpenSourceAI #GitHub #OpenCode #ClaudeCode #AITools",
-      "posted_at": "2026-11-20T13:08:17+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "omfrgrm",
-      "shortcode": "Df9nD-HIGmd",
-      "kind": "reel",
-      "caption": "これオーバーサイズで\nめちゃくちゃかわいかったよおお〜🖤\nふわふわで気持ちいいし、　\nビックシルエットのポケットなのも🥹🫶\n買って間違いなしです✨\n\n🏷️〔cardigan〕\ncolor:ブラック\n商品番号: ce1380015\n@classicalelf_official\n\n忘れない様に保存がオススメ🤍\nフォローしておくだけでプチプラアイテムの新着情報がすぐわかるよ♡→【@omfrgrm】\n\n#classicalelf　#クラシカルエルフ #エルフコーデ #zozotow #pr",
-      "posted_at": "2026-11-20T12:03:43+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "raraco.lab",
-      "shortcode": "Df9Te5CSGr9",
-      "kind": "reel",
-      "caption": "AI 當沖團隊，先讓 AI 跑一遍\n留言「當沖」 我把教學傳給你\n\n#AI工具 #當沖 #ClaudeCode #美股 #股票",
-      "posted_at": "2026-11-20T09:12:26+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "manaodays",
-      "shortcode": "Df9Skt7CpEK",
-      "kind": "reel",
-      "caption": "ファッションはその日の気分やシーンに\n合わせて選ぶことが多いけど\nスキンケアってどうだろう？💭\n\nなんとなく使い慣れたものを選んだり\n流行りのものを試してみたり。\n\nでも、今の自分の肌に\n本当は何が必要なんだろう？って\nちょっと気になってた。\n\nそこで今回試してみたのが\nビーグレンの「MY QuSome」✨\n\nスマホでMYQ肌分析をしてみたら、キメの\nスコアが思ってたより低くてびっくり💦\n\nでも、これはお手入れしがいがあると\n燃えたよ🔥\n\n自分では気づいてなかった肌の状態や\n今の肌におすすめの成分を教えてくれて、\nそれを配合したローションとクリームを\n提案してくれるの✨\n\nお手入れもシンプルな2ステップだし、\nなかなか面白い体験だった🥹🤎\n\n気になる人は、スマホで簡単にできる\nMYQ肌分析を試してみてね✨\n\n@bglen_official\n#PR #ビーグレン #MYQuSome #MYQ肌分析\n#AI肌分析",
-      "posted_at": "2026-11-20T09:05:07+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
-    },
-    {
-      "username": "l.l.e.o.e.e",
-      "shortcode": "Df9R3HsBFEV",
-      "kind": "reel",
-      "caption": "留言「GTA」，我把指令清單跟設定連結傳給你 👇\n\nHiggsfield 黑五隱藏優惠：年費方案直接打 3.5 折（65% OFF），還送你 GTA 6。只有兩天，11 月 20 號截止。\n\n打開 Claude 接上 Higgsfield MCP，輸入 /miami-hf、/nightclub-hf、/supercar-hf、/helicopter-hf 或 /mansion-hf，附上你的產品照或自己的照片，遊戲風格的廣告直接出來。\n\n優惠在 Higgsfield 的年費方案頁，留言我直接把連結私訊給你。\n\n@higgsfield.ai #HiggsfieldCreator #ad",
-      "posted_at": "2026-11-20T08:58:42+00:00",
-      "detected_at": "2026-11-21T07:03:59.002094+00:00"
+      "detected_at": "2026-11-21T19:14:34.687797+00:00"
     }
   ],
   "tracked_count": 25,
-  "last_checked_at": "2026-11-21T07:03:59.002376+00:00"
+  "last_checked_at": "2026-11-21T19:14:34.688069+00:00"
 }
