@@ -272,13 +272,12 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 }
 
 /* 進行中：緞帶書籤（燕尾剪口、緞面光澤） */
-/* 從書的底邊伸出 → 越過層板前緣 → 自然垂下；燕尾剪口 */
+/* 微弧緞帶（Codex 設計）：單條從書底伸出、越過層板前緣微微偏向一側垂下，淺燕尾收尾 */
 .ribbon {
-  position: absolute; top: calc(100% - 2px); left: calc(50% - 9px + var(--rx, 0px)); width: 17px; height: 44px;
-  pointer-events: none; overflow: visible;
-  filter: drop-shadow(.6px 1.4px 1px rgba(0,0,0,.34));
+  position: absolute; top: calc(100% - 2px); left: 50%; transform: translateX(-50%);
+  width: 16px; height: 44px; pointer-events: none; overflow: visible;
+  filter: drop-shadow(0 1px 1px rgb(49 28 22 / 25%));
 }
-.ribbon.single { width: 10px; left: calc(50% - 5px); }
 .playing {
   position: absolute; z-index: 3; top: -8px; left: 50%; transform: translateX(-50%);
   width: 15px; height: 15px; border-radius: 50%; background: var(--accent); color: #fff;
@@ -419,7 +418,7 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 .cover .wear { background-size: 220px 220px, 120px 120px, 160px 160px, auto, auto, auto; }
 .cover-wrap { position: relative; width: 104px; }
 .cover-wrap .cover { position: relative; z-index: 1; }
-.cover-wrap .ribbon { top: calc(100% - 6px); left: 58%; width: 20px; height: 52px; z-index: 0; }
+.cover-wrap .ribbon { top: calc(100% - 3px); left: 58%; width: 16px; height: 44px; z-index: 0; }
 .cover-wrap:has(.ribbon) { margin-bottom: 40px; }
 .cover-wrap .flag {
   z-index: 2; top: auto; bottom: 30px; left: auto; right: -16px; width: auto; height: 24px;
@@ -481,18 +480,11 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 
 <svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false">
   <defs>
-    <!-- 緞面：橫向明暗 -->
-    <linearGradient id="rb-satin" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="#690E0F"/><stop offset=".2" stop-color="#B5231E"/><stop offset=".42" stop-color="#E4473F"/>
-      <stop offset=".62" stop-color="#C62C26"/><stop offset=".86" stop-color="#951A17"/><stop offset="1" stop-color="#5D0B0C"/>
-    </linearGradient>
-    <!-- 縱向：出書處的陰影、越過層板前緣的反光、垂下段的起伏 -->
-    <linearGradient id="rb-light" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="44">
-      <stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset=".07" stop-color="#000" stop-opacity="0"/>
-      <stop offset=".09" stop-color="#fff" stop-opacity="0"/><stop offset=".135" stop-color="#fff" stop-opacity=".42"/>
-      <stop offset=".2" stop-color="#fff" stop-opacity="0"/><stop offset=".36" stop-color="#000" stop-opacity=".18"/>
-      <stop offset=".58" stop-color="#fff" stop-opacity=".12"/><stop offset=".78" stop-color="#000" stop-opacity=".08"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+    <!-- 微弧緞帶：出書處較深、往下略亮再收暗 -->
+    <linearGradient id="ribbon-a" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#733932"/>
+      <stop offset="33%" stop-color="#a2594c"/>
+      <stop offset="100%" stop-color="#894239"/>
     </linearGradient>
   </defs>
 </svg>
@@ -634,16 +626,16 @@ function statusLayers(it, where) {
     : `<span class="wrap"></span><span class="seal">未拆</span>`;
   return isBook(it) && where !== "cover" ? ribbonHTML(it.w < 30) : "";
 }
-/* 緞帶：寬＋窄兩條，往不同方向微彎，末端燕尾剪口 */
-const RIB_WIDE = "M1.5 0H8.5L8.8 5C9 7 9.2 12 9.3 18C9.4 26 8.6 34 8.4 43L5.2 39.5L2 43C2.2 34 1.6 26 1.6 18C1.6 12 1.4 7 1.5 5Z";
-const RIB_NARROW = "M10.5 0H15L15.2 5C15.4 10 15.6 16 15.9 22C16.1 28 16.3 32 16.4 37L14.3 34.6L12.2 37C12 32 11.6 28 11.3 22C11 16 10.6 10 10.5 5Z";
-const ribPath = d => `<path d="${d}" fill="url(#rb-satin)"/><path d="${d}" fill="url(#rb-light)"/>`;
-const ribbonHTML = (single = false) => single
-  ? `<svg class="ribbon single" viewBox="0 0 10 44" preserveAspectRatio="none" aria-hidden="true">${ribPath(RIB_WIDE)}</svg>`
-  : `<svg class="ribbon" viewBox="0 0 17 44" preserveAspectRatio="none" aria-hidden="true">${ribPath(RIB_NARROW)}${ribPath(RIB_WIDE)}</svg>`;
+/* 微弧緞帶：單條、微微偏向一側，淺燕尾收尾 */
+const RIBBON = "M3 0H13C13 12 12 23 12.5 30Q12.8 37 14 44L9 40L4 43C3 34 2.4 25 2.7 17Q3 8 3 0Z";
+const ribbonHTML = () => `<svg class="ribbon" viewBox="0 0 16 44" aria-hidden="true"><path d="${RIBBON}" fill="url(#ribbon-a)"/></svg>`;
 const progText = it => it.cat === "movie" ? `${Math.floor(it.prog / 60)}:${String(it.prog % 60).padStart(2, "0")}` : `E${String(it.prog).padStart(2, "0")}`;
-const flagHTML = (it, where) => it.status === "reading" && !isBook(it) && it.prog
-  ? `<span class="flag" style="--frot:${(hash(it.title) % 9) - 5}deg"><i>${where === "cover" ? "看到 " : ""}${progText(it)}</i></span>` : "";
+/* 觀看中一律貼便利貼；有填「進度」才寫上 E07／1:02，沒填時書脊是空白便利貼、介紹卡寫「觀看中」 */
+function flagHTML(it, where) {
+  if (it.status !== "reading" || isBook(it)) return "";
+  const text = it.prog ? (where === "cover" ? "看到 " : "") + progText(it) : where === "cover" ? "觀看中" : "";
+  return `<span class="flag" style="--frot:${(hash(it.title) % 9) - 5}deg"><i>${text}</i></span>`;
+}
 const titleHTML = it => it.lines.map(esc).join("<br>");
 
 function spineHTML(it, i) {
