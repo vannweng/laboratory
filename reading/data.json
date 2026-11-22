@@ -1,0 +1,1649 @@
+{
+ "generatedAt": "2026-11-22T13:45:15.848Z",
+ "items": [
+  {
+   "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
+   "cat": "tool",
+   "title": "讀學術(獨學術)",
+   "by": "白取春彥",
+   "series": "自學思維",
+   "status": "read",
+   "tags": [
+    "自學思維",
+    "批判思考",
+    "知識內化",
+    "閱讀策略"
+   ],
+   "intro": "日文原名《独学術》；另有本山勝寬《組合式讀學術》",
+   "rating": 5,
+   "color": "#B3262B"
+  },
+  {
+   "id": "3eafdb3cb43780d3b407ec5c32d0aee3",
+   "cat": "tool",
+   "title": "未經檢視的生活不值得過",
+   "by": "白取春彥,冀劍制",
+   "series": "哲學思辨",
+   "status": "read",
+   "tags": [
+    "蘇格拉底",
+    "自我檢視",
+    "12位哲學家核心思想"
+   ],
+   "intro": "台日跨國合作哲學普及暢銷作",
+   "rating": 5,
+   "note": "偶爾都可以再看一次，認真檢視自己的想法與習慣",
+   "end": "2026-10-16",
+   "color": "#B3262B"
+  },
+  {
+   "id": "3eafdb3cb437801493a7f0b4cc5bb86a",
+   "cat": "tool",
+   "title": "原子習慣",
+   "by": "詹姆斯·克利爾 (James Clear)",
+   "series": "行為改變",
+   "status": "reading",
+   "tags": [
+    "身分認同",
+    "行為改變四法則",
+    "環境設計",
+    "微小習慣",
+    "習慣迴圈"
+   ],
+   "intro": "從「身分認同」根本改變行為，透過微小累積創造巨大複利效應",
+   "rating": 5,
+   "note": "最深層的改變身分認同，關乎你相信什麼，希望成為什麼樣的人",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3eafdb3cb4378041a9cec10377dce27b",
+   "cat": "tool",
+   "title": "打造第二大腦",
+   "by": "提亞戈·佛特 (Tiago Forte)",
+   "series": "知識管理",
+   "status": "unread",
+   "tags": [
+    "第二大腦",
+    "CODE架構",
+    "PARA法則",
+    "資訊獲取",
+    "輸出導向"
+   ],
+   "intro": "數位時代個人知識庫建置法，將外在資訊轉化為高產出專案",
+   "note": "1.獲取 (新觀點 未來用到的 息息相關 意想不到）",
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "3eafdb3cb4378048b085f232f23f2ea1",
+   "cat": "tool",
+   "title": "卡片盒筆記法",
+   "by": "申克·阿倫斯 (Sönke Ahrens)",
+   "series": "知識管理",
+   "status": "unread",
+   "tags": [
+    "卡片盒筆記(Zettelkasten)",
+    "盧曼方法",
+    "雙向連結",
+    "HQA",
+    "知識複利"
+   ],
+   "intro": "經典卡片盒筆記核心指南，專注將零散筆記串聯成結構化思考與著作",
+   "note": "專業\n\n興趣\n\n人生價值觀\n\n興趣 時間管理 閱讀 數位工具  小知識 穿搭 英文\n\n價值觀\n\n如何做出好決定\n\n如何面對死亡\n\n人生藍圖 要追尋的\n\n來源筆記 source notes\n\n專案 為了輸出用\n\nHQA\n\n划重點 問問題 說答案\n\n觀點 自己的想法\n\n案例 故事或數據\n\n總結\n\n一句話命名卡片標題",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "401fdb3cb437804f8cf3d2ee49805493",
+   "cat": "tool",
+   "title": "蛤蟆先生去看心理醫生",
+   "by": "羅伯．狄保德",
+   "series": "自學思維",
+   "status": "read",
+   "tags": [
+    "心理諮商",
+    "治療",
+    "哲學",
+    "人文社科類"
+   ],
+   "intro": "心理諮商創舉經典。取材自英國童話《柳林中的風聲》與心理學，跟著蛤蟆先生，探索憂鬱與自卑、軟弱，一起真正長大成人。",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "409fdb3cb43780e797f0c761730fe1be",
+   "cat": "tool",
+   "title": "人生4千個禮拜",
+   "series": "行為改變",
+   "status": "reading",
+   "intro": "不要以為時間線性的影響",
+   "color": "#B3262B"
+  },
+  {
+   "id": "417fdb3cb437802c89ebdf49e6f00508",
+   "cat": "tool",
+   "title": "小王子",
+   "series": "自學思維",
+   "status": "read",
+   "intro": "1. 01. 與自己的關係：每個人都有自己的孤單課題\n2. 02. 與自己的關係：你不需要變成你不喜歡的大人\n3. 03. 與愛人的關係：從心甘情願豢養與被豢養開始\n4. 04. 與愛人的關係：因為他是你的玫瑰\n5. 05. 與世界的關係：用「心」去尋覓你笑著的理由\n6. 06. 與世界的關係：分離的時候，學會道別",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "420fdb3cb437809f8b84f40fb1ec4468",
+   "cat": "tool",
+   "title": "刻意練習",
+   "series": "行為改變",
+   "status": "unread",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "420fdb3cb437806aa42fc2e66bbd3f0f",
+   "cat": "tool",
+   "title": "心流",
+   "series": "行為改變",
+   "status": "unread",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3e9fdb3cb43780228d11e540a75cd6fa",
+   "cat": "novel",
+   "title": "白夜行",
+   "by": "東野圭吾",
+   "series": "經典社會派",
+   "status": "read",
+   "tags": [
+    "極致的惡",
+    "人性本質",
+    "共生悲歌"
+   ],
+   "intro": "東野圭吾無冕之王代表作",
+   "rating": 5,
+   "color": "#B3262B"
+  },
+  {
+   "id": "3e9fdb3cb43780968b52c7f24a80385f",
+   "cat": "novel",
+   "title": "幻夜",
+   "by": "東野圭吾",
+   "series": "經典社會派",
+   "status": "unread",
+   "tags": [
+    "人性深淵",
+    "慾望操控",
+    "惡女"
+   ],
+   "intro": "《白夜行》精神姊妹作",
+   "color": "#6F7E5B"
+  },
+  {
+   "id": "3e9fdb3cb437806eb718eb53afe658f0",
+   "cat": "novel",
+   "title": "變身",
+   "by": "東野圭吾",
+   "series": "醫學三部曲",
+   "status": "unread",
+   "tags": [
+    "人格分裂",
+    "腦科學",
+    "器官移植"
+   ],
+   "intro": "醫學懸疑經典",
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3e9fdb3cb43780648bfced8f489e7515",
+   "cat": "novel",
+   "title": "分身",
+   "by": "東野圭吾",
+   "series": "醫學三部曲",
+   "status": "unread",
+   "tags": [
+    "複製人",
+    "雙胞胎謎團",
+    "自我認同"
+   ],
+   "intro": "探討複製醫學倫理",
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3e9fdb3cb43780b39ed4cdd215e31679",
+   "cat": "novel",
+   "title": "宿命",
+   "by": "東野圭吾",
+   "series": "醫學三部曲",
+   "status": "read",
+   "tags": [
+    "命運牽絆",
+    "腦科學",
+    "宿敵對決"
+   ],
+   "intro": "命運交織的代表作",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3e9fdb3cb437805abe24d260d830dc7c",
+   "cat": "novel",
+   "title": "秘密",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "靈魂交換",
+    "夫妻倫理",
+    "親情掙扎"
+   ],
+   "intro": "日本推理作家協會賞獲獎作",
+   "rating": 3,
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3e9fdb3cb43780c5b8bcecd182372e3c",
+   "cat": "novel",
+   "title": "以前我死去的家",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "unread",
+   "tags": [
+    "家庭暴力",
+    "童年創傷",
+    "封閉洋房"
+   ],
+   "intro": "作者本人的自信作",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "3e9fdb3cb43780879b43df4a221e8ef2",
+   "cat": "novel",
+   "title": "單戀",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "unread",
+   "tags": [
+    "性別認同",
+    "性別不安",
+    "友情守護"
+   ],
+   "intro": "探討跨性別與性別光譜",
+   "color": "#8A1F24"
+  },
+  {
+   "id": "3e9fdb3cb4378085abefeeeaa267c436",
+   "cat": "novel",
+   "title": "人魚沉睡的家",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "unread",
+   "tags": [
+    "植物人",
+    "腦死器官捐贈",
+    "道德爭議"
+   ],
+   "intro": "出道30週年紀念作",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3e9fdb3cb437807bb974ec37232ca8fa",
+   "cat": "novel",
+   "title": "空洞的十字架",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "unread",
+   "tags": [
+    "被害者遺族",
+    "死刑制度存廢",
+    "贖罪"
+   ],
+   "intro": "深入探討死刑議題",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3e9fdb3cb4378072b8fdfaeffe5f08b2",
+   "cat": "novel",
+   "title": "紅色手指",
+   "by": "東野圭吾",
+   "series": "加賀恭一郎系列",
+   "status": "unread",
+   "tags": [
+    "家庭羈絆",
+    "長照悲歌",
+    "親情衝突"
+   ],
+   "intro": "加賀恭一郎系列關鍵作",
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3e9fdb3cb4378073bb3ef27ab26c5954",
+   "cat": "novel",
+   "title": "徬徨之刃",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "私刑復仇",
+    "少年犯",
+    "少年法正義"
+   ],
+   "intro": "絕望父親的私刑控訴",
+   "rating": 4,
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "3e9fdb3cb4378028be9cee3dbc22c111",
+   "cat": "novel",
+   "title": "假面飯店",
+   "by": "東野圭吾",
+   "series": "假面飯店系列",
+   "status": "unread",
+   "tags": [
+    "飯店推理",
+    "心理攻防",
+    "臥底刑警"
+   ],
+   "intro": "柯迪亞飯店系列第 1 部",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3e9fdb3cb4378064b173d6584d7b4297",
+   "cat": "novel",
+   "title": "假面前夜",
+   "by": "東野圭吾",
+   "series": "假面飯店系列",
+   "status": "unread",
+   "tags": [
+    "飯店推理",
+    "短篇故事",
+    "前傳"
+   ],
+   "intro": "柯迪亞飯店系列第 2 部",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3e9fdb3cb43780d680d4d30ef4b3bf37",
+   "cat": "novel",
+   "title": "假面之夜",
+   "by": "東野圭吾",
+   "series": "假面飯店系列",
+   "status": "unread",
+   "tags": [
+    "飯店推理",
+    "跨年晚會",
+    "假面之謎"
+   ],
+   "intro": "柯迪亞飯店系列第 3 部",
+   "color": "#A8742F"
+  },
+  {
+   "id": "3e9fdb3cb43780bea792e4a0c2650acc",
+   "cat": "novel",
+   "title": "流星之絆",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "復仇",
+    "愛情陷阱",
+    "詐欺欺瞞",
+    "手足之情"
+   ],
+   "intro": "兼具幽默與哀傷的復仇劇",
+   "rating": 5,
+   "color": "#6F7E5B"
+  },
+  {
+   "id": "3e9fdb3cb4378045b29dc00336edfc3b",
+   "cat": "novel",
+   "title": "黎明破曉的街道",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "unread",
+   "tags": [
+    "不倫",
+    "外遇",
+    "婚姻現實",
+    "罪惡"
+   ],
+   "intro": "成熟視角的外遇懸",
+   "color": "#6F7E5B"
+  },
+  {
+   "id": "3e9fdb3cb43780e6a994e809c6bd9a13",
+   "cat": "novel",
+   "title": "嫌疑犯X的獻身",
+   "by": "東野圭吾",
+   "series": "伽利略系列",
+   "status": "read",
+   "tags": [
+    "天才對決",
+    "極致犧牲",
+    "純愛推"
+   ],
+   "intro": "直木賞／本格推理大賞獲",
+   "rating": 5,
+   "color": "#A8742F"
+  },
+  {
+   "id": "3e9fdb3cb4378031884ecf22bf035ffc",
+   "cat": "novel",
+   "title": "信",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "加害者家屬",
+    "罪與罰",
+    "社會連帶歧視"
+   ],
+   "intro": "入圍直木賞代表作",
+   "rating": 5,
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3e9fdb3cb43780eeb8dddc0108548e01",
+   "cat": "novel",
+   "title": "時生",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "unread",
+   "tags": [
+    "穿越時空",
+    "父子羈絆",
+    "生命的奇蹟"
+   ],
+   "intro": "溫暖療癒科幻作",
+   "color": "#6F7E5B"
+  },
+  {
+   "id": "3e9fdb3cb437805ea5a0f570354cdd34",
+   "cat": "novel",
+   "title": "新參者",
+   "by": "東野圭吾",
+   "series": "加賀恭一郎系列",
+   "status": "read",
+   "tags": [
+    "人形町人情",
+    "溫暖破案",
+    "善意謊言"
+   ],
+   "intro": "加賀系列代表作，阿部寬主演日劇原作",
+   "rating": 5,
+   "color": "#A8742F"
+  },
+  {
+   "id": "3e9fdb3cb43780b6a636e7258a06a91a",
+   "cat": "novel",
+   "title": "惡意",
+   "by": "東野圭吾",
+   "series": "加賀恭一郎系列",
+   "status": "read",
+   "tags": [
+    "毫無動機的恨",
+    "校園霸凌",
+    "敘述性詭計"
+   ],
+   "intro": "本格推理巔峰，人心幽微極致之作",
+   "rating": 5,
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3e9fdb3cb43780b08774d86efa713daf",
+   "cat": "novel",
+   "title": "偵探伽利略",
+   "by": "東野圭吾",
+   "series": "伽利略系列",
+   "status": "read",
+   "tags": [
+    "物理學破案",
+    "湯川學",
+    "人體自燃詭計"
+   ],
+   "intro": "伽利略系列開山始祖短篇集",
+   "rating": 5,
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3e9fdb3cb43780a8b19fdf5977982ee5",
+   "cat": "novel",
+   "title": "流",
+   "by": "東山彰良",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "台灣眷村",
+    "歷史浪潮",
+    "祖父之死",
+    "青春狂熱"
+   ],
+   "intro": "第153屆直木賞全票通過得獎作（以台北為舞台）",
+   "rating": 5,
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "3e9fdb3cb437802097f3fdda343a6b1c",
+   "cat": "novel",
+   "title": "解憂雜貨店",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "浪矢雜貨店",
+    "穿越信箱",
+    "人生抉擇",
+    "救贖"
+   ],
+   "intro": "第7屆中央公論文藝賞，在台破百萬冊現象級神作",
+   "rating": 5,
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3e9fdb3cb43780a98b57d8f0d411b8ea",
+   "cat": "novel",
+   "title": "放學後",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "射箭社",
+    "校園密室",
+    "窺視",
+    "少女心事"
+   ],
+   "intro": "第31屆江戶川亂步賞得獎出道作",
+   "rating": 4,
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "3e9fdb3cb4378019859ac3e2b2ea82ee",
+   "cat": "novel",
+   "title": "祈念之樹",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "reading",
+   "tags": [
+    "神楠祈念",
+    "家族傳承",
+    "思念寄託",
+    "和解"
+   ],
+   "intro": "《解憂雜貨店》姊妹治癒作",
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "3e9fdb3cb43780df88f0c3d83a752145",
+   "cat": "novel",
+   "title": "謊言(再一個謊言)",
+   "by": "東野圭吾",
+   "series": "加賀恭一郎系列",
+   "status": "unread",
+   "tags": [
+    "心理攻防",
+    "謊言矛盾",
+    "善惡邊界"
+   ],
+   "intro": "加賀系列唯一短篇集（亦見新版《湖畔的謊言》）",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3e9fdb3cb437805a9d09eef653ba5320",
+   "cat": "novel",
+   "title": "湖邊兇殺案",
+   "by": "東野圭吾",
+   "series": "單本獨立作",
+   "status": "read",
+   "tags": [
+    "升學主義",
+    "別墅命案",
+    "共犯父母聯盟"
+   ],
+   "intro": "改編電影由役所廣司主演；2024新譯本名《湖畔的謊言》",
+   "rating": 3,
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb43780c684f4dba0090f2ed3",
+   "cat": "novel",
+   "title": "我殺的人與殺我的人",
+   "by": "東山彰良",
+   "series": "翻譯文學",
+   "status": "read",
+   "tags": [
+    "罪與罰",
+    "責任與共業"
+   ],
+   "intro": "以雙時間軸交錯敘事，深刻探討罪與罰、歷史創傷與少年成長",
+   "rating": 5,
+   "note": "在人際關係與成長過程中，我們往往在無意間「殺死」了別人的純真、希望或某一部分自我，同時我們的人生也被某個關鍵時刻、某個人給「謀殺」了",
+   "color": "#B3262B"
+  },
+  {
+   "id": "401fdb3cb43780038c29d25ab3cb07e2",
+   "cat": "novel",
+   "title": "大橋",
+   "by": "桑頓·懷爾德",
+   "series": "翻譯文學",
+   "status": "unread",
+   "intro": "人的生與死，是偶然的機運，還是命中注定？",
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "417fdb3cb43780fc9bc4dfa719127445",
+   "cat": "novel",
+   "title": "追風箏的孩子",
+   "by": "卡勒德·胡賽尼",
+   "series": "翻譯文學",
+   "status": "read",
+   "tags": [
+    "人性脆弱",
+    "自我救贖",
+    "超越階級"
+   ],
+   "intro": "「風箏」代表著認同、愛與希望，也代表著那段純真卻留有遺憾的童年。追尋風箏的過程，正是阿米爾追尋自我、面對過錯並完成自我救贖的旅程。",
+   "rating": 5,
+   "note": "人好像都需要去自我救贖的過程，才能真的放下",
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "417fdb3cb43780e0a633ccfbcff20c57",
+   "cat": "novel",
+   "title": "異鄉人",
+   "by": "卡謬",
+   "series": "翻譯文學",
+   "status": "read",
+   "tags": [
+    "存在主義與荒謬哲學的經典代表"
+   ],
+   "intro": "我知道這世界無我的容身之地，但你評什麼審判我的靈魂",
+   "note": "很荒謬，但又很反思，人往往只在乎合理性，但合理性又是人定義的。  拒絕虛偽的結果就是被定罪，但他卻是誠實的。最後也是活在當下的態度。清楚的知道自己在做什麼的人也知道自己即將離開，對比別人不知道自己要什麼也不知道什麼時候會結束清醒的多了。",
+   "color": "#B3262B"
+  },
+  {
+   "id": "41afdb3cb43780f5ac62f387adaf02ba",
+   "cat": "novel",
+   "title": "墮落",
+   "by": "卡謬",
+   "series": "翻譯文學",
+   "status": "unread",
+   "tags": [
+    "這是卡繆晚期最深刻的作品之一",
+    "結構精巧",
+    "對人性中的虛榮",
+    "內疚與道德審判進行了極其尖銳的剖析。"
+   ],
+   "color": "#B3262B"
+  },
+  {
+   "id": "41afdb3cb43780579fd7d4af02cda324",
+   "cat": "novel",
+   "title": "反與正",
+   "by": "卡謬",
+   "series": "翻譯文學",
+   "status": "unread",
+   "tags": [
+    "散文"
+   ],
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "41afdb3cb437806c929ef5922bfa7d8e",
+   "cat": "novel",
+   "title": "婚禮",
+   "by": "卡謬",
+   "series": "翻譯文學",
+   "status": "unread",
+   "tags": [
+    "散文"
+   ],
+   "color": "#A8742F"
+  },
+  {
+   "id": "41afdb3cb4378090a752c1e29fb6734f",
+   "cat": "novel",
+   "title": "客人",
+   "by": "卡謬",
+   "series": "翻譯文學",
+   "status": "unread",
+   "tags": [
+    "這篇將「荒謬」與「道德兩難」展現得淋漓盡致",
+    "也是卡繆最受推崇的短篇之一。"
+   ],
+   "color": "#A8742F"
+  },
+  {
+   "id": "41afdb3cb4378074b3d9d062fe1a1322",
+   "cat": "novel",
+   "title": "數位密碼",
+   "by": "丹·布朗",
+   "series": "翻譯文學",
+   "status": "unread",
+   "color": "#B3262B"
+  },
+  {
+   "id": "41afdb3cb437801888d9e33032d17846",
+   "cat": "novel",
+   "title": "大騙局",
+   "by": "丹·布朗",
+   "series": "翻譯文學",
+   "status": "unread",
+   "color": "#A8742F"
+  },
+  {
+   "id": "41cfdb3cb4378024aaecf1c077bc2d70",
+   "cat": "novel",
+   "title": "那不勒斯故事",
+   "status": "unread",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "420fdb3cb43780d58a4afcc4579dceef",
+   "cat": "novel",
+   "title": "1Q84",
+   "by": "春上村樹",
+   "series": "單本獨立作",
+   "status": "unread",
+   "color": "#A8742F"
+  },
+  {
+   "id": "3eafdb3cb437806980c4c6f95a52939b",
+   "cat": "movie",
+   "title": "全面啟動",
+   "sub": "Inception",
+   "by": "克里斯多福·諾蘭",
+   "credit": "李奧納多·狄卡皮歐、席尼·墨菲",
+   "status": "read",
+   "tags": [
+    "科幻",
+    "懸疑",
+    "動作"
+   ],
+   "intro": "多重夢境架構、開放式陀螺結局、燒腦經典",
+   "rating": 5,
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "3eafdb3cb437803799cdea5a3f063f21",
+   "cat": "movie",
+   "title": "末代武士",
+   "sub": "The Last Samurai",
+   "by": "愛德華·茲威克",
+   "credit": "湯姆·克魯斯、渡邊謙、真田廣之",
+   "status": "read",
+   "tags": [
+    "歷史",
+    "動作",
+    "劇情"
+   ],
+   "intro": "日本武士道精神與西方火器碰撞、壯烈悲愴",
+   "rating": 4,
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3eafdb3cb437802b9bbeea2cc6457095",
+   "cat": "movie",
+   "title": "可可夜總會",
+   "sub": "Coco",
+   "by": "李·安克里奇",
+   "credit": "安東尼·岡薩雷斯、蓋爾·賈西亞·貝納 (配音)",
+   "status": "read",
+   "tags": [
+    "動畫",
+    "奇幻",
+    "音樂"
+   ],
+   "intro": "墨西哥亡靈節、追夢與家族羈絆、催淚神曲",
+   "rating": 5,
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "3eafdb3cb43780948c83cd18b8360a4a",
+   "cat": "movie",
+   "title": "007大戰金鎗客",
+   "sub": "The Man with the Golden Gun",
+   "by": "蓋·漢彌爾頓",
+   "credit": "羅傑·摩爾、克里斯多福·李",
+   "status": "unread",
+   "tags": [
+    "間諜",
+    "動作",
+    "冒險"
+   ],
+   "intro": "經典英式特務片、黃金槍刺客對決、香港泰國取景",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3eafdb3cb43780dbb242da1d1f765d8b",
+   "cat": "movie",
+   "title": "侵密室友",
+   "sub": "Greta",
+   "by": "尼爾·喬丹",
+   "credit": "伊莎貝·雨珀、克蘿伊·摩蕾茲",
+   "status": "unread",
+   "tags": [
+    "心理驚悚",
+    "懸疑"
+   ],
+   "intro": "地鐵遺失包包牽起的變態母愛與病態控制狂",
+   "color": "#A8742F"
+  },
+  {
+   "id": "3eafdb3cb4378029838bc7266d16cd6b",
+   "cat": "movie",
+   "title": "鋼鐵墳墓",
+   "sub": "Escape Plan",
+   "by": "麥克·哈夫斯強",
+   "credit": "席維斯·史特龍、阿諾·史瓦辛格",
+   "status": "unread",
+   "tags": [
+    "動作",
+    "犯罪",
+    "驚悚"
+   ],
+   "intro": "雙老牌動作巨星聯手、深海黑獄極限智取逃脫",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "3eafdb3cb437800cae6decdb1eb5d074",
+   "cat": "movie",
+   "title": "狙擊陌生人",
+   "sub": "Unknown",
+   "by": "豪梅·寇勒特-瑟拉",
+   "credit": "連恩·尼遜、黛安·克魯格",
+   "status": "unread",
+   "tags": [
+    "動作",
+    "懸疑",
+    "驚悚"
+   ],
+   "intro": "柏林車禍後身份全盤遭頂替、層層推翻的謎團",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3eafdb3cb43780dd95b3e080b154418b",
+   "cat": "movie",
+   "title": "康斯坦汀：驅魔神探",
+   "sub": "Constantine",
+   "by": "佛蘭西斯·羅倫斯",
+   "credit": "基努·李維、瑞秋·懷茲、蒂妲·史雲頓",
+   "status": "unread",
+   "tags": [
+    "奇幻",
+    "動作",
+    "恐怖"
+   ],
+   "intro": "頹廢硬派驅魔人、天主教天堂地獄世界觀、帥氣經典",
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3eafdb3cb43780d8bee4f2c685cadb6a",
+   "cat": "movie",
+   "title": "鋼鐵英雄",
+   "sub": "Hacksaw Ridge",
+   "by": "梅爾·吉勃遜",
+   "credit": "安德魯·加菲爾德、泰瑞莎·帕瑪",
+   "status": "read",
+   "tags": [
+    "戰爭",
+    "傳記",
+    "劇情"
+   ],
+   "intro": "沖繩島戰役堅持不帶槍的軍醫、拯救75名同袍真實事件",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3eafdb3cb437804883d5f315515f7a08",
+   "cat": "movie",
+   "title": "唐伯虎點秋香",
+   "by": "李力持",
+   "credit": "周星馳、鞏俐、鄭佩佩",
+   "status": "read",
+   "tags": [
+    "喜劇",
+    "古裝"
+   ],
+   "intro": "無厘頭神作、含笑半步癲與小強等華語迷因源頭",
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3eafdb3cb43780139282f5068fc0d4ba",
+   "cat": "movie",
+   "title": "國產凌凌漆 (007)",
+   "by": "周星馳、李力持",
+   "credit": "周星馳、袁詠儀、羅家英",
+   "status": "unread",
+   "tags": [
+    "喜劇",
+    "動作",
+    "諜報"
+   ],
+   "intro": "戲仿007特務、豬肉販身手不凡、要你命3000",
+   "color": "#B3262B"
+  },
+  {
+   "id": "3eafdb3cb43780caad9ff3ed2c4bb666",
+   "cat": "movie",
+   "title": "模仿遊戲",
+   "sub": "The Imitation Game",
+   "by": "摩頓·帝敦",
+   "credit": "班奈狄克·康柏拜區、綺拉·奈特莉",
+   "status": "read",
+   "tags": [
+    "傳記",
+    "歷史",
+    "劇情"
+   ],
+   "intro": "電腦之父圖靈破解二戰恩尼格瑪密碼機、悲劇天才",
+   "rating": 5,
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3eafdb3cb4378087a6fdcda7e97d217c",
+   "cat": "movie",
+   "title": "佈局",
+   "sub": "Contratiempo",
+   "by": "奧瑞歐·保羅",
+   "credit": "馬里奧·卡薩斯、芭芭拉·蘭妮",
+   "status": "read",
+   "tags": [
+    "犯罪",
+    "懸疑",
+    "驚悚"
+   ],
+   "intro": "西班牙密室反轉天花板、謊言與真相的極限博弈",
+   "rating": 5,
+   "color": "#A8742F"
+  },
+  {
+   "id": "3eafdb3cb4378075b446d605b7054173",
+   "cat": "movie",
+   "title": "怪物",
+   "sub": "Monster, 2023",
+   "by": "是枝裕和",
+   "credit": "安藤櫻、永山瑛太、黑川想矢",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "懸疑"
+   ],
+   "intro": "羅生門式三視角敘事、坂本龍一配樂、坎城最佳劇本",
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "3eafdb3cb43780eeb49be26f644614dd",
+   "cat": "movie",
+   "title": "星際大戰系列",
+   "sub": "Star Wars",
+   "by": "喬治·盧卡斯 等",
+   "credit": "馬克·漢米爾、哈里遜·福特 等",
+   "status": "unread",
+   "tags": [
+    "科幻",
+    "太空歌劇"
+   ],
+   "intro": "光劍對決、原力哲學、跨越數十年的影史科幻史詩",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "3eafdb3cb43780b4b6e1d38b79e91953",
+   "cat": "movie",
+   "title": "星際效應",
+   "sub": "Interstellar",
+   "by": "克里斯多福·諾蘭",
+   "credit": "馬修·麥康納、安·海瑟薇、潔西卡·雀絲坦",
+   "status": "unread",
+   "tags": [
+    "科幻",
+    "冒險",
+    "劇情"
+   ],
+   "intro": "黑洞與相對論硬科幻、超越時空維度的親情連繫",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "3eafdb3cb437805c94b6d3aa5f2abfa1",
+   "cat": "movie",
+   "title": "天國王朝",
+   "sub": "Kingdom of Heaven",
+   "by": "雷利·史考特",
+   "credit": "奧蘭多·布魯、伊娃·葛林",
+   "status": "unread",
+   "tags": [
+    "歷史",
+    "戰爭",
+    "史詩"
+   ],
+   "intro": "十字軍東征攻防、耶路撒冷和平守護（務必看導演剪輯版）",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3eafdb3cb437808cb3c4c240aca9019e",
+   "cat": "movie",
+   "title": "幸福綠皮書",
+   "sub": "Green Book",
+   "by": "彼得·法拉利",
+   "credit": "維果·莫天森、馬赫夏拉·阿里",
+   "status": "read",
+   "tags": [
+    "傳記",
+    "喜劇",
+    "劇情"
+   ],
+   "intro": "黑人鋼琴家與白人司機的公路之旅、跨階級種族暖心之作",
+   "rating": 4,
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3eafdb3cb43780a6b761ea0edcef2465",
+   "cat": "movie",
+   "title": "少年小樹之歌",
+   "sub": "The Education of Little Tree",
+   "by": "理查·弗里登伯格",
+   "credit": "詹姆斯·克倫威爾、約瑟夫·阿什頓",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "成長",
+    "自然"
+   ],
+   "intro": "印第安小男孩在深山與祖父母生活、大自然的哲理啟蒙",
+   "color": "#8A1F24"
+  },
+  {
+   "id": "3eafdb3cb43780faaebec44367e9ef81",
+   "cat": "movie",
+   "title": "腦中蜜",
+   "sub": "Honig im Kopf, 2014",
+   "by": "提爾·史威格",
+   "credit": "迪特·哈勒沃登、艾瑪·施威格",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "喜劇",
+    "家庭"
+   ],
+   "intro": "阿茲海默症爺爺與孫女的威尼斯公路之旅、笑中帶淚",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb43780b89536c1680fedea4b",
+   "cat": "movie",
+   "title": "逆轉人生",
+   "sub": "The Intouchables",
+   "by": "奧力佛·那卡希 等",
+   "credit": "佛朗索瓦·克魯塞、歐馬·希",
+   "status": "unread",
+   "tags": [
+    "喜劇",
+    "傳記",
+    "劇情"
+   ],
+   "intro": "癱瘓法國富豪與更生人看護、真摯不造作的跨界友誼",
+   "color": "#A8742F"
+  },
+  {
+   "id": "3eafdb3cb437801490b6d5b508d7dc71",
+   "cat": "movie",
+   "title": "歡迎來到布達佩斯大飯店",
+   "sub": "The Grand Budapest Hotel",
+   "by": "魏斯·安德森",
+   "credit": "雷夫·范恩斯、湯尼·雷佛羅里",
+   "status": "unread",
+   "tags": [
+    "喜劇",
+    "劇情",
+    "冒險"
+   ],
+   "intro": "極致對稱幾何美學、粉彩色調、歐洲黃金年代的告別輓歌",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb437807397c7d1909016c375",
+   "cat": "movie",
+   "title": "送信到哥本哈根",
+   "sub": "I Am David",
+   "by": "保羅·費格",
+   "credit": "本·蒂伯、吉姆·卡維佐",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "冒險",
+    "戰爭"
+   ],
+   "intro": "逃出二戰集中營的男孩穿越歐洲、尋回信任與自我",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3eafdb3cb43780e09083fc3601c9a20b",
+   "cat": "movie",
+   "title": "法蘭西特派週報",
+   "sub": "The French Dispatch",
+   "by": "魏斯·安德森",
+   "credit": "比爾·墨瑞、提摩西·夏勒梅",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "喜劇"
+   ],
+   "intro": "獻給二十世紀紙媒記者的情書、雜誌專欄形式短篇敘事",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3eafdb3cb437806a9657dd84063a662b",
+   "cat": "movie",
+   "title": "在世界的角落找到我",
+   "sub": "In This Corner of the World",
+   "by": "片淵須直",
+   "credit": "能年玲奈 (配音)",
+   "status": "unread",
+   "tags": [
+    "動畫",
+    "歷史",
+    "劇情"
+   ],
+   "intro": "二戰廣島吳市平民日常、戰火下展現的溫柔與頑強生命力",
+   "color": "#A8742F"
+  },
+  {
+   "id": "3eafdb3cb43780d0afccdebffb83b3e6",
+   "cat": "movie",
+   "title": "明日邊界",
+   "sub": "Edge of Tomorrow",
+   "by": "道格·李曼",
+   "credit": "湯姆·克魯斯、愛蜜莉·布朗",
+   "status": "unread",
+   "tags": [
+    "科幻",
+    "動作",
+    "時間循環"
+   ],
+   "intro": "死亡回歸存檔重來打外星人、節奏明快爽度極高",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "3eafdb3cb4378012bcfed2875cd25c24",
+   "cat": "movie",
+   "title": "海底總動員2：多莉去哪兒",
+   "sub": "Finding Dory",
+   "by": "安德魯·史坦頓",
+   "credit": "艾倫·狄珍妮、艾伯特·布魯克斯 (配音)",
+   "status": "read",
+   "tags": [
+    "動畫",
+    "冒險",
+    "喜劇"
+   ],
+   "intro": "健忘多莉尋找父母起源、直面缺陷與自我價值",
+   "rating": 4,
+   "color": "#2F4A5C"
+  },
+  {
+   "id": "3eafdb3cb43780bc8426e2adfe232df7",
+   "cat": "movie",
+   "title": "不存在的房間",
+   "sub": "Room",
+   "by": "藍尼·亞伯漢森",
+   "credit": "布麗·拉森、雅各·特倫布雷",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "驚悚",
+    "心理"
+   ],
+   "intro": "狹小禁錮空間裡的母子世界、回歸社會後的心理創傷重建",
+   "color": "#B3262B"
+  },
+  {
+   "id": "3eafdb3cb437805c9949f01e20dd7b36",
+   "cat": "movie",
+   "title": "絕地救援",
+   "sub": "The Martian",
+   "by": "雷利·史考特",
+   "credit": "麥特·戴蒙、潔西卡·雀絲坦",
+   "status": "unread",
+   "tags": [
+    "科幻",
+    "冒險",
+    "劇情"
+   ],
+   "intro": "火星荒漠種馬鈴薯求生、科學家硬核自救與樂觀精神",
+   "color": "#8A1F24"
+  },
+  {
+   "id": "3eafdb3cb43780d9a240ffb2ce734e5e",
+   "cat": "movie",
+   "title": "倒帶人生",
+   "sub": "Stuart: A Life Backwards",
+   "by": "大衛·阿特伍德",
+   "credit": "湯姆·哈迪、班奈狄克·康柏拜區",
+   "status": "unread",
+   "tags": [
+    "傳記",
+    "劇情"
+   ],
+   "intro": "倒敘還原街頭流浪漢的悲慘一生、兩大英國男星飆戲",
+   "color": "#6F7E5B"
+  },
+  {
+   "id": "3eafdb3cb43780918a81e7e689234f4f",
+   "cat": "movie",
+   "title": "那山 那人 那狗",
+   "by": "霍建起",
+   "credit": "滕汝駿、劉燁",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "親情"
+   ],
+   "intro": "湘西大山郵遞員父子交接班、質樸寧靜的中國山林親情",
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "3eafdb3cb43780499eeffe1ce61eaad8",
+   "cat": "movie",
+   "title": "大法官",
+   "sub": "The Judge",
+   "by": "大衛·多布金",
+   "credit": "小勞勃·道尼、勞勃·杜瓦",
+   "status": "unread",
+   "tags": [
+    "劇情",
+    "法律",
+    "家庭"
+   ],
+   "intro": "菁英叛逆律師替疏離多年的老法官父親辯護、親情和解",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3eafdb3cb43780448037d1e5234158d8",
+   "cat": "movie",
+   "title": "日日是好日",
+   "sub": "Every Day a Good Day",
+   "by": "大森立嗣",
+   "credit": "黑木華、樹木希林、多部未華子",
+   "status": "read",
+   "tags": [
+    "劇情",
+    "生活",
+    "治癒"
+   ],
+   "intro": "藉由茶道二十年起伏領悟生命真諦、步調溫潤沉靜（好看暖心）",
+   "rating": 4,
+   "color": "#6F7E5B"
+  },
+  {
+   "id": "3eafdb3cb437804a9929ed3c9ea9b263",
+   "cat": "movie",
+   "title": "只有你聽得到 / 寂寞的頻率改編",
+   "by": "荻島達也",
+   "credit": "成海璃子、小出惠介",
+   "status": "unread",
+   "tags": [
+    "奇幻",
+    "懸疑",
+    "青春"
+   ],
+   "intro": "乙一白乙一小說改編、心靈手機跨越孤獨（備註：原著筆記不推薦）",
+   "color": "#B3262B"
+  },
+  {
+   "id": "3eafdb3cb43780d09e77cfab534484a0",
+   "cat": "movie",
+   "title": "峰迴路轉",
+   "sub": "Knives Out",
+   "by": "丹尼爾·克雷格、安娜·德哈瑪斯、克里斯·伊凡\t雷恩·強生\t經典阿嘉莎·克莉絲蒂式暴風雪山莊偵探推理、家庭利益角力與精巧諷刺",
+   "credit": "丹尼爾·克雷格、安娜·德哈瑪斯、克里斯·伊凡\t雷恩·強生\t經典阿嘉莎·克莉絲蒂式暴風雪山莊偵探推理、家庭利益角力與精巧諷刺",
+   "status": "read",
+   "tags": [
+    "懸疑",
+    "喜劇",
+    "推理"
+   ],
+   "intro": "丹尼爾·克雷格、安娜·德哈瑪斯、克里斯·伊凡\t雷恩·強生\t經典阿嘉莎·克莉絲蒂式暴風雪山莊偵探推理、家庭利益角力與精巧諷刺",
+   "rating": 5,
+   "note": "電影故事線簡單 細節交代很好 整體很完整\n女主角心路歷程也演的完美",
+   "end": "2023-01-01",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3eafdb3cb43780d7898bfcfc981b8a5c",
+   "cat": "movie",
+   "title": "捍衛戰士：獨行俠",
+   "sub": "Top Gun: Maverick",
+   "by": "動作 / 劇情 / 冒險\t湯姆·克魯斯、麥爾斯·泰勒、珍妮佛·康納莉\t約瑟夫·柯金斯基\t真實座艙高G力飛行實拍、跨越世代的情懷呼應、極致沉浸與熱血節奏",
+   "credit": "動作 / 劇情 / 冒險\t湯姆·克魯斯、麥爾斯·泰勒、珍妮佛·康納莉\t約瑟夫·柯金斯基\t真實座艙高G力飛行實拍、跨越世代的情懷呼應、極致沉浸與熱血節奏",
+   "status": "read",
+   "tags": [
+    "動作",
+    "劇情",
+    "冒險\t湯姆·克魯斯",
+    "麥爾斯·泰勒",
+    "珍妮佛·康納莉\t約瑟夫·柯金斯基\t真實座艙高G力飛行實拍",
+    "跨越世代的情懷呼應",
+    "極致沉浸與熱血節奏"
+   ],
+   "intro": "動作 / 劇情 / 冒險\t湯姆·克魯斯、麥爾斯·泰勒、珍妮佛·康納莉\t約瑟夫·柯金斯基\t真實座艙高G力飛行實拍、跨越世代的情懷呼應、極致沉浸與熱血節奏",
+   "rating": 4,
+   "note": "劇情簡單但扣人心弦，互相影響，進而解決對方內心隱藏不敢面對的問題",
+   "end": "2022-12-26",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb437800b9505e55fb802e9d2",
+   "cat": "movie",
+   "title": "捍衛任務",
+   "sub": "John Wick",
+   "by": "動作 / 犯罪 / 驚悚\t基努·李維、麥克·恩奎斯特\t查德·史塔赫斯基\t一隻小狗引發的地下殺手傳奇、開創「槍鬥術」（Gun-Fu）長鏡頭美學奠基作",
+   "credit": "動作 / 犯罪 / 驚悚\t基努·李維、麥克·恩奎斯特\t查德·史塔赫斯基\t一隻小狗引發的地下殺手傳奇、開創「槍鬥術」（Gun-Fu）長鏡頭美學奠基作",
+   "status": "read",
+   "tags": [
+    "動作",
+    "犯罪",
+    "驚悚\t基努·李維",
+    "麥克·恩奎斯特\t查德·史塔赫斯基\t一隻小狗引發的地下殺手傳奇",
+    "開創「槍鬥術」（Gun-Fu）長鏡頭美學奠基作"
+   ],
+   "intro": "動作 / 犯罪 / 驚悚\t基努·李維、麥克·恩奎斯特\t查德·史塔赫斯基\t一隻小狗引發的地下殺手傳奇、開創「槍鬥術」（Gun-Fu）長鏡頭美學奠基作",
+   "rating": 4,
+   "note": "因老婆過世後留下的小狗被打死 所以全力追殺阿倫",
+   "end": "2023-03-28",
+   "color": "#C47A2C"
+  },
+  {
+   "id": "3eafdb3cb437808f9842d6de5387bb0e",
+   "cat": "movie",
+   "title": "捍衛任務2：未來封印",
+   "sub": "John Wick: Chapter 2",
+   "by": "動作 / 犯罪 / 驚悚\t基努·李維、凡夫俗子、勞倫斯·費許朋\t查德·史塔赫斯基\t大陸飯店與高桌會地下世界觀全面擴張、羅馬古蹟與鏡子迷宮精彩槍戰",
+   "credit": "動作 / 犯罪 / 驚悚\t基努·李維、凡夫俗子、勞倫斯·費許朋\t查德·史塔赫斯基\t大陸飯店與高桌會地下世界觀全面擴張、羅馬古蹟與鏡子迷宮精彩槍戰",
+   "status": "unread",
+   "tags": [
+    "動作",
+    "犯罪",
+    "驚悚\t基努·李維",
+    "凡夫俗子",
+    "勞倫斯·費許朋\t查德·史塔赫斯基\t大陸飯店與高桌會地下世界觀全面擴張",
+    "羅馬古蹟與鏡子迷宮精彩槍戰"
+   ],
+   "intro": "動作 / 犯罪 / 驚悚\t基努·李維、凡夫俗子、勞倫斯·費許朋\t查德·史塔赫斯基\t大陸飯店與高桌會地下世界觀全面擴張、羅馬古蹟與鏡子迷宮精彩槍戰",
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "3eafdb3cb4378090b625dac2170ad442",
+   "cat": "movie",
+   "title": "捍衛任務3：全面開戰",
+   "sub": "John Wick: Chapter 3 - Parabellum",
+   "by": "動作 / 犯罪 / 驚悚\t基努·李維、荷莉·貝瑞、馬克·德可斯可\t查德·史塔赫斯基\t破誓後全球懸賞大逃殺、戰術犬協同突擊、紐約街頭騎馬飛車槍戰",
+   "credit": "動作 / 犯罪 / 驚悚\t基努·李維、荷莉·貝瑞、馬克·德可斯可\t查德·史塔赫斯基\t破誓後全球懸賞大逃殺、戰術犬協同突擊、紐約街頭騎馬飛車槍戰",
+   "status": "unread",
+   "tags": [
+    "動作",
+    "犯罪",
+    "驚悚\t基努·李維",
+    "荷莉·貝瑞",
+    "馬克·德可斯可\t查德·史塔赫斯基\t破誓後全球懸賞大逃殺",
+    "戰術犬協同突擊",
+    "紐約街頭騎馬飛車槍戰"
+   ],
+   "intro": "動作 / 犯罪 / 驚悚\t基努·李維、荷莉·貝瑞、馬克·德可斯可\t查德·史塔赫斯基\t破誓後全球懸賞大逃殺、戰術犬協同突擊、紐約街頭騎馬飛車槍戰",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "3eafdb3cb437809a8517dcab25c5671b",
+   "cat": "movie",
+   "title": "捍衛任務4",
+   "sub": "John Wick: Chapter 4",
+   "by": "動作 / 犯罪 / 驚悚\t基努·李維、甄子丹、真田廣之、比爾·史柯斯嘉\t查德·史塔赫斯基\t甄子丹盲劍殺手對決、巴黎聖心堂222階樓梯激鬥、俯視俯拍霰彈槍長鏡頭，系列集大成終局",
+   "credit": "基努·李維、甄子丹、真田廣之、比爾·史柯斯嘉\t查德·史塔赫斯基\t甄子丹盲劍殺手對決、巴黎聖心堂222階樓梯激鬥、俯視俯拍霰彈槍長鏡頭，系列集大成終局",
+   "status": "read",
+   "tags": [
+    "動作",
+    "犯罪",
+    "驚悚\t基努·李維",
+    "甄子丹",
+    "真田廣之",
+    "比爾·史柯斯嘉\t查德·史塔赫斯基\t甄子丹盲劍殺手對決",
+    "巴黎聖心堂222階樓梯激鬥",
+    "俯視俯拍霰彈槍長鏡頭",
+    "系列集大成終局"
+   ],
+   "intro": "動作 / 犯罪 / 驚悚\t基努·李維、甄子丹、真田廣之、比爾·史柯斯嘉\t查德·史塔赫斯基\t甄子丹盲劍殺手對決、巴黎聖心堂222階樓梯激鬥、俯視俯拍霰彈槍長鏡頭，系列集大成終局",
+   "rating": 4,
+   "note": "基努李維真的演得很好 結局也算可預期\n畫面編排很有藝術喜歡用對稱與色彩編排",
+   "end": "2023-03-28",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "40cfdb3cb43780faafcae40f49784057",
+   "cat": "movie",
+   "title": "空中監獄",
+   "status": "unread",
+   "color": "#A8742F"
+  },
+  {
+   "id": "420fdb3cb43780fbafe6f8d6978a096d",
+   "cat": "movie",
+   "title": "神隱少女",
+   "status": "read",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "420fdb3cb437803d8d34ce564e2208c3",
+   "cat": "movie",
+   "title": "媽的多重宇宙",
+   "status": "read",
+   "color": "#3E6C8A"
+  },
+  {
+   "id": "420fdb3cb4378098867ef8eb2ac13349",
+   "cat": "movie",
+   "title": "風之谷",
+   "status": "read",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "420fdb3cb43780878188d54dcfa8b478",
+   "cat": "movie",
+   "title": "天空之城",
+   "status": "read",
+   "color": "#A8742F"
+  },
+  {
+   "id": "420fdb3cb437806ab818fdfb211385ec",
+   "cat": "movie",
+   "title": "龍貓",
+   "status": "read",
+   "color": "#D98C5F"
+  },
+  {
+   "id": "420fdb3cb43780388bd0f1f86172f9e3",
+   "cat": "movie",
+   "title": "魔女宅急便",
+   "status": "read",
+   "color": "#8A1F24"
+  },
+  {
+   "id": "420fdb3cb437801ab1d4d7e084248ce5",
+   "cat": "movie",
+   "title": "魔法公主",
+   "status": "read",
+   "color": "#A8742F"
+  },
+  {
+   "id": "420fdb3cb4378049b771e9ee2b028eaf",
+   "cat": "movie",
+   "title": "神隱少女",
+   "status": "read",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "420fdb3cb4378036affff17f9ac34431",
+   "cat": "movie",
+   "title": "霍爾的移動城堡",
+   "status": "read",
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "420fdb3cb43780b58eefe2dfa93061b2",
+   "cat": "movie",
+   "title": "崖上的波妞",
+   "status": "read",
+   "color": "#8A1F24"
+  },
+  {
+   "id": "420fdb3cb437801db03dea2ce0ca1e82",
+   "cat": "movie",
+   "title": "風起",
+   "status": "read",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb437801b9b7de4271cc4de0b",
+   "cat": "drama",
+   "title": "安眠書店",
+   "sub": "You",
+   "by": "潘·巴奇利、伊莉莎白·萊爾",
+   "credit": "格雷格·伯蘭蒂 等",
+   "status": "read",
+   "tags": [
+    "心理驚悚",
+    "犯罪"
+   ],
+   "intro": "浪漫偽裝下的變態跟蹤狂第一視角、社群焦慮剖析",
+   "rating": 5,
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3eafdb3cb4378092bd16db1deba8f64c",
+   "cat": "drama",
+   "title": "圈套",
+   "sub": "TRICK 系列",
+   "by": "仲間由紀惠、阿部寬",
+   "credit": "堤幸彥",
+   "status": "unread",
+   "tags": [
+    "懸疑",
+    "推理",
+    "喜劇"
+   ],
+   "intro": "魔術師與怪咖物理教授搭檔破除偽超自然騙局（2005特別篇先看）",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb437806d998fc90a1b2ed576",
+   "cat": "drama",
+   "title": "大劍",
+   "sub": "Claymore",
+   "by": "桑島法子、高山南 (配音)",
+   "credit": "田中洋之",
+   "status": "unread",
+   "tags": [
+    "動畫",
+    "奇幻",
+    "暗黑熱血"
+   ],
+   "intro": "半人半妖女戰士悲壯命運、冷酷暗黑的世界觀與死鬥",
+   "color": "#8A1F24"
+  },
+  {
+   "id": "3eafdb3cb4378033b737c701476a121a",
+   "cat": "drama",
+   "title": "第二聲鈴響",
+   "sub": "The Innocent",
+   "by": "馬里奧·卡薩斯、奧拉·加里多",
+   "credit": "奧瑞歐·保羅",
+   "status": "unread",
+   "tags": [
+    "懸疑",
+    "犯罪",
+    "迷你劇"
+   ],
+   "intro": "《佈局》導演操刀、多視角重疊、誤殺引發的連鎖失控",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb43780e5b7bbcb20ae8ccd8f",
+   "cat": "drama",
+   "title": "以吾之名",
+   "sub": "My Name",
+   "by": "韓韶禧、朴喜洵、安普賢",
+   "credit": "金鎮民",
+   "status": "unread",
+   "tags": [
+    "犯罪",
+    "動作",
+    "復仇"
+   ],
+   "intro": "女主隱姓埋名臥底警察追查殺父仇人、俐落硬派肉搏戰",
+   "color": "#5E7B6A"
+  },
+  {
+   "id": "3eafdb3cb437800d9aa5ca66f326f5eb",
+   "cat": "drama",
+   "title": "黑鏡",
+   "sub": "Black Mirror",
+   "by": "獨立單元劇（每集不同主演）",
+   "credit": "查理·布魯克",
+   "status": "unread",
+   "tags": [
+    "科幻",
+    "懸疑",
+    "諷刺"
+   ],
+   "intro": "近未來科技對人性、道德體系與社會制度的黑色反思",
+   "color": "#A8742F"
+  },
+  {
+   "id": "3eafdb3cb437801aa8afd0224ef2079c",
+   "cat": "drama",
+   "title": "亞森羅蘋",
+   "sub": "Lupin",
+   "by": "歐馬·希、露迪芬·莎妮",
+   "credit": "喬治·凱 等",
+   "status": "read",
+   "tags": [
+    "犯罪",
+    "懸疑",
+    "冒險"
+   ],
+   "intro": "現代巴黎版怪盜紳士、為洗刷父親冤屈展開智慧復仇",
+   "rating": 5,
+   "color": "#D98C5F"
+  },
+  {
+   "id": "3eafdb3cb4378089bd36c3b7caa5bc14",
+   "cat": "drama",
+   "title": "怪物",
+   "sub": "Beyond Evil, 韓劇備選",
+   "by": "申河均、呂珍九",
+   "credit": "申娜妍",
+   "status": "unread",
+   "tags": [
+    "心理",
+    "犯罪",
+    "懸疑"
+   ],
+   "intro": "鄉村連環殺人疑雲、全員嫌疑犯、極致壓抑反轉心理戰",
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "3eafdb3cb43780dfa90fe03202e25d60",
+   "cat": "drama",
+   "title": "絕命毒師",
+   "by": "布萊恩·克萊斯頓、亞倫·保羅",
+   "credit": "文斯·吉利根",
+   "status": "reading",
+   "tags": [
+    "犯罪",
+    "劇情",
+    "驚悚"
+   ],
+   "intro": "高中化學老師一步步墮落成為傳奇毒梟「海森堡」、封神級的劇本張力與人物弧光",
+   "note": "第一季\nWirte跟jacse認識 Wirte因為得了癌症想要為家人留一筆錢意外的殺了兩個人\n第二季\n第三季\nWirte 崩潰了用自以為是的方式愛家人 最後失去家人了",
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "41bfdb3cb437800994d2d2c4d21345be",
+   "cat": "drama",
+   "title": "Modern Family",
+   "status": "unread",
+   "tags": [
+    "學英文"
+   ],
+   "color": "#B3262B"
+  }
+ ]
+}

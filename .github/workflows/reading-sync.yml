@@ -1,0 +1,52 @@
+name: Sync reading shelf from Notion
+# 翻頁之後：每 6 小時從 Notion 同步書架資料（台灣時間 2:17、8:17、14:17、20:17）。
+# 資料有變化才提交，推送後 GitHub Pages 自動部署；也可在 Actions 頁手動執行。
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/reading-sync.mjs'
+      - 'scripts/reading.config.json'
+      - '.github/workflows/reading-sync.yml'
+  schedule:
+    - cron: '17 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: reading-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install sharp (cover images)
+        run: npm install --no-save --no-package-lock sharp@0.33.5
+      - name: Restore sync cache
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: reading-sync-${{ github.run_id }}
+          restore-keys: reading-sync-
+      - name: Sync from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+          GOOGLE_BOOKS_KEY: ${{ secrets.GOOGLE_BOOKS_KEY }}
+        run: node scripts/reading-sync.mjs
+      - name: Save updated shelf
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add reading/data.json reading/covers
+          if git diff --cached --quiet; then
+            echo "書架資料沒有變化"
+            exit 0
+          fi
+          git commit -m "Update reading shelf from Notion"
+          git pull --rebase origin main
+          git push origin HEAD:main

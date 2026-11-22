@@ -1,1 +1,8 @@
 .DS_Store
+
+# 翻頁之後：本機密鑰、同步快取與 sharp 套件
+.env
+.cache/
+node_modules/
+package.json
+package-lock.json

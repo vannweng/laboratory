@@ -10,7 +10,7 @@
 - `/investment/`：投資發大財，資產配置再平衡、固定報酬情境模擬與手動期權策略工具。
 - `/investment/notes.html`：投資專案點子本，沿用原筆記儲存鍵與內容。
 - `/english/`：一天一英文，規劃中的英文學習主題與點子本。
-- `/reading/`：翻頁之後，規劃中的讀書心得主題與點子本。
+- `/reading/`：翻頁之後，從 Notion 同步的立體書架（書、電影、影劇）；點子本在 `/reading/notes.html`。
 - `/fertility/`：好運小日子，備孕用的週期、基礎體溫與排卵試紙紀錄。頁首依今天的狀態給出同房建議（最佳時機、窗口開始、等待確認、月經未到），並列出受孕窗口逐日規劃。排卵日優先採用體溫「三高於六低」確認，其次試紙陽性（隔天排卵），最後才是由下次月經往前推；已完成週期的體溫會學出個人黃體期。計算集中在 `assets/fertility-engine.mjs`，測試在 `test/fertility-engine.test.mjs`。
 - `/fire/`：自由生活計畫，微退休試算：需要多少錢、幾歲可以開始。
 
@@ -63,6 +63,26 @@
 工具使用獨立的 `life-lab-investment-toolkit-v1`，包含尚未完成的表單草稿、期權觀察資料及提醒紀錄。設定修改後自動儲存，可匯入／匯出完整配置 JSON，亦可下載／還原包含兩個工具的完整備份。匯入與重設會先確認取代，既有專案筆記儲存鍵不變。損壞或不支援的工具資料不會被範例覆蓋，提供原始下載；儲存失敗時提示下載備份並保留畫面輸入。資料僅限同一瀏覽器與來源，無跨裝置同步。
 
 `test/investment-portfolio.test.mjs` 包含 A–E 驗收、門檻邊界、商品內部偏離、新資金分配、整數分攤、逐月本金／損益守恆、有效月複利與負報酬／歸零案例。`test/investment-options.test.mjs` 驗證期間、高點計算、時間、權利金停利停損、口數與到期條件。
+
+## 翻頁之後：Notion 書架
+
+手機優先的立體書架。工具書、小說、電影、影劇各一層，點書脊抽出介紹卡；未讀有書腰與透明書套、閱讀中有緞帶書籤或便利貼、已讀會變舊。
+
+### 資料同步
+
+- `scripts/reading-sync.mjs` 讀取四個 Notion 資料庫，輸出 `reading/data.json` 與 `reading/covers/`。資料庫 ID 與欄位名稱對應在 `scripts/reading.config.json`（ID 不是機密）。
+- 欄位依名稱比對，沒有的欄位網站上就不顯示。心得取「心得」欄位，沒有時讀頁面內文；狀態依 Notion 狀態欄的分組（未開始／進行中／完成）判斷。
+- 封面依序取：「封面」檔案欄位 → 頁面封面 → 自動查詢（電影／影劇用 TMDB，書用 Google Books），再取主色當書脊顏色；都沒有時依書名產生顏色。
+- `.github/workflows/reading-sync.yml` 每 6 小時執行，資料有變化才提交，推送後 GitHub Pages 自動部署；也可在 Actions 頁手動執行。
+- GitHub Secrets：`NOTION_TOKEN`（必填）、`TMDB_TOKEN`、`GOOGLE_BOOKS_KEY`（選填，用於封面）。未設定 `NOTION_TOKEN` 時排程會略過，不會失敗。
+
+### 本機執行
+
+```bash
+npm install --no-save --no-package-lock sharp@0.33.5
+node --env-file=.env scripts/reading-sync.mjs     # .env 內放 NOTION_TOKEN=…
+node scripts/reading-sync.mjs --mock              # 不連 Notion，用 test/fixtures/ 的模擬資料
+```
 
 ## 購屋紅綠燈：中和區預售屋試行版
 

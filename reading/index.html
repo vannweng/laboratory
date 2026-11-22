@@ -1,65 +1,845 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f5f2e9" data-light="#f5f2e9" data-dark="#1c241f" />
-  <meta name="description" content="翻頁之後的專案點子本。記下方向與靈感，將零碎想法慢慢整理成作品。" />
-  <title>翻頁之後・專案點子本｜生活實驗室</title>
-  <script src="../assets/theme.js"></script>
-  <script type="module" src="../assets/planner.mjs"></script>
-  <link rel="stylesheet" href="../assets/journal.css" />
-  <link rel="stylesheet" href="../assets/controls.css?v=20261019-2" />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#ECEAE5" data-light="#ECEAE5" data-dark="#1C1A17" />
+<meta name="description" content="翻頁之後：從 Notion 同步的立體書架，收著讀過、正在讀與想讀的書、電影和影劇。" />
+<title>翻頁之後｜生活實驗室</title>
+<script src="../assets/theme.js"></script>
+<link rel="stylesheet" href="../assets/journal.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=DM+Mono:wght@400;500&family=Noto+Serif+TC:wght@400;600;700&display=swap">
+<style>
+/* Layout: 一個分類一層書架，每層左右滑動；點書脊 → 書被抽出 → 底部滑出介紹卡 */
+:root {
+  --paper: #ECEAE5;
+  --paper-2: #E2DFD8;
+  --ink: #22201D;
+  --muted: #7B776E;
+  --line: #CBC6BC;
+  --plank: #D8D1C4;
+  --plank-edge: #B7AD9C;
+  --accent: #8B2F2A;
+  --sheet: #F7F6F2;
+  --shadow: rgba(48, 36, 22, .22);
+  --scrim: rgba(30, 26, 20, .38);
+  --rule: #CBC6BC;          /* 實驗室共用頁首的分隔線 */
+  --strong-rule: #A39D91;
+  --f-display: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --f-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --f-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1C1A17; --paper-2: #25221E; --ink: #ECE6DA; --muted: #9C958A; --line: #3B3731;
+    --plank: #4A4036; --plank-edge: #2C251E; --accent: #D9776A; --sheet: #27241F;
+    --shadow: rgba(0, 0, 0, .55); --scrim: rgba(0, 0, 0, .55); color-scheme: dark;
+    --rule: #3B3731; --strong-rule: #5A544B;
+  }
+}
+:root[data-theme="dark"] {
+  --rule: #3B3731; --strong-rule: #5A544B;
+  --paper: #1C1A17; --paper-2: #25221E; --ink: #ECE6DA; --muted: #9C958A; --line: #3B3731;
+  --plank: #4A4036; --plank-edge: #2C251E; --accent: #D9776A; --sheet: #27241F;
+  --shadow: rgba(0, 0, 0, .55); --scrim: rgba(0, 0, 0, .55); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-serif);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; }
+
+/* ---------- 實驗室共用頁首（樣式來自 ../assets/journal.css） ---------- */
+.lab-crumb { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; }
+.lab-crumb .breadcrumb:hover { color: var(--accent); }
+.site-footer { margin-top: 8px; }
+
+/* ---------- 頁首 ---------- */
+.masthead {
+  max-width: 1100px; margin: 0 auto;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+  padding-block: 24px 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  text-align: center;
+}
+.eyebrow {
+  font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .32em;
+  text-transform: uppercase; color: var(--muted); margin: 0;
+}
+h1 {
+  font-family: var(--f-display); font-style: italic; font-weight: 400;
+  font-size: clamp(2.7rem, 12vw, 5.6rem); line-height: .98; letter-spacing: -.01em;
+  margin: 0; text-wrap: balance;
+}
+.tally {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; color: var(--muted);
+  margin: 0; font-variant-numeric: tabular-nums;
+}
+.tally b { color: var(--ink); font-weight: 500; }
+.search {
+  width: min(100%, 420px); margin-top: 6px;
+  border: 0; border-bottom: 1px solid var(--line); background: transparent;
+  padding: 10px 4px; text-align: center;
+  font-family: var(--f-serif); font-size: 16px; color: var(--ink);
+  outline: none; border-radius: 0;
+}
+.search::placeholder { color: var(--muted); font-style: italic; }
+.search:focus { border-bottom-color: var(--ink); }
+
+.filters { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.chips {
+  display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+  justify-content: safe center; padding: 2px;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; display: inline-flex; align-items: center; gap: 7px;
+  border: 1px solid var(--line); background: transparent; border-radius: 999px;
+  padding: 7px 14px; cursor: pointer;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; color: var(--muted);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip:focus-visible, .spine:focus-visible, .icon-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ico { width: 10px; height: 14px; border-radius: 1px; background: currentColor; opacity: .55; position: relative; flex: none; }
+.ico-unread { opacity: .5; box-shadow: 0 0 0 1px currentColor; }
+.ico-unread::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 25%, var(--paper) 45%, transparent 62%); }
+.ico-reading { opacity: .55; }
+.ico-reading::after { content: ""; position: absolute; left: 3px; top: -5px; width: 4px; height: 7px; background: #C92D27; clip-path: polygon(0 0, 50% 2px, 100% 0, 100% 100%, 0 100%); }
+.ico-read { opacity: .3; }
+
+/* ---------- 書架 ---------- */
+main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: flex; flex-direction: column; gap: 30px; }
+.shelf-head {
+  display: flex; align-items: baseline; gap: 10px;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+.shelf-head h2 { font-family: var(--f-serif); font-weight: 600; font-size: 17px; margin: 0; letter-spacing: .06em; }
+.shelf-head .en { font-family: var(--f-display); font-style: italic; font-size: 17px; color: var(--muted); }
+.shelf-head .count { margin-left: auto; font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.rail {
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 26px), transparent);
+          mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 26px), transparent);
+}
+.rail::-webkit-scrollbar { display: none; }
+/* 層板畫在 rail 底部，讓緞帶可以垂過層板前緣 */
+.rail {
+  background:
+    linear-gradient(rgba(255,255,255,.28), rgba(255,255,255,.28)) 0 calc(100% - 43px) / 100% 1px no-repeat,
+    linear-gradient(var(--plank) 0 3px, var(--plank-edge)) 0 calc(100% - 30px) / 100% 14px no-repeat,
+    linear-gradient(var(--shadow), transparent) 0 calc(100% - 20px) / 100% 10px no-repeat;
+}
+.row {
+  display: flex; align-items: flex-end; gap: 2px; width: max-content; min-width: 100%;
+  padding: 34px var(--gutter-r) 44px var(--gutter-l);
+  perspective: 900px;
+}
+.empty { margin: 14px 0 0; text-align: center; font-size: 13px; color: var(--muted); font-style: italic; }
+
+/* ---------- 書脊（共用） ---------- */
+.spine {
+  --w: 34px; --h: 180px;
+  position: relative; flex: none; width: var(--w); height: var(--h);
+  border: 0; padding: 0; cursor: pointer;
+  background: var(--c); color: var(--on);
+  border-radius: 2px 2px 1px 1px;
+  box-shadow: 1px 0 0 rgba(0,0,0,.16), 4px 2px 8px -3px var(--shadow);
+  transform-origin: 50% 100%;
+  transition: transform .42s cubic-bezier(.2,.8,.2,1), box-shadow .42s, filter .3s;
+  animation: settle .6s cubic-bezier(.2,.8,.2,1) backwards;
+  animation-delay: calc(var(--i, 0) * 22ms);
+}
+@keyframes settle { from { transform: translateY(14px); } }
+.spine::before { /* 圓弧光影 */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+  background: linear-gradient(90deg, rgba(0,0,0,.3) 0, rgba(255,255,255,.16) 13%, rgba(255,255,255,0) 36%, rgba(0,0,0,.05) 70%, rgba(0,0,0,.34) 100%);
+}
+.spine-in {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  padding: 14px 0 10px; gap: 8px; overflow: hidden; border-radius: inherit;
+}
+.sp-title {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-family: var(--f-serif); font-weight: 600; font-size: var(--fs, 13px); letter-spacing: .1em; line-height: 1.18;
+  white-space: nowrap; flex: none; text-align: start;
+}
+.sp-by {
+  writing-mode: vertical-rl; margin-top: auto; flex: none;
+  font-size: 9.5px; letter-spacing: .12em; opacity: .72; white-space: nowrap; max-height: var(--byh, 38%);
+  overflow: hidden; text-overflow: ellipsis;
+}
+.k-book .spine-in, .k-drama .spine-in { background: var(--c); }
+.k-movie .spine-in { background: #161618; }
+.band { position: absolute; left: 4px; right: 4px; height: 6px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; opacity: .38; }
+.mark { width: 7px; height: 7px; border: 1px solid currentColor; border-radius: 50%; opacity: .6; flex: none; }
+
+@media (hover: hover) {
+  .spine:hover { transform: translateY(-7px); }
+}
+.spine.is-open {
+  transform: translateY(-30px) rotateY(-14deg) scale(1.05);
+  box-shadow: 1px 0 0 rgba(0,0,0,.16), 14px 18px 26px -8px var(--shadow);
+  z-index: 5;
+}
+.rail.has-open .spine:not(.is-open) { filter: brightness(.86) saturate(.85); }
+
+/* 已讀：舊書（泛褐、髒污、磨損的邊、書脊摺痕） */
+.s-read.k-book {
+  filter: sepia(.5) saturate(.62) contrast(.96) brightness(.86);
+  border-radius: 3px 3px 2px 2px;
+  box-shadow: 1px 0 0 rgba(0,0,0,.22), 4px 2px 8px -3px var(--shadow);
+}
+.s-read:is(.k-movie, .k-drama) { filter: sepia(.28) saturate(.75) brightness(.93); }
+.wear {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1; border-radius: inherit;
+  background:
+    var(--tex-stain), var(--tex-grime), var(--tex-scuff),
+    linear-gradient(180deg, rgba(40,22,8,.5), rgba(40,22,8,0) 8%, rgba(0,0,0,0) 91%, rgba(40,22,8,.55)),
+    linear-gradient(90deg, rgba(30,16,6,.5), transparent 13%, transparent 86%, rgba(30,16,6,.55)),
+    linear-gradient(90deg, transparent 0 31%, rgba(255,240,215,.22) 32%, transparent 33.5%, transparent 58%, rgba(255,240,215,.16) 59%, transparent 60.5%, transparent 77%, rgba(255,240,215,.1) 78%, transparent 79%);
+  background-size: 180px 180px, 110px 110px, 140px 140px, auto, auto, auto;
+  background-position: var(--tx, 0) var(--ty, 0), calc(var(--tx, 0) * -1) 0, 0 var(--ty, 0), 0 0, 0 0, 0 0;
+}
+.wear::after { /* 上下緣磨破、露出底材 */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--tex-fray); background-size: 90px 90px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0 4px, transparent 11px, transparent calc(100% - 11px), #000 calc(100% - 4px));
+          mask-image: linear-gradient(180deg, #000 0 4px, transparent 11px, transparent calc(100% - 11px), #000 calc(100% - 4px));
+}
+.k-movie .wear, .k-drama .wear { opacity: .55; }
+.s-read.k-book .sp-title, .s-read.k-book .sp-by { text-shadow: 0 1px 1px rgba(0,0,0,.35); position: relative; z-index: 2; }
+
+/* 未讀：書腰（印作者名，在書套底下） */
+.s-unread.k-book .spine-in { padding-bottom: calc(var(--obib) + var(--obih) + 6px); }
+.obi {
+  position: absolute; left: -1px; right: -1px; bottom: var(--obib); height: var(--obih); z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.18), rgba(255,255,255,.1) 15%, rgba(255,255,255,0) 40%, rgba(0,0,0,.2)),
+    var(--obi);
+  color: var(--obi-on);
+  display: flex; align-items: center; justify-content: center; padding: 6px 0;
+  box-shadow: 0 -1px 0 rgba(0,0,0,.18), 0 1px 0 rgba(0,0,0,.18), 0 -2px 3px -1px rgba(0,0,0,.18);
+}
+.obi i {
+  writing-mode: vertical-rl; font-style: normal; font-family: var(--f-serif); font-weight: 600; font-size: 9.5px; letter-spacing: .14em;
+  white-space: nowrap; line-height: 1.25; max-height: 100%; text-align: center;
+}
+.obi.two i { white-space: normal; }
+
+/* 未讀：透明書套（收縮膜） */
+.sleeve {
+  position: absolute; inset: -3px -1.5px -1px; z-index: 3; pointer-events: none; border-radius: 3px 3px 2px 2px;
+  background:
+    var(--tex-sheen),
+    linear-gradient(100deg, transparent 6%, rgba(255,255,255,.55) var(--g1), transparent calc(var(--g1) + 10%), transparent 58%, rgba(255,255,255,.3) var(--g2), transparent calc(var(--g2) + 7%)),
+    linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.08) 18%, rgba(255,255,255,.05) 82%, rgba(255,255,255,.22));
+  background-size: 160px 260px, auto, auto;
+  box-shadow: inset 1px 0 0 rgba(255,255,255,.75), inset -1px 0 0 rgba(255,255,255,.5), inset 0 2px 0 rgba(255,255,255,.5), 0 0 0 .5px rgba(0,0,0,.1);
+}
+.sleeve::after { /* 書套兩端的皺摺 */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--tex-crinkle); background-size: 70px 70px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0, transparent 17%, transparent 85%, #000 100%);
+          mask-image: linear-gradient(180deg, #000 0, transparent 17%, transparent 85%, #000 100%);
+}
+
+/* 觀看中：便利貼標籤（手寫進度） */
+.flag {
+  position: absolute; z-index: 4; top: -17px; left: calc(50% - 7px); width: 14px; height: 34px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,0) 30%),
+    linear-gradient(90deg, #F4CB2C, #FADC4C 45%, #F1C628);
+  border-radius: 1px; transform: rotate(var(--frot, -4deg)); transform-origin: 50% 80%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.28), 0 0 0 .5px rgba(150,110,0,.25);
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 3px;
+  font-family: "Caveat", "Bradley Hand", cursive; font-weight: 500; font-size: 11px; line-height: 1; color: #2C2A26;
+}
+.flag i { font-style: normal; writing-mode: vertical-rl; letter-spacing: .02em; }
+.k-drama .flag { width: 16px; left: 28%; }
+.flag::after { /* 黏膠段略暗 */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 15px; background: rgba(160,110,0,.12);
+}
+
+/* 進行中：緞帶書籤（燕尾剪口、緞面光澤） */
+/* 從書的底邊伸出 → 越過層板前緣 → 自然垂下；燕尾剪口 */
+.ribbon {
+  position: absolute; top: calc(100% - 2px); left: calc(50% - 9px + var(--rx, 0px)); width: 17px; height: 44px;
+  pointer-events: none; overflow: visible;
+  filter: drop-shadow(.6px 1.4px 1px rgba(0,0,0,.34));
+}
+.ribbon.single { width: 10px; left: calc(50% - 5px); }
+.playing {
+  position: absolute; z-index: 3; top: -8px; left: 50%; transform: translateX(-50%);
+  width: 15px; height: 15px; border-radius: 50%; background: var(--accent); color: #fff;
+  display: grid; place-items: center; font-size: 7px; box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+/* 電影：DVD 盒 */
+.k-movie { background: #161618; border-radius: 3px; }
+.k-movie .spine-in { padding: 4px 3px; gap: 0; }
+.dvd-top { font-family: var(--f-mono); font-weight: 500; font-size: 7px; letter-spacing: .14em; color: #cfcfcf; padding: 1px 0 4px; flex: none; }
+.insert {
+  flex: 1; width: 100%; min-height: 0; background: var(--c); color: var(--on); border-radius: 1px;
+  display: flex; flex-direction: column; align-items: center; padding: 8px 0 6px; gap: 6px; overflow: hidden;
+}
+.k-movie::before { background: linear-gradient(90deg, rgba(255,255,255,.1) 0, rgba(255,255,255,.28) 12%, rgba(255,255,255,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,.35) 100%); }
+
+/* 影劇：套裝盒 */
+.k-drama { border-radius: 2px; }
+.k-drama .sp-title { font-size: var(--fs, 15px); }
+.box-ep { flex: none; margin-top: auto; font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .06em; opacity: .85; white-space: nowrap; }
+.k-drama .band { top: 18px; }
+
+/* 未拆：收縮膜 */
+.wrap {
+  position: absolute; inset: -1px; z-index: 3; border-radius: 3px; pointer-events: none;
+  background:
+    linear-gradient(104deg, transparent 18%, rgba(255,255,255,.42) 26%, transparent 34%, transparent 62%, rgba(255,255,255,.22) 68%, transparent 74%),
+    linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.04));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+}
+.seal {
+  position: absolute; z-index: 4; top: -6px; left: 50%; transform: translateX(-50%) rotate(-4deg);
+  background: #F5F1E6; color: #8B2F2A; font-family: var(--f-serif); font-weight: 700; font-size: 8px; line-height: 1.2;
+  padding: 1px 3px; border-radius: 2px; letter-spacing: .1em; white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+
+/* ---------- 桌機 hover 提示 ---------- */
+.tip {
+  position: fixed; z-index: 40; pointer-events: none; width: 220px;
+  background: var(--sheet); border: 1px solid var(--line); border-radius: 4px;
+  padding: 12px 14px; box-shadow: 0 10px 30px -12px var(--shadow);
+  opacity: 0; transform: translateY(6px); transition: opacity .18s, transform .18s;
+}
+.tip.on { opacity: 1; transform: none; }
+.tip h4 { margin: 0 0 6px; font-size: 15px; font-weight: 600; line-height: 1.35; }
+.tip p { margin: 0; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
+
+/* ---------- 介紹卡（底部抽屜） ---------- */
+.scrim { position: fixed; inset: 0; z-index: 50; background: var(--scrim); opacity: 0; pointer-events: none; transition: opacity .35s; }
+.scrim.on { opacity: 1; pointer-events: auto; }
+.sheet {
+  --x: 0; --y: 105%; --drag: 0px;
+  position: fixed; z-index: 60; left: 0; right: 0; bottom: 0;
+  max-height: 88vh; max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--sheet); color: var(--ink);
+  border-radius: 18px 18px 0 0; box-shadow: 0 -10px 40px -10px var(--shadow);
+  padding: 0 var(--gutter-r) calc(28px + env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+  transform: translate(var(--x), calc(var(--y) + var(--drag)));
+  transition: transform .45s cubic-bezier(.2,.85,.25,1);
+  visibility: hidden;
+}
+.sheet.on { --y: 0%; visibility: visible; }
+.sheet.dragging { transition: none; }
+@media (min-width: 720px) {
+  .sheet { left: 50%; right: auto; width: 580px; --x: -50%; }
+}
+.grab { position: sticky; top: 0; z-index: 2; background: var(--sheet); padding: 10px 0 6px; display: flex; justify-content: center; touch-action: none; cursor: grab; }
+.grab span { width: 40px; height: 4px; border-radius: 4px; background: var(--line); }
+.icon-btn {
+  position: absolute; right: 0; top: 4px; width: 36px; height: 36px; border-radius: 50%;
+  border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; color: var(--muted);
+}
+.sh-top { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 18px; align-items: end; padding-top: 6px; }
+.sh-meta { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.sh-meta h3 { margin: 0; font-size: 22px; font-weight: 700; line-height: 1.3; text-wrap: balance; }
+.sh-by { margin: 0; font-size: 14px; color: var(--muted); }
+.pills { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 4px; }
+.status-pill {
+  font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .14em; padding: 4px 10px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted);
+}
+.status-pill.s-reading { border-color: var(--accent); color: var(--accent); }
+.status-pill.s-read { background: var(--paper-2); color: var(--ink); border-color: transparent; }
+.stars { font-size: 13px; letter-spacing: 2px; color: var(--ink); }
+.stars .off { color: var(--line); }
+
+.facts {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 22px 0 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.facts div { padding: 12px 0; display: flex; flex-direction: column; gap: 4px; }
+.facts div + div { padding-left: 14px; border-left: 1px solid var(--line); }
+.facts dt { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .16em; color: var(--muted); }
+.facts dd { margin: 0; font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+.progress { margin-top: 16px; display: flex; flex-direction: column; gap: 7px; }
+.progress p { margin: 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; color: var(--muted); display: flex; justify-content: space-between; }
+.bar { height: 4px; background: var(--paper-2); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.tags span { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 3px; padding: 3px 8px; }
+.sec { margin-top: 24px; }
+.sec h4 { margin: 0 0 8px; font-family: var(--f-mono); font-weight: 400; font-size: 10.5px; letter-spacing: .24em; color: var(--muted); }
+.sec p { margin: 0; font-size: 15px; line-height: 1.85; max-width: 36em; }
+.note p {
+  padding: 2px 0 2px 14px; border-left: 2px solid var(--accent);
+  background-image: repeating-linear-gradient(transparent 0 calc(1.85em - 1px), var(--paper-2) calc(1.85em - 1px) 1.85em);
+}
+.note .none { border-left-color: var(--line); color: var(--muted); font-style: italic; background: none; }
+
+/* 介紹卡裡的封面 */
+.cover {
+  position: relative; width: 104px; aspect-ratio: 2 / 3; background: var(--c); color: var(--on);
+  border-radius: 2px 4px 4px 2px; overflow: hidden;
+  box-shadow: 0 14px 24px -12px var(--shadow), 0 2px 4px rgba(0,0,0,.12);
+  display: flex; flex-direction: column; padding: 12px 10px; gap: 6px;
+}
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover.has-img .cv-title, .cover.has-img .cv-by { display: none; }
+.sh-sub { margin: -2px 0 0; font-family: var(--f-display); font-style: italic; font-size: 16px; color: var(--muted); }
+.sh-credit { margin: 0; font-size: 12.5px; color: var(--muted); }
+.series { font-size: 11.5px; color: var(--muted); border: 1px dashed var(--line); border-radius: 3px; padding: 3px 8px; }
+.note p + p { margin-top: 10px; }
+.loading { text-align: center; color: var(--muted); font-style: italic; padding: 40px 16px; margin: 0; }
+.cover::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 7px; background: linear-gradient(90deg, rgba(0,0,0,.25), rgba(255,255,255,.12), rgba(0,0,0,0)); }
+.cv-title { font-weight: 700; font-size: 14px; line-height: 1.3; position: relative; z-index: 1; }
+.cv-by { font-size: 9.5px; opacity: .75; position: relative; z-index: 1; }
+.cover.k-movie { aspect-ratio: 27 / 38; border: 5px solid #161618; border-top-width: 14px; border-radius: 4px; background-clip: padding-box; }
+.cover.k-movie::after { content: "DVD"; position: absolute; top: -12px; left: 0; right: 0; text-align: center; font-family: var(--f-mono); font-size: 7px; letter-spacing: .2em; color: #cfcfcf; }
+.cover.k-drama { aspect-ratio: 3 / 4; }
+.cover .seal { top: auto; bottom: 10px; font-size: 9px; padding: 2px 5px; }
+.cover .obi { bottom: 9%; height: 24%; padding: 0 6px; }
+.cover .obi i { writing-mode: horizontal-tb; font-size: 9.5px; letter-spacing: .06em; white-space: normal; line-height: 1.35; }
+.cover .sleeve { inset: 0; border-radius: inherit; background-size: 160px 260px, auto, auto; }
+.cover .wear { background-size: 220px 220px, 120px 120px, 160px 160px, auto, auto, auto; }
+.cover-wrap { position: relative; width: 104px; }
+.cover-wrap .cover { position: relative; z-index: 1; }
+.cover-wrap .ribbon { top: calc(100% - 6px); left: 58%; width: 20px; height: 52px; z-index: 0; }
+.cover-wrap:has(.ribbon) { margin-bottom: 40px; }
+.cover-wrap .flag {
+  z-index: 2; top: auto; bottom: 30px; left: auto; right: -16px; width: auto; height: 24px;
+  --frot: -7deg; padding: 0 10px 0 12px; align-items: center; justify-content: flex-start; font-size: 17px; white-space: nowrap;
+}
+.cover-wrap .flag i { writing-mode: horizontal-tb; }
+.cover-wrap .flag::after { top: 0; bottom: 0; left: 0; right: auto; width: 22px; height: auto; }
+.s-read.cover { filter: sepia(.45) saturate(.65) brightness(.9); }
+
+.foot { text-align: center; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .14em; color: var(--muted); padding: 8px var(--gutter-r) 36px var(--gutter-l); margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要內容</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="../" aria-label="生活實驗室首頁">
-        <span class="leaf-mark" aria-hidden="true"><svg><use href="../assets/iconoven.svg#leaf" /></svg></span>
-        <span>生活實驗室</span>
-      </a>
-      <nav class="header-actions" aria-label="網站導覽">
-        <a class="explore-link" href="../#works">作品</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <button class="theme-button" type="button" data-theme-toggle aria-label="切換至暗色模式" aria-pressed="false">
-          <span class="mode-icon mode-light"><svg aria-hidden="true"><use href="../assets/iconoven.svg#sun" /></svg></span>
-          <span class="mode-icon mode-dark"><svg aria-hidden="true"><use href="../assets/iconoven.svg#moon" /></svg></span>
-          <span class="sr-only" data-theme-label>暗色</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-  <main id="main" class="site-main notebook-main">
-    <a class="breadcrumb" href="../#works">← 回到所有練習作品</a>
-    <article class="project-notebook" aria-labelledby="project-title">
-      <header class="notebook-intro">
-        <div class="notebook-meta"><p class="section-kicker">PROJECT NOTEBOOK</p><span class="work-status">規劃中</span></div>
-        <h1 id="project-title">翻頁之後</h1>
-        <p class="notebook-lead">把書裡的啟發留在生活裡，記下讀後的感受、想法與收穫。</p>
+<a class="skip-link" href="#shelves">跳到書架</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../" aria-label="生活實驗室首頁">
+      <span class="leaf-mark" aria-hidden="true"><svg><use href="../assets/iconoven.svg#leaf" /></svg></span>
+      <span>生活實驗室</span>
+    </a>
+    <nav class="header-actions" aria-label="網站導覽">
+      <a class="explore-link" href="../#works">作品</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <button class="theme-button" type="button" data-theme-toggle aria-label="切換至暗色模式" aria-pressed="false">
+        <span class="mode-icon mode-light"><svg aria-hidden="true"><use href="../assets/iconoven.svg#sun" /></svg></span>
+        <span class="mode-icon mode-dark"><svg aria-hidden="true"><use href="../assets/iconoven.svg#moon" /></svg></span>
+        <span class="sr-only" data-theme-label>暗色</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<nav class="site-main lab-crumb" aria-label="頁面位置">
+  <a class="breadcrumb" href="../#works">← 回到所有練習作品</a>
+  <a class="breadcrumb" href="notes.html">專案筆記</a>
+</nav>
 
-      </header>
-      <form class="notebook" data-project="reading" data-project-title="翻頁之後" aria-labelledby="notebook-title">
-        <h2 id="notebook-title" class="sr-only">專案點子本</h2>
-        <section class="direction-section" aria-labelledby="direction-title">
-          <div class="notebook-section-heading"><h2 id="direction-title"><span class="field-index" aria-hidden="true">01</span><label for="planDirection">方向與目標</label></h2><p id="directionHint">想往哪裡走？這個作品想完成什麼？</p></div>
-          <textarea id="planDirection" name="direction" rows="2" aria-describedby="directionHint" placeholder="例如：想怎麼整理讀書心得？希望留下哪些讀後感受？" disabled></textarea>
-        </section>
-        <section class="ideas-section" aria-labelledby="ideas-title">
-          <div class="notebook-section-heading"><div class="ideas-title-line"><h2 id="ideas-title"><span class="field-index" aria-hidden="true">02</span>點子與靈感</h2><span id="ideaCount" class="idea-count" aria-live="polite">0 個點子</span></div><p>勾選完成，直接編輯內容。</p></div>
-          <p class="migration-note" id="migrationNote" hidden>既有文字已依換行整理成條列，舊版原始筆記仍保留。</p>
-          <div class="idea-composer"><label class="sr-only" for="newIdea">新增點子</label><input id="newIdea" name="newIdea" type="text" placeholder="新增點子…" autocomplete="off" disabled /><button class="add-idea" type="button" id="addIdea" aria-label="新增點子" title="新增點子" disabled><span aria-hidden="true">＋</span></button></div>
-          <ul class="idea-list" id="ideaList" aria-label="點子與靈感清單"></ul>
-          <p class="idea-empty" id="ideaEmpty">還沒有點子。先寫下一句話，之後再慢慢整理。</p>
-          <div id="ideaUndo" class="idea-undo" hidden><span>已刪除一則點子。</span><button type="button" id="undoDelete">復原</button></div>
-        </section>
-        <div class="notebook-toolbar"><button class="note-button note-save" type="submit" disabled>儲存筆記</button><button class="note-button" type="button" id="downloadNotes" disabled>下載備份</button><p class="save-status" id="saveStatus" role="status" aria-live="polite">正在開啟點子本…</p></div>
-        <p class="notebook-storage">輸入後自動儲存，每個專案分開記錄。筆記只存在目前瀏覽器，不會跨裝置同步；可下載備份保留內容。</p>
-        <noscript><p>請啟用 JavaScript，才能編輯與儲存筆記。</p></noscript>
-      </form>
-    </article>
-  </main>
-  <footer class="site-footer"><a href="../">生活實驗室</a><span class="footer-divider" aria-hidden="true"></span><p>這裡的作品皆為練習作品</p></footer>
+<header class="masthead">
+  <p class="eyebrow">翻頁之後 · 生活實驗室</p>
+  <h1>Welcome to my library</h1>
+  <p class="tally" id="tally"></p>
+  <input class="search" id="q" type="search" placeholder="想找哪一本？書名、作者、標籤" autocomplete="off" aria-label="搜尋收藏">
+  <div class="filters">
+    <div class="chips" id="cat-chips" role="group" aria-label="分類"></div>
+    <div class="chips" id="status-chips" role="group" aria-label="狀態"></div>
+  </div>
+</header>
+
+<main id="shelves"></main>
+<p class="foot" id="foot">資料來自 Notion</p>
+<footer class="site-footer"><a href="../">生活實驗室</a><span class="footer-divider" aria-hidden="true"></span><p>這裡的作品皆為練習作品</p></footer>
+
+<div class="tip" id="tip" aria-hidden="true"></div>
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title"></section>
+
+<svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- 緞面：橫向明暗 -->
+    <linearGradient id="rb-satin" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#690E0F"/><stop offset=".2" stop-color="#B5231E"/><stop offset=".42" stop-color="#E4473F"/>
+      <stop offset=".62" stop-color="#C62C26"/><stop offset=".86" stop-color="#951A17"/><stop offset="1" stop-color="#5D0B0C"/>
+    </linearGradient>
+    <!-- 縱向：出書處的陰影、越過層板前緣的反光、垂下段的起伏 -->
+    <linearGradient id="rb-light" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="44">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset=".07" stop-color="#000" stop-opacity="0"/>
+      <stop offset=".09" stop-color="#fff" stop-opacity="0"/><stop offset=".135" stop-color="#fff" stop-opacity=".42"/>
+      <stop offset=".2" stop-color="#fff" stop-opacity="0"/><stop offset=".36" stop-color="#000" stop-opacity=".18"/>
+      <stop offset=".58" stop-color="#fff" stop-opacity=".12"/><stop offset=".78" stop-color="#000" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<script>
+const CATS = [
+  { id: "tool",  name: "工具書", en: "Reference", unit: "冊" },
+  { id: "novel", name: "小說",   en: "Fiction",   unit: "冊" },
+  { id: "movie", name: "電影",   en: "Films",     unit: "部" },
+  { id: "drama", name: "影劇",   en: "Series",    unit: "部" },
+];
+const STATUS = [
+  { id: "unread",  name: "未讀",   ico: "ico-unread" },
+  { id: "reading", name: "進行中", ico: "ico-reading" },
+  { id: "read",    name: "已讀",   ico: "ico-read" },
+];
+
+let ITEMS = [];   // 由 data.json 載入（npm run sync 產生）
+
+/* ---------- 工具 ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const hash = s => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
+function lum(hex) {
+  const n = parseInt(hex.slice(1), 16), ch = [n >> 16, (n >> 8) & 255, n & 255].map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; });
+  return .2126 * ch[0] + .7152 * ch[1] + .0722 * ch[2];
+}
+const fmt = d => d ? d.replaceAll("-", ".") : "—";
+const isFilm = it => it.cat === "movie" || it.cat === "drama";
+const statusLabel = it => ({ read: isFilm(it) ? "已看" : "已讀", reading: isFilm(it) ? "觀看中" : "閱讀中", unread: isFilm(it) ? "未看" : "未讀" })[it.status];
+
+/* 書名：中文字算 1 格、英數算 0.62 格；超過 10 字分兩行（直排兩欄） */
+const units = s => [...s].reduce((n, ch) => n + (/[\u0000-ɏ]/.test(ch) ? .62 : 1), 0);
+function splitTitle(t) {
+  const chars = [...t];
+  if (chars.length <= 10) return [t];
+  const mid = Math.ceil(chars.length / 2);
+  let cut = mid;
+  for (let d = 0; d <= 3; d++) {
+    if ("：:，,、 ".includes(chars[mid + d - 1])) { cut = mid + d; break; }
+    if ("：:，,、 ".includes(chars[mid - d - 1])) { cut = mid - d; break; }
+  }
+  return [chars.slice(0, cut).join("").trim(), chars.slice(cut).join("").trim()];
+}
+const isBook = it => it.cat === "tool" || it.cat === "novel";
+/* 書腰用名：外文名只取姓氏（含「・」的音譯名取最後一段），中日文名不變 */
+/* 「佛特 (Tiago Forte)」這種中譯名附原文的，只留括號前的中譯名 */
+const shortBy = it => { const n = it.by.split("、")[0].trim(); return n.replace(/\s*[（(][^()（）]*[)）]\s*/g, "").trim() || n; };
+function obiName(it) {
+  const n = shortBy(it);
+  if (/[・·]/.test(n)) return n.split(/[・·]/).pop();
+  if (/[A-Za-z]/.test(n)) {
+    const parts = n.split(/\s+/);
+    const tail = parts.length > 1 && /[^\u0000-ɏ]/.test(parts.at(-1)) ? " " + parts.pop() : "";
+    return parts.pop() + tail;
+  }
+  return n;
+}
+
+/* 把 data.json 的每筆資料算好書脊尺寸、顏色等（缺欄位時用預設值） */
+function prepare(list) {
+list.forEach((it, i) => {
+  it.id = "i" + i;
+  it.by ||= ""; it.tags ||= [];
+  const light = lum(it.color) > .42;
+  it.on = light ? "#1E1C19" : "#F3EEE4";
+  if (it.status === "read" && isBook(it)) it.on = light ? "#2E1F12" : "#F0D9A6"; // 舊書：燙金褪色（經泛黃濾鏡後仍要清楚）
+  it.obi = light ? "#8B2F2A" : "#EEE7D4";      // 書腰：跟書脊明暗相反
+  it.obiOn = light ? "#F3EEE4" : "#3A2A22";
+  const h = hash(it.title);
+  it.variant = h % 3;
+  it.g1 = 18 + (h % 17) + "%"; it.g2 = 64 + (h % 13) + "%";
+  it.tx = (h % 90) + "px"; it.ty = ((h >> 3) % 120) + "px";
+  it.rot = (h % 360) + "deg";
+
+  if (isBook(it)) {
+    it.w = Math.round(Math.min(52, Math.max(26, (it.pages || 200 + (h % 9) * 30) / 9)));
+    it.h = (it.cat === "tool" ? 152 : 164) + (h % 6) * 8;
+  } else if (it.cat === "movie") {
+    it.w = 27; it.h = 186;
+  } else {
+    it.w = Math.round(it.seasons > 1 ? Math.min(82, 36 + it.seasons * 8) : 34 + (it.eps || 10 + (h % 8)) * .9);
+    it.h = 168 + (h % 3) * 6;
+  }
+  it.fs = it.w < 31 ? 12 : it.w < 42 ? 13.5 : 15;
+  it.lines = splitTitle(it.title);
+  if (it.lines.length > 1) { it.fs = Math.min(it.fs, 13); it.w = Math.max(it.w, Math.ceil(it.fs * 1.18 * 2 + 12)); }
+
+  // 確保書名完整放得下：先加高書脊，再拿掉作者，最後才縮小字
+  const maxU = Math.max(...it.lines.map(units));
+  const base = it.cat === "movie" ? 34 : it.cat === "drama" ? 24 + (it.variant ? 18 : 4) + 20 : 24 + (it.variant === 1 ? 12 : 0) + (it.variant === 2 ? 15 : 0);
+  const titleH = () => maxU * it.fs * 1.1 + 4;
+  const BY = 46;
+  it.showBy = it.cat !== "drama" && it.w >= (it.cat === "movie" ? 26 : 30);
+  if (it.status === "unread" && isBook(it)) {
+    // 作者改印在書腰上：書名區＋書腰都要放得下
+    it.showBy = false;
+    // 書腰上的作者名可折成兩欄（書脊夠寬時）；英文字母估寬一點
+    const name = obiName(it);
+    const nameU = [...name].reduce((n, ch) => n + (/[\u0000-ɏ]/.test(ch) ? .7 : 1), 0);
+    const cols = it.w >= 30 && nameU > 6 ? 2 : 1;
+    it.obiCols = cols;
+    // 兩欄時以最長的一個英文單字為下限，避免高估
+    const longestWord = Math.max(...name.split(/\s+/).map(w => [...w].length * .7 * 9.5 * 1.16));
+    const obiNeed = Math.ceil(Math.max(nameU * 9.5 * 1.16 / cols * (cols > 1 ? 1.08 : 1), longestWord) + 16);
+    const MAXH = 250;
+    const fit = () => Math.round(it.h * .09) + 6 + base + titleH();
+    if (fit() + obiNeed > it.h) it.h = Math.min(MAXH, fit() + obiNeed);
+    it.obib = Math.round(it.h * .09);
+    it.obih = obiNeed;
+    const room = it.h - it.obib - it.obih - 6 - base - 4;
+    if (maxU * it.fs * 1.1 > room) it.fs = Math.floor(room / (maxU * 1.1) * 10) / 10;
+  }
+  if (it.cat !== "movie" && base + titleH() + (it.showBy ? BY : 0) > it.h) it.h = Math.min(232, Math.ceil(base + titleH() + (it.showBy ? BY : 0)));
+  if (base + titleH() + (it.showBy ? BY : 0) > it.h) it.showBy = false;
+  if (base + titleH() > it.h) it.h = Math.min(232, Math.ceil(base + titleH()));
+  if (base + titleH() > it.h) it.fs = Math.floor((it.h - base - 4) / (maxU * 1.1) * 10) / 10;
+  it.byh = Math.max(0, Math.floor(it.h - base - titleH() - 8));
+});
+}
+
+/* 紙張、皮革、塑膠膜的質感（SVG 雜訊） */
+function tex(freq, oct, rgb, a, b, size = 160) {
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='${freq}' numOctaves='${oct}' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 ${rgb[0]} 0 0 0 0 ${rgb[1]} 0 0 0 0 ${rgb[2]} 0 0 0 ${a} ${b}'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+}
+const rootStyle = document.documentElement.style;
+rootStyle.setProperty("--tex-stain",   tex(".035", 3, [.2, .11, .04], 3.2, -1.75, 180));
+rootStyle.setProperty("--tex-grime",   tex(".85", 2, [.16, .1, .04], 2.2, -1.32, 110));
+rootStyle.setProperty("--tex-scuff",   tex(".012 .7", 2, [1, .94, .82], 3.4, -2.05, 140));
+rootStyle.setProperty("--tex-fray",    tex(".55", 2, [.9, .84, .72], 3.2, -1.45, 90));
+rootStyle.setProperty("--tex-sheen",   tex(".045 .004", 2, [1, 1, 1], 2.2, -1.3, 160));
+rootStyle.setProperty("--tex-crinkle", tex(".09 .16", 3, [1, 1, 1], 3.6, -1.85, 70));
+
+function statusLayers(it, where) {
+  if (it.status === "read") return `<span class="wear"></span>`;
+  if (it.status === "unread") return isBook(it)
+    ? `<span class="obi${where !== "cover" && it.obiCols > 1 ? " two" : ""}"><i>${esc(obiName(it))}</i></span><span class="sleeve"></span>`
+    : `<span class="wrap"></span><span class="seal">未拆</span>`;
+  return isBook(it) && where !== "cover" ? ribbonHTML(it.w < 30) : "";
+}
+/* 緞帶：寬＋窄兩條，往不同方向微彎，末端燕尾剪口 */
+const RIB_WIDE = "M1.5 0H8.5L8.8 5C9 7 9.2 12 9.3 18C9.4 26 8.6 34 8.4 43L5.2 39.5L2 43C2.2 34 1.6 26 1.6 18C1.6 12 1.4 7 1.5 5Z";
+const RIB_NARROW = "M10.5 0H15L15.2 5C15.4 10 15.6 16 15.9 22C16.1 28 16.3 32 16.4 37L14.3 34.6L12.2 37C12 32 11.6 28 11.3 22C11 16 10.6 10 10.5 5Z";
+const ribPath = d => `<path d="${d}" fill="url(#rb-satin)"/><path d="${d}" fill="url(#rb-light)"/>`;
+const ribbonHTML = (single = false) => single
+  ? `<svg class="ribbon single" viewBox="0 0 10 44" preserveAspectRatio="none" aria-hidden="true">${ribPath(RIB_WIDE)}</svg>`
+  : `<svg class="ribbon" viewBox="0 0 17 44" preserveAspectRatio="none" aria-hidden="true">${ribPath(RIB_NARROW)}${ribPath(RIB_WIDE)}</svg>`;
+const progText = it => it.cat === "movie" ? `${Math.floor(it.prog / 60)}:${String(it.prog % 60).padStart(2, "0")}` : `E${String(it.prog).padStart(2, "0")}`;
+const flagHTML = (it, where) => it.status === "reading" && !isBook(it) && it.prog
+  ? `<span class="flag" style="--frot:${(hash(it.title) % 9) - 5}deg"><i>${where === "cover" ? "看到 " : ""}${progText(it)}</i></span>` : "";
+const titleHTML = it => it.lines.map(esc).join("<br>");
+
+function spineHTML(it, i) {
+  const style = `--c:${it.color};--on:${it.on};--w:${it.w}px;--h:${it.h}px;--fs:${it.fs}px;--byh:${it.byh}px;--g1:${it.g1};--g2:${it.g2};--tx:${it.tx};--ty:${it.ty};--obi:${it.obi};--obi-on:${it.obiOn};--obib:${it.obib || 0}px;--obih:${it.obih || 0}px;--i:${i}`;
+  const cls = `spine k-${isBook(it) ? "book" : it.cat} s-${it.status}`;
+  const by = it.showBy ? `<span class="sp-by">${esc(shortBy(it))}</span>` : "";
+  let inner;
+  if (it.cat === "movie") {
+    inner = `<span class="dvd-top">DVD</span><span class="insert"><span class="sp-title">${titleHTML(it)}</span>${by}</span>`;
+  } else if (it.cat === "drama") {
+    const ep = it.seasons > 1 ? `S1–${it.seasons}` : it.eps ? `全${it.eps}集` : "";
+    inner = `${it.variant ? `<span class="band"></span>` : ""}<span class="sp-title" style="margin-top:${it.variant ? 18 : 4}px">${titleHTML(it)}</span><span class="box-ep">${ep}</span>`;
+  } else {
+    const deco = it.variant === 1 ? `<span class="band" style="top:8px"></span>` : "";
+    const mark = it.variant === 2 ? `<span class="mark"${it.showBy ? "" : ` style="margin-top:auto"`}></span>` : "";
+    inner = `${deco}<span class="sp-title" style="margin-top:${it.variant === 1 ? 12 : 0}px">${titleHTML(it)}</span>${by}${mark}`;
+  }
+  return `<button class="${cls}" style="${style}" data-id="${it.id}" aria-label="${esc(it.title)}，${esc(it.by)}，${statusLabel(it)}"><span class="spine-in">${inner}</span>${statusLayers(it, "spine")}${flagHTML(it, "spine")}</button>`;
+}
+
+function render() {
+  $("#shelves").innerHTML = CATS.map(c => {
+    const list = ITEMS.filter(it => it.cat === c.id);
+    return `<section class="shelf" data-cat="${c.id}" aria-label="${c.name}">
+      <div class="shelf-head"><h2>${c.name}</h2><span class="en">${c.en}</span><span class="count">${list.length} ${c.unit}</span></div>
+      <div class="rail"><div class="row">${list.map(spineHTML).join("")}</div></div>
+      <p class="empty" hidden>這層沒有符合的收藏</p>
+    </section>`;
+  }).join("");
+  const n = s => ITEMS.filter(it => it.status === s).length;
+  $("#tally").innerHTML = `<b>${ITEMS.length}</b> 件收藏 · 已讀 ${n("read")} · 進行中 ${n("reading")} · 未讀 ${n("unread")}`;
+}
+
+/* ---------- 篩選 ---------- */
+const state = { cat: "all", status: "all", q: "" };
+function chips() {
+  $("#cat-chips").innerHTML = [{ id: "all", name: "全部" }, ...CATS].map(c => `<button class="chip" data-cat="${c.id}" aria-pressed="${state.cat === c.id}">${c.name}</button>`).join("");
+  $("#status-chips").innerHTML = [{ id: "all", name: "所有狀態" }, ...STATUS].map(s => `<button class="chip" data-status="${s.id}" aria-pressed="${state.status === s.id}">${s.ico ? `<span class="ico ${s.ico}"></span>` : ""}${s.name}</button>`).join("");
+}
+function apply() {
+  const q = state.q.trim().toLowerCase();
+  document.querySelectorAll(".shelf").forEach(sec => {
+    const showShelf = state.cat === "all" || state.cat === sec.dataset.cat;
+    sec.hidden = !showShelf;
+    let visible = 0;
+    sec.querySelectorAll(".spine").forEach(el => {
+      const it = byId[el.dataset.id];
+      const hit = (state.status === "all" || it.status === state.status) &&
+        (!q || [it.title, it.sub, it.by, it.credit, it.series, ...(it.tags || [])].join(" ").toLowerCase().includes(q));
+      el.hidden = !hit; if (hit) visible++;
+    });
+    sec.querySelector(".empty").hidden = visible > 0;
+  });
+}
+document.addEventListener("click", e => {
+  const c = e.target.closest(".chip");
+  if (!c) return;
+  if (c.dataset.cat) state.cat = c.dataset.cat;
+  if (c.dataset.status) state.status = c.dataset.status;
+  try { localStorage.setItem("lib-filter", JSON.stringify({ cat: state.cat, status: state.status })); } catch (_) {}
+  chips(); apply();
+});
+$("#q").addEventListener("input", e => { state.q = e.target.value; apply(); });
+
+/* ---------- 介紹卡 ---------- */
+let byId = {};
+const sheet = $("#sheet"), scrim = $("#scrim");
+let openEl = null, closeTimer = null;
+
+function sheetHTML(it) {
+  const cat = CATS.find(c => c.id === it.cat);
+  const stars = it.rating ? `<span class="stars" aria-label="${it.rating} 顆星">${"★".repeat(it.rating)}<span class="off">${"★".repeat(5 - it.rating)}</span></span>` : "";
+  const val = (x, unit = "") => (x ? `${x}${unit}` : "—");
+  let facts;
+  if (it.cat === "movie") facts = [["片長", val(it.mins, " 分")], ["上映", val(it.year)], [it.status === "read" ? "觀看日期" : "開始", fmt(it.end || it.start)]];
+  else if (it.cat === "drama") facts = [["集數", it.eps ? (it.seasons > 1 ? `${it.seasons} 季 ${it.eps} 集` : `全 ${it.eps} 集`) : "—"], ["開始", fmt(it.start)], ["看完", fmt(it.end)]];
+  else facts = [["頁數", val(it.pages, " 頁")], ["開始閱讀", fmt(it.start)], ["讀完", fmt(it.end)]];
+  let progress = "";
+  if (it.status === "reading" && it.prog) {
+    const total = isBook(it) ? it.pages : it.cat === "movie" ? it.mins : it.eps;
+    const unit = isBook(it) ? ["讀到第", "頁"] : it.cat === "movie" ? ["看到第", "分鐘"] : ["看到第", "集"];
+    const pct = total ? Math.min(100, it.prog / total * 100) : null;
+    progress = `<div class="progress"><p><span>${unit[0]} ${it.prog} ${unit[1]}</span>${pct != null ? `<span>${Math.round(pct)}%</span>` : ""}</p>${pct != null ? `<div class="bar"><i style="width:${pct}%"></i></div>` : ""}</div>`;
+  }
+  const coverCls = `cover k-${isBook(it) ? "book" : it.cat} s-${it.status}${it.cover ? " has-img" : ""}`;
+  const creditLabel = it.cat === "drama" ? "導演／主創" : "主演";
+  const notes = it.note ? it.note.split(/\n{2,}/).map(p => `<p>${esc(p)}</p>`).join("") : "";
+  const flag = flagHTML(it, "cover") + (it.status === "reading" && isBook(it) ? ribbonHTML() : "");
+  return `
+    <div class="grab" id="grab"><span></span>
+      <button class="icon-btn" id="close" aria-label="關閉">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3L3 13"/></svg>
+      </button>
+    </div>
+    <div class="sh-top">
+      <div class="cover-wrap">${flag}<div class="${coverCls}" style="--c:${it.color};--on:${it.on};--g1:${it.g1};--g2:${it.g2};--tx:${it.tx};--ty:${it.ty};--obi:${it.obi};--obi-on:${it.obiOn}">
+        ${it.cover ? `<img src="${esc(it.cover)}" alt="" loading="lazy">` : ""}<span class="cv-title">${esc(it.title)}</span><span class="cv-by">${esc(it.by)}</span>${statusLayers(it, "cover")}
+      </div></div>
+      <div class="sh-meta">
+        <p class="eyebrow">${cat.name}${it.year ? ` · ${it.year}` : ""}</p>
+        <h3 id="sh-title">${esc(it.title)}</h3>
+        ${it.sub ? `<p class="sh-sub">${esc(it.sub)}</p>` : ""}
+        ${it.by ? `<p class="sh-by">${esc(it.by)}</p>` : ""}
+        ${it.credit ? `<p class="sh-credit">${creditLabel}　${esc(it.credit)}</p>` : ""}
+        <div class="pills"><span class="status-pill s-${it.status}">${statusLabel(it)}</span>${it.series ? `<span class="series">${esc(it.series)}</span>` : ""}${stars}</div>
+      </div>
+    </div>
+    <dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+    ${progress}
+    ${it.tags?.length ? `<div class="tags">${it.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
+    ${it.intro ? `<section class="sec"><h4>簡介</h4><p>${esc(it.intro)}</p></section>` : ""}
+    <section class="sec note"><h4>心得筆記</h4>${notes || `<p class="none">${it.status === "unread" ? "還沒開始，之後再寫。" : "還沒有寫筆記。"}</p>`}</section>`;
+}
+
+function openItem(el) {
+  clearTimeout(closeTimer);
+  if (openEl) { openEl.classList.remove("is-open"); openEl.closest(".rail").classList.remove("has-open"); }
+  openEl = el;
+  el.classList.add("is-open");
+  el.closest(".rail").classList.add("has-open");
+  el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  hideTip();
+  sheet.innerHTML = sheetHTML(byId[el.dataset.id]);
+  sheet.scrollTop = 0;
+  bindSheet();
+  setTimeout(() => {
+    sheet.classList.add("on"); scrim.classList.add("on");
+    document.documentElement.style.overflow = "hidden";
+    $("#close").focus({ preventScroll: true });
+  }, 160);
+}
+function closeSheet() {
+  if (!sheet.classList.contains("on")) return;
+  sheet.classList.remove("on"); scrim.classList.remove("on");
+  sheet.style.removeProperty("--drag");
+  document.documentElement.style.overflow = "";
+  const el = openEl;
+  closeTimer = setTimeout(() => {
+    if (el) { el.classList.remove("is-open"); el.closest(".rail").classList.remove("has-open"); el.focus({ preventScroll: true }); }
+    if (openEl === el) openEl = null;
+  }, 220);
+}
+function bindSheet() {
+  $("#close").addEventListener("click", closeSheet);
+  const grab = $("#grab");
+  let y0 = null, dy = 0;
+  grab.addEventListener("pointerdown", e => { if (e.target.closest("#close")) return; y0 = e.clientY; dy = 0; sheet.classList.add("dragging"); grab.setPointerCapture(e.pointerId); });
+  grab.addEventListener("pointermove", e => { if (y0 === null) return; dy = Math.max(0, e.clientY - y0); sheet.style.setProperty("--drag", dy + "px"); });
+  const end = () => { if (y0 === null) return; y0 = null; sheet.classList.remove("dragging"); if (dy > 90) closeSheet(); else sheet.style.removeProperty("--drag"); };
+  grab.addEventListener("pointerup", end); grab.addEventListener("pointercancel", end);
+}
+$("#shelves").addEventListener("click", e => { const el = e.target.closest(".spine"); if (el) openItem(el); });
+scrim.addEventListener("click", closeSheet);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
+
+/* ---------- 桌機 hover 提示 ---------- */
+const tip = $("#tip");
+const canHover = matchMedia("(hover: hover)").matches;
+function hideTip() { tip.classList.remove("on"); }
+if (canHover) {
+  $("#shelves").addEventListener("pointerover", e => {
+    const el = e.target.closest(".spine");
+    if (!el || e.pointerType !== "mouse" || sheet.classList.contains("on")) return;
+    const it = byId[el.dataset.id], cat = CATS.find(c => c.id === it.cat);
+    tip.innerHTML = `<h4>${esc(it.title)}</h4><p>${it.by ? `${esc(it.by)}<br>` : ""}${it.year ? `${it.year} · ` : ""}${statusLabel(it)}<br>${cat.name}</p>`;
+    const r = el.getBoundingClientRect();
+    const left = Math.min(window.innerWidth - 230, Math.max(10, r.left + r.width / 2 - 110));
+    tip.style.left = left + "px";
+    tip.style.top = Math.max(10, r.top - tip.offsetHeight - 12) + "px";
+    tip.classList.add("on");
+  });
+  $("#shelves").addEventListener("pointerout", e => { if (e.target.closest(".spine") && !e.relatedTarget?.closest?.(".spine")) hideTip(); });
+}
+
+/* ---------- 啟動 ---------- */
+async function boot() {
+  try { Object.assign(state, JSON.parse(localStorage.getItem("lib-filter") || "{}")); } catch (_) {}
+  chips();
+  $("#shelves").innerHTML = `<p class="loading">正在把書搬上書架…</p>`;
+  try {
+    const res = await fetch("data.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    ITEMS = data.items || [];
+    prepare(ITEMS);
+    byId = Object.fromEntries(ITEMS.map(it => [it.id, it]));
+    render(); apply();
+    if (data.generatedAt) {
+      const when = new Date(data.generatedAt).toLocaleString("zh-TW", { dateStyle: "medium", timeStyle: "short" });
+      $("#foot").textContent = `資料來自 Notion · 更新於 ${when}`;
+    }
+  } catch (e) {
+    $("#shelves").innerHTML = `<p class="loading">讀不到書架資料（data.json）。請先執行 npm run sync。</p>`;
+  }
+}
+boot();
+</script>
 </body>
 </html>
