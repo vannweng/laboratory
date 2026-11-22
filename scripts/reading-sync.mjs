@@ -233,19 +233,73 @@ async function googleBooks(it) {
     throw e;
   }
 }
+/* 比對用：去掉空白與標點，英文轉小寫 */
+const bookKey = s => (s || "").toLowerCase().replace(/[\s·・．.。,，、:：;；!！?？'"“”‘’「」『』《》〈〉()（）\[\]【】\-—–_~～]/g, "");
+/** 作者名的各種寫法：「詹姆斯·克利爾 (James Clear)」→ 中譯全名、原文全名、姓氏 */
+function authorVariants(by) {
+  const first = (by || "").split(/[、,，]/)[0].trim();
+  if (!first) return [];
+  const inParen = first.match(/[（(]([^()（）]+)[)）]/)?.[1] || "";
+  const outside = first.replace(/\s*[（(][^()（）]*[)）]\s*/g, "").trim();
+  const parts = [outside, inParen, outside.split(/[·・.．\s]/).pop(), inParen.split(/\s+/).pop()];
+  return [...new Set(parts.map(bookKey).filter(p => p.length >= 2))];
+}
+const SPINOFF = /workbook|練習本|筆記本|導讀|解析|漫畫|手帳|精選|summary|有聲/i;
+
+/** 自己的書名可比對的寫法：「謊言(再一個謊言)」→ 全名、括號外、括號內 */
+function wantedTitles(title) {
+  const inParen = title.match(/[（(]([^()（）]+)[)）]/)?.[1] || "";
+  const outside = title.replace(/\s*[（(][^()（）]*[)）]\s*/g, "");
+  return [...new Set([title, outside, inParen].map(bookKey).filter(Boolean))];
+}
+/** Google 書名可比對的寫法：去掉【系列】前綴、結尾（版本說明），並拆開「假面飯店：假面之夜」的冒號段落 */
+function foundTitles(title = "") {
+  const base = title.replace(/^\s*【[^】]*】\s*/, "").replace(/\s*[（(][^()（）]*[)）]\s*$/, "");
+  return [...new Set([title, base, ...base.split(/[：:]/)].map(bookKey).filter(Boolean))];
+}
+const hasLatinOnly = names => names.length && names.every(n => /^[a-z\s.'-]+$/i.test(n));
+
+/**
+ * 只接受「書名相符」的結果，避免抓到別本書：
+ *   書名完全相同 → 最優先；開頭相同且不是 Workbook／導讀等衍生書 → 次之；其他一律不要。
+ *   有作者時作者也要對得上；只有在書名完全相同、但 Google 只給羅馬拼音作者（如 Higashino Keigo）時放行。
+ */
+function pickVolume(items, it) {
+  const wants = wantedTitles(it.title);
+  const authors = authorVariants(it.by);
+  let best = null, bestScore = 0;
+  for (const item of items || []) {
+    const v = item.volumeInfo || {};
+    if (!v.imageLinks) continue; // 要的是封面：沒有圖的版本直接略過
+    const gots = foundTitles(v.title);
+    const exact = gots.some(g => wants.includes(g));
+    const prefix = !exact && gots.some(g => wants.some(w => g.startsWith(w))) && !SPINOFF.test(v.title + (v.subtitle || ""));
+    let score = exact ? 3 : prefix ? 2 : 0;
+    if (!score) continue;
+    if (authors.length) {
+      const theirs = (v.authors || []).map(bookKey);
+      const matched = theirs.some(a => authors.some(w => a.includes(w) || w.includes(a)));
+      const romanizedOnly = exact && /[^\u0000-ɏ]/.test(it.by) && hasLatinOnly(v.authors || []);
+      if (!matched && !romanizedOnly) continue;
+    }
+    if (/^zh/.test(v.language || "")) score += 0.25;
+    if (score > bestScore) { best = v; bestScore = score; }
+  }
+  return best;
+}
+
 async function googleBooksQuery(it, key) {
-  const author = it.by.split(/[、,]/)[0];
+  const author = it.by.split(/[、,，]/)[0].replace(/\s*[（(][^()（）]*[)）]\s*/g, "").trim();
   const queries = [`intitle:${it.title}${author ? `+inauthor:${author}` : ""}`, `intitle:${it.title}`];
   for (const q of queries) {
-    const s = await getJSON(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(q)}&maxResults=5${key}`);
-    const hit = (s.items || []).find(v => v.volumeInfo?.imageLinks) || s.items?.[0];
-    if (!hit) continue;
-    const v = hit.volumeInfo;
+    const s = await getJSON(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(q)}&maxResults=10${key}`);
+    const v = pickVolume(s.items, it);
+    if (!v) continue;
     const img = v.imageLinks?.thumbnail || v.imageLinks?.smallThumbnail;
     return {
       cover: img ? img.replace(/^http:/, "https:").replace("&edge=curl", "") : null,
-      year: v.publishedDate ? Number(v.publishedDate.slice(0, 4)) : null,
-      pages: v.pageCount || null,
+      // 年份是版次年份、不是原著出版年，所以不採用；頁數太少多半是電子書試閱頁數，也不採用
+      pages: v.pageCount >= 120 ? v.pageCount : null,
       intro: v.description ? v.description.slice(0, 180) : "",
     };
   }
@@ -296,6 +350,12 @@ async function main() {
   await fs.mkdir(COVER_DIR, { recursive: true });
   await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
   const cache = existsSync(CACHE_FILE) ? JSON.parse(await fs.readFile(CACHE_FILE, "utf8")) : { pages: {}, lookups: {} };
+
+  // 上一次的輸出：查詢失敗時拿來保留封面
+  const prevPath = path.join(SITE, "data.json");
+  const prevById = existsSync(prevPath)
+    ? Object.fromEntries((JSON.parse(await fs.readFile(prevPath, "utf8")).items || []).map(i => [i.id, i]))
+    : {};
 
   const items = [];
   for (const db of config.databases) {
@@ -372,6 +432,12 @@ async function main() {
           const saved = await saveCover(coverUrl, it.id);
           it.cover = saved.file; it.color = saved.color;
         } catch (e) { warn(`「${it.title}」封面：${e.message}`); }
+      }
+      // 查詢失敗（被限流、雲端沒有金鑰）時沿用上次的封面與資料，不讓已經有的封面消失
+      const prevItem = prevById[it.id];
+      if (info === undefined && prevItem) {
+        if (!it.cover && prevItem.cover && existsSync(path.join(SITE, prevItem.cover))) { it.cover = prevItem.cover; it.color = prevItem.color; }
+        for (const k of ["pages", "mins", "eps", "seasons", "year"]) if (!it[k] && prevItem[k]) it[k] = prevItem[k];
       }
       it.color ||= FALLBACK[hash(it.title) % FALLBACK.length];
 

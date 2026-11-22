@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T13:45:15.848Z",
+ "generatedAt": "2026-11-22T14:44:41.824Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -53,7 +53,9 @@
    "intro": "從「身分認同」根本改變行為，透過微小累積創造巨大複利效應",
    "rating": 5,
    "note": "最深層的改變身分認同，關乎你相信什麼，希望成為什麼樣的人",
-   "color": "#7B5A3A"
+   "cover": "covers/3eafdb3cb437801493a7f0b4cc5bb86a.jpg",
+   "color": "#F8F8F8",
+   "pages": 132
   },
   {
    "id": "3eafdb3cb4378041a9cec10377dce27b",
@@ -71,7 +73,8 @@
    ],
    "intro": "數位時代個人知識庫建置法，將外在資訊轉化為高產出專案",
    "note": "1.獲取 (新觀點 未來用到的 息息相關 意想不到）",
-   "color": "#3E6C8A"
+   "cover": "covers/3eafdb3cb4378041a9cec10377dce27b.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb4378048b085f232f23f2ea1",
@@ -114,7 +117,8 @@
    "series": "行為改變",
    "status": "reading",
    "intro": "不要以為時間線性的影響",
-   "color": "#B3262B"
+   "cover": "covers/409fdb3cb43780e797f0c761730fe1be.jpg",
+   "color": "#3878B8"
   },
   {
    "id": "417fdb3cb437802c89ebdf49e6f00508",
@@ -123,7 +127,9 @@
    "series": "自學思維",
    "status": "read",
    "intro": "1. 01. 與自己的關係：每個人都有自己的孤單課題\n2. 02. 與自己的關係：你不需要變成你不喜歡的大人\n3. 03. 與愛人的關係：從心甘情願豢養與被豢養開始\n4. 04. 與愛人的關係：因為他是你的玫瑰\n5. 05. 與世界的關係：用「心」去尋覓你笑著的理由\n6. 06. 與世界的關係：分離的時候，學會道別",
-   "color": "#7B5A3A"
+   "cover": "covers/417fdb3cb437802c89ebdf49e6f00508.jpg",
+   "color": "#B8E8F8",
+   "pages": 245
   },
   {
    "id": "420fdb3cb437809f8b84f40fb1ec4468",
@@ -131,7 +137,8 @@
    "title": "刻意練習",
    "series": "行為改變",
    "status": "unread",
-   "color": "#D98C5F"
+   "cover": "covers/420fdb3cb437809f8b84f40fb1ec4468.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "420fdb3cb437806aa42fc2e66bbd3f0f",
@@ -139,7 +146,8 @@
    "title": "心流",
    "series": "行為改變",
    "status": "unread",
-   "color": "#D98C5F"
+   "cover": "covers/420fdb3cb437806aa42fc2e66bbd3f0f.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb43780228d11e540a75cd6fa",
@@ -155,7 +163,9 @@
    ],
    "intro": "東野圭吾無冕之王代表作",
    "rating": 5,
-   "color": "#B3262B"
+   "cover": "covers/3e9fdb3cb43780228d11e540a75cd6fa.jpg",
+   "color": "#485868",
+   "pages": 170
   },
   {
    "id": "3e9fdb3cb43780968b52c7f24a80385f",
@@ -170,7 +180,9 @@
     "惡女"
    ],
    "intro": "《白夜行》精神姊妹作",
-   "color": "#6F7E5B"
+   "cover": "covers/3e9fdb3cb43780968b52c7f24a80385f.jpg",
+   "color": "#686868",
+   "pages": 505
   },
   {
    "id": "3e9fdb3cb437806eb718eb53afe658f0",
@@ -185,7 +197,9 @@
     "器官移植"
    ],
    "intro": "醫學懸疑經典",
-   "color": "#2F4A5C"
+   "cover": "covers/3e9fdb3cb437806eb718eb53afe658f0.jpg",
+   "color": "#584848",
+   "pages": 260
   },
   {
    "id": "3e9fdb3cb43780648bfced8f489e7515",
@@ -200,7 +214,9 @@
     "自我認同"
    ],
    "intro": "探討複製醫學倫理",
-   "color": "#2F4A5C"
+   "cover": "covers/3e9fdb3cb43780648bfced8f489e7515.jpg",
+   "color": "#08A8B8",
+   "pages": 446
   },
   {
    "id": "3e9fdb3cb43780b39ed4cdd215e31679",
@@ -215,7 +231,10 @@
     "宿敵對決"
    ],
    "intro": "命運交織的代表作",
-   "color": "#D98C5F"
+   "rating": 5,
+   "cover": "covers/3e9fdb3cb43780b39ed4cdd215e31679.jpg",
+   "color": "#E89898",
+   "pages": 233
   },
   {
    "id": "3e9fdb3cb437805abe24d260d830dc7c",
@@ -231,7 +250,9 @@
    ],
    "intro": "日本推理作家協會賞獲獎作",
    "rating": 3,
-   "color": "#D98C5F"
+   "cover": "covers/3e9fdb3cb437805abe24d260d830dc7c.jpg",
+   "color": "#680818",
+   "pages": 415
   },
   {
    "id": "3e9fdb3cb43780c5b8bcecd182372e3c",
@@ -261,7 +282,8 @@
     "友情守護"
    ],
    "intro": "探討跨性別與性別光譜",
-   "color": "#8A1F24"
+   "cover": "covers/3e9fdb3cb43780879b43df4a221e8ef2.jpg",
+   "color": "#E8D8D8"
   },
   {
    "id": "3e9fdb3cb4378085abefeeeaa267c436",
@@ -276,7 +298,8 @@
     "道德爭議"
    ],
    "intro": "出道30週年紀念作",
-   "color": "#D98C5F"
+   "cover": "covers/3e9fdb3cb4378085abefeeeaa267c436.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb437807bb974ec37232ca8fa",
@@ -291,7 +314,8 @@
     "贖罪"
    ],
    "intro": "深入探討死刑議題",
-   "color": "#C47A2C"
+   "cover": "covers/3e9fdb3cb437807bb974ec37232ca8fa.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb4378072b8fdfaeffe5f08b2",
@@ -306,7 +330,8 @@
     "親情衝突"
    ],
    "intro": "加賀恭一郎系列關鍵作",
-   "color": "#2F4A5C"
+   "cover": "covers/3e9fdb3cb4378072b8fdfaeffe5f08b2.jpg",
+   "color": "#E8F8E8"
   },
   {
    "id": "3e9fdb3cb4378073bb3ef27ab26c5954",
@@ -337,7 +362,8 @@
     "臥底刑警"
    ],
    "intro": "柯迪亞飯店系列第 1 部",
-   "color": "#5E7B6A"
+   "cover": "covers/3e9fdb3cb4378028be9cee3dbc22c111.jpg",
+   "color": "#081818"
   },
   {
    "id": "3e9fdb3cb4378064b173d6584d7b4297",
@@ -367,7 +393,8 @@
     "假面之謎"
    ],
    "intro": "柯迪亞飯店系列第 3 部",
-   "color": "#A8742F"
+   "cover": "covers/3e9fdb3cb43780d680d4d30ef4b3bf37.jpg",
+   "color": "#081818"
   },
   {
    "id": "3e9fdb3cb43780bea792e4a0c2650acc",
@@ -384,7 +411,9 @@
    ],
    "intro": "兼具幽默與哀傷的復仇劇",
    "rating": 5,
-   "color": "#6F7E5B"
+   "cover": "covers/3e9fdb3cb43780bea792e4a0c2650acc.jpg",
+   "color": "#282848",
+   "pages": 352
   },
   {
    "id": "3e9fdb3cb4378045b29dc00336edfc3b",
@@ -400,7 +429,8 @@
     "罪惡"
    ],
    "intro": "成熟視角的外遇懸",
-   "color": "#6F7E5B"
+   "cover": "covers/3e9fdb3cb4378045b29dc00336edfc3b.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb43780e6a994e809c6bd9a13",
@@ -432,7 +462,9 @@
    ],
    "intro": "入圍直木賞代表作",
    "rating": 5,
-   "color": "#5E7B6A"
+   "cover": "covers/3e9fdb3cb4378031884ecf22bf035ffc.jpg",
+   "color": "#E8E8E8",
+   "pages": 386
   },
   {
    "id": "3e9fdb3cb43780eeb8dddc0108548e01",
@@ -447,7 +479,9 @@
     "生命的奇蹟"
    ],
    "intro": "溫暖療癒科幻作",
-   "color": "#6F7E5B"
+   "cover": "covers/3e9fdb3cb43780eeb8dddc0108548e01.jpg",
+   "color": "#181818",
+   "pages": 327
   },
   {
    "id": "3e9fdb3cb437805ea5a0f570354cdd34",
@@ -463,7 +497,8 @@
    ],
    "intro": "加賀系列代表作，阿部寬主演日劇原作",
    "rating": 5,
-   "color": "#A8742F"
+   "cover": "covers/3e9fdb3cb437805ea5a0f570354cdd34.jpg",
+   "color": "#283898"
   },
   {
    "id": "3e9fdb3cb43780b6a636e7258a06a91a",
@@ -479,7 +514,9 @@
    ],
    "intro": "本格推理巔峰，人心幽微極致之作",
    "rating": 5,
-   "color": "#7B5A3A"
+   "cover": "covers/3e9fdb3cb43780b6a636e7258a06a91a.jpg",
+   "color": "#F8F8E8",
+   "pages": 211
   },
   {
    "id": "3e9fdb3cb43780b08774d86efa713daf",
@@ -512,7 +549,9 @@
    ],
    "intro": "第153屆直木賞全票通過得獎作（以台北為舞台）",
    "rating": 5,
-   "color": "#2C2A4A"
+   "cover": "covers/3e9fdb3cb43780a8b19fdf5977982ee5.jpg",
+   "color": "#D8E8F8",
+   "pages": 371
   },
   {
    "id": "3e9fdb3cb437802097f3fdda343a6b1c",
@@ -529,7 +568,8 @@
    ],
    "intro": "第7屆中央公論文藝賞，在台破百萬冊現象級神作",
    "rating": 5,
-   "color": "#7B5A3A"
+   "cover": "covers/3e9fdb3cb437802097f3fdda343a6b1c.jpg",
+   "color": "#F8F8E8"
   },
   {
    "id": "3e9fdb3cb43780a98b57d8f0d411b8ea",
@@ -546,7 +586,8 @@
    ],
    "intro": "第31屆江戶川亂步賞得獎出道作",
    "rating": 4,
-   "color": "#3E6C8A"
+   "cover": "covers/3e9fdb3cb43780a98b57d8f0d411b8ea.jpg",
+   "color": "#A8D8D8"
   },
   {
    "id": "3e9fdb3cb4378019859ac3e2b2ea82ee",
@@ -562,7 +603,8 @@
     "和解"
    ],
    "intro": "《解憂雜貨店》姊妹治癒作",
-   "color": "#2C2A4A"
+   "cover": "covers/3e9fdb3cb4378019859ac3e2b2ea82ee.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb43780df88f0c3d83a752145",
@@ -577,7 +619,9 @@
     "善惡邊界"
    ],
    "intro": "加賀系列唯一短篇集（亦見新版《湖畔的謊言》）",
-   "color": "#5E7B6A"
+   "cover": "covers/3e9fdb3cb43780df88f0c3d83a752145.jpg",
+   "color": "#F8F8F8",
+   "pages": 151
   },
   {
    "id": "3e9fdb3cb437805a9d09eef653ba5320",
@@ -593,7 +637,8 @@
    ],
    "intro": "改編電影由役所廣司主演；2024新譯本名《湖畔的謊言》",
    "rating": 3,
-   "color": "#5E7B6A"
+   "cover": "covers/3e9fdb3cb437805a9d09eef653ba5320.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb43780c684f4dba0090f2ed3",
@@ -619,7 +664,8 @@
    "series": "翻譯文學",
    "status": "unread",
    "intro": "人的生與死，是偶然的機運，還是命中注定？",
-   "color": "#3E6C8A"
+   "cover": "covers/401fdb3cb43780038c29d25ab3cb07e2.jpg",
+   "color": "#685848"
   },
   {
    "id": "417fdb3cb43780fc9bc4dfa719127445",
@@ -636,7 +682,8 @@
    "intro": "「風箏」代表著認同、愛與希望，也代表著那段純真卻留有遺憾的童年。追尋風箏的過程，正是阿米爾追尋自我、面對過錯並完成自我救贖的旅程。",
    "rating": 5,
    "note": "人好像都需要去自我救贖的過程，才能真的放下",
-   "color": "#2C2A4A"
+   "cover": "covers/417fdb3cb43780fc9bc4dfa719127445.jpg",
+   "color": "#5888B8"
   },
   {
    "id": "417fdb3cb43780e0a633ccfbcff20c57",
@@ -649,8 +696,10 @@
     "存在主義與荒謬哲學的經典代表"
    ],
    "intro": "我知道這世界無我的容身之地，但你評什麼審判我的靈魂",
+   "rating": 5,
    "note": "很荒謬，但又很反思，人往往只在乎合理性，但合理性又是人定義的。  拒絕虛偽的結果就是被定罪，但他卻是誠實的。最後也是活在當下的態度。清楚的知道自己在做什麼的人也知道自己即將離開，對比別人不知道自己要什麼也不知道什麼時候會結束清醒的多了。",
-   "color": "#B3262B"
+   "cover": "covers/417fdb3cb43780e0a633ccfbcff20c57.jpg",
+   "color": "#181818"
   },
   {
    "id": "41afdb3cb43780f5ac62f387adaf02ba",
@@ -711,7 +760,9 @@
    "by": "丹·布朗",
    "series": "翻譯文學",
    "status": "unread",
-   "color": "#B3262B"
+   "cover": "covers/41afdb3cb4378074b3d9d062fe1a1322.jpg",
+   "color": "#385838",
+   "pages": 183
   },
   {
    "id": "41afdb3cb437801888d9e33032d17846",
@@ -720,14 +771,18 @@
    "by": "丹·布朗",
    "series": "翻譯文學",
    "status": "unread",
-   "color": "#A8742F"
+   "cover": "covers/41afdb3cb437801888d9e33032d17846.jpg",
+   "color": "#684828",
+   "pages": 209
   },
   {
    "id": "41cfdb3cb4378024aaecf1c077bc2d70",
    "cat": "novel",
    "title": "那不勒斯故事",
-   "status": "unread",
-   "color": "#3B3A6B"
+   "status": "reading",
+   "cover": "covers/41cfdb3cb4378024aaecf1c077bc2d70.jpg",
+   "color": "#881818",
+   "pages": 338
   },
   {
    "id": "420fdb3cb43780d58a4afcc4579dceef",
@@ -735,8 +790,11 @@
    "title": "1Q84",
    "by": "春上村樹",
    "series": "單本獨立作",
-   "status": "unread",
-   "color": "#A8742F"
+   "status": "read",
+   "rating": 3,
+   "cover": "covers/420fdb3cb43780d58a4afcc4579dceef.jpg",
+   "color": "#382828",
+   "pages": 628
   },
   {
    "id": "3eafdb3cb437806980c4c6f95a52939b",
@@ -882,6 +940,7 @@
     "劇情"
    ],
    "intro": "沖繩島戰役堅持不帶槍的軍醫、拯救75名同袍真實事件",
+   "rating": 5,
    "color": "#C47A2C"
   },
   {
@@ -896,6 +955,7 @@
     "古裝"
    ],
    "intro": "無厘頭神作、含笑半步癲與小強等華語迷因源頭",
+   "rating": 4,
    "color": "#2F4A5C"
   },
   {
@@ -1418,6 +1478,7 @@
    "cat": "movie",
    "title": "神隱少女",
    "status": "read",
+   "rating": 5,
    "color": "#3B3A6B"
   },
   {
@@ -1425,6 +1486,7 @@
    "cat": "movie",
    "title": "媽的多重宇宙",
    "status": "read",
+   "rating": 5,
    "color": "#3E6C8A"
   },
   {
@@ -1432,6 +1494,7 @@
    "cat": "movie",
    "title": "風之谷",
    "status": "read",
+   "rating": 5,
    "color": "#D98C5F"
   },
   {
@@ -1439,6 +1502,7 @@
    "cat": "movie",
    "title": "天空之城",
    "status": "read",
+   "rating": 5,
    "color": "#A8742F"
   },
   {
@@ -1446,6 +1510,7 @@
    "cat": "movie",
    "title": "龍貓",
    "status": "read",
+   "rating": 5,
    "color": "#D98C5F"
   },
   {
@@ -1453,6 +1518,7 @@
    "cat": "movie",
    "title": "魔女宅急便",
    "status": "read",
+   "rating": 5,
    "color": "#8A1F24"
   },
   {
@@ -1460,6 +1526,7 @@
    "cat": "movie",
    "title": "魔法公主",
    "status": "read",
+   "rating": 5,
    "color": "#A8742F"
   },
   {
@@ -1467,6 +1534,7 @@
    "cat": "movie",
    "title": "神隱少女",
    "status": "read",
+   "rating": 5,
    "color": "#3B3A6B"
   },
   {
@@ -1474,6 +1542,7 @@
    "cat": "movie",
    "title": "霍爾的移動城堡",
    "status": "read",
+   "rating": 5,
    "color": "#7B5A3A"
   },
   {
@@ -1481,6 +1550,7 @@
    "cat": "movie",
    "title": "崖上的波妞",
    "status": "read",
+   "rating": 4,
    "color": "#8A1F24"
   },
   {
@@ -1488,6 +1558,7 @@
    "cat": "movie",
    "title": "風起",
    "status": "read",
+   "rating": 4,
    "color": "#5E7B6A"
   },
   {
@@ -1577,13 +1648,14 @@
    "sub": "Black Mirror",
    "by": "獨立單元劇（每集不同主演）",
    "credit": "查理·布魯克",
-   "status": "unread",
+   "status": "reading",
    "tags": [
     "科幻",
     "懸疑",
     "諷刺"
    ],
    "intro": "近未來科技對人性、道德體系與社會制度的黑色反思",
+   "prog": 2,
    "color": "#A8742F"
   },
   {
@@ -1632,6 +1704,8 @@
     "驚悚"
    ],
    "intro": "高中化學老師一步步墮落成為傳奇毒梟「海森堡」、封神級的劇本張力與人物弧光",
+   "rating": 5,
+   "prog": 5,
    "note": "第一季\nWirte跟jacse認識 Wirte因為得了癌症想要為家人留一筆錢意外的殺了兩個人\n第二季\n第三季\nWirte 崩潰了用自以為是的方式愛家人 最後失去家人了",
    "color": "#3B3A6B"
   },
@@ -1644,6 +1718,100 @@
     "學英文"
    ],
    "color": "#B3262B"
+  },
+  {
+   "id": "420fdb3cb4378085ac9cc78e7d65c868",
+   "cat": "drama",
+   "title": "屍戰朝鮮",
+   "by": "朱智勛、柳承龍",
+   "status": "read",
+   "tags": [
+    "心理驚悚"
+   ],
+   "rating": 5,
+   "color": "#C47A2C"
+  },
+  {
+   "id": "420fdb3cb43780e28fbbe80c81cc1134",
+   "cat": "drama",
+   "title": "Sweet Home",
+   "status": "read",
+   "rating": 5,
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "420fdb3cb43780fd89cbc8caf350a42e",
+   "cat": "drama",
+   "title": "Move to Heaven：我是遺物整理師",
+   "status": "read",
+   "rating": 5,
+   "color": "#B3262B"
+  },
+  {
+   "id": "420fdb3cb437803694e8f7cd402c297e",
+   "cat": "drama",
+   "title": "魷魚遊戲",
+   "status": "read",
+   "rating": 5,
+   "color": "#2C2A4A"
+  },
+  {
+   "id": "420fdb3cb43780a49592cd6a06a4ba83",
+   "cat": "drama",
+   "title": "黑暗榮耀",
+   "status": "read",
+   "rating": 5,
+   "color": "#A8742F"
+  },
+  {
+   "id": "420fdb3cb437805791cbe6ce28ffdbbe",
+   "cat": "drama",
+   "title": "假面女郎",
+   "status": "reading",
+   "rating": 5,
+   "prog": 3,
+   "color": "#8A1F24"
+  },
+  {
+   "id": "420fdb3cb4378077a7dfdfce377e33b2",
+   "cat": "drama",
+   "title": "魷魚遊戲2",
+   "status": "read",
+   "rating": 5,
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "420fdb3cb43780af80e4eed11b7df901",
+   "cat": "drama",
+   "title": "魷魚遊戲3",
+   "status": "read",
+   "rating": 4,
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "420fdb3cb4378093a694c30f6917c28d",
+   "cat": "drama",
+   "title": "Moving 異能",
+   "status": "reading",
+   "rating": 5,
+   "prog": 12,
+   "color": "#3B3A6B"
+  },
+  {
+   "id": "420fdb3cb437805e8994f5b8ca4ab34d",
+   "cat": "drama",
+   "title": "驅魔麵館",
+   "status": "read",
+   "rating": 5,
+   "color": "#7B5A3A"
+  },
+  {
+   "id": "420fdb3cb43780679915eaef3597ac5d",
+   "cat": "drama",
+   "title": "黑道律師文森佐",
+   "status": "read",
+   "rating": 4,
+   "color": "#6F7E5B"
   }
  ]
 }
