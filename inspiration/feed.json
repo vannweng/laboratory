@@ -1,118 +1,78 @@
 {
   "items": [
     {
-      "username": "raraco.lab",
-      "shortcode": "DgCGfXJye6U",
-      "kind": "reel",
-      "caption": "一百個 AI 互吵，只留最強答案\n留言「篩選」 我把連結傳給你\n\n#AI工具 #AI技巧 #ClaudeCode #GitHub #上班族",
-      "posted_at": "2026-11-22T05:56:36+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
-      "username": "life.coach.mtcity",
-      "shortcode": "DgB7YH_hZpi",
-      "kind": "reel",
-      "caption": "三年內，你也能過大老闆的生活 ✨\n有秘書、有特助、有員工，甚至有司機接送，而且花的錢，一般上班族就付得起！\n\n以前想都不敢想的生活，現在真的越來越近了。\n\n🗂 秘書＋特助：Claude Duet、ChatGPT dots、Grok Bot，你關掉電腦，它們還在雲端幫你盯事情，有事才回報你\n👥 員工：幫 AI 建立 Skill，教它照你的方式做事，你終於不用再拿時間換錢\n🚗 司機：特斯拉 Cybercab 已經開放美國部分客戶訂購，台灣還要等一陣子，但真的很值得期待！\n\n仔細想想，要過大老闆的生活，好像真的沒那麼難。\n想一起試試看嗎？留言「老闆」，我把這三種幫手的工具清單跟做法傳給你 🙌\n\n#AI工具 #一人公司 #ChatGPT #Claude #特斯拉",
-      "posted_at": "2026-11-22T04:18:51+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
-      "username": "kk800226",
-      "shortcode": "DgBxNT6A2SZ",
-      "kind": "reel",
-      "caption": "騎車、開車，跟人擦撞過嗎？🚗🛵\n那一刻最容易做錯的一件事，就是「當場和解」⚠️\n\n記住這 5 步，再慌也不會亂：\n1️⃣ 先顧人再顧車\n2️⃣ 再小的擦撞都報警\n3️⃣ 拍照存證、備份行車紀錄器\n4️⃣ 馬上通知保險公司\n5️⃣ 不當場和解\n\n強制險只賠人不賠車，第三人責任險機車也能保，差在哪？清單裡寫清楚了\n\n💬 留言「車禍」，完整處理清單＋事後 4 個期限我傳給你\n\n你遇過擦撞嗎？當下第一件事做了什麼？留言告訴我 👇\n\n追蹤 @kk800226，帶你看更多 AI 技能 ✨\n\n#車禍處理 #車禍理賠 #機車族 #汽車保險 #強制險 #第三人責任險 #交通事故 #行車安全",
-      "posted_at": "2026-11-22T02:49:10+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
       "username": "yunohata",
-      "shortcode": "DgBK0fBBeZN",
+      "shortcode": "DgDwBygObty",
       "kind": "reel",
-      "caption": "這支影片開頭的聲音，不是我🎙️\n是 Claude 幫我克隆的「我」——你第幾秒聽出來？\n\n想克隆自己的聲音？我的做法👇\n\n📥 要下載的東西\n・GPT-SoVITS（GitHub 搜尋 RVC-Boss/GPT-SoVITS，開源免費）\n　Windows 用「整合包」最簡單：解壓縮 → 點 go-webui.bat\n・建議有 NVIDIA 顯示卡，訓練才快\n\n🪜 步驟\n1️⃣ 錄 1～2 分鐘自己的聲音（安靜的房間，手機錄也可以）\n2️⃣ 把錄音切成一句一句，產生逐字稿、校對錯字\n3️⃣ 訓練：先練 SoVITS、再練 GPT，全部在自己電腦上跑\n4️⃣ 給它一段參考錄音＋要念的文字，就會用你的聲音念出來\n5️⃣ 英文念不好？把你原本錄音裡的英文單字剪下來換回去\n\n💡 我是直接跟 Claude 說：「幫我用 GPT-SoVITS 克隆我的聲音，錄音在這個資料夾」\n它自己切音檔、對逐字稿、訓練、重聽檢查，我只負責聽哪裡不像\n\n⚠️ 只克隆自己的聲音，或先取得本人同意\n\n你第幾秒聽出來的？留言告訴我👇\n完整版在 YouTube 搜尋「Yuno老師」\n\n#AI配音 #聲音克隆 #GPTSoVITS #Claude #Yuno老師",
-      "posted_at": "2026-11-21T21:13:33+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "caption": "在 Claude 裡一句話就生影片🎬\nHiggsfield 官方 MCP 上線\n・同一支影片做好幾種開頭\n・參考爆款結構做你的產品廣告\n⚠️ 無限方案、免費生成不適用 MCP，先看清楚\n想試的留言「工具」👇\n#Claude #MCP #AI影片 #AI工具 #Yuno老師",
+      "posted_at": "2026-11-22T21:17:05+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     },
     {
-      "username": "yunohata",
-      "shortcode": "DgAj-4GibxR",
-      "kind": "reel",
-      "caption": "今天帶孩子去看最近上映的怪獸電影，體驗了 4DX，深深被這兩個角色吸引，一看完就叫 Agent 做出這樣的場景～\n這次複雜度高很多：GPT-6.2 做得像靜態合照，兩隻怪獸幾乎沒在打；Opus 5.5 摸了一小時，怪獸的頭一開始還卡卡的。\n這組對照意外覺得 Fable 5.2 和 Gemini Neon 比較理想～\n\n同一個提示詞，丟給 4 個 AI 做「兩個電影怪獸對打」3D 場景🦖🐉\n\n💰 GPT-6.2 Astra　$4.51・27 分 01 秒\n💰 Gemini 4 Neon　$3.09・20 分 40 秒\n💰 Claude Opus 5.5　$15.4・60 分（跑到上限）\n💰 Claude Fable 5.2　$18.1・55 分 25 秒\n\n最便宜和最貴差了快 6 倍\n而且最便宜的 Gemini 反而最快，Opus 直接跑滿一小時😳\n\n想自己試試看？留言「怪獸」，我私訊給你📩\n（花費為 API 牌價換算，Opus 為估算）\n\n#AI比較 #Claude #ChatGPT #Gemini #3D #Yuno老師",
-      "posted_at": "2026-11-21T15:34:05+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
-      "username": "__laochen",
-      "shortcode": "DgAbGJ5Bo7f",
-      "kind": "reel",
-      "caption": "Sony MDR-3R上市啦～正常版NT.1590 《怪奇物語》特別版 NT,1890，官網我剛剛看是都缺貨了啦～目前只聽了幾首，其他時間都在把玩跟照鏡子🤣",
-      "posted_at": "2026-11-21T14:17:34+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
-      "username": "neil.skilltree",
-      "shortcode": "DgARFG1uwV3",
-      "kind": "reel",
-      "caption": "一個月 600 塊，請一個隨時能幫你做事的人，你請不請？\n\n影片中我舉了兩個自己的例子：\n1. 幫一位媽媽把自修內容做成小孩愛看的重點整理圖\n2. 請 AI 幫我做好一個照片網站，還幫我放到網路上，重點是還不用錢\n\n「把它當軟體，600 塊很貴；把它當員工，600 塊其實很便宜。」\n\n如果你也想開始聘請自己的 AI 員工，但不知道怎麼做？\n歡迎私訊我，我們可以聊一聊。",
-      "posted_at": "2026-11-21T13:15:04+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
-      "username": "iamlily.genai",
-      "shortcode": "DgASteFk8JM",
+      "username": "l.l.e.o.e.e",
+      "shortcode": "DgC729slKcy",
       "kind": "p",
-      "caption": "你的 AI，還停在 1 樓嗎？\n\n很多人用 AI，只用到跟 ChatGPT 聊天。\n其實往上還有好幾層：做影片、做網站收款、讓 AI 自己跑工作，甚至自己做出小工具。\n\n但不用一層一層爬。\n看你想做什麼，直接搭電梯到那一層就好 🛗\n\n我把這 15 個工具整理成一棟 AI 大樓，先存起來 📌\n每個工具的官網、用途、第一步怎麼開始，我做成了完整工具包，留言「樓層」就傳給你。\n\n想知道怎麼用 AI 多一份收入，我主頁有一個兩天的免費分享會，可以先去看看。\n\n圖片使用 AI 生成。\n\n關注我，讓 AI 成為你帶得走的工作能力。\n\n#AI工具 #AI教學 #ChatGPT #Claude #上班族",
-      "posted_at": "2026-11-21T13:02:48+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "caption": "留言「iPhone」 我把 GitHub 連結和安裝步驟傳給你 👇\n\nClaude 現在可以直接操作你的 iPhone 了\n\n它叫 mirroir-mcp\n免費開源的工具 走 Mac 內建的 iPhone 鏡像\nClaude 看得到你的手機畫面 會自己點 滑 打字\n\n手機不用越獄 不用開發者模式 也不用接線\n它用的就是你手機上已經登入的 App\n\n有人叫它\n當 Spotify DJ 排歌單直接播\n把存起來的食譜 Reel 變成購物清單\n跟 Chess.com 最強的機器人下棋\n\n安全的部分\n預設只開 14 個只會「看」的動作\n錢包和網銀可以直接封鎖\n遇到要密碼的畫面 它不會按\n\n安裝只要兩行指令\n需要 macOS 15 以上和 iPhone 鏡像\n\n#claudecode #iphone #ai工具 #mcp #ai自動化",
+      "posted_at": "2026-11-22T13:40:50+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
+    },
+    {
+      "username": "harryleeai",
+      "shortcode": "DgC3pNJshTr",
+      "kind": "reel",
+      "caption": "留言「SEO」，我會把 Claude SEO 的 GitHub 專案連結與安裝教學整理給你！👇\n還在每個月花大筆預算訂閱 Ahrefs、Semrush 等 SEO 工具嗎？\n現在有另一種玩法！透過免費開源的 Claude SEO，就能讓 Claude Code 協助你分析網站、優化內容，甚至規劃完整的 SEO 策略。🔥\n這個專案整合了 26 種 AI SEO Skills，在 GitHub 上已累積超過 23K Stars！\n💡 它可以幫你做什麼？\n✅ 網站速度優化：分析網站效能，找出影響載入速度的問題。\n✅ 內容與技術 SEO：協助優化文章、反向連結、網站結構與技術 SEO。\n✅ Google Maps 在地 SEO：分析並改善 Google 地圖相關的在地搜尋表現。\n✅ 17 個 AI Agent 平行分析：輸入你的網站，讓多個 AI Agent 分工檢查不同 SEO 項目。\n✅ 優先改善清單：整理分析結果，提供具優先順序的行動計畫，讓你知道應該先修正什麼。\n📈 不只分析，還能協助產出內容！\n生成 Sitemap\n建立競爭對手比較頁面\n根據關鍵字研究撰寫新文章\n優化網站內容，提升 AI 搜尋曝光機會\n🔥 還有一個值得注意的功能：AI Search Optimization！\n除了傳統 Google 搜尋，也能針對 ChatGPT、Claude 和 Google AI 等 AI 搜尋場景優化網站內容，增加網站被 AI 搜尋結果引用的機會。\n如果你正在經營網站、部落格或電商，這套工具很值得研究！\n⚠️ 提醒：AI 分析與內容生成不保證排名或被 AI 引用，部分功能也可能需要額外 API、工具權限或設定。\n#ClaudeSEO #ClaudeCode #AISEO #SEO工具 #AISkills",
+      "posted_at": "2026-11-22T13:04:53+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     },
     {
       "username": "jarrenpoh",
-      "shortcode": "DgAPjFClbTV",
+      "shortcode": "DgAVw24EvpE",
       "kind": "p",
-      "caption": "留言「食譜」，我把 Skill 範本＋3 個寫好的範例傳給你 👇\n\n你真正在累積的不是 Bot，是這些食譜。\n\n同一段要求，你是不是每週都重打一次？每次做出來的格式還不太一樣。Grok Bot 的 Skill 就是在解決這件事：把做對的那一次存成一份食譜，之後叫名字，它就照著做。\n\n輪播裡整理了：\n1️⃣ Skill 是什麼：一份可以重複用的做事食譜\n2️⃣ 一份 Skill 的 3 個部分：名稱、什麼時候用、步驟\n3️⃣ 怎麼把一段對話變成 Skill\n4️⃣ 哪些事值得存、哪些先不用\n5️⃣ 可以直接貼給 Bot 的 6 欄範本\n\n兩個重點：\n做得好，下次用同一份；做壞了，改食譜就好，順便說一句「更新這個 Skill」。\n不用自己從零寫，叫 Bot 把剛做完的流程存起來，再請它把內容列給你看一遍。\n\n食譜的比喻和「名稱、什麼時候用、步驟」這 3 個部分，觀念來自 Nate Herk 的教學影片，用我自己的例子重新整理；範本的 6 個欄位照官方文件寫。輪播裡的畫面是示意，不是截圖。\n\n想要寫好的範例直接改來用？\n留言「食譜」，我私訊給你 👇\n私訊裡留下 Email，之後有新影片、新教學會第一時間寄給你。\n\n30 天每天一篇，明天講一句話讓產出變好：「有問題先問我」。追蹤 @jarrenpoh 一起做。\n\nBotLab 為非官方教學帳號，Grok Bot 為 SpaceXSI 的商標。\n\n#GrokBot #AI員工 #AI工具 #AI自動化 #工作效率 #生產力工具 #AIAgent #BotLab",
-      "posted_at": "2026-11-21T12:35:18+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "caption": "留言「問我」，我把完成標準提示詞範本傳給你 👇\n\n產出很爛，通常不是 AI 笨，是你沒講「做到怎樣算完成」。\n\n「幫我整理這週的信」這一句，背後至少有 4 件事要決定：給誰看、要哪些數字、放哪裡、做到哪裡算完。你沒說，Bot 只能自己猜，猜錯了你再重講一次。\n\n最省事的解法是在任務最後加一句：\n「有問題先問我，問到懂為止，再開始做。」\n它會先反問你，你回答的那幾句，就是這份工作的完成標準。\n\n輪播裡整理了：\n1️⃣ 沒有完成標準，它會猜錯哪些地方\n2️⃣ 加上這句之後，它可能會問你什麼\n3️⃣ 它問、你答、產出變好的過程\n4️⃣ 完成標準自己寫：交代之前先回答 5 題\n5️⃣ 3 個可以直接複製的結尾句（通用、新專案、讓它記住）\n\n「叫它問到懂為止」和「完成標準」這兩個觀念來自 Nate Herk 的教學影片，用我自己的例子重新整理；5 題清單照官方文件「交代第一個任務」和「怎麼驗證結果」的建議。輪播裡的畫面是示意，不是截圖。\n\n想要整份範本直接改來用？\n留言「問我」，我私訊給你 👇\n私訊裡留下 Email，之後有新影片、新教學會第一時間寄給你。\n\n30 天每天一篇，明天講改成品也要改 Skill：每週五自動產出的週報。追蹤 @jarrenpoh 一起做。\n\nBotLab 為非官方教學帳號，Grok Bot 為 SpaceXSI 的商標。\n\n#GrokBot #AI員工 #AI工具 #AI自動化 #提示詞 #工作效率 #AIAgent #BotLab",
+      "posted_at": "2026-11-22T12:33:59+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
+    },
+    {
+      "username": "yunohata",
+      "shortcode": "DgCx1HhQu8F",
+      "kind": "reel",
+      "caption": "還記得 Gemini 3.0 剛上的時候\n課堂上帶著同學用 AI 畫「爆炸圖」，把一台機器拆成一張平面圖\n大家已經覺得很神奇了🤯\n\n現在呢？\n爆炸圖直接變成立體的，零件會飛出來、還能 360 度轉著看\n甚至可以像我這樣，拿同一個提示詞丟給 4 個 AI 來比較\n前後才一年左右⏳\n\n這次的題目：把「掌上遊戲機」拆成 3D 爆炸圖🎮🔧\n\n💰 GPT-6.2 Astra　$3.53・18 分 50 秒\n💰 Gemini 4 Neon　$2.87・24 分 05 秒\n💰 Claude Opus 5.5　$13.5・73 分 25 秒\n💰 Claude Fable 5.2　$9.74・27 分 04 秒\n\n螢幕、主機板、電池、散熱風扇、左右手把\n一層一層飛出來，再一塊一塊裝回去\n最便宜和最貴差了快 5 倍\n而且 Opus 一跑就是 73 分鐘，GPT 只要 18 分鐘😳\n誰拆得最漂亮？留言 1～4 告訴我👇\n\n想自己試試看？留言「爆炸」，我私訊給你📩\n（花費為 API 牌價換算）\n\n#AI比較 #Claude #ChatGPT #3D #Yuno老師 #爆炸圖 #switch",
+      "posted_at": "2026-11-22T12:13:29+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     },
     {
       "username": "omfrgrm",
-      "shortcode": "Df_-VU6yEhe",
+      "shortcode": "DgCrDc_oAme",
       "kind": "reel",
-      "caption": "UNIQLO感謝祭みんなは何買う予定ですか〜？🥹✨\n\n私は甘くなりすぎないブラウンコーデがしたくて、\nメンズコーナーでかわいいブルゾンを見つけて即決🤎\n\n起毛をかけたシャギー素材でほんと高見えだった🥹\nお得に買えてラッキー✌️\n\n私はMにしたんですが、\n内側折るならSサイズでもよかったかな〜🫰🏻\n\n🏷️UNIQLO/ブラッシュドフルジップブルゾン\ncolor:38DARK BROWN 商品番号:488599\n\nパンツとバッグは楽天ルームに載せてます🤎\n\n#uniqlo #ユニクロ #uniqlo感謝祭",
-      "posted_at": "2026-11-21T10:14:07+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "caption": "今季も流行りのハーフジップ🩵\n配色デザインが今っぽくて、裾がバルーンっぽいポワンシルエットなのも可愛いすぎる💕\n\n🏷️〔fleece〕\ncolor:ネイビー\n商品番号: jv1260483\n@classicalelf_official\n\n忘れない様に保存がオススメ🤍\nフォローしておくだけでプチプラアイテムの新着情報がすぐわかるよ♡→【@omfrgrm】\n\n#classicalelf　#クラシカルエルフ #エルフコーデ #zozotow #pr",
+      "posted_at": "2026-11-22T11:14:56+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     },
     {
-      "username": "manaodays",
-      "shortcode": "Df_4BH-ixXs",
+      "username": "setupjaron",
+      "shortcode": "DgCo6chSoU5",
       "kind": "reel",
-      "caption": "UNIQLOで買ったアウター\nデニムに合わせるだけでめっちゃ可愛い。\n\n展示会やpopupで購入した物が届いたの。\n全部大好きなお洋服達。\n\n何番目が好き？",
-      "posted_at": "2026-11-21T09:10:33+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "caption": "這3網站可以治好你無聊之餘，還能學到東西！太有意思了\n\n🥇我已經幫大家把網站打包好了\n1.點讚轉發並且追蹤我\n2.留言“Link”\n3.我就會把網址都發給你啦",
+      "posted_at": "2026-11-22T10:58:09+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     },
     {
       "username": "raraco.lab",
-      "shortcode": "Df_3DYjSY7e",
+      "shortcode": "DgCcuE_SF3I",
       "kind": "reel",
-      "caption": "香港即時監控，一張地圖全看完\n留言「監控」 我把連結傳給你\n\n#AI工具 #開源 #香港 #即時地圖 #GitHub",
-      "posted_at": "2026-11-21T09:03:13+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "caption": "AI 雪球變慢了，三個訊號看懂\n留言「泡沫」 我把提示詞傳給你\n\n#投資 #AI泡沫 #Claude #美股 #上班族",
+      "posted_at": "2026-11-22T09:10:32+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     },
     {
-      "username": "jarrenpoh",
-      "shortcode": "Df_yyAWx-jn",
-      "kind": "reel",
-      "caption": "留言「topview」，我傳給你\n\n@topviewaiofficial #ai",
-      "posted_at": "2026-11-21T08:25:00+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
-    },
-    {
-      "username": "learn_wchris",
-      "shortcode": "Df_twLGN29A",
-      "kind": "reel",
-      "caption": "ChatGPT 现在的能力已经完全超出预期了！😳\n\n留言「Site」我把工具发给你 🔗\n\n#ChatGPT #AI工具 #MotionGraphic #AIAutomation #AI创作",
-      "posted_at": "2026-11-21T07:40:30+00:00",
-      "detected_at": "2026-11-22T06:44:12.657970+00:00"
+      "username": "chocom___",
+      "shortcode": "DgCby9gExYl",
+      "kind": "p",
+      "caption": "今年も外苑前のいちょう並木へ💛🍂\n\n前回のPANTONEが好評だったのでまた作ってみました💛\n\n黄色いいちょうに合わせて、ワインレッドのカーディガンで｡\nこれ去年もやった組み合わせなんですけど、\nちょっと今年風にアレンジしてみた♪\n\n白のインナーとグレーのリブタイツで、\n赤が強くなりすぎないように意識💭\n\nㅤ\nOff to the ginkgo trees in Gaienmae again this year💛🍂\n\nI went with a wine red cardigan to match the yellow leaves.\nI wore this same color combo last year too,\nso this time I gave it a little update for this year♪\n\nI added a white inner layer and gray ribbed tights\nso the red wouldn't feel too strong💭\n\nㅤ\n#神宮外苑いちょう並木 #紅葉コーデ #秋コーデ #tokyoautumn #ginkgo\n\ntops @uniqlo_jp \nskirt @grl_official \nbag @charleskeith_jp #gift\nshoes @charleskeith_jp \n\n黄色いいちょうにバーガンディのコントラストが好き！\n\nでも周り見たらブラウン系統のコーデの方が多かった🤣\nきっとトレンドなんだろうな\n\nCHARLES & KEITHで人気なバッグのミニサイズ版かわいすぎる\n\n想像以上に物が入るのもいい。\n\n#gifted\n\nかりゆいと❣️\n\n@xqueen___a @__iuuuy \n\nCHARLES & KEITH ミニチャンスバッグ色違い🤎🖤\n\n実は自分が持ってるのはブラウンのバッグなんだけど、\n『黒も合うんでは』という友人たちのご意見で黒を持つことに。\nコーデの色味にまとまりが出た！",
+      "posted_at": "2026-11-22T09:00:41+00:00",
+      "detected_at": "2026-11-23T07:34:13.289286+00:00"
     }
   ],
   "tracked_count": 25,
-  "last_checked_at": "2026-11-22T06:44:12.658282+00:00"
+  "last_checked_at": "2026-11-23T07:34:13.289553+00:00"
 }
