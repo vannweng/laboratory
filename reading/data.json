@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T07:09:12.493Z",
+ "generatedAt": "2026-11-24T07:53:31.940Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -251,9 +251,9 @@
    ],
    "intro": "日本推理作家協會賞獲獎作",
    "rating": 3,
-   "pages": 415,
+   "pages": 468,
    "cover": "covers/3e9fdb3cb437805abe24d260d830dc7c.jpg",
-   "color": "#680818"
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb43780c5b8bcecd182372e3c",
@@ -795,11 +795,11 @@
    "by": "春上村樹",
    "series": "單本獨立作",
    "status": "read",
-   "intro": "*PRE-ORDER HARUKI MURAKAMI’S NEW NOVEL, THE CITY AND ITS UNCERTAIN WALLS, NOW* Read this imaginative masterpiece from the internationally bestselling author of Norwegian Wood The y",
+   "intro": "The long-awaited magnum opus from Haruki Murakami, in which this revered and bestselling author gives us his hypnotically addictive, mind-bending ode to George Orwell's 1984. The y",
    "rating": 3,
-   "pages": 628,
+   "pages": 1342,
    "cover": "covers/420fdb3cb43780d58a4afcc4579dceef.jpg",
-   "color": "#382828"
+   "color": "#F8E8E8"
   },
   {
    "id": "3eafdb3cb437806980c4c6f95a52939b",
