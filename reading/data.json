@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T08:39:09.825Z",
+ "generatedAt": "2026-11-24T09:51:24.153Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -16,6 +16,7 @@
    ],
    "intro": "日文原名《独学術》；另有本山勝寬《組合式讀學術》",
    "rating": 5,
+   "end": "2018-11-16",
    "cover": "covers/3eafdb3cb43780e98cbfd11d8aa6b8f4.jpg",
    "color": "#F8F8F8"
   },
@@ -112,6 +113,7 @@
     "人文社科類"
    ],
    "intro": "心理諮商創舉經典。取材自英國童話《柳林中的風聲》與心理學，跟著蛤蟆先生，探索憂鬱與自卑、軟弱，一起真正長大成人。",
+   "end": "2026-10-04",
    "cover": "covers/401fdb3cb437804f8cf3d2ee49805493.jpg",
    "color": "#D87848"
   },
@@ -134,6 +136,7 @@
    "status": "read",
    "intro": "1. 01. 與自己的關係：每個人都有自己的孤單課題\n2. 02. 與自己的關係：你不需要變成你不喜歡的大人\n3. 03. 與愛人的關係：從心甘情願豢養與被豢養開始\n4. 04. 與愛人的關係：因為他是你的玫瑰\n5. 05. 與世界的關係：用「心」去尋覓你笑著的理由\n6. 06. 與世界的關係：分離的時候，學會道別",
    "year": 1998,
+   "end": "2020-11-16",
    "pages": 245,
    "cover": "covers/417fdb3cb437802c89ebdf49e6f00508.jpg",
    "color": "#F8F8D8"
@@ -173,6 +176,7 @@
    "intro": "東野圭吾無冕之王代表作",
    "rating": 5,
    "year": 2002,
+   "end": "2019-01-24",
    "pages": 170,
    "cover": "covers/3e9fdb3cb43780228d11e540a75cd6fa.jpg",
    "color": "#485868"
@@ -246,6 +250,7 @@
    "intro": "命運交織的代表作",
    "rating": 5,
    "year": 2012,
+   "end": "2020-11-24",
    "pages": 233,
    "cover": "covers/3e9fdb3cb43780b39ed4cdd215e31679.jpg",
    "color": "#E89898"
@@ -265,6 +270,7 @@
    "intro": "日本推理作家協會賞獲獎作",
    "rating": 3,
    "year": 2001,
+   "end": "2020-01-24",
    "pages": 468,
    "cover": "covers/3e9fdb3cb437805abe24d260d830dc7c.jpg",
    "color": "#F8F8F8"
@@ -367,6 +373,7 @@
    ],
    "intro": "絕望父親的私刑控訴",
    "rating": 4,
+   "end": "2020-03-24",
    "color": "#3E6C8A"
   },
   {
@@ -434,6 +441,7 @@
    "intro": "兼具幽默與哀傷的復仇劇",
    "rating": 5,
    "year": 2009,
+   "end": "2020-04-24",
    "pages": 352,
    "cover": "covers/3e9fdb3cb43780bea792e4a0c2650acc.jpg",
    "color": "#282848"
@@ -471,6 +479,7 @@
    "intro": "直木賞／本格推理大賞獲",
    "rating": 5,
    "year": 2010,
+   "end": "2019-10-02",
    "color": "#A8742F"
   },
   {
@@ -488,6 +497,7 @@
    "intro": "入圍直木賞代表作",
    "rating": 5,
    "year": 2007,
+   "end": "2020-05-24",
    "pages": 386,
    "cover": "covers/3e9fdb3cb4378031884ecf22bf035ffc.jpg",
    "color": "#E8E8E8"
@@ -525,6 +535,7 @@
    "intro": "加賀系列代表作，阿部寬主演日劇原作",
    "rating": 5,
    "year": 2011,
+   "end": "2019-03-24",
    "cover": "covers/3e9fdb3cb437805ea5a0f570354cdd34.jpg",
    "color": "#283898"
   },
@@ -543,6 +554,7 @@
    "intro": "本格推理巔峰，人心幽微極致之作",
    "rating": 5,
    "year": 2004,
+   "end": "2019-05-26",
    "pages": 211,
    "cover": "covers/3e9fdb3cb43780b6a636e7258a06a91a.jpg",
    "color": "#F8F8E8"
@@ -562,6 +574,7 @@
    "intro": "伽利略系列開山始祖短篇集",
    "rating": 5,
    "year": 2005,
+   "end": "2019-12-12",
    "color": "#D98C5F"
   },
   {
@@ -580,6 +593,7 @@
    "intro": "第153屆直木賞全票通過得獎作（以台北為舞台）",
    "rating": 5,
    "year": 2016,
+   "end": "2022-05-24",
    "pages": 371,
    "cover": "covers/3e9fdb3cb43780a8b19fdf5977982ee5.jpg",
    "color": "#D8E8F8"
@@ -600,6 +614,7 @@
    "intro": "第7屆中央公論文藝賞，在台破百萬冊現象級神作",
    "rating": 5,
    "year": 2013,
+   "end": "2020-11-24",
    "cover": "covers/3e9fdb3cb437802097f3fdda343a6b1c.jpg",
    "color": "#F8F8E8"
   },
@@ -619,6 +634,7 @@
    "intro": "第31屆江戶川亂步賞得獎出道作",
    "rating": 4,
    "year": 1990,
+   "end": "2020-06-24",
    "cover": "covers/3e9fdb3cb43780a98b57d8f0d411b8ea.jpg",
    "color": "#A8D8D8"
   },
@@ -673,6 +689,7 @@
    "intro": "改編電影由役所廣司主演；2024新譯本名《湖畔的謊言》",
    "rating": 3,
    "year": 2020,
+   "end": "2020-11-24",
    "cover": "covers/3e9fdb3cb437805a9d09eef653ba5320.jpg",
    "color": "#F8F8F8"
   },
@@ -690,6 +707,7 @@
    "intro": "以雙時間軸交錯敘事，深刻探討罪與罰、歷史創傷與少年成長",
    "rating": 5,
    "note": "在人際關係與成長過程中，我們往往在無意間「殺死」了別人的純真、希望或某一部分自我，同時我們的人生也被某個關鍵時刻、某個人給「謀殺」了",
+   "end": "2026-10-04",
    "color": "#B3262B"
   },
   {
@@ -720,6 +738,7 @@
    "rating": 5,
    "year": 2024,
    "note": "人好像都需要去自我救贖的過程，才能真的放下",
+   "end": "2026-11-08",
    "cover": "covers/417fdb3cb43780fc9bc4dfa719127445.jpg",
    "color": "#5888B8"
   },
@@ -737,6 +756,7 @@
    "rating": 5,
    "year": 1991,
    "note": "很荒謬，但又很反思，人往往只在乎合理性，但合理性又是人定義的。  拒絕虛偽的結果就是被定罪，但他卻是誠實的。最後也是活在當下的態度。清楚的知道自己在做什麼的人也知道自己即將離開，對比別人不知道自己要什麼也不知道什麼時候會結束清醒的多了。",
+   "end": "2026-11-01",
    "cover": "covers/417fdb3cb43780e0a633ccfbcff20c57.jpg",
    "color": "#181818"
   },
@@ -839,6 +859,7 @@
    "intro": "The long-awaited magnum opus from Haruki Murakami, in which this revered and bestselling author gives us his hypnotically addictive, mind-bending ode to George Orwell's 1984. The y",
    "rating": 3,
    "year": 2011,
+   "end": "2021-11-24",
    "pages": 1342,
    "cover": "covers/420fdb3cb43780d58a4afcc4579dceef.jpg",
    "color": "#F8E8E8"
