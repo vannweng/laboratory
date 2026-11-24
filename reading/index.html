@@ -266,7 +266,7 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
   font-family: "Caveat", "Bradley Hand", cursive; font-weight: 500; font-size: 11px; line-height: 1; color: #2C2A26;
 }
 .flag i { font-style: normal; writing-mode: vertical-rl; letter-spacing: .02em; }
-.k-drama .flag { width: 16px; left: 28%; }
+.k-drama .flag { width: 16px; left: 28%; top: -24px; height: 31px; } /* 只貼住盒頂邊緣，不蓋到書名 */
 .flag::after { /* 黏膠段略暗 */
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 15px; background: rgba(160,110,0,.12);
 }
@@ -294,11 +294,48 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 }
 .k-movie::before { background: linear-gradient(90deg, rgba(255,255,255,.1) 0, rgba(255,255,255,.28) 12%, rgba(255,255,255,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,.35) 100%); }
 
-/* 影劇：套裝盒 */
-.k-drama { border-radius: 2px; }
-.k-drama .sp-title { font-size: var(--fs, 15px); }
-.box-ep { flex: none; margin-top: auto; font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .06em; opacity: .85; white-space: nowrap; }
-.k-drama .band { top: 18px; }
+/* 影劇：套裝盒（整面印刷，平直紙盒切邊） */
+.k-drama { border-radius: 1px; }
+.k-drama::before {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.35) 0 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0,0,0,.4) 0 1px, transparent 1px calc(100% - 1px), rgba(0,0,0,.4) calc(100% - 1px));
+}
+.k-drama .spine-in { padding: 13px 4px 8px; gap: 0; color: var(--on); }
+.k-drama .box-print { position: absolute; inset: 0; pointer-events: none; }
+.k-drama .box-print-0 {
+  background: linear-gradient(155deg, transparent 0 54%, color-mix(in srgb, var(--c), #000 26%) 54% 79%, transparent 79%), var(--c);
+}
+.k-drama .box-print-1 {
+  background: radial-gradient(ellipse 180% 68% at 115% 98%, color-mix(in srgb, var(--c), #fff 28%) 0 57%, transparent 58%), var(--c);
+}
+.k-drama .box-print-2 {
+  background: linear-gradient(25deg, color-mix(in srgb, var(--c), #000 28%) 0 26%, transparent 26% 65%, color-mix(in srgb, var(--c), #fff 22%) 65% 84%, transparent 84%), var(--c);
+}
+.k-drama .sp-title {
+  position: relative; font-size: var(--fs, 15px); font-weight: 700;
+  letter-spacing: .04em; line-height: 1.18; transform-origin: top center;
+}
+.k-drama .box-sub {
+  position: relative; writing-mode: vertical-rl; font-family: var(--f-mono);
+  font-size: 7px; line-height: 1.2; letter-spacing: .02em; white-space: nowrap;
+  flex: none; margin-top: 7px;
+}
+.k-drama .box-ep {
+  position: relative; margin-top: auto; display: flex; flex-direction: column; align-items: center;
+  gap: 2px; flex: none; font-size: 8px; line-height: 1.25; letter-spacing: .02em; white-space: nowrap;
+}
+.k-drama .box-dvd {
+  position: relative; flex: none; margin-top: 7px; font: italic 700 8px/1 var(--f-mono);
+  letter-spacing: -.04em; border-bottom: 1px solid currentColor; padding: 0 2px 1px;
+}
+.k-drama .wrap {
+  border-radius: 1px;
+  background:
+    linear-gradient(112deg, transparent 0 24%, rgba(255,255,255,.3) 25%, rgba(255,255,255,.06) 32%, transparent 33% 72%, rgba(255,255,255,.2) 73%, transparent 77%),
+    linear-gradient(180deg, rgba(255,255,255,.12), transparent 14% 88%, rgba(255,255,255,.16));
+  box-shadow: inset 1px 0 0 rgba(255,255,255,.8), inset -1px 0 0 rgba(255,255,255,.5), inset 0 2px 0 rgba(255,255,255,.65), inset 0 -1px 0 rgba(255,255,255,.45);
+}
 
 /* 未拆：收縮膜 */
 .wrap {
@@ -566,11 +603,25 @@ list.forEach((it, i) => {
   } else if (it.cat === "movie") {
     it.w = 27; it.h = 186;
   } else {
-    it.w = Math.round(it.seasons > 1 ? Math.min(82, 36 + it.seasons * 8) : 34 + (it.eps || 10 + (h % 8)) * .9);
-    it.h = 168 + (h % 3) * 6;
+    it.w = it.seasons > 1 ? Math.min(80, 44 + it.seasons * 6) : it.eps ? 38 + Math.min(it.eps, 40) * .6 : 46;
+    it.h = 200;
   }
   it.fs = it.w < 31 ? 12 : it.w < 42 ? 13.5 : 15;
   it.lines = splitTitle(it.title);
+  if (it.cat === "drama") {
+    // 固定盒高：先縮字，極長名稱再壓縮直排軸，保留完整兩欄。
+    const longest = Math.max(...it.lines.map(line => [...line].length));
+    const room = 132;
+    it.fs = Math.max(10, Math.min(it.fs, Math.floor((it.w - 8) / (it.lines.length * 1.18) * 10) / 10, Math.floor(room / (longest * 1.04) * 10) / 10));
+    const need = longest * it.fs * 1.04;
+    it.titleScale = Math.min(1, room / need);
+    it.titleSpace = Math.ceil(need - Math.min(room, need));
+    const titleHeight = Math.min(room, need);
+    const footer = (it.eps ? 12 : 0) + (it.seasons > 1 ? 14 : 0) + 24;
+    it.showSub = !!it.sub && titleHeight + 7 + [...it.sub].length * 7.14 + footer <= 179;
+    it.showBy = false; it.byh = 0;
+    return;
+  }
   if (it.lines.length > 1) { it.fs = Math.min(it.fs, 13); it.w = Math.max(it.w, Math.ceil(it.fs * 1.18 * 2 + 12)); }
 
   // 確保書名完整放得下：先加高書脊，再拿掉作者，最後才縮小字
@@ -646,8 +697,8 @@ function spineHTML(it, i) {
   if (it.cat === "movie") {
     inner = `<span class="dvd-top">DVD</span><span class="insert"><span class="sp-title">${titleHTML(it)}</span>${by}</span>`;
   } else if (it.cat === "drama") {
-    const ep = it.seasons > 1 ? `S1–${it.seasons}` : it.eps ? `全${it.eps}集` : "";
-    inner = `${it.variant ? `<span class="band"></span>` : ""}<span class="sp-title" style="margin-top:${it.variant ? 18 : 4}px">${titleHTML(it)}</span><span class="box-ep">${ep}</span>`;
+    const ep = [it.eps ? `全 ${it.eps} 集` : "", it.seasons > 1 ? `${it.seasons} 季` : ""].filter(Boolean);
+    inner = `<span class="box-print box-print-${it.variant}" aria-hidden="true"></span><span class="sp-title" style="transform:scaleY(${it.titleScale});margin-bottom:-${it.titleSpace}px">${titleHTML(it)}</span>${it.showSub ? `<span class="box-sub">${esc(it.sub)}</span>` : ""}${ep.length ? `<span class="box-ep">${ep.map(text => `<span>${text}</span>`).join("")}</span>` : `<span style="margin-top:auto"></span>`}<span class="box-dvd">DVD</span>`;
   } else {
     const deco = it.variant === 1 ? `<span class="band" style="top:8px"></span>` : "";
     const mark = it.variant === 2 ? `<span class="mark"${it.showBy ? "" : ` style="margin-top:auto"`}></span>` : "";
