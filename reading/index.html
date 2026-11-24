@@ -186,12 +186,12 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 .band { position: absolute; left: 4px; right: 4px; height: 6px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; opacity: .38; }
 .mark { width: 7px; height: 7px; border: 1px solid currentColor; border-radius: 50%; opacity: .6; flex: none; }
 
-/* 選到的書：往上跳並以底部為支點往左斜 8 度，像從書架抽出來 */
+/* 選到的書：往上跳並以底部為支點往右斜 2 度，像從書架抽出來 */
 @media (hover: hover) {
-  .spine:hover { transform: translateY(-16px) rotate(-8deg); z-index: 4; }
+  .spine:hover { transform: translateY(-16px) rotate(2deg); z-index: 4; }
 }
 .spine.is-open {
-  transform: translateY(-40px) rotate(-8deg) scale(1.05);
+  transform: translateY(-40px) rotate(2deg) scale(1.05);
   box-shadow: 1px 0 0 rgba(0,0,0,.16), 14px 18px 26px -8px var(--shadow);
   z-index: 5;
 }
