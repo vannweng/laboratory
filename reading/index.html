@@ -183,8 +183,11 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 }
 .sp-by {
   writing-mode: vertical-rl; margin-top: auto; flex: none;
-  font-size: var(--byfs, 9.5px); letter-spacing: .12em; opacity: .72; white-space: nowrap; /* 作者完整顯示，不截斷 */
+  font-size: var(--byfs, 9.5px); letter-spacing: .12em; opacity: .72; white-space: nowrap; line-height: 1.25;
 }
+.sp-by > span { display: block; } /* 直排：第二行排在左邊 */
+.sp-by.clip { max-height: var(--byh); }
+.sp-by.clip > span { max-height: var(--byh); overflow: hidden; text-overflow: ellipsis; } /* 斷兩行仍放不下才顯示「…」 */
 .k-book .spine-in, .k-drama .spine-in { background: var(--c); }
 .k-movie .spine-in { background: #161618; }
 .band { position: absolute; left: 4px; right: 4px; height: 6px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; opacity: .38; }
@@ -590,6 +593,16 @@ const statusLabel = it => ({ read: isFilm(it) ? "已看" : "已讀", reading: is
 
 /* 書名：中文字算 1 格、英數算 0.62 格；超過 10 字分兩行（直排兩欄） */
 const units = s => [...s].reduce((n, ch) => n + (/[\u0000-ɏ]/.test(ch) ? .62 : 1), 0);
+/* 作者名斷兩行：優先在「·」或空白處斷開，選最接近中間的位置 */
+function splitName(name) {
+  const chars = [...name];
+  const mid = chars.length / 2;
+  let cut = -1;
+  chars.forEach((ch, i) => { if (/[·‧・.\s]/.test(ch) && (cut < 0 || Math.abs(i - mid) < Math.abs(cut - mid))) cut = i; });
+  if (cut > 0) return [chars.slice(0, cut + 1).join("").trim(), chars.slice(cut + 1).join("").trim()].filter(Boolean);
+  const m = Math.ceil(mid);
+  return [chars.slice(0, m).join(""), chars.slice(m).join("")];
+}
 const DRAMA_H = 140; // 影劇套裝盒高度：電影 DVD（186px）的 3/4
 function splitTitle(t, max = 10) {
   const chars = [...t];
@@ -608,7 +621,7 @@ const isBook = it => it.cat === "tool" || it.cat === "novel";
 const shortBy = it => { const n = it.by.split("、")[0].trim(); return n.replace(/\s*[（(][^()（）]*[)）]\s*/g, "").trim() || n; };
 function obiName(it) {
   const n = shortBy(it);
-  if (/[・·]/.test(n)) return n.split(/[・·]/).pop();
+  if (/[・·‧]/.test(n)) return n.split(/[・·‧]/).pop();
   if (/[A-Za-z]/.test(n)) {
     const parts = n.split(/\s+/);
     const tail = parts.length > 1 && /[^\u0000-ɏ]/.test(parts.at(-1)) ? " " + parts.pop() : "";
@@ -665,10 +678,13 @@ list.forEach((it, i) => {
   const maxU = Math.max(...it.lines.map(units));
   const base = it.cat === "movie" ? 34 + (it.status === "read" ? 16 : 0) :it.cat === "drama" ? 24 + (it.variant ? 18 : 4) + 20 : 24 + (it.variant === 1 ? 12 : 0) + (it.variant === 2 ? 15 : 0);
   const titleH = () => maxU * it.fs * 1.1 + 4;
-  // 作者名要完整顯示：依字數估算需要的長度（英文字母較窄；含字距）
+  // 作者名：放得下就一行 → 太長斷兩行 → 還是太長才用「…」截斷（依字數估算長度：英文字母較窄；含字距）
   const byName = shortBy(it);
+  const nameLen = s => [...s].reduce((n, ch) => n + (/[\u0000-ɏ]/.test(ch) ? .74 : 1.13), 0);
   it.byfs = 9.5;
-  const byH = () => byName ? [...byName].reduce((n, ch) => n + (/[\u0000-ɏ]/.test(ch) ? .74 : 1.13), 0) * it.byfs + 8 : 0;
+  it.byLines = byName ? [byName] : [];
+  it.byClip = false;
+  const byH = () => it.byLines.length ? Math.max(...it.byLines.map(nameLen)) * it.byfs + 8 : 0;
   it.showBy = it.cat !== "drama" && !!byName;
   if (it.status === "unread" && isBook(it)) {
     // 作者改印在書腰上：書名區＋書腰都要放得下
@@ -690,15 +706,21 @@ list.forEach((it, i) => {
     if (maxU * it.fs * 1.1 > room) it.fs = Math.floor(room / (maxU * 1.1) * 10) / 10;
   }
   if (it.showBy) {
-    // 書與作者都要完整：書先加高書脊；電影 DVD 高度固定，改縮小作者字、再縮書名
+    // 書：先加高書脊；電影 DVD 高度固定
     if (isBook(it) && base + titleH() + byH() > it.h) it.h = Math.min(250, Math.ceil(base + titleH() + byH()));
-    while (base + titleH() + byH() > it.h && it.byfs > 7.5) it.byfs = Math.round((it.byfs - .5) * 10) / 10;
-    if (base + titleH() + byH() > it.h) it.fs = Math.max(9, Math.floor((it.h - base - byH() - 4) / (maxU * 1.1) * 10) / 10);
+    // 放不下 → 斷成兩行（兩欄要塞得進書脊寬度，字級隨寬度調整）
+    if (base + titleH() + byH() > it.h) {
+      const fs2 = Math.min(9.5, Math.floor((it.w - 6) / (2 * 1.25) * 10) / 10);
+      if (fs2 >= 7) { it.byLines = splitName(byName); it.byfs = fs2; }
+    }
+    // 書名本身也要留位置給作者（至少 24px）；仍放不下的作者名用「…」
+    if (base + titleH() + Math.min(byH(), 24) > it.h) it.fs = Math.max(9, Math.floor((it.h - base - 24 - 4) / (maxU * 1.1) * 10) / 10);
+    if (base + titleH() + byH() > it.h) it.byClip = true;
   } else {
     if (base + titleH() > it.h) it.h = Math.min(232, Math.ceil(base + titleH()));
     if (base + titleH() > it.h) it.fs = Math.floor((it.h - base - 4) / (maxU * 1.1) * 10) / 10;
   }
-  it.byh = Math.max(0, Math.floor(it.h - base - titleH() - 4));
+  it.byh = Math.max(0, Math.floor(it.h - base - titleH() - 8));
 });
 }
 
@@ -758,7 +780,7 @@ function spineIn(it, inner) {
 function spineHTML(it, i) {
   const style = `--c:${it.color};--on:${it.on};--w:${it.w}px;--h:${it.h}px;--fs:${it.fs}px;--byh:${it.byh}px;--byfs:${it.byfs || 9.5}px;--g1:${it.g1};--g2:${it.g2};--tx:${it.tx};--ty:${it.ty};--obi:${it.obi};--obi-on:${it.obiOn};--obib:${it.obib || 0}px;--obih:${it.obih || 0}px;--i:${i}`;
   const cls = `spine k-${isBook(it) ? "book" : it.cat} s-${it.status}`;
-  const by = it.showBy ? `<span class="sp-by">${esc(shortBy(it))}</span>` : "";
+  const by = it.showBy ? `<span class="sp-by${it.byClip ? " clip" : ""}">${it.byLines.map(l => `<span>${esc(l)}</span>`).join("")}</span>` : "";
   let inner;
   if (it.cat === "movie") {
     const t = tornStyle(it);
