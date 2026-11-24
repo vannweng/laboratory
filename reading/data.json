@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T07:53:31.940Z",
+ "generatedAt": "2026-11-24T08:29:09.509Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -16,7 +16,8 @@
    ],
    "intro": "日文原名《独学術》；另有本山勝寬《組合式讀學術》",
    "rating": 5,
-   "color": "#B3262B"
+   "cover": "covers/3eafdb3cb43780e98cbfd11d8aa6b8f4.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb43780d3b407ec5c32d0aee3",
@@ -34,7 +35,8 @@
    "rating": 5,
    "note": "偶爾都可以再看一次，認真檢視自己的想法與習慣",
    "end": "2026-10-16",
-   "color": "#B3262B"
+   "cover": "covers/3eafdb3cb43780d3b407ec5c32d0aee3.jpg",
+   "color": "#C8E8E8"
   },
   {
    "id": "3eafdb3cb437801493a7f0b4cc5bb86a",
@@ -52,6 +54,7 @@
    ],
    "intro": "從「身分認同」根本改變行為，透過微小累積創造巨大複利效應",
    "rating": 5,
+   "year": 2019,
    "note": "最深層的改變身分認同，關乎你相信什麼，希望成為什麼樣的人",
    "pages": 132,
    "cover": "covers/3eafdb3cb437801493a7f0b4cc5bb86a.jpg",
@@ -72,6 +75,7 @@
     "輸出導向"
    ],
    "intro": "數位時代個人知識庫建置法，將外在資訊轉化為高產出專案",
+   "year": 2023,
    "note": "1.獲取 (新觀點 未來用到的 息息相關 意想不到）",
    "cover": "covers/3eafdb3cb4378041a9cec10377dce27b.jpg",
    "color": "#F8F8F8"
@@ -118,6 +122,7 @@
    "series": "行為改變",
    "status": "reading",
    "intro": "不要以為時間線性的影響",
+   "year": 2022,
    "cover": "covers/409fdb3cb43780e797f0c761730fe1be.jpg",
    "color": "#3878B8"
   },
@@ -128,6 +133,7 @@
    "series": "自學思維",
    "status": "read",
    "intro": "1. 01. 與自己的關係：每個人都有自己的孤單課題\n2. 02. 與自己的關係：你不需要變成你不喜歡的大人\n3. 03. 與愛人的關係：從心甘情願豢養與被豢養開始\n4. 04. 與愛人的關係：因為他是你的玫瑰\n5. 05. 與世界的關係：用「心」去尋覓你笑著的理由\n6. 06. 與世界的關係：分離的時候，學會道別",
+   "year": 1998,
    "pages": 245,
    "cover": "covers/417fdb3cb437802c89ebdf49e6f00508.jpg",
    "color": "#F8F8D8"
@@ -148,7 +154,9 @@
    "by": "Mihaly Csikszentmihalyi",
    "series": "行為改變",
    "status": "unread",
-   "color": "#D98C5F"
+   "year": 2017,
+   "cover": "covers/420fdb3cb437806aa42fc2e66bbd3f0f.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb43780228d11e540a75cd6fa",
@@ -164,6 +172,7 @@
    ],
    "intro": "東野圭吾無冕之王代表作",
    "rating": 5,
+   "year": 2002,
    "pages": 170,
    "cover": "covers/3e9fdb3cb43780228d11e540a75cd6fa.jpg",
    "color": "#485868"
@@ -181,6 +190,7 @@
     "惡女"
    ],
    "intro": "《白夜行》精神姊妹作",
+   "year": 2008,
    "pages": 505,
    "cover": "covers/3e9fdb3cb43780968b52c7f24a80385f.jpg",
    "color": "#686868"
@@ -198,6 +208,7 @@
     "器官移植"
    ],
    "intro": "醫學懸疑經典",
+   "year": 2012,
    "pages": 260,
    "cover": "covers/3e9fdb3cb437806eb718eb53afe658f0.jpg",
    "color": "#584848"
@@ -215,6 +226,7 @@
     "自我認同"
    ],
    "intro": "探討複製醫學倫理",
+   "year": 1998,
    "pages": 446,
    "cover": "covers/3e9fdb3cb43780648bfced8f489e7515.jpg",
    "color": "#08A8B8"
@@ -233,6 +245,7 @@
    ],
    "intro": "命運交織的代表作",
    "rating": 5,
+   "year": 2012,
    "pages": 233,
    "cover": "covers/3e9fdb3cb43780b39ed4cdd215e31679.jpg",
    "color": "#E89898"
@@ -251,6 +264,7 @@
    ],
    "intro": "日本推理作家協會賞獲獎作",
    "rating": 3,
+   "year": 2001,
    "pages": 468,
    "cover": "covers/3e9fdb3cb437805abe24d260d830dc7c.jpg",
    "color": "#F8F8F8"
@@ -268,6 +282,7 @@
     "封閉洋房"
    ],
    "intro": "作者本人的自信作",
+   "year": 2015,
    "color": "#3B3A6B"
   },
   {
@@ -283,6 +298,7 @@
     "友情守護"
    ],
    "intro": "探討跨性別與性別光譜",
+   "year": 2023,
    "cover": "covers/3e9fdb3cb43780879b43df4a221e8ef2.jpg",
    "color": "#E8D8D8"
   },
@@ -299,6 +315,7 @@
     "道德爭議"
    ],
    "intro": "出道30週年紀念作",
+   "year": 2016,
    "cover": "covers/3e9fdb3cb4378085abefeeeaa267c436.jpg",
    "color": "#F8F8F8"
   },
@@ -315,6 +332,7 @@
     "贖罪"
    ],
    "intro": "深入探討死刑議題",
+   "year": 2016,
    "cover": "covers/3e9fdb3cb437807bb974ec37232ca8fa.jpg",
    "color": "#F8F8F8"
   },
@@ -331,6 +349,7 @@
     "親情衝突"
    ],
    "intro": "加賀恭一郎系列關鍵作",
+   "year": 2011,
    "cover": "covers/3e9fdb3cb4378072b8fdfaeffe5f08b2.jpg",
    "color": "#E8F8E8"
   },
@@ -363,6 +382,7 @@
     "臥底刑警"
    ],
    "intro": "柯迪亞飯店系列第 1 部",
+   "year": 2012,
    "cover": "covers/3e9fdb3cb4378028be9cee3dbc22c111.jpg",
    "color": "#080808"
   },
@@ -394,6 +414,7 @@
     "假面之謎"
    ],
    "intro": "柯迪亞飯店系列第 3 部",
+   "year": 2018,
    "cover": "covers/3e9fdb3cb43780d680d4d30ef4b3bf37.jpg",
    "color": "#081818"
   },
@@ -412,6 +433,7 @@
    ],
    "intro": "兼具幽默與哀傷的復仇劇",
    "rating": 5,
+   "year": 2009,
    "pages": 352,
    "cover": "covers/3e9fdb3cb43780bea792e4a0c2650acc.jpg",
    "color": "#282848"
@@ -430,6 +452,7 @@
     "罪惡"
    ],
    "intro": "成熟視角的外遇懸",
+   "year": 2011,
    "cover": "covers/3e9fdb3cb4378045b29dc00336edfc3b.jpg",
    "color": "#F8F8F8"
   },
@@ -447,6 +470,7 @@
    ],
    "intro": "直木賞／本格推理大賞獲",
    "rating": 5,
+   "year": 2010,
    "color": "#A8742F"
   },
   {
@@ -463,6 +487,7 @@
    ],
    "intro": "入圍直木賞代表作",
    "rating": 5,
+   "year": 2007,
    "pages": 386,
    "cover": "covers/3e9fdb3cb4378031884ecf22bf035ffc.jpg",
    "color": "#E8E8E8"
@@ -480,6 +505,7 @@
     "生命的奇蹟"
    ],
    "intro": "溫暖療癒科幻作",
+   "year": 2021,
    "pages": 327,
    "cover": "covers/3e9fdb3cb43780eeb8dddc0108548e01.jpg",
    "color": "#181818"
@@ -498,6 +524,7 @@
    ],
    "intro": "加賀系列代表作，阿部寬主演日劇原作",
    "rating": 5,
+   "year": 2011,
    "cover": "covers/3e9fdb3cb437805ea5a0f570354cdd34.jpg",
    "color": "#283898"
   },
@@ -515,6 +542,7 @@
    ],
    "intro": "本格推理巔峰，人心幽微極致之作",
    "rating": 5,
+   "year": 2004,
    "pages": 211,
    "cover": "covers/3e9fdb3cb43780b6a636e7258a06a91a.jpg",
    "color": "#F8F8E8"
@@ -533,6 +561,7 @@
    ],
    "intro": "伽利略系列開山始祖短篇集",
    "rating": 5,
+   "year": 2005,
    "color": "#D98C5F"
   },
   {
@@ -550,6 +579,7 @@
    ],
    "intro": "第153屆直木賞全票通過得獎作（以台北為舞台）",
    "rating": 5,
+   "year": 2016,
    "pages": 371,
    "cover": "covers/3e9fdb3cb43780a8b19fdf5977982ee5.jpg",
    "color": "#D8E8F8"
@@ -569,6 +599,7 @@
    ],
    "intro": "第7屆中央公論文藝賞，在台破百萬冊現象級神作",
    "rating": 5,
+   "year": 2013,
    "cover": "covers/3e9fdb3cb437802097f3fdda343a6b1c.jpg",
    "color": "#F8F8E8"
   },
@@ -587,6 +618,7 @@
    ],
    "intro": "第31屆江戶川亂步賞得獎出道作",
    "rating": 4,
+   "year": 1990,
    "cover": "covers/3e9fdb3cb43780a98b57d8f0d411b8ea.jpg",
    "color": "#A8D8D8"
   },
@@ -604,6 +636,7 @@
     "和解"
    ],
    "intro": "《解憂雜貨店》姊妹治癒作",
+   "year": 2020,
    "cover": "covers/3e9fdb3cb4378019859ac3e2b2ea82ee.jpg",
    "color": "#F8F8F8"
   },
@@ -620,6 +653,7 @@
     "善惡邊界"
    ],
    "intro": "加賀系列唯一短篇集（亦見新版《湖畔的謊言》）",
+   "year": 2014,
    "pages": 151,
    "cover": "covers/3e9fdb3cb43780df88f0c3d83a752145.jpg",
    "color": "#F8F8F8"
@@ -638,6 +672,7 @@
    ],
    "intro": "改編電影由役所廣司主演；2024新譯本名《湖畔的謊言》",
    "rating": 3,
+   "year": 2020,
    "cover": "covers/3e9fdb3cb437805a9d09eef653ba5320.jpg",
    "color": "#F8F8F8"
   },
@@ -665,6 +700,7 @@
    "series": "翻譯文學",
    "status": "unread",
    "intro": "人的生與死，是偶然的機運，還是命中注定？",
+   "year": 2026,
    "cover": "covers/401fdb3cb43780038c29d25ab3cb07e2.jpg",
    "color": "#685848"
   },
@@ -682,6 +718,7 @@
    ],
    "intro": "「風箏」代表著認同、愛與希望，也代表著那段純真卻留有遺憾的童年。追尋風箏的過程，正是阿米爾追尋自我、面對過錯並完成自我救贖的旅程。",
    "rating": 5,
+   "year": 2024,
    "note": "人好像都需要去自我救贖的過程，才能真的放下",
    "cover": "covers/417fdb3cb43780fc9bc4dfa719127445.jpg",
    "color": "#5888B8"
@@ -698,6 +735,7 @@
    ],
    "intro": "我知道這世界無我的容身之地，但你評什麼審判我的靈魂",
    "rating": 5,
+   "year": 1991,
    "note": "很荒謬，但又很反思，人往往只在乎合理性，但合理性又是人定義的。  拒絕虛偽的結果就是被定罪，但他卻是誠實的。最後也是活在當下的態度。清楚的知道自己在做什麼的人也知道自己即將離開，對比別人不知道自己要什麼也不知道什麼時候會結束清醒的多了。",
    "cover": "covers/417fdb3cb43780e0a633ccfbcff20c57.jpg",
    "color": "#181818"
@@ -762,6 +800,7 @@
    "series": "翻譯文學",
    "status": "unread",
    "intro": "一部節奏緊湊、扣人心弦的驚悚小說，被美國情報界人士譽為「高度可信」。 《數位密碼》所揭露的情況與現實極度吻合，其透漏的情報祕密比湯姆．克蘭西的作品更加豐富，帶領讀者深入地球上最強大的情報機構「美國國家安全局」，這個極度機密、耗資數十億美元創建的機構，此前，只有不到3%的美國人知道這個機構的存在。 一臺所向披靡的密碼破解電腦，是國安局最高機密的技術奇蹟，當這臺",
+   "year": 2005,
    "pages": 183,
    "cover": "covers/41afdb3cb4378074b3d9d062fe1a1322.jpg",
    "color": "#385838"
@@ -774,6 +813,7 @@
    "series": "翻譯文學",
    "status": "unread",
    "intro": "當一顆新的衛星在北極冰層深處發現了極其罕見的物體時，美國太空總署宣布了一項功績……這項功績對美國太空政策和即將到來的總統選舉有著深遠的影響。 當總統寶座岌岌可危之際，他派遣白宮情報分析員瑞秋．謝克斯頓前往米爾恩冰棚，以便核實這項發現的真實性。瑞秋與極具魅力的學者麥克．陶倫德一同前往，揭開了令人難以置信的真相──這是一場科學假造的大騙局，若公諸於世將舉世譁然。",
+   "year": 1994,
    "pages": 209,
    "cover": "covers/41afdb3cb437801888d9e33032d17846.jpg",
    "color": "#684828"
@@ -784,6 +824,7 @@
    "title": "那不勒斯故事",
    "status": "reading",
    "intro": "60年的友誼，交纏的命運 兩個女子互相啟發 視彼此為可敬對手的成長故事 艾琳娜與莉拉出生在二次戰後的那不勒斯貧窮郊區，兩人的友誼從六歲時交換娃娃開始，充滿活力的莉拉有時走在前頭，帶著艾琳娜去冒險；個性內斂的艾琳娜則加倍努力，讓自己永遠可與莉拉匹敵。在重要的時刻相挺，但誰先達標時又不甘落後；這種互相啟發，又視彼此為可敬對手的狀態，是她們六十年友誼的基調。 但兩",
+   "year": 2017,
    "pages": 338,
    "cover": "covers/41cfdb3cb4378024aaecf1c077bc2d70.jpg",
    "color": "#881818"
@@ -797,6 +838,7 @@
    "status": "read",
    "intro": "The long-awaited magnum opus from Haruki Murakami, in which this revered and bestselling author gives us his hypnotically addictive, mind-bending ode to George Orwell's 1984. The y",
    "rating": 3,
+   "year": 2011,
    "pages": 1342,
    "cover": "covers/420fdb3cb43780d58a4afcc4579dceef.jpg",
    "color": "#F8E8E8"
