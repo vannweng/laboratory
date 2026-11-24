@@ -135,6 +135,11 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
           mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 26px), transparent);
 }
 .rail::-webkit-scrollbar { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .rail { cursor: grab; }
+  .rail.dragging { cursor: grabbing; user-select: none; }
+  .rail.dragging .spine { pointer-events: none; } /* 拖曳中不觸發書本懸停 */
+}
 /* 層板畫在 rail 底部，讓緞帶可以垂過層板前緣 */
 .rail {
   background:
@@ -178,8 +183,7 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
 }
 .sp-by {
   writing-mode: vertical-rl; margin-top: auto; flex: none;
-  font-size: 9.5px; letter-spacing: .12em; opacity: .72; white-space: nowrap; max-height: var(--byh, 38%);
-  overflow: hidden; text-overflow: ellipsis;
+  font-size: var(--byfs, 9.5px); letter-spacing: .12em; opacity: .72; white-space: nowrap; /* 作者完整顯示，不截斷 */
 }
 .k-book .spine-in, .k-drama .spine-in { background: var(--c); }
 .k-movie .spine-in { background: #161618; }
@@ -203,7 +207,27 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
   border-radius: 3px 3px 2px 2px;
   box-shadow: 1px 0 0 rgba(0,0,0,.22), 4px 2px 8px -3px var(--shadow);
 }
-.s-read:is(.k-movie, .k-drama) { filter: sepia(.28) saturate(.75) brightness(.93); }
+/* 已看（電影／影劇）：灰階＋貼紙破角。破角只在四個角（上方最多 6px、下方最多 4px），不碰到片名與人名 */
+.s-read:is(.k-movie, .k-drama) { filter: grayscale(.92) contrast(.96) brightness(.98); }
+.s-read.k-drama { background: #3A3733; } /* 破角下露出的紙盒底 */
+.torn {
+  --tl: 0px; --tr: 0px; --br: 0px; --bl: 0px;
+  clip-path: polygon(
+    0 var(--tl), calc(var(--tl) * .3) calc(var(--tl) * .7), calc(var(--tl) * .45) calc(var(--tl) * .35), calc(var(--tl) * .75) calc(var(--tl) * .3), var(--tl) 0,
+    calc(100% - var(--tr)) 0, calc(100% - var(--tr) * .7) calc(var(--tr) * .3), calc(100% - var(--tr) * .4) calc(var(--tr) * .45), calc(100% - var(--tr) * .3) calc(var(--tr) * .8), 100% var(--tr),
+    100% calc(100% - var(--br)), calc(100% - var(--br) * .3) calc(100% - var(--br) * .7), calc(100% - var(--br) * .5) calc(100% - var(--br) * .4), calc(100% - var(--br) * .75) calc(100% - var(--br) * .3), calc(100% - var(--br)) 100%,
+    var(--bl) 100%, calc(var(--bl) * .7) calc(100% - var(--bl) * .3), calc(var(--bl) * .4) calc(100% - var(--bl) * .5), calc(var(--bl) * .3) calc(100% - var(--bl) * .75), 0 calc(100% - var(--bl))
+  );
+}
+.insert.torn { position: relative; }
+.torn::after { /* 撕開處露出的白色紙芯 */
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  background:
+    radial-gradient(circle at 0 0, #EDE8DC calc(var(--tl) * 1.35), transparent calc(var(--tl) * 1.35 + .5px)),
+    radial-gradient(circle at 100% 0, #EDE8DC calc(var(--tr) * 1.35), transparent calc(var(--tr) * 1.35 + .5px)),
+    radial-gradient(circle at 100% 100%, #EDE8DC calc(var(--br) * 1.35), transparent calc(var(--br) * 1.35 + .5px)),
+    radial-gradient(circle at 0 100%, #EDE8DC calc(var(--bl) * 1.35), transparent calc(var(--bl) * 1.35 + .5px));
+}
 .wear {
   position: absolute; inset: 0; pointer-events: none; z-index: 1; border-radius: inherit;
   background:
@@ -631,8 +655,11 @@ list.forEach((it, i) => {
   const maxU = Math.max(...it.lines.map(units));
   const base = it.cat === "movie" ? 34 : it.cat === "drama" ? 24 + (it.variant ? 18 : 4) + 20 : 24 + (it.variant === 1 ? 12 : 0) + (it.variant === 2 ? 15 : 0);
   const titleH = () => maxU * it.fs * 1.1 + 4;
-  const BY = 46;
-  it.showBy = it.cat !== "drama" && it.w >= (it.cat === "movie" ? 26 : 30);
+  // 作者名要完整顯示：依字數估算需要的長度（英文字母較窄；含字距）
+  const byName = shortBy(it);
+  it.byfs = 9.5;
+  const byH = () => byName ? [...byName].reduce((n, ch) => n + (/[\u0000-ɏ]/.test(ch) ? .74 : 1.13), 0) * it.byfs + 8 : 0;
+  it.showBy = it.cat !== "drama" && !!byName;
   if (it.status === "unread" && isBook(it)) {
     // 作者改印在書腰上：書名區＋書腰都要放得下
     it.showBy = false;
@@ -652,11 +679,16 @@ list.forEach((it, i) => {
     const room = it.h - it.obib - it.obih - 6 - base - 4;
     if (maxU * it.fs * 1.1 > room) it.fs = Math.floor(room / (maxU * 1.1) * 10) / 10;
   }
-  if (it.cat !== "movie" && base + titleH() + (it.showBy ? BY : 0) > it.h) it.h = Math.min(232, Math.ceil(base + titleH() + (it.showBy ? BY : 0)));
-  if (base + titleH() + (it.showBy ? BY : 0) > it.h) it.showBy = false;
-  if (base + titleH() > it.h) it.h = Math.min(232, Math.ceil(base + titleH()));
-  if (base + titleH() > it.h) it.fs = Math.floor((it.h - base - 4) / (maxU * 1.1) * 10) / 10;
-  it.byh = Math.max(0, Math.floor(it.h - base - titleH() - 8));
+  if (it.showBy) {
+    // 書與作者都要完整：書先加高書脊；電影 DVD 高度固定，改縮小作者字、再縮書名
+    if (isBook(it) && base + titleH() + byH() > it.h) it.h = Math.min(250, Math.ceil(base + titleH() + byH()));
+    while (base + titleH() + byH() > it.h && it.byfs > 7.5) it.byfs = Math.round((it.byfs - .5) * 10) / 10;
+    if (base + titleH() + byH() > it.h) it.fs = Math.max(9, Math.floor((it.h - base - byH() - 4) / (maxU * 1.1) * 10) / 10);
+  } else {
+    if (base + titleH() > it.h) it.h = Math.min(232, Math.ceil(base + titleH()));
+    if (base + titleH() > it.h) it.fs = Math.floor((it.h - base - 4) / (maxU * 1.1) * 10) / 10;
+  }
+  it.byh = Math.max(0, Math.floor(it.h - base - titleH() - 4));
 });
 }
 
@@ -673,8 +705,20 @@ rootStyle.setProperty("--tex-fray",    tex(".55", 2, [.9, .84, .72], 3.2, -1.45,
 rootStyle.setProperty("--tex-sheen",   tex(".045 .004", 2, [1, 1, 1], 2.2, -1.3, 160));
 rootStyle.setProperty("--tex-crinkle", tex(".09 .16", 3, [1, 1, 1], 3.6, -1.85, 70));
 
+/* 已看的電影／影劇：隨機 1～4 個角破損（依片名固定，不會每次重整都變） */
+function tornStyle(it) {
+  if (it.status !== "read" || isBook(it)) return "";
+  const h = hash(it.title + "torn");
+  let tl = (h >> 2) & 1 ? 4 + ((h >> 5) % 3) : 0;
+  const tr = (h >> 3) & 1 ? 4 + ((h >> 7) % 3) : 0;
+  const br = (h >> 4) & 1 ? 3 + ((h >> 9) % 2) : 0;
+  const bl = (h >> 6) & 1 ? 3 + ((h >> 11) % 2) : 0;
+  if (!tl && !tr && !br && !bl) tl = 5;
+  return `--tl:${tl}px;--tr:${tr}px;--br:${br}px;--bl:${bl}px`;
+}
+
 function statusLayers(it, where) {
-  if (it.status === "read") return `<span class="wear"></span>`;
+  if (it.status === "read") return isBook(it) ? `<span class="wear"></span>` : "";
   if (it.status === "unread") return isBook(it)
     ? `<span class="obi${where !== "cover" && it.obiCols > 1 ? " two" : ""}"><i>${esc(obiName(it))}</i></span><span class="sleeve"></span>`
     : `<span class="wrap"></span><span class="seal">未拆</span>`;
@@ -692,13 +736,20 @@ function flagHTML(it, where) {
 }
 const titleHTML = it => it.lines.map(esc).join("<br>");
 
+/* 影劇的破角做在整個盒面上；電影的破角做在 DVD 內頁紙上 */
+function spineIn(it, inner) {
+  const torn = it.cat === "drama" ? tornStyle(it) : "";
+  return `<span class="spine-in${torn ? " torn" : ""}"${torn ? ` style="${torn}"` : ""}>${inner}</span>`;
+}
+
 function spineHTML(it, i) {
-  const style = `--c:${it.color};--on:${it.on};--w:${it.w}px;--h:${it.h}px;--fs:${it.fs}px;--byh:${it.byh}px;--g1:${it.g1};--g2:${it.g2};--tx:${it.tx};--ty:${it.ty};--obi:${it.obi};--obi-on:${it.obiOn};--obib:${it.obib || 0}px;--obih:${it.obih || 0}px;--i:${i}`;
+  const style = `--c:${it.color};--on:${it.on};--w:${it.w}px;--h:${it.h}px;--fs:${it.fs}px;--byh:${it.byh}px;--byfs:${it.byfs || 9.5}px;--g1:${it.g1};--g2:${it.g2};--tx:${it.tx};--ty:${it.ty};--obi:${it.obi};--obi-on:${it.obiOn};--obib:${it.obib || 0}px;--obih:${it.obih || 0}px;--i:${i}`;
   const cls = `spine k-${isBook(it) ? "book" : it.cat} s-${it.status}`;
   const by = it.showBy ? `<span class="sp-by">${esc(shortBy(it))}</span>` : "";
   let inner;
   if (it.cat === "movie") {
-    inner = `<span class="dvd-top">DVD</span><span class="insert"><span class="sp-title">${titleHTML(it)}</span>${by}</span>`;
+    const torn = tornStyle(it);
+    inner = `<span class="dvd-top">DVD</span><span class="insert${torn ? " torn" : ""}"${torn ? ` style="${torn}"` : ""}><span class="sp-title">${titleHTML(it)}</span>${by}</span>`;
   } else if (it.cat === "drama") {
     const ep = [it.eps ? `全 ${it.eps} 集` : "", it.seasons > 1 ? `${it.seasons} 季` : ""].filter(Boolean);
     inner = `<span class="box-print box-print-${it.variant}" aria-hidden="true"></span><span class="sp-title" style="transform:scaleY(${it.titleScale});margin-bottom:-${it.titleSpace}px">${titleHTML(it)}</span>${it.showSub ? `<span class="box-sub">${esc(it.sub)}</span>` : ""}${ep.length ? `<span class="box-ep">${ep.map(text => `<span>${text}</span>`).join("")}</span>` : `<span style="margin-top:auto"></span>`}<span class="box-dvd">DVD</span>`;
@@ -707,7 +758,7 @@ function spineHTML(it, i) {
     const mark = it.variant === 2 ? `<span class="mark"${it.showBy ? "" : ` style="margin-top:auto"`}></span>` : "";
     inner = `${deco}<span class="sp-title" style="margin-top:${it.variant === 1 ? 12 : 0}px">${titleHTML(it)}</span>${by}${mark}`;
   }
-  return `<button class="${cls}" style="${style}" data-id="${it.id}" aria-label="${esc(it.title)}，${esc(it.by)}，${statusLabel(it)}"><span class="spine-in">${inner}</span>${statusLayers(it, "spine")}${flagHTML(it, "spine")}</button>`;
+  return `<button class="${cls}" style="${style}" data-id="${it.id}" aria-label="${esc(it.title)}，${esc(it.by)}，${statusLabel(it)}">${spineIn(it, inner)}${statusLayers(it, "spine")}${flagHTML(it, "spine")}</button>`;
 }
 
 function render() {
@@ -842,6 +893,28 @@ function bindSheet() {
   grab.addEventListener("pointerup", end); grab.addEventListener("pointercancel", end);
 }
 $("#shelves").addEventListener("click", e => { const el = e.target.closest(".spine"); if (el) openItem(el); });
+
+/* 電腦：按住滑鼠左右拖曳書架（手機本來就能用手指滑） */
+let railDrag = null, dragged = false;
+$("#shelves").addEventListener("pointerdown", e => {
+  if (e.pointerType !== "mouse" || e.button !== 0) return;
+  const rail = e.target.closest(".rail");
+  if (rail) railDrag = { rail, x: e.clientX, left: rail.scrollLeft, moved: false };
+});
+window.addEventListener("pointermove", e => {
+  if (!railDrag) return;
+  const dx = e.clientX - railDrag.x;
+  if (!railDrag.moved && Math.abs(dx) > 5) { railDrag.moved = true; railDrag.rail.classList.add("dragging"); hideTip(); }
+  if (railDrag.moved) { railDrag.rail.scrollLeft = railDrag.left - dx; e.preventDefault(); }
+});
+window.addEventListener("pointerup", () => {
+  if (!railDrag) return;
+  dragged = railDrag.moved;
+  railDrag.rail.classList.remove("dragging");
+  railDrag = null;
+});
+// 拖曳後放開不算點書，避免一拖就打開介紹卡
+$("#shelves").addEventListener("click", e => { if (dragged) { e.stopImmediatePropagation(); dragged = false; } }, true);
 scrim.addEventListener("click", closeSheet);
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 
