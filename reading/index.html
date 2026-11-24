@@ -221,10 +221,9 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
   content: ""; position: absolute; z-index: 3; top: 0; right: 0; width: var(--peel); height: 9px; pointer-events: none;
   background: linear-gradient(#929292 0%, #fff 28%, #f7f7f4 62%, #b5b5b5 100%);
   border-radius: 0 0 18% 45% / 0 0 20% 35%;
-  transform: translateY(-2px) rotate(-4deg); transform-origin: left bottom;
-  box-shadow: 1px 4px 3px #0008;
+  box-shadow: 1px 4px 3px #0008; /* 貼齊上緣，不往上翹出盒子 */
 }
-.k-drama .torn.peel::after { height: 12px; }
+.k-drama .torn.peel::after { top: 2px; height: 12px; } /* 影劇：對齊在盒頂 2px 淺色邊線的正下方 */
 .curl { /* A：右下角捲起 */
   position: absolute; right: 0; bottom: 0; width: var(--curl); height: var(--curl);
   z-index: 2; pointer-events: none; transform: rotate(180deg);
