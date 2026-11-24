@@ -195,8 +195,13 @@ async function getJSON(url, headers = {}) {
   }
 }
 
+let tmdbWarned = false;
 async function tmdb(kind, it) {
-  if (!TMDB_TOKEN) return undefined; // 沒有金鑰＝沒查過，不寫入快取，補上金鑰後才會查
+  if (!TMDB_TOKEN) {
+    // 沒有金鑰＝沒查過，不寫入快取，補上金鑰後才會查；提醒一次，免得封面默默缺席
+    if (!tmdbWarned) { tmdbWarned = true; warn("沒有 TMDB_TOKEN，略過電影與影劇的封面、上映年查詢（請檢查 GitHub Secrets 或 .env）"); }
+    return undefined;
+  }
   const bearer = TMDB_TOKEN.startsWith("eyJ");
   const auth = bearer ? { Authorization: `Bearer ${TMDB_TOKEN}` } : {};
   const key = bearer ? "" : `&api_key=${TMDB_TOKEN}`;
