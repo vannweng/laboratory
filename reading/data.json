@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T08:29:09.509Z",
+ "generatedAt": "2026-11-24T08:39:09.825Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -858,7 +858,10 @@
    ],
    "intro": "多重夢境架構、開放式陀螺結局、燒腦經典",
    "rating": 5,
-   "color": "#3E6C8A"
+   "year": 2010,
+   "mins": 148,
+   "cover": "covers/3eafdb3cb437806980c4c6f95a52939b.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437803799cdea5a3f063f21",
@@ -875,7 +878,10 @@
    ],
    "intro": "日本武士道精神與西方火器碰撞、壯烈悲愴",
    "rating": 4,
-   "color": "#2F4A5C"
+   "year": 2003,
+   "mins": 154,
+   "cover": "covers/3eafdb3cb437803799cdea5a3f063f21.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437802b9bbeea2cc6457095",
@@ -892,7 +898,10 @@
    ],
    "intro": "墨西哥亡靈節、追夢與家族羈絆、催淚神曲",
    "rating": 5,
-   "color": "#3E6C8A"
+   "year": 2017,
+   "mins": 105,
+   "cover": "covers/3eafdb3cb437802b9bbeea2cc6457095.jpg",
+   "color": "#281878"
   },
   {
    "id": "3eafdb3cb43780948c83cd18b8360a4a",
@@ -908,7 +917,10 @@
     "冒險"
    ],
    "intro": "經典英式特務片、黃金槍刺客對決、香港泰國取景",
-   "color": "#C47A2C"
+   "year": 1974,
+   "mins": 125,
+   "cover": "covers/3eafdb3cb43780948c83cd18b8360a4a.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780dbb242da1d1f765d8b",
@@ -923,7 +935,10 @@
     "懸疑"
    ],
    "intro": "地鐵遺失包包牽起的變態母愛與病態控制狂",
-   "color": "#A8742F"
+   "year": 2019,
+   "mins": 98,
+   "cover": "covers/3eafdb3cb43780dbb242da1d1f765d8b.jpg",
+   "color": "#F8B818"
   },
   {
    "id": "3eafdb3cb4378029838bc7266d16cd6b",
@@ -939,7 +954,10 @@
     "驚悚"
    ],
    "intro": "雙老牌動作巨星聯手、深海黑獄極限智取逃脫",
-   "color": "#3B3A6B"
+   "year": 2013,
+   "mins": 115,
+   "cover": "covers/3eafdb3cb4378029838bc7266d16cd6b.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437800cae6decdb1eb5d074",
@@ -955,7 +973,10 @@
     "驚悚"
    ],
    "intro": "柏林車禍後身份全盤遭頂替、層層推翻的謎團",
-   "color": "#C47A2C"
+   "year": 2011,
+   "mins": 113,
+   "cover": "covers/3eafdb3cb437800cae6decdb1eb5d074.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780dd95b3e080b154418b",
@@ -971,7 +992,10 @@
     "恐怖"
    ],
    "intro": "頹廢硬派驅魔人、天主教天堂地獄世界觀、帥氣經典",
-   "color": "#2F4A5C"
+   "year": 2005,
+   "mins": 121,
+   "cover": "covers/3eafdb3cb43780dd95b3e080b154418b.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780d8bee4f2c685cadb6a",
@@ -988,7 +1012,10 @@
    ],
    "intro": "沖繩島戰役堅持不帶槍的軍醫、拯救75名同袍真實事件",
    "rating": 5,
-   "color": "#C47A2C"
+   "year": 2016,
+   "mins": 139,
+   "cover": "covers/3eafdb3cb43780d8bee4f2c685cadb6a.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb437804883d5f315515f7a08",
@@ -1003,7 +1030,10 @@
    ],
    "intro": "無厘頭神作、含笑半步癲與小強等華語迷因源頭",
    "rating": 4,
-   "color": "#2F4A5C"
+   "year": 1993,
+   "mins": 102,
+   "cover": "covers/3eafdb3cb437804883d5f315515f7a08.jpg",
+   "color": "#E80818"
   },
   {
    "id": "3eafdb3cb43780caad9ff3ed2c4bb666",
@@ -1020,7 +1050,10 @@
    ],
    "intro": "電腦之父圖靈破解二戰恩尼格瑪密碼機、悲劇天才",
    "rating": 5,
-   "color": "#7B5A3A"
+   "year": 2014,
+   "mins": 113,
+   "cover": "covers/3eafdb3cb43780caad9ff3ed2c4bb666.jpg",
+   "color": "#583838"
   },
   {
    "id": "3eafdb3cb4378087a6fdcda7e97d217c",
@@ -1037,7 +1070,10 @@
    ],
    "intro": "西班牙密室反轉天花板、謊言與真相的極限博弈",
    "rating": 5,
-   "color": "#A8742F"
+   "year": 2017,
+   "mins": 107,
+   "cover": "covers/3eafdb3cb4378087a6fdcda7e97d217c.jpg",
+   "color": "#182828"
   },
   {
    "id": "3eafdb3cb4378075b446d605b7054173",
@@ -1052,7 +1088,10 @@
     "懸疑"
    ],
    "intro": "羅生門式三視角敘事、坂本龍一配樂、坎城最佳劇本",
-   "color": "#2C2A4A"
+   "year": 2026,
+   "mins": 115,
+   "cover": "covers/3eafdb3cb4378075b446d605b7054173.jpg",
+   "color": "#A88868"
   },
   {
    "id": "3eafdb3cb43780eeb49be26f644614dd",
@@ -1067,7 +1106,10 @@
     "太空歌劇"
    ],
    "intro": "光劍對決、原力哲學、跨越數十年的影史科幻史詩",
-   "color": "#3B3A6B"
+   "year": 1977,
+   "mins": 121,
+   "cover": "covers/3eafdb3cb43780eeb49be26f644614dd.jpg",
+   "color": "#683878"
   },
   {
    "id": "3eafdb3cb43780b4b6e1d38b79e91953",
@@ -1083,7 +1125,10 @@
     "劇情"
    ],
    "intro": "黑洞與相對論硬科幻、超越時空維度的親情連繫",
-   "color": "#3B3A6B"
+   "year": 2014,
+   "mins": 169,
+   "cover": "covers/3eafdb3cb43780b4b6e1d38b79e91953.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437805c94b6d3aa5f2abfa1",
@@ -1099,7 +1144,10 @@
     "史詩"
    ],
    "intro": "十字軍東征攻防、耶路撒冷和平守護（務必看導演剪輯版）",
-   "color": "#C47A2C"
+   "year": 2005,
+   "mins": 144,
+   "cover": "covers/3eafdb3cb437805c94b6d3aa5f2abfa1.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437808cb3c4c240aca9019e",
@@ -1116,7 +1164,10 @@
    ],
    "intro": "黑人鋼琴家與白人司機的公路之旅、跨階級種族暖心之作",
    "rating": 4,
-   "color": "#2F4A5C"
+   "year": 2018,
+   "mins": 130,
+   "cover": "covers/3eafdb3cb437808cb3c4c240aca9019e.jpg",
+   "color": "#0898B8"
   },
   {
    "id": "3eafdb3cb43780a6b761ea0edcef2465",
@@ -1132,7 +1183,10 @@
     "自然"
    ],
    "intro": "印第安小男孩在深山與祖父母生活、大自然的哲理啟蒙",
-   "color": "#8A1F24"
+   "year": 1997,
+   "mins": 115,
+   "cover": "covers/3eafdb3cb43780a6b761ea0edcef2465.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780faaebec44367e9ef81",
@@ -1148,7 +1202,10 @@
     "家庭"
    ],
    "intro": "阿茲海默症爺爺與孫女的威尼斯公路之旅、笑中帶淚",
-   "color": "#5E7B6A"
+   "year": 2014,
+   "mins": 139,
+   "cover": "covers/3eafdb3cb43780faaebec44367e9ef81.jpg",
+   "color": "#E8E8E8"
   },
   {
    "id": "3eafdb3cb43780b89536c1680fedea4b",
@@ -1164,7 +1221,10 @@
     "劇情"
    ],
    "intro": "癱瘓法國富豪與更生人看護、真摯不造作的跨界友誼",
-   "color": "#A8742F"
+   "year": 2011,
+   "mins": 113,
+   "cover": "covers/3eafdb3cb43780b89536c1680fedea4b.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437801490b6d5b508d7dc71",
@@ -1180,7 +1240,10 @@
     "冒險"
    ],
    "intro": "極致對稱幾何美學、粉彩色調、歐洲黃金年代的告別輓歌",
-   "color": "#5E7B6A"
+   "year": 2014,
+   "mins": 100,
+   "cover": "covers/3eafdb3cb437801490b6d5b508d7dc71.jpg",
+   "color": "#D81818"
   },
   {
    "id": "3eafdb3cb437807397c7d1909016c375",
@@ -1196,7 +1259,10 @@
     "戰爭"
    ],
    "intro": "逃出二戰集中營的男孩穿越歐洲、尋回信任與自我",
-   "color": "#D98C5F"
+   "year": 2003,
+   "mins": 90,
+   "cover": "covers/3eafdb3cb437807397c7d1909016c375.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780e09083fc3601c9a20b",
@@ -1211,7 +1277,10 @@
     "喜劇"
    ],
    "intro": "獻給二十世紀紙媒記者的情書、雜誌專欄形式短篇敘事",
-   "color": "#7B5A3A"
+   "year": 2021,
+   "mins": 103,
+   "cover": "covers/3eafdb3cb43780e09083fc3601c9a20b.jpg",
+   "color": "#58B8B8"
   },
   {
    "id": "3eafdb3cb437806a9657dd84063a662b",
@@ -1227,7 +1296,10 @@
     "劇情"
    ],
    "intro": "二戰廣島吳市平民日常、戰火下展現的溫柔與頑強生命力",
-   "color": "#A8742F"
+   "year": 2016,
+   "mins": 130,
+   "cover": "covers/3eafdb3cb437806a9657dd84063a662b.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb43780d0afccdebffb83b3e6",
@@ -1243,7 +1315,10 @@
     "時間循環"
    ],
    "intro": "死亡回歸存檔重來打外星人、節奏明快爽度極高",
-   "color": "#3B3A6B"
+   "year": 2014,
+   "mins": 114,
+   "cover": "covers/3eafdb3cb43780d0afccdebffb83b3e6.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb4378012bcfed2875cd25c24",
@@ -1260,7 +1335,10 @@
    ],
    "intro": "健忘多莉尋找父母起源、直面缺陷與自我價值",
    "rating": 4,
-   "color": "#2F4A5C"
+   "year": 2016,
+   "mins": 97,
+   "cover": "covers/3eafdb3cb4378012bcfed2875cd25c24.jpg",
+   "color": "#0898D8"
   },
   {
    "id": "3eafdb3cb43780bc8426e2adfe232df7",
@@ -1276,7 +1354,10 @@
     "心理"
    ],
    "intro": "狹小禁錮空間裡的母子世界、回歸社會後的心理創傷重建",
-   "color": "#B3262B"
+   "year": 2015,
+   "mins": 118,
+   "cover": "covers/3eafdb3cb43780bc8426e2adfe232df7.jpg",
+   "color": "#5888A8"
   },
   {
    "id": "3eafdb3cb437805c9949f01e20dd7b36",
@@ -1292,7 +1373,10 @@
     "劇情"
    ],
    "intro": "火星荒漠種馬鈴薯求生、科學家硬核自救與樂觀精神",
-   "color": "#8A1F24"
+   "year": 2015,
+   "mins": 141,
+   "cover": "covers/3eafdb3cb437805c9949f01e20dd7b36.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780d9a240ffb2ce734e5e",
@@ -1307,7 +1391,10 @@
     "劇情"
    ],
    "intro": "倒敘還原街頭流浪漢的悲慘一生、兩大英國男星飆戲",
-   "color": "#6F7E5B"
+   "year": 2007,
+   "mins": 92,
+   "cover": "covers/3eafdb3cb43780d9a240ffb2ce734e5e.jpg",
+   "color": "#180808"
   },
   {
    "id": "3eafdb3cb43780918a81e7e689234f4f",
@@ -1321,7 +1408,10 @@
     "親情"
    ],
    "intro": "湘西大山郵遞員父子交接班、質樸寧靜的中國山林親情",
-   "color": "#2C2A4A"
+   "year": 1999,
+   "mins": 93,
+   "cover": "covers/3eafdb3cb43780918a81e7e689234f4f.jpg",
+   "color": "#080818"
   },
   {
    "id": "3eafdb3cb43780499eeffe1ce61eaad8",
@@ -1337,7 +1427,10 @@
     "家庭"
    ],
    "intro": "菁英叛逆律師替疏離多年的老法官父親辯護、親情和解",
-   "color": "#C47A2C"
+   "year": 2014,
+   "mins": 141,
+   "cover": "covers/3eafdb3cb43780499eeffe1ce61eaad8.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780448037d1e5234158d8",
@@ -1354,7 +1447,10 @@
    ],
    "intro": "藉由茶道二十年起伏領悟生命真諦、步調溫潤沉靜（好看暖心）",
    "rating": 4,
-   "color": "#6F7E5B"
+   "year": 2018,
+   "mins": 100,
+   "cover": "covers/3eafdb3cb43780448037d1e5234158d8.jpg",
+   "color": "#F8F8E8"
   },
   {
    "id": "3eafdb3cb437804a9929ed3c9ea9b263",
@@ -1386,9 +1482,12 @@
    ],
    "intro": "丹尼爾·克雷格、安娜·德哈瑪斯、克里斯·伊凡\t雷恩·強生\t經典阿嘉莎·克莉絲蒂式暴風雪山莊偵探推理、家庭利益角力與精巧諷刺",
    "rating": 5,
+   "year": 2019,
    "note": "電影故事線簡單 細節交代很好 整體很完整\n女主角心路歷程也演的完美",
    "end": "2023-01-01",
-   "color": "#7B5A3A"
+   "mins": 130,
+   "cover": "covers/3eafdb3cb43780d09e77cfab534484a0.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780d7898bfcfc981b8a5c",
@@ -1409,9 +1508,12 @@
    ],
    "intro": "動作 / 劇情 / 冒險\t湯姆·克魯斯、麥爾斯·泰勒、珍妮佛·康納莉\t約瑟夫·柯金斯基\t真實座艙高G力飛行實拍、跨越世代的情懷呼應、極致沉浸與熱血節奏",
    "rating": 4,
+   "year": 2022,
    "note": "劇情簡單但扣人心弦，互相影響，進而解決對方內心隱藏不敢面對的問題",
    "end": "2022-12-26",
-   "color": "#5E7B6A"
+   "mins": 131,
+   "cover": "covers/3eafdb3cb43780d7898bfcfc981b8a5c.jpg",
+   "color": "#281808"
   },
   {
    "id": "3eafdb3cb437800b9505e55fb802e9d2",
@@ -1430,9 +1532,12 @@
    ],
    "intro": "動作 / 犯罪 / 驚悚\t基努·李維、麥克·恩奎斯特\t查德·史塔赫斯基\t一隻小狗引發的地下殺手傳奇、開創「槍鬥術」（Gun-Fu）長鏡頭美學奠基作",
    "rating": 4,
+   "year": 2014,
    "note": "因老婆過世後留下的小狗被打死 所以全力追殺阿倫",
    "end": "2023-03-28",
-   "color": "#C47A2C"
+   "mins": 101,
+   "cover": "covers/3eafdb3cb437800b9505e55fb802e9d2.jpg",
+   "color": "#483838"
   },
   {
    "id": "3eafdb3cb437808f9842d6de5387bb0e",
@@ -1451,7 +1556,10 @@
     "羅馬古蹟與鏡子迷宮精彩槍戰"
    ],
    "intro": "動作 / 犯罪 / 驚悚\t基努·李維、凡夫俗子、勞倫斯·費許朋\t查德·史塔赫斯基\t大陸飯店與高桌會地下世界觀全面擴張、羅馬古蹟與鏡子迷宮精彩槍戰",
-   "color": "#2C2A4A"
+   "year": 2017,
+   "mins": 122,
+   "cover": "covers/3eafdb3cb437808f9842d6de5387bb0e.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb4378090b625dac2170ad442",
@@ -1471,7 +1579,10 @@
     "紐約街頭騎馬飛車槍戰"
    ],
    "intro": "動作 / 犯罪 / 驚悚\t基努·李維、荷莉·貝瑞、馬克·德可斯可\t查德·史塔赫斯基\t破誓後全球懸賞大逃殺、戰術犬協同突擊、紐約街頭騎馬飛車槍戰",
-   "color": "#7B5A3A"
+   "year": 2019,
+   "mins": 131,
+   "cover": "covers/3eafdb3cb4378090b625dac2170ad442.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb437809a8517dcab25c5671b",
@@ -1494,104 +1605,155 @@
    ],
    "intro": "動作 / 犯罪 / 驚悚\t基努·李維、甄子丹、真田廣之、比爾·史柯斯嘉\t查德·史塔赫斯基\t甄子丹盲劍殺手對決、巴黎聖心堂222階樓梯激鬥、俯視俯拍霰彈槍長鏡頭，系列集大成終局",
    "rating": 4,
+   "year": 2023,
    "note": "基努李維真的演得很好 結局也算可預期\n畫面編排很有藝術喜歡用對稱與色彩編排",
    "end": "2023-03-28",
-   "color": "#7B5A3A"
+   "mins": 170,
+   "cover": "covers/3eafdb3cb437809a8517dcab25c5671b.jpg",
+   "color": "#281808"
   },
   {
    "id": "40cfdb3cb43780faafcae40f49784057",
    "cat": "movie",
    "title": "空中監獄",
    "status": "unread",
-   "color": "#A8742F"
+   "intro": "八年前，自海軍陸戰隊受訓完畢的卡麥倫坡（尼可拉斯凱吉飾）為了保護剛懷孕的妻子免於小混混的騷擾，導致過失殺人被判了十年徒刑。  在獄中表現良好的他，終於在女兒八歲生日當天獲得假釋，卡麥倫坡希望能親自將生日禮物送到女兒手中，因此要求典獄官讓他登上空中監獄，以節省舟車往返的時間。 但這踏空中監獄正巧搭載一批全美最殘暴兇狠的犯人，準備運送到另一個新落成的高度保全監獄去。 聯邦探員（約翰庫查克飾）為這踏危險任務準備許久。沒想到飛機飛上天沒多久，罪犯首領外號'病毒'的葛森（約翰麥可維奇飾）就策動其他同夥，奪下飛機。聯邦調查局在無路可退下，決定打下這架飛機-反正他們都是社會人渣。  但意外捲入這場風波的卡麥倫坡又該如何為自己脫險，親自將禮物送給從未謀面的女兒？",
+   "year": 1997,
+   "mins": 115,
+   "cover": "covers/40cfdb3cb43780faafcae40f49784057.jpg",
+   "color": "#080808"
   },
   {
    "id": "420fdb3cb43780fbafe6f8d6978a096d",
    "cat": "movie",
    "title": "神隱少女",
    "status": "read",
+   "intro": "隧道的另一端，是一個不可思議的地方！一個不可能有的地點，一個不可能的事情竟然發生。10歲的少女千尋和父母，被捲入人類不能踏入的世界。在這個處處令人驚訝的地方，千尋感受到強大的無力感……和渺小的希望。 讓我在這裡工作吧！為解救被變成動物的父母，千尋求生的力量原本是沉睡的，現在終於被喚醒！",
    "rating": 5,
-   "color": "#3B3A6B"
+   "year": 2001,
+   "mins": 125,
+   "cover": "covers/420fdb3cb43780fbafe6f8d6978a096d.jpg",
+   "color": "#18A8D8"
   },
   {
    "id": "420fdb3cb437803d8d34ce564e2208c3",
    "cat": "movie",
    "title": "媽的多重宇宙",
    "status": "read",
+   "intro": "55歲的美國華裔移民秀蓮家庭事業兩崩潰。在爸爸生日大壽這天，除了要阻止女兒出櫃、替無用丈夫擦屁股，還得去稅務局向古板大嬸解釋稅務問題。甫踏進大樓電梯，軟爛丈夫竟搖身一變演起駭客任務，聲稱自己是另一個宇宙的版本，而艾芙琳也是千萬宇宙裡的其中一個。還來不及理解，邪惡勢力已在多元宇宙中蔓延……",
    "rating": 5,
-   "color": "#3E6C8A"
+   "year": 2022,
+   "mins": 140,
+   "cover": "covers/420fdb3cb437803d8d34ce564e2208c3.jpg",
+   "color": "#381828"
   },
   {
    "id": "420fdb3cb4378098867ef8eb2ac13349",
    "cat": "movie",
    "title": "風之谷",
    "status": "read",
+   "intro": "相傳世界絕望時，會有一位藍衣使者降臨在金色原野上……曾經，人類征服自然達到繁榮極致的境界，可是一場名為「火之七日」的大戰發生後，產業文明所引以為豪的榮景從此完全崩塌。在那以後大約一千年，存活著的人類也快要被充滿蟲和瘴氣的腐海征服。乘著風、和蟲心靈相通、和自然共生存的少女娜烏西卡，在捲入人類間諸多紛爭的同時，為拯救地球的未來， 憑著一己之力挺身而出！",
    "rating": 5,
-   "color": "#D98C5F"
+   "year": 1984,
+   "mins": 117,
+   "cover": "covers/420fdb3cb4378098867ef8eb2ac13349.jpg",
+   "color": "#5888B8"
   },
   {
    "id": "420fdb3cb43780878188d54dcfa8b478",
    "cat": "movie",
    "title": "天空之城",
    "status": "read",
+   "intro": "古老帝國拉普達是一座漂浮在空中的機器島，傳說中已無人居住，但蘊藏巨大的財富，各方勢力都在尋找這座飛行島。某日在礦場工作的少年巴魯，偶然遇見一位神祕的女孩希達，兩人為了尋找這座傳說中的島嶼，展開一場奇幻旅程……",
    "rating": 5,
-   "color": "#A8742F"
+   "year": 1986,
+   "mins": 125,
+   "cover": "covers/420fdb3cb43780878188d54dcfa8b478.jpg",
+   "color": "#086898"
   },
   {
    "id": "420fdb3cb437806ab818fdfb211385ec",
    "cat": "movie",
    "title": "龍貓",
    "status": "read",
+   "intro": "小月、小梅兩姊妹跟著爸爸一起搬到郊外居住，準備迎接即將出院的母親，那個被戲稱「鬼屋」的新家發生許多神奇的事，包含會突然四散逃走的灰塵精靈，以及神祕的龍貓與貓巴士。有一天，小梅在與姊姊小月吵架後失蹤了，小月只能尋求龍貓的幫助，展開一場尋找妹妹的奇幻冒險…",
    "rating": 5,
-   "color": "#D98C5F"
+   "year": 1988,
+   "mins": 86,
+   "cover": "covers/420fdb3cb437806ab818fdfb211385ec.jpg",
+   "color": "#080818"
   },
   {
    "id": "420fdb3cb43780388bd0f1f86172f9e3",
    "cat": "movie",
    "title": "魔女宅急便",
    "status": "read",
+   "intro": "琪琪是一個13歲的實習魔女。依家族慣例，這是時候琪琪應該離開她的家，到一個新的城市去展開獨立的新生活，修行成為正式的魔女。她用媽媽的掃帚，帶著她最親密的同伴黑貓吉吉出發去開展她的新生活。 於是琪琪遷入了美麗的海邊城市「克里克」。起初她不能適應城市的生活節奏，後來在麵包店的女店主索娜的幫助下，琪琪利用掃帚飛行的專長，開了一家快遞公司。後來琪琪經歷過一些挫折，諸如過了約定送貨時間、送錯物品及遇見粗魯的客人等。她也必須獨自面對她的孤獨、憂慮以及思鄉的情緒。",
    "rating": 5,
-   "color": "#8A1F24"
+   "year": 1989,
+   "mins": 103,
+   "cover": "covers/420fdb3cb43780388bd0f1f86172f9e3.jpg",
+   "color": "#281818"
   },
   {
    "id": "420fdb3cb437801ab1d4d7e084248ce5",
    "cat": "movie",
    "title": "魔法公主",
    "status": "read",
+   "intro": "在古老的年代裡，所有的森林均由守護神守護著，其中一支隱匿在山裡的族群，已享受數百年的太平盛世，不料，一隻受邪魔詛咒的山豬竟對該族攻擊。混亂中，英勇的族人阿席達卡殺了山豬，卻因此受傷，並中了邪魔的詛咒，生命危在旦夕。為破解咒語，阿席達卡遠赴他鄉，希望為自己和族人找出一條生路。在這趟旅程中，他意外結識了從小由山犬撫養長大的魔法公主。而為了守護森林，魔法公主不惜與敵人展開一場你死我活的戰役。在這場大自然與人類的對決中，阿席達卡能夠阻止大殺戮的發生，順利解除身上的詛咒嗎？",
    "rating": 5,
-   "color": "#A8742F"
+   "year": 1997,
+   "mins": 134,
+   "cover": "covers/420fdb3cb437801ab1d4d7e084248ce5.jpg",
+   "color": "#8898A8"
   },
   {
    "id": "420fdb3cb4378049b771e9ee2b028eaf",
    "cat": "movie",
    "title": "神隱少女",
    "status": "read",
+   "intro": "隧道的另一端，是一個不可思議的地方！一個不可能有的地點，一個不可能的事情竟然發生。10歲的少女千尋和父母，被捲入人類不能踏入的世界。在這個處處令人驚訝的地方，千尋感受到強大的無力感……和渺小的希望。 讓我在這裡工作吧！為解救被變成動物的父母，千尋求生的力量原本是沉睡的，現在終於被喚醒！",
    "rating": 5,
-   "color": "#3B3A6B"
+   "year": 2001,
+   "mins": 125,
+   "cover": "covers/420fdb3cb4378049b771e9ee2b028eaf.jpg",
+   "color": "#18A8D8"
   },
   {
    "id": "420fdb3cb4378036affff17f9ac34431",
    "cat": "movie",
    "title": "霍爾的移動城堡",
    "status": "read",
+   "intro": "18歲少女蘇菲在街上遇到神祕青年霍爾，霍爾忽然抱起蘇菲一同飛上天空，蘇菲的心從此深深地被霍爾吸引。然而那天晚上，蘇菲被名叫荒地魔女的女巫施了魔法，外表變成了90歲的老婆婆。心灰意冷的蘇菲只好整理行李，遠離人群，前往霍爾在荒郊野外的城堡……",
    "rating": 5,
-   "color": "#7B5A3A"
+   "year": 2004,
+   "mins": 119,
+   "cover": "covers/420fdb3cb4378036affff17f9ac34431.jpg",
+   "color": "#0898D8"
   },
   {
    "id": "420fdb3cb43780b58eefe2dfa93061b2",
    "cat": "movie",
    "title": "崖上的波妞",
    "status": "read",
+   "intro": "五歲的宗介與媽媽理莎，住在一個靠海小村莊的山崖上。身為船長的爸爸長年出海，留下宗介與媽媽相依為命。一天當他在山崖下岩石遍佈的海灘上玩耍時，撿到了一隻困在玻璃瓶裡的人魚─波妞，宗介救出波妞兩人因此成為好朋友，但是波妞的父親─魔法師藤本，逼著波妞跟他回到海裡。波妞堅決不肯並開始大吵大鬧，她心意已決，要變成人類小女孩回到宗介的身邊，於是波妞竟然決定離家出走！卻因此造成極大的災難…",
    "rating": 4,
-   "color": "#8A1F24"
+   "year": 2008,
+   "mins": 101,
+   "cover": "covers/420fdb3cb43780b58eefe2dfa93061b2.jpg",
+   "color": "#88B8D8"
   },
   {
    "id": "420fdb3cb437801db03dea2ce0ca1e82",
    "cat": "movie",
    "title": "風起",
    "status": "read",
+   "intro": "堀越二郎有一個從小就放在心中的夢想，就是自己能夠設計出一架飛機，在天空中飛翔。在一路長大的過程當中，堀越二郎經歷過關東大地震的天災和經濟大蕭條的時期，夢想始終不變的他，進入了航空工業的領域，並且成為其中的佼佼者。  堀越二郎和在火車上邂逅的女孩里見菜穗子結為連理。後來妻子得了肺結核，他在照顧菜穗子的同時，也一直受妻子所鼓勵他不要忘了自己的夢想。就在愛妻的支持和自我的努力之下，堀越二郎設計出了優異的零式戰鬥機，這款戰鬥機還成了二次大戰中，日本海軍的主力戰鬥機。可是，眼見自己的設計變成了殺人機器，堀越二郎內心十分矛盾和痛苦……",
    "rating": 4,
-   "color": "#5E7B6A"
+   "year": 2013,
+   "mins": 126,
+   "cover": "covers/420fdb3cb437801db03dea2ce0ca1e82.jpg",
+   "color": "#0888C8"
   },
   {
    "id": "3eafdb3cb437801b9b7de4271cc4de0b",
@@ -1607,7 +1769,11 @@
    ],
    "intro": "浪漫偽裝下的變態跟蹤狂第一視角、社群焦慮剖析",
    "rating": 5,
-   "color": "#D98C5F"
+   "year": 2018,
+   "seasons": 5,
+   "eps": 50,
+   "cover": "covers/3eafdb3cb437801b9b7de4271cc4de0b.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb4378092bd16db1deba8f64c",
@@ -1623,7 +1789,11 @@
     "喜劇"
    ],
    "intro": "魔術師與怪咖物理教授搭檔破除偽超自然騙局（2005特別篇先看）",
-   "color": "#5E7B6A"
+   "year": 2014,
+   "seasons": 1,
+   "eps": 12,
+   "cover": "covers/3eafdb3cb4378092bd16db1deba8f64c.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb437806d998fc90a1b2ed576",
@@ -1639,7 +1809,11 @@
     "暗黑熱血"
    ],
    "intro": "半人半妖女戰士悲壯命運、冷酷暗黑的世界觀與死鬥",
-   "color": "#8A1F24"
+   "year": 2007,
+   "seasons": 1,
+   "eps": 26,
+   "cover": "covers/3eafdb3cb437806d998fc90a1b2ed576.jpg",
+   "color": "#080818"
   },
   {
    "id": "3eafdb3cb4378033b737c701476a121a",
@@ -1655,7 +1829,11 @@
     "迷你劇"
    ],
    "intro": "《佈局》導演操刀、多視角重疊、誤殺引發的連鎖失控",
-   "color": "#5E7B6A"
+   "year": 2018,
+   "seasons": 1,
+   "eps": 6,
+   "cover": "covers/3eafdb3cb4378033b737c701476a121a.jpg",
+   "color": "#081818"
   },
   {
    "id": "3eafdb3cb43780e5b7bbcb20ae8ccd8f",
@@ -1671,7 +1849,11 @@
     "復仇"
    ],
    "intro": "女主隱姓埋名臥底警察追查殺父仇人、俐落硬派肉搏戰",
-   "color": "#5E7B6A"
+   "year": 2005,
+   "seasons": 4,
+   "eps": 92,
+   "cover": "covers/3eafdb3cb43780e5b7bbcb20ae8ccd8f.jpg",
+   "color": "#F80808"
   },
   {
    "id": "3eafdb3cb437800d9aa5ca66f326f5eb",
@@ -1687,8 +1869,12 @@
     "諷刺"
    ],
    "intro": "近未來科技對人性、道德體系與社會制度的黑色反思",
+   "year": 2011,
    "prog": 2,
-   "color": "#A8742F"
+   "seasons": 7,
+   "eps": 33,
+   "cover": "covers/3eafdb3cb437800d9aa5ca66f326f5eb.jpg",
+   "color": "#182828"
   },
   {
    "id": "3eafdb3cb437801aa8afd0224ef2079c",
@@ -1705,7 +1891,11 @@
    ],
    "intro": "現代巴黎版怪盜紳士、為洗刷父親冤屈展開智慧復仇",
    "rating": 5,
-   "color": "#D98C5F"
+   "year": 2021,
+   "seasons": 3,
+   "eps": 25,
+   "cover": "covers/3eafdb3cb437801aa8afd0224ef2079c.jpg",
+   "color": "#080818"
   },
   {
    "id": "3eafdb3cb4378089bd36c3b7caa5bc14",
@@ -1721,7 +1911,11 @@
     "懸疑"
    ],
    "intro": "鄉村連環殺人疑雲、全員嫌疑犯、極致壓抑反轉心理戰",
-   "color": "#2C2A4A"
+   "year": 2021,
+   "seasons": 1,
+   "eps": 16,
+   "cover": "covers/3eafdb3cb4378089bd36c3b7caa5bc14.jpg",
+   "color": "#080808"
   },
   {
    "id": "3eafdb3cb43780dfa90fe03202e25d60",
@@ -1737,9 +1931,13 @@
    ],
    "intro": "高中化學老師一步步墮落成為傳奇毒梟「海森堡」、封神級的劇本張力與人物弧光",
    "rating": 5,
+   "year": 2008,
    "prog": 5,
+   "seasons": 5,
    "note": "第一季\nWirte跟jacse認識 Wirte因為得了癌症想要為家人留一筆錢意外的殺了兩個人\n第二季\n第三季\nWirte 崩潰了用自以為是的方式愛家人 最後失去家人了",
-   "color": "#3B3A6B"
+   "eps": 62,
+   "cover": "covers/3eafdb3cb43780dfa90fe03202e25d60.jpg",
+   "color": "#080808"
   },
   {
    "id": "41bfdb3cb437800994d2d2c4d21345be",
@@ -1749,7 +1947,12 @@
    "tags": [
     "學英文"
    ],
-   "color": "#B3262B"
+   "intro": "全職家庭主婦克萊兒與做地產經紀的丈夫菲爾養育著兩個青春期的女兒和一個十歲大的兒子。她年過六旬的老父傑新娶了年輕美貌的妻子葛蘿莉亞，加上葛蘿莉亞和前夫所生的十歲兒子組成了一個新三口之家。克萊兒的弟弟米契和他的同性愛人卡麥隆則剛從越南領養了一名女嬰，興致勃勃地想要當一對好爸爸。這三個家庭各有各的煩惱需要面對和解決，彼此之間的頻繁往來也產生了一些不愉快。當難題不斷擺在他們面前的時候，他們如何化解矛盾、維持家庭的和睦與歡樂氣氛呢？",
+   "year": 2009,
+   "seasons": 11,
+   "eps": 250,
+   "cover": "covers/41bfdb3cb437800994d2d2c4d21345be.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "420fdb3cb4378085ac9cc78e7d65c868",
@@ -1760,49 +1963,79 @@
    "tags": [
     "心理驚悚"
    ],
+   "intro": "關於國王染疾的各種奇怪謠言四起。同時間神秘瘟疫席捲朝鮮，而王世子成為抵禦疫病的唯一希望。",
    "rating": 5,
-   "color": "#C47A2C"
+   "year": 2019,
+   "seasons": 2,
+   "eps": 12,
+   "cover": "covers/420fdb3cb4378085ac9cc78e7d65c868.jpg",
+   "color": "#080808"
   },
   {
    "id": "420fdb3cb43780e28fbbe80c81cc1134",
    "cat": "drama",
    "title": "Sweet Home",
    "status": "read",
+   "intro": "人類變為兇殘怪物，世界頓時充滿驚駭恐懼。一位內心深受折磨的青少年與公寓鄰居起而對抗。這不但是一場生存之戰，也是保衛人性之戰。",
    "rating": 5,
-   "color": "#2C2A4A"
+   "year": 2020,
+   "seasons": 3,
+   "eps": 26,
+   "cover": "covers/420fdb3cb43780e28fbbe80c81cc1134.jpg",
+   "color": "#081818"
   },
   {
    "id": "420fdb3cb43780fd89cbc8caf350a42e",
    "cat": "drama",
    "title": "Move to Heaven：我是遺物整理師",
    "status": "read",
+   "intro": "細心認真的少年和早已疏遠的叔叔一同擔任遺物整理師，透過遺物了解亡者的人生，向摯愛的親友傳達他們不曾說出口的故事。",
    "rating": 5,
-   "color": "#B3262B"
+   "year": 2021,
+   "seasons": 1,
+   "eps": 10,
+   "cover": "covers/420fdb3cb43780fd89cbc8caf350a42e.jpg",
+   "color": "#583828"
   },
   {
    "id": "420fdb3cb437803694e8f7cd402c297e",
    "cat": "drama",
    "title": "魷魚遊戲",
    "status": "read",
+   "intro": "數百名阮囊羞澀的玩家接受一個奇怪的邀請，要在一連串兒童遊戲中相互競爭。等待著他們的不只是誘人的獎項，還有致命的危險。",
    "rating": 5,
-   "color": "#2C2A4A"
+   "year": 2021,
+   "seasons": 3,
+   "eps": 22,
+   "cover": "covers/420fdb3cb437803694e8f7cd402c297e.jpg",
+   "color": "#080808"
   },
   {
    "id": "420fdb3cb43780a49592cd6a06a4ba83",
    "cat": "drama",
    "title": "黑暗榮耀",
    "status": "read",
+   "intro": "一名女子在高中時承受嚴重的校園暴力，倖存多年後，她著手實行精心規劃的復仇，要讓加害者為惡行付出代價。",
    "rating": 5,
-   "color": "#A8742F"
+   "year": 2022,
+   "seasons": 1,
+   "eps": 16,
+   "cover": "covers/420fdb3cb43780a49592cd6a06a4ba83.jpg",
+   "color": "#080808"
   },
   {
    "id": "420fdb3cb437805791cbe6ce28ffdbbe",
    "cat": "drama",
    "title": "假面女郎",
    "status": "reading",
+   "intro": "對長相自卑的上班族晚上另有網路身分，總是戴著面具出鏡。一連串倒楣事件卻接連發生，讓她的生活天翻地覆。",
    "rating": 5,
+   "year": 2023,
    "prog": 3,
-   "color": "#8A1F24"
+   "seasons": 1,
+   "eps": 7,
+   "cover": "covers/420fdb3cb437805791cbe6ce28ffdbbe.jpg",
+   "color": "#281818"
   },
   {
    "id": "420fdb3cb4378077a7dfdfce377e33b2",
@@ -1825,25 +2058,40 @@
    "cat": "drama",
    "title": "Moving 異能",
    "status": "reading",
+   "intro": "本劇是一部超能力英雄動作劇集，講述藏起超能力生活於現在的孩子們和隱藏過去痛苦祕密生活著的父母們，一同面對跨越時代與世代席捲而來的巨大危機。",
    "rating": 5,
+   "year": 2023,
    "prog": 12,
-   "color": "#3B3A6B"
+   "seasons": 2,
+   "eps": 21,
+   "cover": "covers/420fdb3cb4378093a694c30f6917c28d.jpg",
+   "color": "#F8F8F8"
   },
   {
    "id": "420fdb3cb437805e8994f5b8ca4ab34d",
    "cat": "drama",
    "title": "驅魔麵館",
    "status": "read",
+   "intro": "這群名為「Counters」的驅魔人白天是麵館員工，夜裡則是惡魔獵人，他們使用特殊能力來追捕害人的邪靈。",
    "rating": 5,
-   "color": "#7B5A3A"
+   "year": 2020,
+   "seasons": 2,
+   "eps": 28,
+   "cover": "covers/420fdb3cb437805e8994f5b8ca4ab34d.jpg",
+   "color": "#080808"
   },
   {
    "id": "420fdb3cb43780679915eaef3597ac5d",
    "cat": "drama",
    "title": "黑道律師文森佐",
    "status": "read",
+   "intro": "這名韓裔義大利黑幫律師來到祖國，站在正義的一方，對毫無敵手的龐大集團以牙還牙。",
    "rating": 4,
-   "color": "#6F7E5B"
+   "year": 2021,
+   "seasons": 1,
+   "eps": 20,
+   "cover": "covers/420fdb3cb43780679915eaef3597ac5d.jpg",
+   "color": "#080808"
   }
  ]
 }
