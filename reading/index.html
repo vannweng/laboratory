@@ -207,26 +207,37 @@ main { max-width: 1100px; margin: 0 auto; padding-block: 24px 40px; display: fle
   border-radius: 3px 3px 2px 2px;
   box-shadow: 1px 0 0 rgba(0,0,0,.22), 4px 2px 8px -3px var(--shadow);
 }
-/* 已看（電影／影劇）：灰階＋貼紙破角。破角只在四個角（上方最多 6px、下方最多 4px），不碰到片名與人名 */
+/* 已看（電影／影劇）：灰階＋貼紙破損（Codex 設計）
+   上緣：右側一段貼紙整條掀起（C）；右下角：貼紙角捲起、露出白色背面（A）。
+   兩者依片名隨機出現，至少一種；文字上下多留空間，破損不會蓋到片名與人名。 */
 .s-read:is(.k-movie, .k-drama) { filter: grayscale(.92) contrast(.96) brightness(.98); }
-.s-read.k-drama { background: #3A3733; } /* 破角下露出的紙盒底 */
-.torn {
-  --tl: 0px; --tr: 0px; --br: 0px; --bl: 0px;
-  clip-path: polygon(
-    0 var(--tl), calc(var(--tl) * .3) calc(var(--tl) * .7), calc(var(--tl) * .45) calc(var(--tl) * .35), calc(var(--tl) * .75) calc(var(--tl) * .3), var(--tl) 0,
-    calc(100% - var(--tr)) 0, calc(100% - var(--tr) * .7) calc(var(--tr) * .3), calc(100% - var(--tr) * .4) calc(var(--tr) * .45), calc(100% - var(--tr) * .3) calc(var(--tr) * .8), 100% var(--tr),
-    100% calc(100% - var(--br)), calc(100% - var(--br) * .3) calc(100% - var(--br) * .7), calc(100% - var(--br) * .5) calc(100% - var(--br) * .4), calc(100% - var(--br) * .75) calc(100% - var(--br) * .3), calc(100% - var(--br)) 100%,
-    var(--bl) 100%, calc(var(--bl) * .7) calc(100% - var(--bl) * .3), calc(var(--bl) * .4) calc(100% - var(--bl) * .5), calc(var(--bl) * .3) calc(100% - var(--bl) * .75), 0 calc(100% - var(--bl))
-  );
-}
+.k-movie { --substrate: #111; }
+.k-drama { --substrate: #777; }
+.s-read.k-drama { background: var(--substrate); } /* 破損下露出的紙盒底 */
+.s-read.k-movie .insert { padding-top: 15px; padding-bottom: 15px; overflow: visible; }
+.s-read.k-drama .spine-in { padding-top: 20px; overflow: visible; }
 .insert.torn { position: relative; }
-.torn::after { /* 撕開處露出的白色紙芯 */
-  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
-  background:
-    radial-gradient(circle at 0 0, #EDE8DC calc(var(--tl) * 1.35), transparent calc(var(--tl) * 1.35 + .5px)),
-    radial-gradient(circle at 100% 0, #EDE8DC calc(var(--tr) * 1.35), transparent calc(var(--tr) * 1.35 + .5px)),
-    radial-gradient(circle at 100% 100%, #EDE8DC calc(var(--br) * 1.35), transparent calc(var(--br) * 1.35 + .5px)),
-    radial-gradient(circle at 0 100%, #EDE8DC calc(var(--bl) * 1.35), transparent calc(var(--bl) * 1.35 + .5px));
+.torn.peel::after { /* C：上緣右側一段掀起 */
+  content: ""; position: absolute; z-index: 3; top: 0; right: 0; width: var(--peel); height: 9px; pointer-events: none;
+  background: linear-gradient(#929292 0%, #fff 28%, #f7f7f4 62%, #b5b5b5 100%);
+  border-radius: 0 0 18% 45% / 0 0 20% 35%;
+  transform: translateY(-2px) rotate(-4deg); transform-origin: left bottom;
+  box-shadow: 1px 4px 3px #0008;
+}
+.k-drama .torn.peel::after { height: 12px; }
+.curl { /* A：右下角捲起 */
+  position: absolute; right: 0; bottom: 0; width: var(--curl); height: var(--curl);
+  z-index: 2; pointer-events: none; transform: rotate(180deg);
+}
+.curl::before, .curl::after { content: ""; position: absolute; inset: 0; }
+.curl::before { background: var(--substrate); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.curl::after {
+  inset: 10% 0 0 10%;
+  background: linear-gradient(135deg, #aaa 0%, #fff 28%, #f9f9f6 55%, #bbb 85%, #777 100%);
+  clip-path: polygon(0 0, 100% 0, 83% 39%, 38% 82%, 0 100%);
+  border-radius: 0 0 70% 0;
+  filter: drop-shadow(2px 3px 1.5px #0009);
+  transform: translate(1px, 1px) rotate(-8deg);
 }
 .wear {
   position: absolute; inset: 0; pointer-events: none; z-index: 1; border-radius: inherit;
@@ -638,7 +649,7 @@ list.forEach((it, i) => {
   if (it.cat === "drama") {
     // 固定盒高：先縮字，極長名稱再壓縮直排軸，保留完整兩欄。
     const longest = Math.max(...it.lines.map(line => [...line].length));
-    const room = DRAMA_H - 68;
+    const room = DRAMA_H - 68 - (it.status === "read" ? 7 : 0); // 已看上方多留破損空間
     it.fs = Math.max(10, Math.min(it.fs, Math.floor((it.w - 8) / (it.lines.length * 1.18) * 10) / 10, Math.floor(room / (longest * 1.04) * 10) / 10));
     const need = longest * it.fs * 1.04;
     it.titleScale = Math.min(1, room / need);
@@ -653,7 +664,7 @@ list.forEach((it, i) => {
 
   // 確保書名完整放得下：先加高書脊，再拿掉作者，最後才縮小字
   const maxU = Math.max(...it.lines.map(units));
-  const base = it.cat === "movie" ? 34 : it.cat === "drama" ? 24 + (it.variant ? 18 : 4) + 20 : 24 + (it.variant === 1 ? 12 : 0) + (it.variant === 2 ? 15 : 0);
+  const base = it.cat === "movie" ? 34 + (it.status === "read" ? 16 : 0) :it.cat === "drama" ? 24 + (it.variant ? 18 : 4) + 20 : 24 + (it.variant === 1 ? 12 : 0) + (it.variant === 2 ? 15 : 0);
   const titleH = () => maxU * it.fs * 1.1 + 4;
   // 作者名要完整顯示：依字數估算需要的長度（英文字母較窄；含字距）
   const byName = shortBy(it);
@@ -707,14 +718,17 @@ rootStyle.setProperty("--tex-crinkle", tex(".09 .16", 3, [1, 1, 1], 3.6, -1.85, 
 
 /* 已看的電影／影劇：隨機 1～4 個角破損（依片名固定，不會每次重整都變） */
 function tornStyle(it) {
-  if (it.status !== "read" || isBook(it)) return "";
+  if (it.status !== "read" || isBook(it)) return null;
   const h = hash(it.title + "torn");
-  let tl = (h >> 2) & 1 ? 4 + ((h >> 5) % 3) : 0;
-  const tr = (h >> 3) & 1 ? 4 + ((h >> 7) % 3) : 0;
-  const br = (h >> 4) & 1 ? 3 + ((h >> 9) % 2) : 0;
-  const bl = (h >> 6) & 1 ? 3 + ((h >> 11) % 2) : 0;
-  if (!tl && !tr && !br && !bl) tl = 5;
-  return `--tl:${tl}px;--tr:${tr}px;--br:${br}px;--bl:${bl}px`;
+  const box = it.cat === "drama";
+  let peel = (h >> 2) & 1 ? 55 + ((h >> 5) % 46) : 0;            // 上緣掀起的長度（右側 55%～100%）
+  const curl = (h >> 3) & 1 ? (box ? 12 : 10) + ((h >> 7) % 3) : 0; // 右下捲角大小
+  if (!peel && !curl) peel = 70;
+  return {
+    cls: ` torn${peel ? " peel" : ""}`,
+    attr: ` style="--peel:${peel}%;--curl:${curl}px"`,
+    html: curl ? `<i class="curl" aria-hidden="true"></i>` : "",
+  };
 }
 
 function statusLayers(it, where) {
@@ -738,8 +752,8 @@ const titleHTML = it => it.lines.map(esc).join("<br>");
 
 /* 影劇的破角做在整個盒面上；電影的破角做在 DVD 內頁紙上 */
 function spineIn(it, inner) {
-  const torn = it.cat === "drama" ? tornStyle(it) : "";
-  return `<span class="spine-in${torn ? " torn" : ""}"${torn ? ` style="${torn}"` : ""}>${inner}</span>`;
+  const t = it.cat === "drama" ? tornStyle(it) : null;
+  return `<span class="spine-in${t ? t.cls : ""}"${t ? t.attr : ""}>${inner}${t ? t.html : ""}</span>`;
 }
 
 function spineHTML(it, i) {
@@ -748,8 +762,8 @@ function spineHTML(it, i) {
   const by = it.showBy ? `<span class="sp-by">${esc(shortBy(it))}</span>` : "";
   let inner;
   if (it.cat === "movie") {
-    const torn = tornStyle(it);
-    inner = `<span class="dvd-top">DVD</span><span class="insert${torn ? " torn" : ""}"${torn ? ` style="${torn}"` : ""}><span class="sp-title">${titleHTML(it)}</span>${by}</span>`;
+    const t = tornStyle(it);
+    inner = `<span class="dvd-top">DVD</span><span class="insert${t ? t.cls : ""}"${t ? t.attr : ""}><span class="sp-title">${titleHTML(it)}</span>${by}${t ? t.html : ""}</span>`;
   } else if (it.cat === "drama") {
     const ep = [it.eps ? `全 ${it.eps} 集` : "", it.seasons > 1 ? `${it.seasons} 季` : ""].filter(Boolean);
     inner = `<span class="box-print box-print-${it.variant}" aria-hidden="true"></span><span class="sp-title" style="transform:scaleY(${it.titleScale});margin-bottom:-${it.titleSpace}px">${titleHTML(it)}</span>${it.showSub ? `<span class="box-sub">${esc(it.sub)}</span>` : ""}${ep.length ? `<span class="box-ep">${ep.map(text => `<span>${text}</span>`).join("")}</span>` : `<span style="margin-top:auto"></span>`}<span class="box-dvd">DVD</span>`;
