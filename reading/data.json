@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T14:44:41.824Z",
+ "generatedAt": "2026-11-24T03:46:09.350Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -53,9 +53,9 @@
    "intro": "從「身分認同」根本改變行為，透過微小累積創造巨大複利效應",
    "rating": 5,
    "note": "最深層的改變身分認同，關乎你相信什麼，希望成為什麼樣的人",
+   "pages": 132,
    "cover": "covers/3eafdb3cb437801493a7f0b4cc5bb86a.jpg",
-   "color": "#F8F8F8",
-   "pages": 132
+   "color": "#F8F8F8"
   },
   {
    "id": "3eafdb3cb4378041a9cec10377dce27b",
@@ -108,7 +108,8 @@
     "人文社科類"
    ],
    "intro": "心理諮商創舉經典。取材自英國童話《柳林中的風聲》與心理學，跟著蛤蟆先生，探索憂鬱與自卑、軟弱，一起真正長大成人。",
-   "color": "#C47A2C"
+   "cover": "covers/401fdb3cb437804f8cf3d2ee49805493.jpg",
+   "color": "#D87848"
   },
   {
    "id": "409fdb3cb43780e797f0c761730fe1be",
@@ -127,9 +128,9 @@
    "series": "自學思維",
    "status": "read",
    "intro": "1. 01. 與自己的關係：每個人都有自己的孤單課題\n2. 02. 與自己的關係：你不需要變成你不喜歡的大人\n3. 03. 與愛人的關係：從心甘情願豢養與被豢養開始\n4. 04. 與愛人的關係：因為他是你的玫瑰\n5. 05. 與世界的關係：用「心」去尋覓你笑著的理由\n6. 06. 與世界的關係：分離的時候，學會道別",
+   "pages": 245,
    "cover": "covers/417fdb3cb437802c89ebdf49e6f00508.jpg",
-   "color": "#B8E8F8",
-   "pages": 245
+   "color": "#F8F8D8"
   },
   {
    "id": "420fdb3cb437809f8b84f40fb1ec4468",
@@ -137,6 +138,7 @@
    "title": "刻意練習",
    "series": "行為改變",
    "status": "unread",
+   "intro": "國際媒體、全球暢銷書、頂尖教練爭相引用的「刻意練習法」！ 這可能是人類第一次擁有關於如何練成天才的統一理論！ 找到天賦，不如找對方法！ 天才與庸才之間的差別不在基因、不在天分，在「刻意練習」！ 原創者親授，首度完整揭露「刻意練習」的科學實證與應用。 帶你揮別道聽塗說的不完整資訊， 正確學會這足以讓你精通所有技能的全新學習法， 顛覆你長久以來對潛能、對天賦、對",
    "cover": "covers/420fdb3cb437809f8b84f40fb1ec4468.jpg",
    "color": "#F8F8F8"
   },
@@ -146,6 +148,7 @@
    "title": "心流",
    "series": "行為改變",
    "status": "unread",
+   "intro": "出版三十多年暢銷不墜，建基於十數萬筆經驗取樣研究， 提出「心流」概念，並以科學方法加以探索的開創之作。 啟發心理學、腦科學、社會學、運動學、人類學、宗教學等眾多領域研究， 廣泛影響全球文化建構與無數人生命經驗的心理學經典。 啟發《刻意練習》、《異數》與《深度工作力》等眾多暢銷著作， 「羅輯思維」、「得到App」萬為綱譽為：「過去三十年最引人入勝的心理學概念。",
    "cover": "covers/420fdb3cb437806aa42fc2e66bbd3f0f.jpg",
    "color": "#F8F8F8"
   },
@@ -163,9 +166,9 @@
    ],
    "intro": "東野圭吾無冕之王代表作",
    "rating": 5,
+   "pages": 170,
    "cover": "covers/3e9fdb3cb43780228d11e540a75cd6fa.jpg",
-   "color": "#485868",
-   "pages": 170
+   "color": "#485868"
   },
   {
    "id": "3e9fdb3cb43780968b52c7f24a80385f",
@@ -180,9 +183,9 @@
     "惡女"
    ],
    "intro": "《白夜行》精神姊妹作",
+   "pages": 505,
    "cover": "covers/3e9fdb3cb43780968b52c7f24a80385f.jpg",
-   "color": "#686868",
-   "pages": 505
+   "color": "#686868"
   },
   {
    "id": "3e9fdb3cb437806eb718eb53afe658f0",
@@ -197,9 +200,9 @@
     "器官移植"
    ],
    "intro": "醫學懸疑經典",
+   "pages": 260,
    "cover": "covers/3e9fdb3cb437806eb718eb53afe658f0.jpg",
-   "color": "#584848",
-   "pages": 260
+   "color": "#584848"
   },
   {
    "id": "3e9fdb3cb43780648bfced8f489e7515",
@@ -214,9 +217,9 @@
     "自我認同"
    ],
    "intro": "探討複製醫學倫理",
+   "pages": 446,
    "cover": "covers/3e9fdb3cb43780648bfced8f489e7515.jpg",
-   "color": "#08A8B8",
-   "pages": 446
+   "color": "#08A8B8"
   },
   {
    "id": "3e9fdb3cb43780b39ed4cdd215e31679",
@@ -232,9 +235,9 @@
    ],
    "intro": "命運交織的代表作",
    "rating": 5,
+   "pages": 233,
    "cover": "covers/3e9fdb3cb43780b39ed4cdd215e31679.jpg",
-   "color": "#E89898",
-   "pages": 233
+   "color": "#E89898"
   },
   {
    "id": "3e9fdb3cb437805abe24d260d830dc7c",
@@ -250,9 +253,9 @@
    ],
    "intro": "日本推理作家協會賞獲獎作",
    "rating": 3,
+   "pages": 415,
    "cover": "covers/3e9fdb3cb437805abe24d260d830dc7c.jpg",
-   "color": "#680818",
-   "pages": 415
+   "color": "#680818"
   },
   {
    "id": "3e9fdb3cb43780c5b8bcecd182372e3c",
@@ -363,7 +366,7 @@
    ],
    "intro": "柯迪亞飯店系列第 1 部",
    "cover": "covers/3e9fdb3cb4378028be9cee3dbc22c111.jpg",
-   "color": "#081818"
+   "color": "#080808"
   },
   {
    "id": "3e9fdb3cb4378064b173d6584d7b4297",
@@ -411,9 +414,9 @@
    ],
    "intro": "兼具幽默與哀傷的復仇劇",
    "rating": 5,
+   "pages": 352,
    "cover": "covers/3e9fdb3cb43780bea792e4a0c2650acc.jpg",
-   "color": "#282848",
-   "pages": 352
+   "color": "#282848"
   },
   {
    "id": "3e9fdb3cb4378045b29dc00336edfc3b",
@@ -462,9 +465,9 @@
    ],
    "intro": "入圍直木賞代表作",
    "rating": 5,
+   "pages": 386,
    "cover": "covers/3e9fdb3cb4378031884ecf22bf035ffc.jpg",
-   "color": "#E8E8E8",
-   "pages": 386
+   "color": "#E8E8E8"
   },
   {
    "id": "3e9fdb3cb43780eeb8dddc0108548e01",
@@ -479,9 +482,9 @@
     "生命的奇蹟"
    ],
    "intro": "溫暖療癒科幻作",
+   "pages": 327,
    "cover": "covers/3e9fdb3cb43780eeb8dddc0108548e01.jpg",
-   "color": "#181818",
-   "pages": 327
+   "color": "#181818"
   },
   {
    "id": "3e9fdb3cb437805ea5a0f570354cdd34",
@@ -514,9 +517,9 @@
    ],
    "intro": "本格推理巔峰，人心幽微極致之作",
    "rating": 5,
+   "pages": 211,
    "cover": "covers/3e9fdb3cb43780b6a636e7258a06a91a.jpg",
-   "color": "#F8F8E8",
-   "pages": 211
+   "color": "#F8F8E8"
   },
   {
    "id": "3e9fdb3cb43780b08774d86efa713daf",
@@ -549,9 +552,9 @@
    ],
    "intro": "第153屆直木賞全票通過得獎作（以台北為舞台）",
    "rating": 5,
+   "pages": 371,
    "cover": "covers/3e9fdb3cb43780a8b19fdf5977982ee5.jpg",
-   "color": "#D8E8F8",
-   "pages": 371
+   "color": "#D8E8F8"
   },
   {
    "id": "3e9fdb3cb437802097f3fdda343a6b1c",
@@ -619,9 +622,9 @@
     "善惡邊界"
    ],
    "intro": "加賀系列唯一短篇集（亦見新版《湖畔的謊言》）",
+   "pages": 151,
    "cover": "covers/3e9fdb3cb43780df88f0c3d83a752145.jpg",
-   "color": "#F8F8F8",
-   "pages": 151
+   "color": "#F8F8F8"
   },
   {
    "id": "3e9fdb3cb437805a9d09eef653ba5320",
@@ -760,9 +763,10 @@
    "by": "丹·布朗",
    "series": "翻譯文學",
    "status": "unread",
+   "intro": "一部節奏緊湊、扣人心弦的驚悚小說，被美國情報界人士譽為「高度可信」。 《數位密碼》所揭露的情況與現實極度吻合，其透漏的情報祕密比湯姆．克蘭西的作品更加豐富，帶領讀者深入地球上最強大的情報機構「美國國家安全局」，這個極度機密、耗資數十億美元創建的機構，此前，只有不到3%的美國人知道這個機構的存在。 一臺所向披靡的密碼破解電腦，是國安局最高機密的技術奇蹟，當這臺",
+   "pages": 183,
    "cover": "covers/41afdb3cb4378074b3d9d062fe1a1322.jpg",
-   "color": "#385838",
-   "pages": 183
+   "color": "#385838"
   },
   {
    "id": "41afdb3cb437801888d9e33032d17846",
@@ -771,18 +775,20 @@
    "by": "丹·布朗",
    "series": "翻譯文學",
    "status": "unread",
+   "intro": "當一顆新的衛星在北極冰層深處發現了極其罕見的物體時，美國太空總署宣布了一項功績……這項功績對美國太空政策和即將到來的總統選舉有著深遠的影響。 當總統寶座岌岌可危之際，他派遣白宮情報分析員瑞秋．謝克斯頓前往米爾恩冰棚，以便核實這項發現的真實性。瑞秋與極具魅力的學者麥克．陶倫德一同前往，揭開了令人難以置信的真相──這是一場科學假造的大騙局，若公諸於世將舉世譁然。",
+   "pages": 209,
    "cover": "covers/41afdb3cb437801888d9e33032d17846.jpg",
-   "color": "#684828",
-   "pages": 209
+   "color": "#684828"
   },
   {
    "id": "41cfdb3cb4378024aaecf1c077bc2d70",
    "cat": "novel",
    "title": "那不勒斯故事",
    "status": "reading",
+   "intro": "60年的友誼，交纏的命運 兩個女子互相啟發 視彼此為可敬對手的成長故事 艾琳娜與莉拉出生在二次戰後的那不勒斯貧窮郊區，兩人的友誼從六歲時交換娃娃開始，充滿活力的莉拉有時走在前頭，帶著艾琳娜去冒險；個性內斂的艾琳娜則加倍努力，讓自己永遠可與莉拉匹敵。在重要的時刻相挺，但誰先達標時又不甘落後；這種互相啟發，又視彼此為可敬對手的狀態，是她們六十年友誼的基調。 但兩",
+   "pages": 338,
    "cover": "covers/41cfdb3cb4378024aaecf1c077bc2d70.jpg",
-   "color": "#881818",
-   "pages": 338
+   "color": "#881818"
   },
   {
    "id": "420fdb3cb43780d58a4afcc4579dceef",
@@ -791,10 +797,11 @@
    "by": "春上村樹",
    "series": "單本獨立作",
    "status": "read",
+   "intro": "*PRE-ORDER HARUKI MURAKAMI’S NEW NOVEL, THE CITY AND ITS UNCERTAIN WALLS, NOW* Read this imaginative masterpiece from the internationally bestselling author of Norwegian Wood The y",
    "rating": 3,
+   "pages": 628,
    "cover": "covers/420fdb3cb43780d58a4afcc4579dceef.jpg",
-   "color": "#382828",
-   "pages": 628
+   "color": "#382828"
   },
   {
    "id": "3eafdb3cb437806980c4c6f95a52939b",
