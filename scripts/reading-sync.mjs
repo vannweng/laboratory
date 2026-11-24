@@ -196,7 +196,7 @@ async function getJSON(url, headers = {}) {
 }
 
 async function tmdb(kind, it) {
-  if (!TMDB_TOKEN) return null;
+  if (!TMDB_TOKEN) return undefined; // 沒有金鑰＝沒查過，不寫入快取，補上金鑰後才會查
   const bearer = TMDB_TOKEN.startsWith("eyJ");
   const auth = bearer ? { Authorization: `Bearer ${TMDB_TOKEN}` } : {};
   const key = bearer ? "" : `&api_key=${TMDB_TOKEN}`;
@@ -265,12 +265,20 @@ const hasLatinOnly = names => names.length && names.every(n => /^[a-z\s.'-]+$/i.
  *   有作者時作者也要對得上；只有在書名完全相同、但 Google 只給羅馬拼音作者（如 Higashino Keigo）時放行。
  */
 function pickVolume(items, it) {
+  let best = null, bestScore = 0;
+  for (const { v, score } of qualifyingVolumes(items, it, true)) {
+    if (score > bestScore) { best = v; bestScore = score; }
+  }
+  return best;
+}
+/** 通過書名／作者比對的版本（needImage：只要有封面圖的；查年份時不需要圖） */
+function qualifyingVolumes(items, it, needImage) {
   const wants = wantedTitles(it.title);
   const authors = authorVariants(it.by);
-  let best = null, bestScore = 0;
+  const out = [];
   for (const item of items || []) {
     const v = item.volumeInfo || {};
-    if (!v.imageLinks) continue; // 要的是封面：沒有圖的版本直接略過
+    if (needImage && !v.imageLinks) continue; // 要的是封面：沒有圖的版本直接略過
     const gots = foundTitles(v.title);
     const exact = gots.some(g => wants.includes(g));
     const prefix = !exact && gots.some(g => wants.some(w => g.startsWith(w))) && !SPINOFF.test(v.title + (v.subtitle || ""));
@@ -283,27 +291,35 @@ function pickVolume(items, it) {
       if (!matched && !romanizedOnly) continue;
     }
     if (/^zh/.test(v.language || "")) score += 0.25;
-    if (score > bestScore) { best = v; bestScore = score; }
+    out.push({ v, score });
   }
-  return best;
+  return out;
 }
 
 async function googleBooksQuery(it, key) {
   const author = it.by.split(/[、,，]/)[0].replace(/\s*[（(][^()（）]*[)）]\s*/g, "").trim();
   const queries = [`intitle:${it.title}${author ? `+inauthor:${author}` : ""}`, `intitle:${it.title}`];
-  for (const q of queries) {
-    const s = await getJSON(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(q)}&maxResults=10${key}`);
-    const v = pickVolume(s.items, it);
-    if (!v) continue;
-    const img = v.imageLinks?.thumbnail || v.imageLinks?.smallThumbnail;
-    return {
-      cover: img ? img.replace(/^http:/, "https:").replace("&edge=curl", "") : null,
-      // 年份是版次年份、不是原著出版年，所以不採用；頁數太少多半是電子書試閱頁數，也不採用
-      pages: v.pageCount >= 120 ? v.pageCount : null,
-      intro: v.description ? v.description.slice(0, 180) : "",
-    };
+  // 封面、頁數、簡介：沿用第一個有結果的查詢；年份：兩個查詢的所有合格版本取最早（原版，而非最新版次）
+  let main = null;
+  const years = [];
+  for (const [i, q] of queries.entries()) {
+    const s = await getJSON(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(q)}&maxResults=${i ? 20 : 10}${key}`);
+    main ||= pickVolume(s.items, it);
+    for (const { v } of qualifyingVolumes(s.items, it, false)) {
+      const y = Number(String(v.publishedDate || "").slice(0, 4));
+      if (y > 1000) years.push(y);
+    }
   }
-  return null;
+  const year = years.length ? Math.min(...years) : null;
+  if (!main) return year ? { cover: null, year, pages: null, intro: "" } : null;
+  const img = main.imageLinks?.thumbnail || main.imageLinks?.smallThumbnail;
+  return {
+    cover: img ? img.replace(/^http:/, "https:").replace("&edge=curl", "") : null,
+    year,
+    // 頁數太少多半是電子書試閱頁數，不採用
+    pages: main.pageCount >= 120 ? main.pageCount : null,
+    intro: main.description ? main.description.slice(0, 180) : "",
+  };
 }
 
 async function lookup(it) {
@@ -349,7 +365,14 @@ async function main() {
   }
   await fs.mkdir(COVER_DIR, { recursive: true });
   await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
-  const cache = existsSync(CACHE_FILE) ? JSON.parse(await fs.readFile(CACHE_FILE, "utf8")) : { pages: {}, lookups: {} };
+  const cache = existsSync(CACHE_FILE) ? JSON.parse(await fs.readFile(CACHE_FILE, "utf8")) : { pages: {}, lookups: {}, v: 3 };
+  if (cache.v !== 3) {
+    for (const [k, v] of Object.entries(cache.lookups)) {
+      if (v === null && /^(movie|drama):/.test(k)) delete cache.lookups[k]; // 沒 TMDB 金鑰時存下的「查不到」
+      if (/^(tool|novel):/.test(k)) delete cache.lookups[k];                // 書籍改取最早年份，全部重查
+    }
+    cache.v = 3;
+  }
 
   // 上一次的輸出：查詢失敗時拿來保留封面
   const prevPath = path.join(SITE, "data.json");
