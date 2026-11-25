@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T08:29:27.382Z",
+ "generatedAt": "2026-11-25T21:39:39.177Z",
  "items": [
   {
    "id": "3eafdb3cb43780e98cbfd11d8aa6b8f4",
@@ -122,9 +122,11 @@
    "cat": "tool",
    "title": "人生4千個禮拜",
    "series": "行為改變",
-   "status": "reading",
+   "status": "read",
    "intro": "不要以為時間線性的影響",
+   "rating": 4,
    "year": 2022,
+   "note": "人生不應該汲汲營營，享受當下，擁抱世界的變動。",
    "cover": "covers/409fdb3cb43780e797f0c761730fe1be.jpg",
    "color": "#3878B8"
   },
