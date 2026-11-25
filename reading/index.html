@@ -826,21 +826,28 @@ function spineHTML(it, i) {
   return `<button class="${cls}" style="${style}" data-id="${it.id}" aria-label="${esc(it.title)}，${esc(it.by)}，${statusLabel(it)}">${spineIn(it, inner)}${statusLayers(it, "spine")}${flagHTML(it, "spine")}</button>`;
 }
 
-/* 排序：加入順序＝Notion 建立時間；出版年、讀完日期由新到舊，沒有資料的排最後 */
+/* ---------- 排序 ----------
+ * 筆畫用瀏覽器內建的繁中排序（筆畫少到多；numeric：「魷魚遊戲2」排在「魷魚遊戲3」前）
+ * 閱讀進度：讀完 > 進行中 > 未讀；讀完依完成日舊到新，同日與其他組依書名
+ * 作者筆畫：第一位作者（括號內原名不算），同作者依出版年舊到新，再依書名
+ * 書名筆畫：書名
+ * 出版年：舊到新，同年依書名
+ * 沒有資料的一律排在該組最後 */
+const zh = new Intl.Collator("zh-Hant-TW", { numeric: true });
+const RANK = { read: 0, reading: 1, unread: 2 };
+const firstAuthor = it => (it.by || "").split(/[、,，]/)[0].replace(/\s*[（(][^()（）]*[)）]\s*/g, "").trim();
+const missing = (x, y) => (x == null || x === "") - (y == null || y === "");   // 有資料的在前
+const byTitle = (a, b) => zh.compare(a.title, b.title) || a.idx - b.idx;
+const byYear = (a, b) => missing(a.year, b.year) || (a.year ?? 0) - (b.year ?? 0);
 const SORTS = [
-  { id: "added", name: "加入順序" },
-  { id: "year",  name: "出版年",   key: it => it.year },
-  { id: "done",  name: "讀完日期", key: it => it.end },
+  { id: "done",   name: "閱讀進度", cmp: (a, b) => RANK[a.status] - RANK[b.status] ||
+      (a.status === "read" ? missing(a.end, b.end) || (a.end || "").localeCompare(b.end || "") : 0) || byTitle(a, b) },
+  { id: "author", name: "作者筆畫", cmp: (a, b) => { const x = firstAuthor(a), y = firstAuthor(b);
+      return missing(x, y) || zh.compare(x, y) || byYear(a, b) || byTitle(a, b); } },
+  { id: "title",  name: "書名筆畫", cmp: byTitle },
+  { id: "year",   name: "出版年",   cmp: (a, b) => byYear(a, b) || byTitle(a, b) },
 ];
-function sorted(list) {
-  const key = SORTS.find(s => s.id === state.sort)?.key;
-  if (!key) return list;
-  return [...list].sort((a, b) => {
-    const x = key(a), y = key(b);
-    if (x == null || y == null) return (x == null) - (y == null) || a.idx - b.idx;
-    return x < y ? 1 : x > y ? -1 : a.idx - b.idx;
-  });
-}
+const sorted = list => [...list].sort(SORTS.find(s => s.id === state.sort).cmp);
 
 function render() {
   $("#shelves").innerHTML = CATS.map(c => {
@@ -856,7 +863,7 @@ function render() {
 }
 
 /* ---------- 篩選 ---------- */
-const state = { cat: "all", status: "all", sort: "year", q: "" };
+const state = { cat: "all", status: "all", sort: "done", q: "" };
 function chips() {
   $("#cat-chips").innerHTML = [{ id: "all", name: "全部" }, ...CATS].map(c => `<button class="chip" data-cat="${c.id}" aria-pressed="${state.cat === c.id}">${c.name}</button>`).join("");
   $("#status-chips").innerHTML = [{ id: "all", name: "所有狀態" }, ...STATUS].map(s => `<button class="chip" data-status="${s.id}" aria-pressed="${state.status === s.id}">${s.ico ? `<span class="ico ${s.ico}"></span>` : ""}${s.name}</button>`).join("");
@@ -879,7 +886,7 @@ sortMenu.addEventListener("click", e => {
   if (!b) return;
   const changed = b.dataset.sort !== state.sort;
   state.sort = b.dataset.sort;
-  try { localStorage.setItem("lib-sort", state.sort); } catch (_) {}
+  try { localStorage.setItem("lib-sort-v2", state.sort); } catch (_) {}
   sortUI(); toggleSort(false); sortBtn.focus();
   if (changed && ITEMS.length) { render(); apply(); }
 });
@@ -1052,7 +1059,7 @@ if (canHover) {
 /* ---------- 啟動 ---------- */
 async function boot() {
   try { const f = JSON.parse(localStorage.getItem("lib-filter") || "{}"); state.cat = f.cat || state.cat; state.status = f.status || state.status; } catch (_) {}
-  try { const s = localStorage.getItem("lib-sort"); if (SORTS.some(x => x.id === s)) state.sort = s; } catch (_) {}
+  try { const s = localStorage.getItem("lib-sort-v2"); if (SORTS.some(x => x.id === s)) state.sort = s; } catch (_) {}
   chips();
   $("#shelves").innerHTML = `<p class="loading">正在把書搬上書架…</p>`;
   try {
