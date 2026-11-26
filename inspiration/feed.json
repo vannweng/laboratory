@@ -1,12 +1,92 @@
 {
   "items": [
     {
+      "username": "l.l.e.o.e.e",
+      "shortcode": "DgNcyernZr3",
+      "kind": "p",
+      "caption": "留言「3D」我把 Cutaway 的安裝指令和中文用法傳給你 👇\n\n丟一張圖給 Claude Code\n它用程式碼蓋出一台 3D 機器\n先給你看靜止圖 你點頭才開拍\n拍出來的影片會自己拆開再裝回去\n\nskill 免費開源\n但 token 算你自己的\n第 8 頁存起來 挑對圖少燒很多\n\n#claudecode #3d動畫 #ai工具",
+      "posted_at": "2026-11-26T15:41:00+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "__laochen",
+      "shortcode": "DgNWJkCB_Y2",
+      "kind": "reel",
+      "caption": "趕快來試試看MAGI-2 真的便宜很多，而且表現也不差耶～motion graphics 也很強～留言magi ，我會給你設定連結，接好後，直接跟claude說你要幹嘛，最後接一句用higgsfield magi2 生成就可以囉～\n補充一下 1080p 10秒，是25點喔，便宜到不行\n@higgsfield.ai #HiggsfieldCreator",
+      "posted_at": "2026-11-26T14:46:34+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "yunohata",
+      "shortcode": "DgNTvEFtovG",
+      "kind": "reel",
+      "caption": "馬斯克說：奇點已經到了🌌\n超級智慧，真的來了嗎？\n\n這週數學界出了大新聞\nAnthropic 的數學家和 Claude 宣布證明了「黎曼猜想」\n167 年沒人解開的千禧年難題，寫成 1,700 萬行程式碼，電腦檢查通過\n\n但先別急著下結論👇\n✅ 人看得懂的完整證明還沒發表，目前是「宣稱已解」\n✅ OpenAI 說 AI 變聰明的速度突然加快\n❓ AI 教父楊立昆反問：有超級智慧，卻還沒有全自動駕駛？\n❌ 網傳 P vs NP 被解開了？查無證據\n\nAI 真的開始解人類解不開的題\n但要說超級智慧，還太早\n\n如果奇點真的來了，你覺得那會是什麼樣的世界？\n留言告訴我💬\n\n#AI #奇點 #超級智慧 #黎曼猜想 #Claude #AI新聞 #Yuno老師",
+      "posted_at": "2026-11-26T14:22:34+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "iamlily.genai",
+      "shortcode": "DgNRTt2TB2l",
+      "kind": "reel",
+      "caption": "Claude 做的小工具，現在可以裝成電腦 App 了 🤯\n\n11/24 Claude 推出「Install as app」（測試版，Mac、Windows 都能用）。\n我請它做了一個「素材整理器」，實測 122 個剪片素材：\n\n✅ 錄屏、手機拍的、空拍、音效、圖片、字幕自動分類\n✅ 檔名統一改成「日期＋專案名稱＋編號」\n✅ 重複的檔案先幫你挑出來\n✅ 不滿意可以一鍵復原\n\n⚠️ 這種 App 可以要「完整電腦權限」（能移動、刪除檔案）。只給自己做的 App，別人分享的不要隨便按允許。\n\n💡 學會這招，還能做很多自己的小工具：\n🍅 番茄鐘（我做過）\n🖱️ 遊戲掛機用的連點器（我做過）\n🏷️ 批次改檔名、🖼️ 照片批次縮小\n💧 喝水提醒、📚 孩子讀書計時器\n\n功能完全照你要的客製，也不用到不知名的網站下載軟體，少了下載到病毒的風險。\n\n做這個 App 的提示詞、安裝步驟，還有更多小工具點子我整理好了，\n留言「整理」，我傳給你。\n\n我是佳佳，在曼谷經營一人公司。\n\n#Claude #AI剪片 #AI工具 #素材整理 #一人公司",
+      "posted_at": "2026-11-26T14:02:29+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "zeona_co",
+      "shortcode": "DgNQOJwMhR2",
+      "kind": "reel",
+      "caption": "🎮 GTA 梗圖網上爆紅\n留言「GTA」教你指令生同款圖\n\n#GTA #AI梗圖 #ChatGPT #AI繪圖",
+      "posted_at": "2026-11-26T13:51:38+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "harryleeai",
+      "shortcode": "DgNLTp2hn5E",
+      "kind": "reel",
+      "caption": "留言「遊戲」，我會把這個 GitHub 專案連結與安裝教學整理給你！👇\n以前想開發一款完整遊戲，除了要懂程式，還得研究遊戲引擎、角色控制、關卡設計，甚至美術風格。\n現在透過這個整合 77 種 Game Development Skills 的開源專案，可以讓 Claude Code 擁有更多遊戲開發專業能力！🔥\n💡 支援哪些遊戲引擎？\n✅ Unreal Engine\n✅ Unity\n✅ Godot\n✅ Web Games 網頁遊戲\n🤖 它有哪些厲害的功能？\n1️⃣ 自動選擇適合的 Skills\n你只需要描述想製作的遊戲，AI 就能根據使用的引擎與開發任務，選擇適合的技能，不必每次自己研究該啟用哪個工具。\n2️⃣ 角色與遊戲機制開發\n從玩家移動、角色控制，到平台跳躍遊戲的各種機制，都有對應的開發技能可以協助。\n3️⃣ 專業美術風格設計\n內建 Art Direction 美術指導技能，協助統一遊戲素材的視覺風格，避免角色、場景與道具看起來像來自不同遊戲。\n4️⃣ 從開發到發布\n從遊戲構思、程式實作到素材設計，都能透過 AI 協助完成，後續還可以規劃上架 App Store 或 Steam。\n🚀 最有趣的是，你不需要一開始就精通所有遊戲開發技術！\n把想法交給 Claude Code，再讓不同 Skills 協助處理各個開發環節，就像隨時有一整個遊戲工作室的專業團隊可以調度。\n如果你一直想做自己的遊戲，這個專案真的值得收藏！\n⚠️ 提醒：AI Skills 能協助開發，但不代表能一鍵完成可直接上架的商業遊戲，實際仍需要測試、除錯、效能優化與平台審核。\n#GameDev #ClaudeCode #AISkills #AIGames #AICoding",
+      "posted_at": "2026-11-26T13:08:57+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "omfrgrm",
+      "shortcode": "DgNFpfFo_uK",
+      "kind": "reel",
+      "caption": "ミドル丈のMIXシャギーコートが出たっ🥺✨\nお尻も隠してくれる丈で、体型カバーも◎\nシャギーって冬だからこその生地で\nいましか着れない特別感もいい🩶\nスタンドカラーだから首元もぬくぬくで、\nこれは是非チェックしてほしい🫶\n\n🏷️〔コート〕\ncolor:チャコール\n商品番号: ce1070166\n@classicalelf_official\n\n忘れない様に保存がオススメ🤍\nフォローしておくだけでプチプラアイテムの新着情報がすぐわかるよ♡→【@omfrgrm】\n\n#classicalelf　#クラシカルエルフ #エルフコーデ #zozotow #pr",
+      "posted_at": "2026-11-26T12:19:48+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "setupjaron",
+      "shortcode": "DgMx_f7zmR9",
+      "kind": "reel",
+      "caption": "GTA6的各種地圖物品攻略，都在這個神奇網站！\n\n⭐獲得網站的步驟\n1.點讚轉發並追蹤我\n2.留言“gta”\n3.我就會發你網址啦",
+      "posted_at": "2026-11-26T09:28:16+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "raraco.lab",
+      "shortcode": "DgMvL89SzsK",
+      "kind": "reel",
+      "caption": "網站動畫照抄，差不到萬分之一\n留言「動畫」 我把連結傳給你\n\n#AI工具 #網頁動畫 #ClaudeCode #GitHub #設計師",
+      "posted_at": "2026-11-26T09:03:06+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
+      "username": "life.coach.mtcity",
+      "shortcode": "DgMpkBYC_uf",
+      "kind": "reel",
+      "caption": "Claude 剛推出了 App 功能，可以把做好的工具直接變成 Mac 或 Windows 可以安裝的 App。\n我實測只用一段話就做出五個桌面小工具，有影片美顏、網美打光、長者輔助、提醒喝水等，好玩到欲罷不能😂\n\n用這個功能做的 App，不只可以一定程度的控制電腦，還可以呼叫 Claude，吃的是你的訂閱額度不用額外付費，等於可以直接做出有 AI 功能的 App。\n\n影片美顏：素材拉進去就一起上美顏、濾鏡跟瘦臉，做完還會自己驗收、再修改，改到跟範本一樣為止。\n\n長者輔助：按一下、輸入問題，它就會截圖給 Claude，用放大的圖示一步一步帶他操作。\n\n網美打光：整個螢幕能打不同顏色，還可以看預覽，不用再架燈。\n\n番茄鐘＋喝水：必須輸入喝水量，不然它就霸屏不給你離開😂\n\n做法跟指令我都整理好了，我還列了其他 12 個好玩的點子，留言「App」，我傳給你。\n\n#Claude #桌面小工具 #番茄鐘 #美顏",
+      "posted_at": "2026-11-26T08:14:51+00:00",
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
+    },
+    {
       "username": "raraco.lab",
       "shortcode": "DgMf-Rvy4Hx",
       "kind": "reel",
       "caption": "AI 接管桌面，不搶你滑鼠\n留言「桌面」 我把連結傳給你\n\n#AI工具 #電腦自動化 #AgentDesktop #Claude #上班族",
       "posted_at": "2026-11-26T06:50:25+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
     },
     {
       "username": "kk800226",
@@ -14,105 +94,9 @@
       "kind": "reel",
       "caption": "OMG 卡了人類 167 年的數學難題，被 AI 解開了？！🤯\nAnthropic 的數學家說，他跟 Claude 一起證明了黎曼猜想，全世界的數學家正在檢查中。\n\nAI 開始走進連人類都還沒看懂的領域了。\n你覺得你會被 AI 取代嗎？留言告訴我 👇\n\n追蹤 @kk800226，帶你看更多 AI 技能 ✨\n\n#黎曼猜想 #Claude #Anthropic #AI新聞 #人工智慧 #數學 #質數 #AI",
       "posted_at": "2026-11-26T00:30:27+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "yunohata",
-      "shortcode": "DgLftzMIQsR",
-      "kind": "reel",
-      "caption": "讓 AI 自己操作瀏覽器🖱️\nAgent Browser（Vercel Labs）4.7 萬★\n網頁變成有編號的文字，AI 直接點\n點不到就報錯，不會假裝成功\n想試的留言「工具」👇\n#AIAgent #瀏覽器自動化 #MCP #AI工具 #Yuno老師",
-      "posted_at": "2026-11-25T21:28:23+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "__laochen",
-      "shortcode": "DgKyUbBPOPW",
-      "kind": "reel",
-      "caption": "這是第三集，前面還有喔，Blackmagic Camera最基本的入門用法",
-      "posted_at": "2026-11-25T14:56:01+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "__laochen",
-      "shortcode": "DgKx1kvh_vR",
-      "kind": "reel",
-      "caption": "這是第二集，總共有三集，Blackmagic Camera最基本的入門用法～",
-      "posted_at": "2026-11-25T14:48:12+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "__laochen",
-      "shortcode": "DgKw9oDJmdb",
-      "kind": "reel",
-      "caption": "總共有三集，這是第一集～Blackmagic Camera最基本的入門用法 !",
-      "posted_at": "2026-11-25T14:43:07+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "yunohata",
-      "shortcode": "DgKu4QshYHF",
-      "kind": "reel",
-      "caption": "晶圓到底是怎麼做出來的？\n跟著一批晶圓走完 16 道製程👇\n清洗 → 氧化 → 光阻 → 曝光 → 顯影 → 蝕刻\n→ 離子植入 → 退火 → 鍍金屬 → 研磨 → 檢測\n\n每一站都能打開機台看裡面🔍\nEUV 光怎麼把電路圖縮小 4 倍印上去\n電漿怎麼把薄膜吃出一條條溝槽\n還有放大十萬倍的晶圓剖面，一層一層長出來\n\n參數一飄移，AI 幾秒內就把整批晶圓扣下來🚨\n\n手機打開就能自己逛👉 yuno-fab-twin.pages.dev\n\n你最想看哪一站？留言告訴我👇\n想自己做一座？留言「晶圓廠」，我把提示詞私訊給你📩\n（畫面數據都是模擬的，NOVA 是虛構公司）\n\n#Claude #AI #半導體 #晶圓 #數位孿生 #3D #Yuno老師",
-      "posted_at": "2026-11-25T14:21:53+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "carrielee_cla",
-      "shortcode": "DgKuHQONAsc",
-      "kind": "reel",
-      "caption": "高级感反差穿搭公式1.0！#穿搭公式#请选择你的入冬穿搭#秋冬温柔贵气感穿搭#秋冬穿搭摆脱路人感技巧",
-      "posted_at": "2026-11-25T14:16:01+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "neil.skilltree",
-      "shortcode": "DgKqRrguZmI",
-      "kind": "reel",
-      "caption": "提示詞只寫一句話，AI 做不好。寫了一整頁，AI 還是做不好。\n\n如果你沒辦法用幾句話跟別人講你的提示詞在做什麼，代表你自己也還沒把這件事想清楚。那就把它拆開：先列大綱，再寫內容，最後排版，一次只叫它做一件事。\n\n越簡單的事，越容易檢查。越容易檢查，就越容易做對。",
-      "posted_at": "2026-11-25T14:14:35+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "l.l.e.o.e.e",
-      "shortcode": "DgKsWt9B9pE",
-      "kind": "reel",
-      "caption": "留言「網站」，我把 MiniMax Code 的連結直接傳給你，每天簽到還能領免費點數 👇\n\n前幾天我用 AI 幫我老婆做了一個報價用的 Mini App，做出來她嚇了一大跳。把價目表、套餐規則跟優惠規則丟進 MiniMax Code，模型選 M3.1 Flash，用 Build a Mini App 貼一段提示詞，第一版就直接出來了。\n\n選服務、加項目，明細跟總價自動算，湊到套餐還會自動換成套餐價，手機也能直接用。完全不用會寫程式，你們的店也可以有自己的報價工具。\n\n#ad #MiniMax #MiniMaxM31 #MiniMaxCode",
-      "posted_at": "2026-11-25T14:01:48+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "iamlily.genai",
-      "shortcode": "DgKsCrtTPv7",
-      "kind": "reel",
-      "caption": "沒有攝影師、沒有模特，這組時尚大片全部是 AI 做的 📸\n\n我用 Lovart 四步做完：\n1️⃣ 一段臉部提示詞，生出模特（外國臉、亞洲臉都可以）\n2️⃣ 丟一張喜歡的風格照，照它的光線和構圖拍\n3️⃣ 上傳一件單品，幫模特換上\n4️⃣ 挑一張，直接做成雜誌封面\n\n做電商、幫品牌做形象照都用得到。\n\n四段提示詞（模特外國／亞洲版、風格關鍵字、換裝、雜誌封面）我整理好了，\n留言「大片」，我傳給你。\n\n影片裡的人物和照片都是 AI 生成的。\n\n我是佳佳，在曼谷經營一人公司。\n\n#AI時尚大片 #AI生圖 #Lovart #電商圖片 #AI工作術",
-      "posted_at": "2026-11-25T13:57:52+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "life.coach.mtcity",
-      "shortcode": "DgKUTQehASv",
-      "kind": "reel",
-      "caption": "用 Claude 做設計都有滿滿 AI 味？\nGitHub 上有一個十一萬星的爆款 Skill 叫 Impeccable，它記錄了 62 個用 AI 做設計常有的問題，你只要輸入一句指令，它就幫你把問題都抓出來。\n\n最常見的像是，米白底配細襯線字、標題上面一行英文小標籤、漸層色的字，還有一整排大數字。\n\n輸入 /impeccable critique，後面加上你要檢查的頁面，它就會把這些問題抓出來，另外還會幫你的設計打分數，排好先改哪幾項。改完再跑一次，看問題有沒有變少、分數有沒有變高。\n\n用文字改設計很困難，所以更好的做法是，平常就養成搜集範本的習慣。把喜歡的網址、截圖貼給 Claude，請它建檔、加上標籤，以後直接搜尋範本，讓 Claude 照著改就好。\n\nSkill 的介紹跟指令我整理好了，留言「AI味」，我傳給你。\n\n#Claude #Impeccable #AI設計 #網頁設計",
-      "posted_at": "2026-11-25T10:29:56+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "raraco.lab",
-      "shortcode": "DgKKVLASBhX",
-      "kind": "reel",
-      "caption": "一張照片變環景，轉頭低頭都有\n留言「環景」 我把連結傳給你\n\n#AI工具 #360環景 #GitHub #攝影 #旅遊",
-      "posted_at": "2026-11-25T09:02:11+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
-    },
-    {
-      "username": "learn_wchris",
-      "shortcode": "DgKIcyXtToC",
-      "kind": "reel",
-      "caption": "Claude 现在连这种高级动画都能轻松搞定了？！🤯🔥\n\n留言「Site」我把工具发给你 🔗\n\n#Claude #ClaudeAI #AI工具 #MotionGraphic #AI创作",
-      "posted_at": "2026-11-25T08:46:17+00:00",
-      "detected_at": "2026-11-26T08:12:36.585534+00:00"
+      "detected_at": "2026-11-26T21:30:31.806878+00:00"
     }
   ],
   "tracked_count": 25,
-  "last_checked_at": "2026-11-26T08:12:36.585820+00:00"
+  "last_checked_at": "2026-11-26T21:30:31.807177+00:00"
 }
